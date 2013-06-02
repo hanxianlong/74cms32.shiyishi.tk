@@ -14,12 +14,16 @@ $alias="QS_login";
 require_once(dirname(__FILE__).'/../include/common.inc.php');
 require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
 require_once(QISHI_ROOT_PATH.'include/fun_user.php');
+include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');//ÒýÈëuc
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 unset($dbhost,$dbuser,$dbpass,$dbname);
 $smarty->cache = false;
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : 'login';
 if($act == 'logout')
 {
+    if(defined('UC_API')){
+        $logoutjs.=uc_user_synlogout();
+    }
 	setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
 	setcookie("QS[username]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
 	setcookie("QS[password]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);

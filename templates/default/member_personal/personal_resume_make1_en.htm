@@ -1,0 +1,807 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+        <title>{#$title#}</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+            <link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+            <link href="{#$QISHI.site_template#}css/user.css" rel="stylesheet" type="text/css" />
+            <script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
+            <script src="{#$QISHI.site_template#}js/jquery.idTabs.min.js" type='text/javascript' language="javascript"></script>
+            <script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
+            <script src="{#$QISHI.site_template#}js/jquery.user.selectlayer.js" type='text/javascript' language="javascript"></script>
+            <script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+            <script type="text/javascript">
+                $(document).ready(function()
+                {
+        $("#tabshow li:nth-child(2)>a").addClass("selected");
+                        //菜单层
+                        showmenu("#education_cn", "#menu3", "#education", "#Form1", "#education");
+                        showmenu("#experience_cn", "#menu1", "#experience", "#Form1", "#experience");
+                        showtaglayer("#tag_cn", "#menutag", "#tag_cn", "#tag", 16, '{#$resume_basic.tag#}');
+                        //性别中文字段复制
+                        $("#sex_cn").val($(":radio[name='sex'][checked]").attr("title"));
+                        $("input[name='sex']").click(function(){
+                $("#sex_cn").val($(this).attr("title"));
+                        //alert ($("#sex_cn").val())
+                });
+                        $("#marriage_cn").val($(":radio[name='marriage'][checked]").attr("title"));
+                        $("input[name='marriage']").click(function(){
+                $("#marriage_cn").val($(this).attr("title"));
+                        //alert ($("#marriage_cn").val())
+                });
+                        //提交表单】
+                        $("#submitsave").click(function(){
+                $('#Form1').submit();
+                });
+                        //判断可否接收通知
+                        $("input[name='email_notify']").click(function(){
+                var email_audit = "{#$user.email_audit#}";
+                        if (email_audit == "0" && $("input[name='email_notify'][checked=true]").val() == "1")
+                {
+                $("input[name='email_notify'][value=0]").attr("checked", true);
+                        alert("您的邮箱未通过验证，不能接收通知。");
+                }
+                });
+                });
+                        //验证
+                        $(document).ready(function() {
+                var myDate = new Date();
+                        var y = myDate.getFullYear();
+                        $("#Form1").validate({
+                // debug: true,
+                // onsubmit:false,
+                //onfocusout :true,
+                rules:{
+                title:{
+                required: true
+                },
+                        fullname: "required",
+                        birthdate:{
+                required:true,
+                        digits:true,
+                        min:y - 70,
+                        max:y - 15
+                },
+                        height:{
+                digits:true,
+                        min:130,
+                        max:250
+                },
+                        experience: "required",
+                        householdaddress: "required",
+                        education: "required",
+                        telephone: "required",
+                        address: "required",
+                {#if $verify_resume == "1" && $resume_basic.fullname == ""#}
+                postcaptcha:{
+                IScaptchastr: true,
+                        required: true,
+                        remote:{
+                url:"{#$QISHI.site_dir#}include/imagecaptcha.php",
+                        type:"post",
+                        data:{"postcaptcha":function (){return $("#postcaptcha").val()}, "act":"verify", "time":function (){return new Date().getTime()}}
+                }
+                },
+                {#/if#}  
+                        qq:{
+                digits:true
+                },
+                        /*求职意向开始*/
+                            nature:{
+                required: true
+                },
+                        district: {
+                min:1
+                },
+                        wage: {
+                min:1
+                },
+                        intention_jobs:"required",
+                        trade_cn:"required",//求职意向结束
+                //技能特长开始
+                 specialty:{
+                    required: true,
+                        minlength:20,
+                        maxlength:300
+                   },//技能特长结束
+                   education_remark:{
+                       required:true,minlength:20,maxlength:2000
+                   },//教育经历结束
+                   work_remark:{
+                       required:true,minlength:20,maxlength:2000
+                   },//工作经历结束
+                   training_remark:{
+                       required:true,minlength:20,maxlength:2000
+                   }//培训经历
+                },
+                        messages: {
+                title: {
+                required: "请输入简历名称"
+                },
+                        fullname: {
+                required: jQuery.format("请输入真实姓名")
+                },
+                        birthdate: {
+                required: "请填写年龄",
+                        digits: jQuery.format("必须是整数"),
+                        min: jQuery.format("出生年份不能小于{0}"),
+                        max: jQuery.format("出生年份不能大于{0}")
+                },
+                        height: {
+                digits: jQuery.format("必须是整数"),
+                        min: jQuery.format("请正确填写"),
+                        max: jQuery.format("请正确填写")
+                },
+                        experience: {
+                required: jQuery.format("请选择工作经验")
+                },
+                        householdaddress: {
+                required: jQuery.format("请填写户口所在地")
+                },
+                        education: {
+                required: jQuery.format("请选择你的学历")
+                },
+                        telephone: {
+                required: jQuery.format("请填写联系电话")
+                },
+                        address: {
+                required: jQuery.format("请填写联系地址")
+                },
+                {#if $verify_resume == "1" && $resume_basic.fullname == ""#}
+                postcaptcha: {
+                required: "请填写验证码",
+                        remote: jQuery.format("验证码错误")
+                },
+                {#/if#}
+                        qq: {
+                digits: jQuery.format("请正确填写qq号码")
+                },
+                        /*求职意向开始*/
+                          nature: {
+                required: "请选择意向职位性质"
+                },
+                        district: {
+                min: jQuery.format("请选择期望工作地")
+                },
+                        wage: {
+                min: "请选择期望月薪"
+                },
+                        intention_jobs:"请选择意向职位",
+                        trade_cn:"请选择意向行业"
+                /*求职意向结束*/,
+                        //技能特长开始
+                         specialty: {
+    required: "请输入技能特长",
+	minlength: jQuery.format("输入字符不能小于{0}个字符"),
+	maxlength: jQuery.format("输入字符不能大于{0}个字符")
+   },   //技能特长结束
+   education_remark:{
+       required:"请输入教育经历",
+        minlength:jQuery.format("输入字符不能小于{0}个字符"),
+        maxlength: jQuery.format("输入字符不能大于{0}个字符")
+   },   //技能特长结束
+   work_remark:{
+       required:"请输入工作经历",
+        minlength:jQuery.format("输入字符不能小于{0}个字符"),
+        maxlength: jQuery.format("输入字符不能大于{0}个字符")
+   },   //工作经历结束
+   training_remark:{
+       required:"请输入培训经历",
+        minlength:jQuery.format("输入字符不能小于{0}个字符"),
+        maxlength: jQuery.format("输入字符不能大于{0}个字符")
+   }
+                },
+                        errorPlacement: function(error, element) {
+                if (element.is(":radio"))
+                        error.appendTo(element.parent().next().next());
+                        else if (element.is(":checkbox"))
+                        error.appendTo (element.next());
+                        else
+                        error.appendTo(element.parent());
+                }
+                });
+                        jQuery.validator.addMethod("IScaptchastr", function(value, element) {
+                var str = "点击获取验证码";
+                        var flag = true;
+                        if (str == value)
+                {
+                flag = false;
+                }
+                return  flag || this.optional(element);
+                }, "请填写验证码");
+                        /////验证码部分
+                        {#if $verify_resume == "1" && $resume_basic.fullname == ""#}
+                function imgcaptcha(inputID, imgdiv)
+                {
+                $(inputID).focus(function(){
+                if ($(inputID).val() == "点击获取验证码")
+                {
+                $(inputID).val("");
+                        $(inputID).css("color", "#333333");
+                }
+                $(inputID).parent("div").css("position", "relative");
+                        //设置验证码DIV
+                        $(imgdiv).css({ position: "absolute", left:  $(inputID).width(), "bottom": "0px", "z-index": "10", "background-color": "#FFFFFF", "border": "1px #A3C8DC solid", "display": "none", "margin-left": "15px"});
+                        $(imgdiv).show();
+                        if ($(imgdiv).html() == '')
+                {
+                $(imgdiv).append("<img src=\"{#$QISHI.site_dir#}include/imagecaptcha.php?t={#$random#}\" id=\"getcode\" align=\"absmiddle\"  style=\"cursor:pointer; margin:3px;\" title=\"看不请验证码？点击更换一张\"  border=\"0\"/>");
+                }
+                $(imgdiv + " img").click(function()
+                {
+                $(imgdiv + " img").attr("src", $(imgdiv + " img").attr("src") + "1");
+                        $(inputID).val("");
+                        $("#Form1").validate().element("#postcaptcha");
+                });
+                        $(document).unbind().click(function(event)
+                {
+                var clickid = $(event.target).attr("id");
+                        if (clickid != "getcode" && clickid != "postcaptcha")
+                {
+                $(imgdiv).hide();
+                        $(inputID).parent("div").css("position", "");
+                        $(document).unbind();
+                }
+                });
+                });
+                }
+                imgcaptcha("#postcaptcha", "#imgdiv");
+                        //验证码结束
+                        {#/if#}
+                        });            </script>
+    </head>
+    <body>
+        {#include file="member_personal/header.htm"#}
+        <table width="960" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:8px;" >
+            <tr>
+                <td width="173" valign="top" class="link_bk">
+                    {#include file="member_personal/left.htm"#}
+                </td>
+                <td valign="top">
+                    <div class="user_right_box">
+                        <div class="user_right_top_tit_bg">		
+                            <h1>My Resume</h1>
+                        </div>
+                        <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                            <tr>
+                                <td height="22">
+                                    <form id="Form1" name="Form1" method="post" action="?act=make1_save&resumeType=1" >
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="4">
+                                            <tr>
+                                                <td height="50" colspan="2" bgcolor="#F5FAFC" style=" border-bottom:1px #CCCCCC dashed; color:#003399">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:14px;">第一步 - 创建基本信息</span> <span style="color:#999999">(带<strong  style="color:#FF0000">*</strong>的为必填)</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="100" height="10"></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td width="100" height="23" align="right" valign="top" style="padding-top:10px;"><strong  style="color:#FF0000">*</strong>简历名称：</td>
+                                                <td><input name="title" type="text" class="input_text_200" id="title" maxlength="80"   value="{#$resume_basic.title#}"/>&nbsp;&nbsp;简历名称不在网站显示，用于区分多个简历<br />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td width="100" height="23" align="right"><strong  style="color:#FF0000">*</strong>真实姓名：</td>
+                                                <td><input name="fullname" type="text" class="input_text_200" id="fullname" maxlength="6"   value="{#$resume_basic.fullname#}" />            </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right">性别：</td>
+                                                <td>
+                                                    <label>
+                                                        <input name="sex" type="radio" value="1" {#if $resume_basic.sex=='1' ||  $resume_basic.sex==""#} checked="checked"{#/if#} title="男"/>
+                                                               男</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label> <input type="radio" name="sex" value="2" {#if $resume_basic.sex==2#} checked="checked"{#/if#} title="女"/>
+                                                                   女</label>
+                                                    <input name="sex_cn" id="sex_cn" type="hidden" value="{#$resume_basic.sex_cn#}" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>出生年份：</td>
+                                                <td><input name="birthdate" type="text" class="input_text_200" id="birthdate" maxlength="4"  style="width:60px;" value="{#$resume_basic.birthdate#}" />
+                                                    如：1985</td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right">身高：</td>
+                                                <td><input name="height" type="text" class="input_text_200" id="height" maxlength="3"  style="width:60px;" value="{#if $resume_basic.height>0#}{#$resume_basic.height#}{#/if#}"  />
+                                                    CM</td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right">婚姻状况：</td>
+                                                <td>                
+                                                    <label><input name="marriage" type="radio" value="1" {#if $resume_basic.marriage==1 ||  $resume_basic.marriage==""#} checked="checked"{#/if#} title="未婚"/>
+                                                                  未婚</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label><input type="radio" name="marriage" value="2"  {#if $resume_basic.marriage==2#} checked="checked"{#/if#} title="已婚"/>
+                                                                  已婚</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <label><input type="radio" name="marriage" value="3" {#if $resume_basic.marriage==3#} checked="checked"{#/if#} title="保密"/>
+                                                                  保密</label>
+                                                    <input name="marriage_cn" id="marriage_cn" type="hidden" value="{#$resume_basic.marriage_cn#}" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>工作经验：</td>
+                                                <td>
+                                                    <div>
+                                                        <input type="text" value="{#$resume_basic.experience_cn|default:"请选择工作经验"#}"  readonly="readonly" name="experience_cn" id="experience_cn" class="input_text_200 input_text_200_selsect"/>
+                                                        <input name="experience" id="experience" type="hidden" value="{#$resume_basic.experience#}" />
+                                                        <div id="menu1" class="menu">
+                                                            <ul>
+                                                                {#qishi_get_classify set="类型:QS_experience,列表名:c_experience"#}{#foreach from=$c_experience item=list#}
+                                                                <li id="{#$list.id#}" title="{#$list.categoryname_en#}">{#$list.categoryname_en#}</li>
+                                                                {#/foreach#}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>户口所在地：</td>
+                                                <td><input name="householdaddress" type="text" class="input_text_200" id="householdaddress" maxlength="60"  value="{#$resume_basic.householdaddress#}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>学历：</td>
+                                                <td>
+                                                    <div>
+                                                        <input type="text" value="{#$resume_basic.education_cn|default:"请选择学历"#}"  readonly="readonly" name="education_cn" id="education_cn" class="input_text_200 input_text_200_selsect"/>
+                                                        <input name="education" id="education" type="hidden" value="{#$resume_basic.education#}" />
+                                                        <div id="menu3" class="menu">
+                                                            <ul>
+                                                                {#qishi_get_classify set="类型:QS_education,列表名:c_education"#}{#foreach from=$c_education item=list#}
+                                                                <li id="{#$list.id#}" title="{#$list.categoryname_en#}">{#$list.categoryname_en#}</li>
+                                                                {#/foreach#}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td height="23" align="right">特长标签：</td>
+                                                <td>
+                                                    <div>
+                                                        <input type="text" value="请选择特长标签"  readonly="readonly" name="tag_cn" id="tag_cn" class="input_text_200 input_text_200_selsect"/>
+                                                        <input name="tag" id="tag" type="hidden" value="{#$resume_basic.tag#}" />
+                                                        <div id="menutag" class="tagmenu shadow">
+                                                            <div class="tit">精准的选择标签可有效提高求职效果，可多选，最多可以选择5项</div>
+                                                            <ul>
+                                                                {#qishi_get_classify set="类型:QS_resumetag,列表名:list"#}{#foreach from=$list item=list#}
+                                                                <li ><label><input type="checkbox" name="checkbox" value="{#$list.id#},{#$list.categoryname_en#}" id="{#$list.id#}" title="{#$list.categoryname_en#}" />{#$list.categoryname_en#}</label></li>
+                                                                {#/foreach#}			
+                                                            </ul>
+                                                            <div class="clear"></div>
+                                                            <div align="center"><br /><input type="button"  class="but80 Set" value="确定" /></div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>联系电话：</td>
+                                                <td><input name="telephone" type="text" class="input_text_200" id="telephone" maxlength="60" value="{#$resume_basic.telephone#}"/>
+                                                    <span style="color:#0066FF">非常重要，招聘方会通过此电话与您联系！</span><br />
+
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td height="23" align="right">电子邮箱：</td>
+                                                <td>
+                                                    {#$user.email#}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    {#if $user.email_audit=="1"#}
+                                                    <a href="personal_user.php?act=user_email" style="color:#009900"> [修改]</a>
+                                                    {#else#}
+                                                    <a href="personal_user.php?act=user_email" style="color:#FF3300"> [点击认证]</a>
+                                                    {#/if#}	
+
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>通讯地址：</td>
+                                                <td><input name="address" type="text" class="input_text_200" id="address" maxlength="60"  value="{#$resume_basic.address#}"/></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right">联系 Q Q：</td>
+                                                <td><input name="qq" type="text" class="input_text_200" id="qq" maxlength="20"   value="{#$resume_basic.qq#}"  /></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right">个人主页/博客：</td>
+                                                <td><input name="website" type="text" class="input_text_200" id="website" maxlength="80"   value="{#$resume_basic.website#}" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"  >邮件接收通知：</td>
+                                                <td  >
+                                                    <label><input name="email_notify" type="radio" value="1" {#if $resume_basic.email_notify=="1" || $resume_basic.email_notify==""#}checked="checked"{#/if#} />接收</label>
+                                                    &nbsp;&nbsp;&nbsp;          
+                                                    <label>
+                                                        <input type="radio" name="email_notify" value="0" {#if $resume_basic.email_notify=="0" || $user.email_audit=="0"#}checked="checked"{#/if#} />不接收</label> 
+                                                    <span style="color: #666666"> &nbsp;&nbsp;&nbsp;(当企业对您发起面试邀请，系统会发一份邮件提醒您查看)</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"  >接收邮箱：</td>
+                                                <td ><strong>{#$user.email#}</strong>&nbsp;&nbsp;&nbsp;
+                                                    {#if $user.email_audit=="1"#}
+                                                    <a href="personal_user.php?act=user_email" style="color:#009900"> [已认证]</a>
+                                                    {#else#}
+                                                    <span style="color:#FF0000"> 您的邮箱未认证，不能接收邮件通知，<a href="personal_user.php?act=user_email" style="color: #009900">[点击认证]</a></span>
+                                                    {#/if#}
+                                                </td>
+                                            </tr>
+                                            {#if $verify_resume=="1" && $resume_basic.fullname==""#}
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>验证码：</td>
+                                                <td>
+
+                                                    <div>
+                                                        <div id="imgdiv"></div>
+                                                        <input  class="input_text_200"    name="postcaptcha" id="postcaptcha" type="text" value="点击获取验证码" style="color:#999999"/>
+                                                    </div>
+                                                </td>
+                                            </tr> 
+                                            {#/if#}
+                                        </table>
+                                        <!--基本信息结束-->
+                                        <input name="pid" type="hidden" id="pid" value="{#$pid#}" />
+                                        <input name="go_resume_show" type="hidden"  value="{#$go_resume_show#}" />
+                                        <!--求职意向开始-->
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="4">
+
+                                       
+                                            <tr>
+                                                <td width="160" height="23" align="right">最近工作过的职位：</td>
+                                                <td><input name="recentjobs" type="text" class="input_text_200" id="recentjobs" maxlength="40" style="width:280px;" value="{#$resume_basic.recentjobs#}"/><span style="color:#999999"> (无工作经验者可忽略)</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>期望岗位性质：</td>
+                                                <td>		  
+                                                    {#qishi_get_classify  set="类型:QS_jobs_nature,列表名:c_nature"#}
+                                                    {#foreach from=$c_nature item=list#}
+                                                    <label><input name="nature"  type="radio" value="{#$list.id#}"   {#if $resume_basic.nature==$list.id#} checked="checked"{#/if#}/ title="{#$list.categoryname_en#}">{#$list.categoryname_en#}</label>  &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    {#/foreach#}
+                                                    <input name="nature_cn" id="nature_cn" type="hidden" value="{#$resume_basic.nature_cn#}" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>期望工作地区：</td>
+                                                <td>
+                                                    <div>
+                                                        <input type="text" value="{#$resume_basic.district_cn|default:"期望工作地区"#}"  readonly="readonly" name="district_cn" id="district_cn" class="input_text_200 input_text_200_selsect"/>
+                                                        <input name="district" id="district" type="hidden" value="{#$resume_basic.district#}" />
+                                                        <input name="sdistrict" id="sdistrict" type="hidden" value="{#$resume_basic.sdistrict#}" />
+                                                        <div id="menu2" class="dmenu shadow">
+                                                            <ul>
+                                                                {#qishi_get_classify set="类型:QS_district,id:0,列表名:c_province"#}{#foreach from=$c_province item=list#}
+                                                                <li id="{#$list.id#}" title="{#$list.categoryname_en#}">{#$list.categoryname_en#}</li>
+                                                                {#/foreach#}
+                                                            </ul>
+                                                        </div>
+                                                        <div id="menu2_s" class="dmenu shadow" style="display:none"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>期望月薪：</td>
+                                                <td>
+                                                    <div>
+                                                        <input type="text" value="{#$resume_basic.wage_cn|default:"请选择期望月薪"#}"  readonly="readonly" name="wage_cn" id="wage_cn" class="input_text_200 input_text_200_selsect"/>
+                                                        <input name="wage" id="wage" type="hidden" value="{#$resume_basic.wage#}" />
+                                                        <div id="menu_salary" class="menu">
+                                                            <ul>
+                                                                {#qishi_get_classify set="类型:QS_wage,列表名:c_wage"#}{#foreach from=$c_wage item=list#}
+                                                                <li id="{#$list.id#}" title="{#$list.categoryname_en#}">{#$list.categoryname_en#}</li>
+                                                                {#/foreach#}
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>期望从事的岗位：</td>
+                                                <td>
+                                                    <div>
+                                                        <input type="button" name="Submit22" value="选择 / 修改" class="user_submit"  id="showjobs" />
+                                                        <div id="jobs_txt" style="color: #006699; line-height:30px;">{#$resume_basic.intention_jobs|default:"请选择期望从事的岗位"#}</div>
+                                                        <input name="intention_jobs" id="intention_jobs" type="hidden" value="{#$resume_basic.intention_jobs#}" />
+                                                        <input name="intention_jobs_id" id="intention_jobs_id"  type="hidden" value="{#$resume_jobs_id#}" />
+                                                        <div  style="display:none" id="sel_category">
+                                                            <div class="OpenFloatBoxBg" ></div>
+                                                            <div class="OpenFloatBox">
+                                                                <div class="title"><h4>请选择职位类别</h4><div class="DialogClose" title="关闭"></div></div>
+                                                                <div class="tip">可多选，最多选择8项</div>
+                                                                <div class="content link_lan">					
+                                                                    <div class="txt">							
+                                                                        {#qishi_get_classify set="列表名:c_jobs,类型:QS_jobs"#}
+                                                                        {#foreach from=$c_jobs item=list#}
+                                                                        <div class="item" id="{#$list.id#}">
+                                                                            <label title="{#$list.categoryname_en#}" class="titem" >
+                                                                                <input  type="checkbox" value="{#$list.id#}"  title="{#$list.categoryname_en#}" class="b" />{#$list.categoryname_en#}
+                                                                            </label>
+                                                                            <div class="sitem"></div>
+                                                                        </div>
+                                                                        {#/foreach#}
+                                                                        <div class="clear"></div>
+                                                                    </div>
+                                                                    <div class="txt"><div class="selecteditem"></div></div>							
+                                                                    <div class="txt">
+                                                                        <div align="center"><input type="button"  class="but80 Set" value="确定" /></div>
+                                                                    </div>			
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                </td>
+                                            </tr><tr>
+                                                <td height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>期望从事的行业：</td>
+                                                <td>	
+                                                    <input type="button" name="Submit23" value="选择 / 修改" class="user_submit"  id="showtrade"/>
+                                                    <div id="trade_txt" style="color: #006699; line-height:30px;">{#$resume_basic.trade_cn|default:"请选择期望从事的行业"#}</div>
+                                                    <input name="trade_cn" id="trade_cn" type="hidden" value="{#$resume_basic.trade_cn#}" />
+                                                    <input name="trade" id="trade" type="hidden" value="{#$resume_basic.trade#}" />
+
+
+                                                    <div  style="display:none" id="sel_trade">
+                                                        <div class="OpenFloatBoxBg" ></div>
+                                                        <div class="OpenFloatBox">
+                                                            <div class="title"><h4>请选择行业</h4><div class="DialogClose" title="关闭"></div></div>
+                                                            <div class="tip">可多选，最多选择8项</div>
+                                                            <div class="content link_lan">					
+                                                                <div class="txt">							
+                                                                    {#qishi_get_classify set="列表名:c_trade,类型:QS_trade"#}{#foreach from=$c_trade item=list#}
+                                                                    <div class="item" id="{#$list.id#}">
+                                                                        <label title="{#$list.categoryname_en#}" class="titem" >
+                                                                            <input  type="checkbox" value="{#$list.id#}"  title="{#$list.categoryname_en#}" class="b" />{#$list.categoryname_en#}
+                                                                        </label>
+                                                                    </div>
+                                                                    {#/foreach#}
+                                                                    <div class="clear"></div>
+                                                                </div>						
+                                                                <div class="txt">
+                                                                    <div align="center"><input type="button"  class="but80 Set" value="确定" /></div>
+                                                                </div>			
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table> 
+                                        <!--求职意向结束-->
+                                        <!--技能特长开始-->
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="4" style=" line-height:180%;">
+           
+            <tr>
+              <td width="100" height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>技能特长：</td>
+              <td><textarea name="specialty"   id="specialty" style=" width:450px; height:100px; font-size:12px; line-height:160%;" >{#$resume_basic.specialty#}</textarea><br />
+</td>
+            </tr>
+			<tr>
+              <td width="100" height="23" align="right">&nbsp;</td>
+              <td>请您对自己做一个简短说明，简明扼要地描述您的职业优势，让用人单位快速地了解您！<br />
+			    <span style="color:#0066CC; cursor:pointer" id="model1" >范例 ①</span>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#0066CC;cursor:pointer"  id="model2">范例 ②</span></td>
+            </tr>
+			<tr id="ex1" style=" display:none">
+              <td width="100" height="23" align="right" valign="top" bgcolor="#F5FAFC" style="color:#FF0000;border-top:1px #ACC9D0 dashed" >范例①：</td>
+              <td bgcolor="#F5FAFC" style="border-top:1px #ACC9D0 dashed;">资深市场销售人员，六年销售和市场领域从业经验，年销售额过一千万；<br />
+                长期接触国外客户，英语能力强；<br />
+                对市场营销、   渠道开发及经销商管理有丰富的经验.</td>
+            </tr>
+			<tr id="ex2" style=" display:none">
+              <td width="100" height="23" align="right" valign="top" bgcolor="#F5FAFC" style="color:#FF0000;border-top:1px #ACC9D0 dashed">范例②：</td>
+              <td bgcolor="#F5FAFC" style="border-top:1px #ACC9D0 dashed;">届毕业生，两年学生会主席生涯，培养了较强的组织能力和领导能力。<br />
+                曾在课余时间，参与过网站开发项目；<br />
+                能够较熟练地使用Photoshop，同时积累了一定的团队合作经验。</td>
+            </tr> 
+			 </table>
+                                        <!--技能特长结束-->
+                                        <!--教育经历开始-->
+                                          <table width="100%" border="0" cellspacing="0" cellpadding="4" style=" line-height:180%;">
+           
+            <tr>
+              <td width="100" height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>教育经历：</td>
+              <td><textarea name="education_remark"   id="education_remark" style=" width:450px; height:100px; font-size:12px; line-height:160%;">{#if $resume_education#}{#$resume_education.education_remark#}{#/if#}</textarea>
+                  <div style="color:#962e01">  请用简洁的文字描述自己的教育经历。例如以下文字：（<span style='color:red'>限2000字以内</span>）<br/>
+            2001年7月~2005年7月 就读某大学专业，获本科学士学位<br/></div>
+              </td>                  
+            </tr>
+                                              
+                                          </table>
+                                        <!--教育经历结束-->
+                                        <!--工作经历开始-->
+                                                 <table width="100%" border="0" cellspacing="0" cellpadding="4" style=" line-height:180%;">
+           
+            <tr>
+              <td width="100" height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>工作经历：</td>
+              <td><textarea name="work_remark"   id="work_remark" style=" width:450px; height:100px; font-size:12px; line-height:160%;">{#if $resume_work#}{#$resume_work.work_remark#}{#/if#}</textarea>
+                   <div style="color:#962e01">  请用简洁的文字描述自己的工作经历。例如以下文字：（<span style='color:red'>限2000字以内</span>）<br/>
+2006年2月~2007年7月某船体设计员，期间参与过某船型设计<br/>
+2007年8月~2009年5月上海某设计公司设计主管，期间主持某某船型设计<br/>
+2009年1月至今 上海某设计公司设计主管，主持某某船型设计</div></td>
+            </tr>
+                                          </table>
+                                        <!--工作经历结束-->
+                                        <!--培训经历开始-->
+                                         <table width="100%" border="0" cellspacing="0" cellpadding="4" style=" line-height:180%;">
+            <tr>
+              <td width="100" height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>培训经历：</td>
+              <td><textarea name="training_remark"   id="training_remark" style=" width:450px; height:100px; font-size:12px; line-height:160%;">{#if $resume_training#}{#$resume_training.training_remark#}{#/if#}</textarea>
+                   <div style="color:#962e01">  请用简洁的文字描述自己培训经历。例如以下文字：（<span style='color:red'>限2000字以内</span>）<br/>
+            2005年7月~2005年12月参加某船厂培训<br/>
+            2006年1月~2006年2月参加某公司软件使用培训<br/></div></td>
+              </td>
+            </tr>
+                                          </table>
+                                        <!--培训经历结束-->
+
+
+                                    </form>
+                                    <div style="position:relative;">
+                                        <table  width="100%" border="0" cellspacing="0" cellpadding="4" style="margin-bottom:150px;">
+                                            <tr>
+                                                <td width="100" height="23" align="right"></td>
+                                                <td height="60">
+                                                    {#if $go_resume_show#}
+
+                                                    <input type="submit" name="submitsave" id="submitsave" value="保存"  class="user_submit"/>
+                                                    &nbsp;&nbsp;
+                                                    <input type="button" name="next" value="返回"  class="user_submit" onclick="window.location = '?act=resume_show&pid={#$pid#}'"/>
+                                                    {#else#}
+                                                    <input type="submit" name="submitsave" id="submitsave" value="保存"  class="user_long_submit"/>
+                                                    {#/if#}
+
+                                                </td>
+                                            </tr>
+                                        </table>	
+                                    </div>  
+                                </td>
+                                <td width="150" valign="top" class="resume_right_box" >
+                                    {#include file="member_personal/personal_right.htm"#} 
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+        {#include file="footer.htm"#}
+    </body>
+</html>
+
+<script type="text/javascript">
+                        $(document).ready(function()
+                        {
+                        $("#tabshow li:nth-child(2)>a").addClass("selected");
+                                //菜单层
+                                showmenulayer("#district_cn", "#menu2", "#district", "#sdistrict", QS_city);
+                                showmenu("#wage_cn", "#menu_salary", "#wage", "#Form1", "#wage");
+                                //性质中文字段复制
+                                $("#nature_cn").val($(":radio[name='nature'][checked]").attr("title"));
+                                $("input[name='nature']").click(function(){
+                        $("#nature_cn").val($(this).attr("title"));
+                                // alert ($("#nature_cn").val())
+                        });
+//行业选择
+                                OpentradeLayer("#showtrade", "#trade", "#trade_cn", "#trade_txt", "#sel_trade", 80);
+//从已有数据恢复行业选择
+                                var get_trade = "{#$resume_basic.trade#}";
+                                if (get_trade != "")
+                                {
+                                get_trade = get_trade.split(",");
+                                        for (var i = 0; i < get_trade.length; ++i)
+                                {
+                                $("#sel_trade :checkbox").each(function(index)
+                                {
+                                if ($(this).val() == get_trade[i]) $(this).attr("checked", true)
+
+                                });
+                                }
+                                $("#sel_trade  :checkbox").parent().css("color", "");
+                                        $("#sel_trade  :checkbox[checked]").parent().css("color", "#009900");
+                                        }
+                        OpenCategoryLayer("#showjobs", "#sel_category", "#intention_jobs_id", "#intention_jobs", "#jobs_txt", QS_jobs, 80);
+//从已有数据恢复职位选择
+                                var jobcategory = "{#$resume_jobs_id#}";
+                                if (jobcategory)
+                                {
+                                jobcategory = jobcategory.split("-");
+                                        for (var i = 0; i < jobcategory.length; ++i)
+                                {
+                                var catid = jobcategory[i].split(".");
+                                        var jscat = QS_jobs[catid[0]];
+                                        var html = MakeLi(jscat, catid[0]);
+                                        if ($("#sel_category .item[id='" + catid[0] + "'] .sitem").html() == "")
+                                {
+                                $("#sel_category .item[id='" + catid[0] + "'] .sitem").html(html);
+                                }
+                                if (catid[1] == "0")
+                                {
+                                $("#sel_category  :checkbox[value=" + catid[0] + "]").attr("checked", true);
+                                        $("#sel_category .item[id='" + catid[0] + "'] .sitem :checkbox").attr("checked", true);
+                                }
+                                else
+                                {
+                                $("#sel_category  .sitem :checkbox[value='" + catid[1] + "']").attr("checked", true);
+                                }
+                                }
+                                $("#sel_category .OpenFloatBox .item label :checkbox").parent().css("color", "");
+                                        $("#sel_category .OpenFloatBox .item label :checkbox[checked]").parent().css("color", "#FF6600");
+                                        $("#sel_category .OpenFloatBox .sitem :checkbox[checked]").each(function(index){
+                                $(this).parent().parent().prev().css("color", "#FF6600");
+                                });
+                                        CopyItem("#sel_category");
+                                        }
+//提交表单】
+                        $("#submitsave").click(function(){
+                        $('#Form1').submit();
+                        })
+                                });
+//求职意向开始    
+                        function getjobshtml(val)
+                                {
+                                if (val == "")return false;
+                                        arr = val.split("|");
+                                        var htmlstr = '<ul>';
+                                        for (x in arr)
+                                {
+                                var v = arr[x].split(",");
+                                        htmlstr += "<li><label><input name=\"jobs\" type=\"checkbox\" value=\"" + v[0] + "\" title=\"" + v[1] + "\"/>" + v[1] + "</label></li>";
+                                }
+                                htmlstr += "</ul>";
+                                        htmlstr += "<div class=\"clear\"></div>";
+                                        return htmlstr;
+                                        }
+                        function setcheckbox(){
+                        //点击下方单选，然后拷贝
+                        $("#s_jobsemenu :checkbox").click(function(){
+                        if ($("#s_jobsemenu :checkbox[checked]").length > 5)
+                        {
+                        alert("不能超过5个选项");
+                                $(this).attr("checked", false);
+                        }
+                        else
+                        {
+                        $("#s_jobsemenu :checkbox").parent().css("color", "");
+                                $("#s_jobsemenu :checkbox[checked]").parent().css("color", "#FF0000");
+                                //克隆
+                                copyjobshtml();
+                        }
+                        });
+                        }
+                        function copyjobshtml()
+                                {
+                                var a_job_id = new Array();
+                                        var htmlstr = '<ul>';
+                                        $("#s_jobsemenu :checkbox[checked]").each(function(index){
+                                htmlstr += "<li><label><input name=\"jobsid\" type=\"checkbox\" value=\"" + $(this).attr("value") + "\" title=\"" + $(this).attr("title") + "\" checked/>" + $(this).attr("title") + "</label></li>";
+                                })
+                                        htmlstr += "</ul>";
+                                        htmlstr += "<div class=\"clear\"></div>";
+                                        $("#menu4 .sel").html(htmlstr);
+                                        //已选项目绑定click
+                                        $(".sel :checkbox").click(function(){
+                                var selval = $(this).val();
+                                        //alert(selval);
+                                        //取消下方对应的复选
+                                        $("#s_jobsemenu :checkbox[checked]").each(function(){
+                                if ($(this).val() == selval)
+                                {
+                                $(this).attr("checked", false)
+                                        //重新克隆
+                                        copyjobshtml();
+                                        $("#s_jobsemenu :checkbox").parent().css("color", "");
+                                        $("#s_jobsemenu :checkbox[checked]").parent().css("color", "#FF0000");
+                                }
+                                })
+                                });
+                                        }
+</script><!--求职意向结束-->
+<script><!--技能特长开始-->
+$(document).ready(function()
+{
+	$("#tabshow li:nth-child(2)>a").addClass("selected");
+	//范例展开
+	$("#model1").click(function(){	$("#ex1").toggle()});
+	$("#model2").click(function(){	$("#ex2").toggle()});
+	});
+                
+</script><!--技能特长结束-->

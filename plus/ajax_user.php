@@ -12,6 +12,19 @@
 define('IN_QISHI', true);
 require_once(dirname(dirname(__FILE__)).'/include/plus.common.inc.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '';
+include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');//引入uc
+//获取用户数据
+function getpassport($username, $password) {
+	$passport = array();
+	$ucresult = uc_user_login($username, $password);
+	if($ucresult[0] > 0) {
+		$passport['uid'] = $ucresult[0];
+		$passport['username'] = $ucresult[1];
+		$passport['email'] = $ucresult[3];
+	}
+	return $passport;
+}
+
 if($act =='do_login')
 {
 	$username=isset($_POST['username'])?trim($_POST['username']):"";
@@ -49,11 +62,25 @@ if($act =='do_login')
 	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
 	if ($username && $password)
 	{
+            $user=get_user_inusername($username);
+		if(empty($user)){
+			//修改64-72行同步获取用户源
+			if(!$passport = getpassport($username, $password)) {
+				exit("login_failure_please_re_login");
+			}else{
+				user_register($passport['username'],$password,2,$passport['email'],true,$passport['uid']);
+			}
+		}
+                
 		$login=user_login($username,$password,$account_type,true,$expire);
 		$url=$url?$url:$login['qs_login'];
 		if ($login['qs_login'])
 		{
-		exit($login['uc_login']."<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$url."\";</script>");
+                    /*uc同步登录*/
+			if(defined('UC_API')){
+				$login['uc_login']=uc_user_synlogin($_SESSION['uid']);
+			}
+                    exit($login['uc_login']."<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$url."\";</script>");
 		}
 		else
 		{
@@ -91,6 +118,11 @@ elseif ($act=='do_reg')
 	if ($register>0)
 	{	
 		$login_js=user_login($username,$password);
+                /*uc注册*/
+		if(defined('UC_API')){
+			$uid=uc_user_register($username,$password,$email);
+			if($uid>0)$ucjs=uc_user_synlogin($uid);//uc登录通知
+		}
 		$mailconfig=get_cache('mailconfig');
 		if ($mailconfig['set_reg']=="1")
 		{
