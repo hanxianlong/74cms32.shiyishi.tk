@@ -425,21 +425,28 @@ function get_tpl($type,$id)
 	$thistpl=$utpl['tpl'];
 	if (!empty($_GET['style']))
 	{
-	$thistpl=$_GET['style'];
+            $thistpl=$_GET['style'];
 	}
+         
 	if (empty($thistpl))
 	{
 		if ($type=='resume')
 		{
-		$thistpl="../tpl_resume/{$_CFG['tpl_personal']}/{$type}.htm";
-		$smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_resume/{$_CFG['tpl_personal']}/");
-		return $thistpl;
+                    $resume=$db->getone("SELECT resume_type FROM ".table($type)." WHERE id='{$id}' limit 1");
+                    
+                    $thistpl="../tpl_resume/{$_CFG['tpl_personal']}/{$type}.htm";
+                    if($resume['resume_type']=='1')
+                    {
+                        $thistpl="../tpl_resume/{$_CFG['tpl_personal']}/{$type}_en.htm";
+                    } 
+                    $smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_resume/{$_CFG['tpl_personal']}/");
+                    return $thistpl;
 		}
 		else
 		{
-		$thistpl="../tpl_company/{$_CFG['tpl_company']}/{$type}.htm";
-		$smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_company/{$_CFG['tpl_company']}/");
-		return $thistpl;
+                    $thistpl="../tpl_company/{$_CFG['tpl_company']}/{$type}.htm";
+                    $smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_company/{$_CFG['tpl_company']}/");
+                    return $thistpl;
 		}
 	}
 	else
@@ -448,10 +455,10 @@ function get_tpl($type,$id)
 		{
 			if (!file_exists(QISHI_ROOT_PATH."templates/tpl_resume/{$thistpl}/{$type}.htm"))
 			{
-			$thistpl=$_CFG['tpl_personal'];
+                            $thistpl=$_CFG['tpl_personal'];
 			}
 			$smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_resume/{$thistpl}/");
-		return "../tpl_resume/{$thistpl}/{$type}.htm";
+                    return "../tpl_resume/{$thistpl}/{$type}.htm";
 		}
 		else
 		{
@@ -459,10 +466,10 @@ function get_tpl($type,$id)
 			{
                             $thistpl=$_CFG['tpl_company'];
 			}
-		$smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_company/{$thistpl}/");
-		return "../tpl_company/{$thistpl}/{$type}.htm";
-		}		
-	}	
+                        $smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_company/{$thistpl}/");
+                        return "../tpl_company/{$thistpl}/{$type}.htm";
+		}
+	}
 }
 function url_rewrite($alias=NULL,$get=NULL,$rewrite=true)
 {

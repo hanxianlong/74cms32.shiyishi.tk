@@ -57,16 +57,16 @@ if($act == 'jobs_contact')
 		}
 		if ($show)
 		{
-		$sql = "select * from ".table('jobs_contact')." where pid='{$id}' LIMIT 1";
-		$val=$db->getone($sql);
-		$html="<ul>";
-		$html.="<li>联 系 人：{$val['contact']}</li>";
-		$html.="<li>联系电话：{$val['telephone']}</li>";
-		$html.="<li>联系邮箱：{$val['email']}</li>";
-		$html.="<li>联系地址：{$val['address']}</li>";
-		$html.="<li>联系 Q Q：{$val['qq']}</li>";
-		$html.="</ul>";
-		exit($html);
+                    $sql = "select * from ".table('jobs_contact')." where pid='{$id}' LIMIT 1";
+                    $val=$db->getone($sql);
+                    $html="<ul>";
+                    $html.="<li>联 系 人：{$val['contact']}</li>";
+                    $html.="<li>联系电话：{$val['telephone']}</li>";
+                    $html.="<li>联系邮箱：{$val['email']}</li>";
+                    $html.="<li>联系地址：{$val['address']}</li>";
+                    $html.="<li>联系 Q Q：{$val['qq']}</li>";
+                    $html.="</ul>";
+                    exit($html);
 		}
 		else
 		{		
@@ -180,15 +180,24 @@ elseif($act == 'resume_contact')
 		}
 		if ($show)
 		{
-		$tb1=$db->getone("select telephone,email,qq,address,website from ".table('resume')." WHERE  id='{$id}'  LIMIT 1");
-			$tb2=$db->getone("select telephone,email,qq,address,website from ".table('resume_tmp')." WHERE  id='{$id}'  LIMIT 1");		
+                        $tb1=$db->getone("select telephone,email,qq,address,website,uid from ".table('resume')." WHERE  id='{$id}'  LIMIT 1");
+			$tb2=$db->getone("select telephone,email,qq,address,website,uid from ".table('resume_tmp')." WHERE  id='{$id}'  LIMIT 1");		
 			$val=!empty($tb1)?$tb1:$tb2;
+                        
+                        $uid = intval($val['uid']);
+                        $tb_resume=$db->getone("select attach_resume_path from ".table('members')." WHERE  uid='{$uid}'  LIMIT 1");	
+                        
 			$html="<ul>";
 			$html.="<li>联系电话：".$val['telephone']."</li>";
 			$html.="<li>联系邮箱：".$val['email']."</li>";
 			$html.="<li>联系 Q Q：".$val['qq']."</li>";
 			$html.="<li>联系地址：".$val['address']."</li>";
 			$html.="<li>个人主页/博客：".$val['website']."</li>";
+                        //附件简历中存在值，则显示下载链接
+                        if($tb_resume['attach_resume_path']){
+                        require_once(QISHI_ROOT_PATH . '/include/common.inc.php');
+                         $html .='<li>附件简历：<a href="'.$_CFG['updir_resumes'] .$tb_resume['attach_resume_path'].'" target="_blank">下载附件简历</a>';
+                        }
 			$html.="</ul>";
 			$html.="<div align=\"center\"><br/><img src=\"{$_CFG['site_template']}images/64.gif\"  border=\"0\" id=\"invited\"/></div>";
 			$html.="<div align=\"center\"><span class=\"add_resume_pool\">[添加到人才库]</span><br/><br/></div>";

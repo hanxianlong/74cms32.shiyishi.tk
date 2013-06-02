@@ -23,6 +23,7 @@ require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
 $db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 unset($dbhost,$dbuser,$dbpass,$dbname);
 $mypage['tpl']=get_tpl("resume",$_GET['id']);
+
 $smarty->display($mypage['tpl'],$cached_id);
 $db->close();
 unset($smarty);

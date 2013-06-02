@@ -42,7 +42,7 @@ elseif($act == 'get_cat_city')
 	$result = $db->query($sql);
 	while($row = $db->fetch_array($result))
 	{	
-		$cat[]=$row['id'].",".$row['categoryname'].",".$row['category_order'];
+		$cat[]=$row['id'].",".$row['categoryname'].",".$row['category_order'].",".$row['categoryname_en'];
 	}
 	if (!empty($cat))
 	{
@@ -56,7 +56,7 @@ elseif($act == 'get_cat_jobs')
 	$result = $db->query($sql);
 	while($row = $db->fetch_array($result))
 	{	
-		$cat[]=$row['id'].",".$row['categoryname'].",".$row['category_order'];
+		$cat[]=$row['id'].",".$row['categoryname'].",".$row['category_order'].",".$row['categoryname_en'];
 	}
 	if (!empty($cat))
 	{

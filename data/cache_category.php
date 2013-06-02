@@ -9,6 +9,7 @@ $data = array (
       'categoryname' => '计算机软件/硬件',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'Computer Hardware',
     ),
     2 => 
     array (
@@ -17,6 +18,7 @@ $data = array (
       'categoryname' => '计算机系统/维修',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '计算机系统/维修',
     ),
     3 => 
     array (
@@ -25,6 +27,7 @@ $data = array (
       'categoryname' => '通信(设备/运营/服务)',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '通信(设备/运营/服务)',
     ),
     4 => 
     array (
@@ -33,6 +36,7 @@ $data = array (
       'categoryname' => '互联网/电子商务',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '互联网/电子商务',
     ),
     5 => 
     array (
@@ -41,6 +45,7 @@ $data = array (
       'categoryname' => '网络游戏',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '网络游戏',
     ),
     6 => 
     array (
@@ -49,6 +54,7 @@ $data = array (
       'categoryname' => '电子/半导体/集成电路',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '电子/半导体/集成电路',
     ),
     7 => 
     array (
@@ -57,6 +63,7 @@ $data = array (
       'categoryname' => '仪器仪表/工业自动化',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '仪器仪表/工业自动化',
     ),
     8 => 
     array (
@@ -65,6 +72,7 @@ $data = array (
       'categoryname' => '会计/审计',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '会计/审计',
     ),
     9 => 
     array (
@@ -73,6 +81,7 @@ $data = array (
       'categoryname' => '金融(投资/证券',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '金融(投资/证券',
     ),
     10 => 
     array (
@@ -81,6 +90,7 @@ $data = array (
       'categoryname' => '金融(银行/保险)',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '金融(银行/保险)',
     ),
     11 => 
     array (
@@ -89,6 +99,7 @@ $data = array (
       'categoryname' => '贸易/进出口',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '贸易/进出口',
     ),
     12 => 
     array (
@@ -97,6 +108,7 @@ $data = array (
       'categoryname' => '批发/零售',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '批发/零售',
     ),
     13 => 
     array (
@@ -105,6 +117,7 @@ $data = array (
       'categoryname' => '消费品(食/饮/烟酒)',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '消费品(食/饮/烟酒)',
     ),
     14 => 
     array (
@@ -113,6 +126,7 @@ $data = array (
       'categoryname' => '服装/纺织/皮革',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '服装/纺织/皮革',
     ),
     15 => 
     array (
@@ -121,6 +135,7 @@ $data = array (
       'categoryname' => '家具/家电/工艺品/玩具',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '家具/家电/工艺品/玩具',
     ),
     16 => 
     array (
@@ -129,6 +144,7 @@ $data = array (
       'categoryname' => '办公用品及设备',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '办公用品及设备',
     ),
     17 => 
     array (
@@ -137,6 +153,7 @@ $data = array (
       'categoryname' => '机械/设备/重工',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '机械/设备/重工',
     ),
     18 => 
     array (
@@ -145,6 +162,7 @@ $data = array (
       'categoryname' => '汽车/摩托车/零配件',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '汽车/摩托车/零配件',
     ),
     19 => 
     array (
@@ -153,6 +171,7 @@ $data = array (
       'categoryname' => '制药/生物工程',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '制药/生物工程',
     ),
     20 => 
     array (
@@ -161,6 +180,7 @@ $data = array (
       'categoryname' => '医疗/美容/保健/卫生',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '医疗/美容/保健/卫生',
     ),
     21 => 
     array (
@@ -169,6 +189,7 @@ $data = array (
       'categoryname' => '医疗设备/器械',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '医疗设备/器械',
     ),
     22 => 
     array (
@@ -177,6 +198,7 @@ $data = array (
       'categoryname' => '广告/市场推广',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '广告/市场推广',
     ),
     23 => 
     array (
@@ -185,6 +207,7 @@ $data = array (
       'categoryname' => '会展/博览',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '会展/博览',
     ),
     24 => 
     array (
@@ -193,6 +216,7 @@ $data = array (
       'categoryname' => '影视/媒体/艺术/出版',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '影视/媒体/艺术/出版',
     ),
     25 => 
     array (
@@ -201,6 +225,7 @@ $data = array (
       'categoryname' => '印刷/包装/造纸',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '印刷/包装/造纸',
     ),
     26 => 
     array (
@@ -209,6 +234,7 @@ $data = array (
       'categoryname' => '房地产开发',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '房地产开发',
     ),
     27 => 
     array (
@@ -217,6 +243,7 @@ $data = array (
       'categoryname' => '建筑与工程',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '建筑与工程',
     ),
     28 => 
     array (
@@ -225,6 +252,7 @@ $data = array (
       'categoryname' => '家居/室内设计/装潢',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '家居/室内设计/装潢',
     ),
     29 => 
     array (
@@ -233,6 +261,7 @@ $data = array (
       'categoryname' => '物业管理/商业中心',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '物业管理/商业中心',
     ),
     30 => 
     array (
@@ -241,6 +270,7 @@ $data = array (
       'categoryname' => '中介服务/家政服务',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '中介服务/家政服务',
     ),
     31 => 
     array (
@@ -249,6 +279,7 @@ $data = array (
       'categoryname' => '专业服务/财会/法律',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '专业服务/财会/法律',
     ),
     32 => 
     array (
@@ -257,6 +288,7 @@ $data = array (
       'categoryname' => '检测/认证',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '检测/认证',
     ),
     33 => 
     array (
@@ -265,6 +297,7 @@ $data = array (
       'categoryname' => '教育/培训',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '教育/培训',
     ),
     34 => 
     array (
@@ -273,6 +306,7 @@ $data = array (
       'categoryname' => '学术/科研',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '学术/科研',
     ),
     35 => 
     array (
@@ -281,6 +315,7 @@ $data = array (
       'categoryname' => '餐饮/娱乐/休闲',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '餐饮/娱乐/休闲',
     ),
     36 => 
     array (
@@ -289,6 +324,7 @@ $data = array (
       'categoryname' => '酒店/旅游',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '酒店/旅游',
     ),
     37 => 
     array (
@@ -297,6 +333,7 @@ $data = array (
       'categoryname' => '交通/运输/物流',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '交通/运输/物流',
     ),
     38 => 
     array (
@@ -305,6 +342,7 @@ $data = array (
       'categoryname' => '航天/航空',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '航天/航空',
     ),
     39 => 
     array (
@@ -313,6 +351,7 @@ $data = array (
       'categoryname' => '能源(石油/化工/矿产)',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '能源(石油/化工/矿产)',
     ),
     40 => 
     array (
@@ -321,6 +360,7 @@ $data = array (
       'categoryname' => '能源(采掘/冶炼/原材料)',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '能源(采掘/冶炼/原材料)',
     ),
     41 => 
     array (
@@ -329,6 +369,7 @@ $data = array (
       'categoryname' => '电力/水利/新能源',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '电力/水利/新能源',
     ),
     42 => 
     array (
@@ -337,6 +378,7 @@ $data = array (
       'categoryname' => '政府部门/事业单位',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '政府部门/事业单位',
     ),
     43 => 
     array (
@@ -345,6 +387,7 @@ $data = array (
       'categoryname' => '非盈利机构/行业协会',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '非盈利机构/行业协会',
     ),
     44 => 
     array (
@@ -353,6 +396,7 @@ $data = array (
       'categoryname' => '农业/渔业/林业/牧业',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '农业/渔业/林业/牧业',
     ),
     45 => 
     array (
@@ -361,6 +405,7 @@ $data = array (
       'categoryname' => '其他行业',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'Others',
     ),
   ),
   'QS_company_type' => 
@@ -372,6 +417,7 @@ $data = array (
       'categoryname' => '国企',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'G国企',
     ),
     47 => 
     array (
@@ -380,6 +426,7 @@ $data = array (
       'categoryname' => '民营',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '民营',
     ),
     48 => 
     array (
@@ -388,6 +435,7 @@ $data = array (
       'categoryname' => '合资',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '合资',
     ),
     49 => 
     array (
@@ -396,6 +444,7 @@ $data = array (
       'categoryname' => '外商独资',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '外商独资',
     ),
     50 => 
     array (
@@ -404,6 +453,7 @@ $data = array (
       'categoryname' => '股份制企业',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '股份制企业',
     ),
     51 => 
     array (
@@ -412,6 +462,7 @@ $data = array (
       'categoryname' => '上市公司',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '上市公司',
     ),
     52 => 
     array (
@@ -420,6 +471,7 @@ $data = array (
       'categoryname' => '国家机关',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '国家机关',
     ),
     53 => 
     array (
@@ -428,6 +480,7 @@ $data = array (
       'categoryname' => '事业单位',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '事业单位',
     ),
     54 => 
     array (
@@ -436,6 +489,7 @@ $data = array (
       'categoryname' => '其它',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '其它',
     ),
   ),
   'QS_wage' => 
@@ -447,6 +501,7 @@ $data = array (
       'categoryname' => '面议',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'TBD',
     ),
     56 => 
     array (
@@ -455,6 +510,7 @@ $data = array (
       'categoryname' => '1000~1500元/月',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '1000~1500RMB/Month',
     ),
     57 => 
     array (
@@ -463,6 +519,7 @@ $data = array (
       'categoryname' => '1500~2000元/月',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '1500~2000元/月',
     ),
     58 => 
     array (
@@ -471,6 +528,7 @@ $data = array (
       'categoryname' => '2000~3000元/月',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '2000~3000元/月',
     ),
     59 => 
     array (
@@ -479,6 +537,7 @@ $data = array (
       'categoryname' => '3000~5000元/月',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '3000~5000元/月',
     ),
     60 => 
     array (
@@ -487,6 +546,7 @@ $data = array (
       'categoryname' => '5000~10000元/月',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '5000~10000元/月',
     ),
     61 => 
     array (
@@ -495,6 +555,7 @@ $data = array (
       'categoryname' => '1万以上/月',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '1万以上/月',
     ),
   ),
   'QS_jobs_nature' => 
@@ -506,6 +567,7 @@ $data = array (
       'categoryname' => '全职',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'FullDay',
     ),
     63 => 
     array (
@@ -514,6 +576,7 @@ $data = array (
       'categoryname' => '兼职',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '兼职',
     ),
     64 => 
     array (
@@ -522,6 +585,7 @@ $data = array (
       'categoryname' => '实习',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '实习',
     ),
   ),
   'QS_education' => 
@@ -533,6 +597,7 @@ $data = array (
       'categoryname' => '初中',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'Chuzhong',
     ),
     66 => 
     array (
@@ -541,6 +606,7 @@ $data = array (
       'categoryname' => '高中',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'Gaozhong',
     ),
     67 => 
     array (
@@ -549,6 +615,7 @@ $data = array (
       'categoryname' => '中技',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '中技',
     ),
     68 => 
     array (
@@ -557,6 +624,7 @@ $data = array (
       'categoryname' => '中专',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '中专',
     ),
     69 => 
     array (
@@ -565,6 +633,7 @@ $data = array (
       'categoryname' => '大专',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '大专',
     ),
     70 => 
     array (
@@ -573,6 +642,7 @@ $data = array (
       'categoryname' => '本科',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '本科',
     ),
     71 => 
     array (
@@ -581,6 +651,7 @@ $data = array (
       'categoryname' => '硕士',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '硕士',
     ),
     72 => 
     array (
@@ -589,6 +660,7 @@ $data = array (
       'categoryname' => '博士',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '博士',
     ),
     73 => 
     array (
@@ -597,6 +669,7 @@ $data = array (
       'categoryname' => '博后',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '博后',
     ),
   ),
   'QS_experience' => 
@@ -608,6 +681,7 @@ $data = array (
       'categoryname' => '无经验',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'No Experience',
     ),
     75 => 
     array (
@@ -616,6 +690,7 @@ $data = array (
       'categoryname' => '1年以下',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '1年以下',
     ),
     76 => 
     array (
@@ -624,6 +699,7 @@ $data = array (
       'categoryname' => '1-3年',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '1-3年',
     ),
     77 => 
     array (
@@ -632,6 +708,7 @@ $data = array (
       'categoryname' => '3-5年',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '3-5年',
     ),
     78 => 
     array (
@@ -640,6 +717,7 @@ $data = array (
       'categoryname' => '5-10年',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '5-10年',
     ),
     79 => 
     array (
@@ -648,6 +726,7 @@ $data = array (
       'categoryname' => '10年以上',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '10年以上',
     ),
   ),
   'QS_scale' => 
@@ -659,6 +738,7 @@ $data = array (
       'categoryname' => '20人以下',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'Less Than 20',
     ),
     81 => 
     array (
@@ -667,6 +747,7 @@ $data = array (
       'categoryname' => '20-99人',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '20-99人',
     ),
     82 => 
     array (
@@ -675,6 +756,7 @@ $data = array (
       'categoryname' => '100-499人',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '100-499人',
     ),
     83 => 
     array (
@@ -683,6 +765,7 @@ $data = array (
       'categoryname' => '500-999人',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '500-999人',
     ),
     84 => 
     array (
@@ -691,6 +774,7 @@ $data = array (
       'categoryname' => '1000-9999人',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '1000-9999人',
     ),
     85 => 
     array (
@@ -699,396 +783,7 @@ $data = array (
       'categoryname' => '10000人以上',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
-    ),
-  ),
-  'QS_officebuilding' => 
-  array (
-    86 => 
-    array (
-      'id' => '86',
-      'parentid' => '0',
-      'categoryname' => '富力盈信大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    87 => 
-    array (
-      'id' => '87',
-      'parentid' => '0',
-      'categoryname' => '财富中心',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    88 => 
-    array (
-      'id' => '88',
-      'parentid' => '0',
-      'categoryname' => '唐延国际中心',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    89 => 
-    array (
-      'id' => '89',
-      'parentid' => '0',
-      'categoryname' => '绿地SOHO同盟',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    90 => 
-    array (
-      'id' => '90',
-      'parentid' => '0',
-      'categoryname' => '金叶现代',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    91 => 
-    array (
-      'id' => '91',
-      'parentid' => '0',
-      'categoryname' => '阳光大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    92 => 
-    array (
-      'id' => '92',
-      'parentid' => '0',
-      'categoryname' => '蔚蓝国际',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    93 => 
-    array (
-      'id' => '93',
-      'parentid' => '0',
-      'categoryname' => '长海大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    94 => 
-    array (
-      'id' => '94',
-      'parentid' => '0',
-      'categoryname' => '华晶商务广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    95 => 
-    array (
-      'id' => '95',
-      'parentid' => '0',
-      'categoryname' => '唐兴数码大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    96 => 
-    array (
-      'id' => '96',
-      'parentid' => '0',
-      'categoryname' => '座软件公寓',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    97 => 
-    array (
-      'id' => '97',
-      'parentid' => '0',
-      'categoryname' => '高科广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    98 => 
-    array (
-      'id' => '98',
-      'parentid' => '0',
-      'categoryname' => '耀中广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    99 => 
-    array (
-      'id' => '99',
-      'parentid' => '0',
-      'categoryname' => '西港国际大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    100 => 
-    array (
-      'id' => '100',
-      'parentid' => '0',
-      'categoryname' => '雁塔世纪商务大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    101 => 
-    array (
-      'id' => '101',
-      'parentid' => '0',
-      'categoryname' => '赛格数码广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    102 => 
-    array (
-      'id' => '102',
-      'parentid' => '0',
-      'categoryname' => '雅荷中环大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    103 => 
-    array (
-      'id' => '103',
-      'parentid' => '0',
-      'categoryname' => '长安国际广场',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    104 => 
-    array (
-      'id' => '104',
-      'parentid' => '0',
-      'categoryname' => '成城大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    105 => 
-    array (
-      'id' => '105',
-      'parentid' => '0',
-      'categoryname' => '企图时代',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    106 => 
-    array (
-      'id' => '106',
-      'parentid' => '0',
-      'categoryname' => '清扬国际大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    107 => 
-    array (
-      'id' => '107',
-      'parentid' => '0',
-      'categoryname' => '云天大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    108 => 
-    array (
-      'id' => '108',
-      'parentid' => '0',
-      'categoryname' => '中贸国际大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    109 => 
-    array (
-      'id' => '109',
-      'parentid' => '0',
-      'categoryname' => '紫洲国际',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    110 => 
-    array (
-      'id' => '110',
-      'parentid' => '0',
-      'categoryname' => '新懿大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    111 => 
-    array (
-      'id' => '111',
-      'parentid' => '0',
-      'categoryname' => '志诚大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    112 => 
-    array (
-      'id' => '112',
-      'parentid' => '0',
-      'categoryname' => '紫洲国际',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    113 => 
-    array (
-      'id' => '113',
-      'parentid' => '0',
-      'categoryname' => '高新大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    114 => 
-    array (
-      'id' => '114',
-      'parentid' => '0',
-      'categoryname' => '汇金国际',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    115 => 
-    array (
-      'id' => '115',
-      'parentid' => '0',
-      'categoryname' => '开成大厦',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-  ),
-  'QS_street' => 
-  array (
-    116 => 
-    array (
-      'id' => '116',
-      'parentid' => '0',
-      'categoryname' => '建设南路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    117 => 
-    array (
-      'id' => '117',
-      'parentid' => '0',
-      'categoryname' => '西羊市街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    118 => 
-    array (
-      'id' => '118',
-      'parentid' => '0',
-      'categoryname' => '杏花岭街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    119 => 
-    array (
-      'id' => '119',
-      'parentid' => '0',
-      'categoryname' => '长治路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    120 => 
-    array (
-      'id' => '120',
-      'parentid' => '0',
-      'categoryname' => '解放路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    121 => 
-    array (
-      'id' => '121',
-      'parentid' => '0',
-      'categoryname' => '太榆路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    122 => 
-    array (
-      'id' => '122',
-      'parentid' => '0',
-      'categoryname' => '晋祠路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    123 => 
-    array (
-      'id' => '123',
-      'parentid' => '0',
-      'categoryname' => '桃园北路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    124 => 
-    array (
-      'id' => '124',
-      'parentid' => '0',
-      'categoryname' => '府西街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    125 => 
-    array (
-      'id' => '125',
-      'parentid' => '0',
-      'categoryname' => '迎泽大街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    126 => 
-    array (
-      'id' => '126',
-      'parentid' => '0',
-      'categoryname' => '水西关街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    127 => 
-    array (
-      'id' => '127',
-      'parentid' => '0',
-      'categoryname' => '柳巷',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    128 => 
-    array (
-      'id' => '128',
-      'parentid' => '0',
-      'categoryname' => '柳巷南路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    129 => 
-    array (
-      'id' => '129',
-      'parentid' => '0',
-      'categoryname' => '东辑虎营',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    130 => 
-    array (
-      'id' => '130',
-      'parentid' => '0',
-      'categoryname' => '旱西关街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    131 => 
-    array (
-      'id' => '131',
-      'parentid' => '0',
-      'categoryname' => '纯阳宫',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    132 => 
-    array (
-      'id' => '132',
-      'parentid' => '0',
-      'categoryname' => '并州南路',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
-    ),
-    133 => 
-    array (
-      'id' => '133',
-      'parentid' => '0',
-      'categoryname' => '长风街',
-      'stat_jobs' => '',
-      'stat_resume ' => NULL,
+      'categoryname_en' => '10000人以上',
     ),
   ),
   'QS_jobtag' => 
@@ -1100,6 +795,7 @@ $data = array (
       'categoryname' => '环境好',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'Good workd Env.',
     ),
     135 => 
     array (
@@ -1108,6 +804,7 @@ $data = array (
       'categoryname' => '年终奖',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '年终奖',
     ),
     136 => 
     array (
@@ -1116,6 +813,7 @@ $data = array (
       'categoryname' => '双休',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '双休',
     ),
     137 => 
     array (
@@ -1124,6 +822,7 @@ $data = array (
       'categoryname' => '五险一金',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '五险一金',
     ),
     138 => 
     array (
@@ -1132,6 +831,7 @@ $data = array (
       'categoryname' => '加班费',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '加班费',
     ),
     139 => 
     array (
@@ -1140,6 +840,7 @@ $data = array (
       'categoryname' => '朝九晚五',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '朝九晚五',
     ),
     140 => 
     array (
@@ -1148,6 +849,7 @@ $data = array (
       'categoryname' => '美女多',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '美女多',
     ),
     141 => 
     array (
@@ -1156,6 +858,7 @@ $data = array (
       'categoryname' => '帅哥多',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '帅哥多',
     ),
     142 => 
     array (
@@ -1164,6 +867,7 @@ $data = array (
       'categoryname' => '包食宿',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '包食宿',
     ),
     143 => 
     array (
@@ -1172,6 +876,7 @@ $data = array (
       'categoryname' => '管理规范',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '管理规范',
     ),
     144 => 
     array (
@@ -1180,6 +885,7 @@ $data = array (
       'categoryname' => '有提成',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '有提成',
     ),
     145 => 
     array (
@@ -1188,6 +894,7 @@ $data = array (
       'categoryname' => '全勤奖',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '全勤奖',
     ),
     146 => 
     array (
@@ -1196,6 +903,7 @@ $data = array (
       'categoryname' => '有年假',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '有年假',
     ),
     147 => 
     array (
@@ -1204,6 +912,7 @@ $data = array (
       'categoryname' => '专车接送',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '专车接送',
     ),
     148 => 
     array (
@@ -1212,6 +921,7 @@ $data = array (
       'categoryname' => '有补助',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '有补助',
     ),
     149 => 
     array (
@@ -1220,6 +930,7 @@ $data = array (
       'categoryname' => '晋升快',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '晋升快',
     ),
     150 => 
     array (
@@ -1228,6 +939,7 @@ $data = array (
       'categoryname' => '车贴',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '车贴',
     ),
     151 => 
     array (
@@ -1236,6 +948,7 @@ $data = array (
       'categoryname' => '房贴',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '房贴',
     ),
     152 => 
     array (
@@ -1244,6 +957,7 @@ $data = array (
       'categoryname' => '压力小',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '压力小',
     ),
     153 => 
     array (
@@ -1252,6 +966,7 @@ $data = array (
       'categoryname' => '技术培训',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '技术培训',
     ),
     154 => 
     array (
@@ -1260,6 +975,7 @@ $data = array (
       'categoryname' => '旅游',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '旅游',
     ),
   ),
   'QS_resumetag' => 
@@ -1271,6 +987,7 @@ $data = array (
       'categoryname' => '形象好',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => 'Good Impression',
     ),
     156 => 
     array (
@@ -1279,6 +996,7 @@ $data = array (
       'categoryname' => '气质佳',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '气质佳',
     ),
     157 => 
     array (
@@ -1287,6 +1005,7 @@ $data = array (
       'categoryname' => '能出差',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '能出差',
     ),
     158 => 
     array (
@@ -1295,6 +1014,7 @@ $data = array (
       'categoryname' => '很幽默',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '很幽默',
     ),
     159 => 
     array (
@@ -1303,6 +1023,7 @@ $data = array (
       'categoryname' => '技术精悍',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '技术精悍',
     ),
     160 => 
     array (
@@ -1311,6 +1032,7 @@ $data = array (
       'categoryname' => '有亲和力',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '有亲和力',
     ),
     161 => 
     array (
@@ -1319,6 +1041,7 @@ $data = array (
       'categoryname' => '身材好',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '身材好',
     ),
     162 => 
     array (
@@ -1327,6 +1050,7 @@ $data = array (
       'categoryname' => '经验丰富',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '经验丰富',
     ),
     163 => 
     array (
@@ -1335,6 +1059,7 @@ $data = array (
       'categoryname' => '能加班',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '能加班',
     ),
     164 => 
     array (
@@ -1343,6 +1068,7 @@ $data = array (
       'categoryname' => '海归',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '海归',
     ),
     165 => 
     array (
@@ -1351,6 +1077,7 @@ $data = array (
       'categoryname' => '会开车',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '会开车',
     ),
     166 => 
     array (
@@ -1359,6 +1086,7 @@ $data = array (
       'categoryname' => '口才好',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '口才好',
     ),
     167 => 
     array (
@@ -1367,6 +1095,7 @@ $data = array (
       'categoryname' => '声音甜美',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '声音甜美',
     ),
     168 => 
     array (
@@ -1375,6 +1104,7 @@ $data = array (
       'categoryname' => '会应酬',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '会应酬',
     ),
     169 => 
     array (
@@ -1383,6 +1113,7 @@ $data = array (
       'categoryname' => '诚实守信',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '诚实守信',
     ),
     170 => 
     array (
@@ -1391,6 +1122,7 @@ $data = array (
       'categoryname' => '外语好',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '外语好',
     ),
     171 => 
     array (
@@ -1399,6 +1131,7 @@ $data = array (
       'categoryname' => '性格开朗',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '性格开朗',
     ),
     172 => 
     array (
@@ -1407,6 +1140,7 @@ $data = array (
       'categoryname' => '有上进心',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '有上进心',
     ),
     173 => 
     array (
@@ -1415,6 +1149,7 @@ $data = array (
       'categoryname' => '人脉广',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '人脉广',
     ),
     174 => 
     array (
@@ -1423,6 +1158,7 @@ $data = array (
       'categoryname' => '知识丰富',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '知识丰富',
     ),
     175 => 
     array (
@@ -1431,6 +1167,7 @@ $data = array (
       'categoryname' => '才艺多',
       'stat_jobs' => '',
       'stat_resume ' => NULL,
+      'categoryname_en' => '才艺多',
     ),
   ),
 );

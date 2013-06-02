@@ -429,7 +429,7 @@ if (isset($aset['page']))
 	}
 	if (!empty($id))
 	{
-	$wheresql=" WHERE id IN (".implode(',',$id).") ";
+	$wheresql=" WHERE id IN (".implode(',',$id).") and is_deleted=0";
 	$result = $db->query("SELECT * FROM ".table('jobs').$wheresql.$orderbysql);	
 	//echo "SELECT * FROM ".table('jobs')." ".$wheresql.$orderbysql;
 		while($row = $db->fetch_array($result))

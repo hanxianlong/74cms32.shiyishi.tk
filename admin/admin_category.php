@@ -124,10 +124,10 @@ elseif($act == 'category_save')
 				$setsqlarr['c_name']=trim($_POST['c_name'][$i]);
 				$setsqlarr['c_order']=intval($_POST['c_order'][$i]);
 				$setsqlarr['c_index']=getfirstchar($setsqlarr['c_name']);
+                                $setsqlarr['c_name_en']=trim($_POST['c_name_en'][$i]);
 				!updatetable(table('category'),$setsqlarr," c_id=".intval($_POST['c_id'][$i]))?adminmsg("Ìí¼ÓÊ§°Ü£¡",0):"";
 				$num=$num+$db->affected_rows();
 			}
-
 		}
 
 	}
@@ -154,7 +154,8 @@ elseif($act == 'add_category_save')
 				$setsqlarr['c_alias']=trim($_POST['c_alias'][$i]);
 				$setsqlarr['c_order']=intval($_POST['c_order'][$i]);
 				$setsqlarr['c_index']=getfirstchar($setsqlarr['c_name']);
-				$setsqlarr['c_note']=trim($_POST['c_note'][$i]);				
+				$setsqlarr['c_note']=trim($_POST['c_note'][$i]);	
+                                $setsqlarr['c_name_en']=trim($_POST['c_name_en'][$i]);
 				!inserttable(table('category'),$setsqlarr)?adminmsg("Ìí¼ÓÊ§°Ü£¡",0):"";
 				$num=$num+$db->affected_rows();
 			}
@@ -189,7 +190,8 @@ elseif($act == 'edit_category_save')
 	$setsqlarr['c_order']=intval($_POST['c_order']);
 	$setsqlarr['c_parentid']=intval($_POST['c_parentid']);
 	$setsqlarr['c_index']=getfirstchar($setsqlarr['c_name']);
-	$setsqlarr['c_note']=trim($_POST['c_note']);				
+	$setsqlarr['c_note']=trim($_POST['c_note']);		
+        $setsqlarr['c_name_en']=!empty($_POST['c_name_en']) ?trim($_POST['c_name_en']) : adminmsg("ÇëÌîÐ´Ó¢ÎÄÃû³Æ",1);
 	!updatetable(table('category'),$setsqlarr," c_id=".intval($_POST['c_id']))?adminmsg("±£´æÊ§°Ü£¡",0):"";
 	$link[0]['text'] = "·µ»ØÁÐ±í";
 	$link[0]['href'] = '?act=show_category&alias='.$_POST['c_alias'];
@@ -228,6 +230,7 @@ elseif($act == 'district_all_save')
 		 
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$k]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$k]);
+                                $setsqlarr['categoryname_en']=trim($_POST['categoryname_en'][$k]);
 				!updatetable(table('category_district'),$setsqlarr," id=".intval($_POST['save_id'][$k]))?adminmsg("±£´æÊ§°Ü£¡",0):"";
 				$num=$num+$db->affected_rows();
  
@@ -242,6 +245,7 @@ elseif($act == 'district_all_save')
 				$setsqlarr['categoryname']=trim($_POST['add_categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['add_category_order'][$i]);
 				$setsqlarr['parentid']=intval($_POST['add_pid'][$i]);	
+                                $setsqlarr['categoryname_en']=trim($_POST['add_categoryname_en'][$i]);
 				!inserttable(table('category_district'),$setsqlarr)?adminmsg("±£´æÊ§°Ü£¡",0):"";
 				$num=$num+$db->affected_rows();
 			}
@@ -276,6 +280,7 @@ elseif($act == 'edit_district_save')
 	check_token();
 	$setsqlarr['categoryname']=!empty($_POST['categoryname']) ?trim($_POST['categoryname']) : adminmsg("ÇëÌîÐ´Ãû³Æ",1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);
+        	$setsqlarr['categoryname_en']=!empty($_POST['categoryname_en']) ?trim($_POST['categoryname_en']) : adminmsg("ÇëÌîÐ´Ó¢ÎÄÃû³Æ",1);
 	$setsqlarr['parentid']=intval($_POST['parentid']);				
 	!updatetable(table('category_district'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("ÐÞ¸ÄÊ§°Ü£¡",0):"";
 	$link[0]['text'] = "·µ»ØÁÐ±í";
@@ -299,6 +304,7 @@ elseif($act == 'add_district_save')
 			{	
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);
+                                	$setsqlarr['categoryname_en']=trim($_POST['categoryname_en'][$i]);
 				$setsqlarr['parentid']=intval($_POST['parentid'][$i]);	
 				!inserttable(table('category_district'),$setsqlarr)?adminmsg("±£´æÊ§°Ü£¡",0):"";
 				$num=$num+$db->affected_rows();
@@ -328,7 +334,8 @@ elseif($act == 'jobs_all_save')
 			if (!empty($_POST['categoryname'][$i]))
 			{	
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
-				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);				
+				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);
+                                $setsqlarr['categoryname_en']=trim($_POST['categoryname_en'][$i]);	
 				!updatetable(table('category_jobs'),$setsqlarr," id=".intval($_POST['save_id'][$i]))?adminmsg("±£´æÊ§°Ü£¡",0):"";
 				$num=$num+$db->affected_rows();
 			}
@@ -343,10 +350,10 @@ elseif($act == 'jobs_all_save')
 				$setsqlarr['categoryname']=trim($_POST['add_categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['add_category_order'][$i]);
 				$setsqlarr['parentid']=intval($_POST['add_pid'][$i]);	
+                                 $setsqlarr['categoryname_en']=trim($_POST['add_categoryname_en'][$i]);
 				!inserttable(table('category_jobs'),$setsqlarr)?adminmsg("±£´æÊ§°Ü£¡",0):"";
 				$num=$num+$db->affected_rows();
 			}
-
 		}
 	}
 	makejs_classify();
@@ -377,7 +384,8 @@ elseif($act == 'edit_jobs_category_save')
 	check_token();
 	$setsqlarr['categoryname']=!empty($_POST['categoryname']) ?trim($_POST['categoryname']) : adminmsg("ÇëÌîÐ´Ãû³Æ",1);
 	$setsqlarr['category_order']=intval($_POST['category_order']);
-	$setsqlarr['parentid']=intval($_POST['parentid']);				
+	$setsqlarr['parentid']=intval($_POST['parentid']);	
+        $setsqlarr['categoryname_en']=!empty($_POST['categoryname_en']) ?trim($_POST['categoryname_en']) : adminmsg("ÇëÌîÐ´Ó¢ÎÄÃû³Æ",1);
 	!updatetable(table('category_jobs'),$setsqlarr," id=".intval($_POST['id']))?adminmsg("ÐÞ¸ÄÊ§°Ü£¡",0):"";
 	$link[0]['text'] = "·µ»ØÁÐ±í";
 	$link[0]['href'] = '?act=jobs';
@@ -401,6 +409,7 @@ elseif($act == 'add_category_jobs_save')
 				$setsqlarr['categoryname']=trim($_POST['categoryname'][$i]);
 				$setsqlarr['category_order']=intval($_POST['category_order'][$i]);
 				$setsqlarr['parentid']=intval($_POST['parentid'][$i]);	
+                                $setsqlarr['categoryname_en']=trim($_POST['categoryname_en'][$i]);
 				!inserttable(table('category_jobs'),$setsqlarr)?adminmsg("±£´æÊ§°Ü£¡",0):"";
 				$num=$num+$db->affected_rows();
 			}

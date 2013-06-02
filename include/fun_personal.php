@@ -84,7 +84,8 @@ function get_resume_education($uid,$pid)
 	global $db;
 	if (intval($uid)!=$uid) return false;
 	$sql = "SELECT * FROM ".table('resume_education')." WHERE  pid='".intval($pid)."' AND uid='".intval($uid)."' ";
-	return $db->getall($sql);
+	//return $db->getall($sql);//原来为getall,现在修改为getone
+        return $db->getone($sql);//原来为getall,现在修改为getone
 }
 //获取 单条 教育经历
 function get_resume_education_one($uid,$id)
@@ -98,7 +99,8 @@ function get_resume_work($uid,$pid)
 {
 	global $db;
 	$sql = "select * from ".table('resume_work')." where pid='".$pid."' AND uid=".intval($uid)."" ;
-	return $db->getall($sql);
+	//return $db->getall($sql);//仅获取其中一条记录
+        return $db->getone($sql);
 }
 //获取 单条 工作经历
 function get_resume_work_one($uid,$pid,$id)
@@ -112,7 +114,8 @@ function get_resume_training($uid,$pid)
 {
 	global $db;
 	$sql = "select * from ".table('resume_training')." where pid='".intval($pid)."' AND  uid='".intval($uid)."' ";
-	return $db->getall($sql);
+	//return $db->getall($sql);
+        return $db->getone($sql);
 }
 //获取 单条 培训经历
 function get_resume_training_one($uid,$pid,$id)

@@ -15,29 +15,40 @@ $smarty->assign('leftmenu',"jobs");
 if ($act=='jobs')
 {
 	$jobtype=intval($_GET['jobtype']);
-	$wheresql=" WHERE uid='{$_SESSION['uid']}' ";
+	$wheresql=" WHERE uid='{$_SESSION['uid']}' and is_deleted=0 ";
 	$orderby=" order by refreshtime desc";
-	if($jobtype===1)
+        
+        if($jobtype===-1)
+        {
+            $tabletype = 'deleted';
+        }
+	elseif($jobtype===1)
 	{
-	$tabletype="jobs";
+            $tabletype="jobs";
 	}
 	elseif($jobtype===2)
 	{
-	$tabletype="jobs_tmp";
+            $tabletype="jobs_tmp";
 	}
 	else
 	{
-	$tabletype="all";
+            $tabletype="all";
 	}
 	require_once(QISHI_ROOT_PATH.'include/page.class.php');
 	$perpage=10;
-	if ($tabletype=="all")
+        
+       $deletedwheresql=" WHERE uid='{$_SESSION['uid']}' and is_deleted=1 ";
+        if($tabletype=='deleted')
+        {
+            $total_sql="SELECT COUNT(*) AS num FROM ".table('jobs').$deletedwheresql." UNION ALL  SELECT COUNT(*) AS num FROM ".table('jobs_tmp').$deletedwheresql;    
+        }
+	elseif ($tabletype=="all")
 	{
-	$total_sql="SELECT COUNT(*) AS num FROM ".table('jobs').$wheresql." UNION ALL  SELECT COUNT(*) AS num FROM ".table('jobs_tmp').$wheresql;
+            $total_sql="SELECT COUNT(*) AS num FROM ".table('jobs').$wheresql." UNION ALL  SELECT COUNT(*) AS num FROM ".table('jobs_tmp').$wheresql;
 	}
 	else
 	{
-	$total_sql="SELECT COUNT(*) AS num FROM ".table($tabletype).$wheresql;
+            $total_sql="SELECT COUNT(*) AS num FROM ".table($tabletype).$wheresql;
 	}
 	$total_val=$db->get_total($total_sql);
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage));
@@ -45,17 +56,27 @@ if ($act=='jobs')
 	$smarty->assign('title','职位管理 - 企业会员中心 - '.$_CFG['site_name']);
 	$smarty->assign('act',$act);
 	$smarty->assign('audit',$audit);
-	if ($tabletype=="all")
+        
+        if($tabletype == 'deleted')
+        {
+            $sql="SELECT * FROM ".table('jobs').$deletedwheresql." UNION ALL SELECT * FROM ".table('jobs_tmp').$deletedwheresql.$orderby;
+        }
+	elseif ($tabletype=="all")
 	{
-	$sql="SELECT * FROM ".table('jobs').$wheresql." UNION ALL SELECT * FROM ".table('jobs_tmp').$wheresql.$orderby;
+            $sql="SELECT * FROM ".table('jobs').$wheresql." UNION ALL SELECT * FROM ".table('jobs_tmp').$wheresql.$orderby;
 	}
 	else
 	{
-	$sql="SELECT * FROM ".table($tabletype).$wheresql.$orderby;
+            $sql="SELECT * FROM ".table($tabletype).$wheresql.$orderby;
 	}
-	$total[0]=$db->get_total("SELECT COUNT(*) AS num FROM ".table('jobs')." WHERE uid='{$_SESSION['uid']}'");
-	$total[1]=$db->get_total("SELECT COUNT(*) AS num FROM ".table('jobs_tmp')." WHERE uid='{$_SESSION['uid']}'");
+	$total[0]=$db->get_total("SELECT COUNT(*) AS num FROM ".table('jobs'). $wheresql);
+	$total[1]=$db->get_total("SELECT COUNT(*) AS num FROM ".table('jobs_tmp').$wheresql);
 	$total[2]=$total[0]+$total[1];
+        
+        $deleted_job_count = $db->get_total("SELECT COUNT(*) AS num FROM ".table('jobs'). $deletedwheresql);
+        $deleted_job_tmp_count = $db->get_total("SELECT COUNT(*) AS num FROM ".table('jobs_tmp'). $deletedwheresql);
+        $total[3]=$deleted_job_count + $deleted_job_tmp_count ;
+         
 	$smarty->assign('total',$total);
 	$smarty->assign('jobs',get_jobs($offset,$perpage,$sql,true));
 	$smarty->assign('page',$page->show(3));
@@ -332,7 +353,7 @@ elseif ($act=='jobs_perform')
 	$yid =!empty($_POST['y_id'])?$_POST['y_id']:$_GET['y_id'];
 	if (empty($yid))
 	{
-	showmsg("你没有选择职位！",1);
+            showmsg("你没有选择职位！",1);
 	}
 	$refresh=!empty($_POST['refresh'])?$_POST['refresh']:$_GET['refresh'];
 	$delete=!empty($_POST['delete'])?$_POST['delete']:$_GET['delete'];
@@ -344,22 +365,22 @@ elseif ($act=='jobs_perform')
 			$user_points=get_user_points($_SESSION['uid']);
 			if ($points_rule['jobs_refresh']['value']>$user_points && $points_rule['jobs_refresh']['type']=="2")
 			{
-					$link[0]['text'] = "返回上一页";
-					$link[0]['href'] = 'javascript:history.go(-1)';
-					$link[1]['text'] = "立即充值";
-					$link[1]['href'] = 'company_service.php?act=order_add';
-			showmsg("你的".$_CFG['points_byname']."不足，请先充值！",0,$link);
+                            $link[0]['text'] = "返回上一页";
+                            $link[0]['href'] = 'javascript:history.go(-1)';
+                            $link[1]['text'] = "立即充值";
+                            $link[1]['href'] = 'company_service.php?act=order_add';
+                            showmsg("你的".$_CFG['points_byname']."不足，请先充值！",0,$link);
 			}
-		report_deal($_SESSION['uid'],$points_rule['jobs_refresh']['type'],$points_rule['jobs_refresh']['value']);
-		$user_points=get_user_points($_SESSION['uid']);
-		$operator=$points_rule['jobs_refresh']['type']=="1"?"+":"-";
-		write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"刷新职位({$operator}{$points_rule['jobs_refresh']['value']})，(剩余:{$user_points})");
+                    report_deal($_SESSION['uid'],$points_rule['jobs_refresh']['type'],$points_rule['jobs_refresh']['value']);
+                    $user_points=get_user_points($_SESSION['uid']);
+                    $operator=$points_rule['jobs_refresh']['type']=="1"?"+":"-";
+                    write_memberslog($_SESSION['uid'],1,9001,$_SESSION['username'],"刷新职位({$operator}{$points_rule['jobs_refresh']['value']})，(剩余:{$user_points})");
 		}
 		refresh_jobs($yid,$_SESSION['uid']);
 		write_memberslog($_SESSION['uid'],1,2004,$_SESSION['username'],"刷新职位");			
 		showmsg("刷新职位成功！",2);
 	}
-	elseif ($delete)
+	elseif ($delete=='1')
 	{
 		if($n=del_jobs($yid,$_SESSION['uid']))
 		{
@@ -367,18 +388,41 @@ elseif ($act=='jobs_perform')
 		}
 		else
 		{
-		showmsg("删除失败！",0);
+                    showmsg("删除失败！",0);
 		}
+	}elseif ($delete=='-1')
+	{
+            $uid = $_SESSION['uid'];
+            $updatesqlarr['is_deleted']=1;
+            if(!updatetable(table('jobs'), $updatesqlarr," id='{$yid}' AND uid='{$uid}' ")){
+                showmsg("保存失败！",0);
+            }
+            if(!updatetable(table('jobs_tmp'), $updatesqlarr," id='{$yid}' AND uid='{$uid}' ")){
+                showmsg("保存失败！",0);
+            }
+             showmsg("移动到回收站成功！",2);
+	}
+        elseif ($delete=='-2')
+	{
+            $uid = $_SESSION['uid'];
+            $updatesqlarr['is_deleted']=0;
+            if(!updatetable(table('jobs'), $updatesqlarr," id='{$yid}' AND uid='{$uid}' ")){
+                showmsg("保存失败！",0);
+            }
+            if(!updatetable(table('jobs_tmp'), $updatesqlarr," id='{$yid}' AND uid='{$uid}' ")){
+                showmsg("保存失败！",0);
+            }
+             showmsg("已从回收站中成功恢复！",2);
 	}
 	elseif (!empty($_POST['display1']))
 	{
-	activate_jobs($yid,1,$_SESSION['uid']);
-	showmsg("设置成功！",2);
+            activate_jobs($yid,1,$_SESSION['uid']);
+            showmsg("设置成功！",2);
 	}
 	elseif (!empty($_POST['display2']))
 	{
-	activate_jobs($yid,2,$_SESSION['uid']);
-	showmsg("设置成功！",2);
+            activate_jobs($yid,2,$_SESSION['uid']);
+            showmsg("设置成功！",2);
 	}
 }
 elseif ($act=='editjobs')

@@ -62,6 +62,7 @@ $(document).ready(function()
 		html+=" <img src=\"images/left_d.gif\" border=\"0\" align=\"absmiddle\"  /> ";
 		html+=" <input name=\"add_pid[]\" type=\"hidden\" value\"0\" />";
 		html+=" <input name=\"add_categoryname[]\" type=\"text\"  value=\"\" class=\"input_text_150\"/> ";
+                html+="Ó¢ÎÄ£º<input name=\"add_categoryname_en[]\" type=\"text\"  value=\"\" class=\"input_text_150\"/> ";
 		html+="</td>";
 		html+="<td align=\"center\"  class=\"admin_list\">";
 		html+="<input name=\"add_category_order[]\" type=\"text\"  value=\"0\" class=\"input_text_50\"/>";
@@ -113,6 +114,7 @@ $(document).ready(function()
 			  		html+="<input type=\"checkbox\" name=\"id[]\" value=\""+val[0]+"\" class=\"Scheck_"+pid+"\" id=\""+pid+"\"/>";
 					html+="<input name=\"save_id[]\" type=\"hidden\" value=\""+val[0]+"\" />";
 			  		html+="<input name=\"categoryname[]\" type=\"text\"  value=\""+val[1]+"\" class=\"input_text_150\"/>";
+                                        html+="Ó¢ÎÄ£º<input name=\"categoryname_en[]\" type=\"text\"  value=\""+val[3]+"\" class=\"input_text_150\"/>";
 			 		html+="<span style=\"color: #CCCCCC\">(id:"+val[0]+")</span></td>";
 			   		html+="<td align=\"center\"  class=\"admin_list\">";
 			  		html+="<input name=\"category_order[]\" type=\"text\"  value=\""+val[2]+"\" class=\"input_text_50\"/>";
@@ -179,6 +181,7 @@ $(document).ready(function()
 	  <input name="save_id[]" type="hidden" value="{#$list.id#}" />
       <img src="images/left_e.gif" border="0" align="absmiddle"  id="{#$list.id#}" class="leftimg pointer"/>
 	  <input name="categoryname[]" type="text"  value="{#$list.categoryname#}" class="input_text_150" style="color:#0066CC;  "/>
+          Ó¢ÎÄ:  <input name="categoryname_en[]" type="text"  value="{#$list.categoryname_en#}" class="input_text_150" style="color:#0066CC;  "/>
 	  <span style="color:#CCCCCC">(id:{#$list.id#})</span>	  </td>
 	   <td align="center"  class="admin_list">
 	   <input name="category_order[]" type="text"  value="{#$list.category_order#}" class="input_text_50"/>

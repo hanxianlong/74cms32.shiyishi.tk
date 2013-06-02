@@ -39,6 +39,7 @@ $_CFG['web_logo']=$_CFG['web_logo']?$_CFG['web_logo']:'logo.gif';
 $_CFG['upfiles_dir']=$_CFG['site_dir']."data/".$_CFG['updir_images']."/";
 $_CFG['thumb_dir']=$_CFG['site_dir']."data/".$_CFG['updir_thumb']."/";
 $_CFG['resume_photo_dir']=$_CFG['site_dir']."data/".$_CFG['resume_photo_dir']."/";
+$_CFG['updir_resumes']=$_CFG['site_dir']."data/".$_CFG['updir_resumes']."/";//wnfk,简历上传所在文件夹
 $_CFG['resume_photo_dir_thumb']=$_CFG['site_dir']."data/".$_CFG['resume_photo_dir_thumb']."/";
 $_CFG['site_template']=$_CFG['site_dir'].'templates/'.$_CFG['template_dir'];
 $_CFG['subsite_id']=0;

@@ -22,7 +22,7 @@ function tpl_function_qishi_jobs_show($params, &$smarty)
 	$aset=array_map("get_smarty_request",$aset);
 	$aset['id']=$aset['id']?intval($aset['id']):0;
 	$aset['listname']=$aset['listname']?$aset['listname']:"list";
-	$wheresql=" WHERE id={$aset['id']} ";
+	$wheresql=" WHERE id={$aset['id']} and is_deleted=0";
 	$sql = "select * from ".table('jobs').$wheresql." LIMIT 1";
 	$val=$db->getone($sql);
 	if (empty($val))

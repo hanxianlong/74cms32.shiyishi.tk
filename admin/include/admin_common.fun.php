@@ -148,7 +148,7 @@ function refresh_category_cache()
 			{
 			continue;
 			}
-			$catarr[$row['c_alias']][$row['c_id']] =array("id"=>$row['c_id'],"parentid"=>$row['c_parentid'],"categoryname"=>$row['c_name'],"stat_jobs"=>$row['stat_jobs'],"stat_resume "=>$row['stat_resume ']);
+			$catarr[$row['c_alias']][$row['c_id']] =array("id"=>$row['c_id'],"parentid"=>$row['c_parentid'],"categoryname"=>$row['c_name'],"stat_jobs"=>$row['stat_jobs'],"stat_resume "=>$row['stat_resume '],"categoryname_en"=>$row['c_name_en']);
 		}
 		write_static_cache($cache_file_path,$catarr);
 }

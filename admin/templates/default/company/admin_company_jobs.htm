@@ -155,8 +155,8 @@ $(document).ready(function()
       <td align="center" width="10%"  class="admin_list_tit">刷新时间</td>
 	    <td align="center" width="5%" class="admin_list_tit">点击</td>
       
-      <td    width="100" align="center"  class="admin_list_tit">操作</td>
-	
+      <td    width="100" align="center"  class="admin_list_tit">状态</td>
+	 <td    width="100" align="center"  class="admin_list_tit">操作</td>
     </tr>
 	{#foreach from=$jobs item=list#}
       <tr>
@@ -201,7 +201,9 @@ $(document).ready(function()
 		  <td class="admin_list" align="center" >
 		{#$list.click#}
 		</td>
-        
+        <td class="admin_list" align="center" >		
+		 {#if $list.is_deleted==1#}回收站{#else#}正常{#/if#}
+		</td>
         <td class="admin_list" align="center" >		
 		<a href="?act=edit_jobs&id={#$list.id#}">修改</a> 
 		&nbsp;

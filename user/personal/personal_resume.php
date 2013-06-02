@@ -31,7 +31,11 @@ if ($act=='resume_show')
 	$smarty->assign('resume_work',get_resume_work($uid,$pid));
 	$smarty->assign('resume_training',get_resume_training($uid,$pid));
 	$smarty->assign('title','预览简历 - 个人会员中心 - '.$_CFG['site_name']);
-	$smarty->display('member_personal/personal_resume.htm');
+        
+        $templateName ='member_personal/personal_resume.htm';
+        if($resume['resume_type']=='1')//英文简历
+            $templateName ='member_personal/personal_resume_en.htm';
+	$smarty->display($templateName);
 }
 elseif ($act=='refresh')
 {
@@ -88,7 +92,9 @@ elseif ($act=='make1')
 {
 	$uid=intval($_SESSION['uid']);
 	$pid=intval($_REQUEST['pid']);
-	$smarty->assign('resume_basic',get_resume_basic($uid,$pid));
+        /**基本信息开始**/
+        $resume_basic = get_resume_basic($uid,$pid);
+	$smarty->assign('resume_basic',$resume_basic);
 	$smarty->assign('resume_education',get_resume_education($uid,$pid));
 	$smarty->assign('resume_work',get_resume_work($uid,$pid));
 	$smarty->assign('resume_training',get_resume_training($uid,$pid));
@@ -98,14 +104,44 @@ elseif ($act=='make1')
 	$smarty->assign('title','我的简历 - 个人会员中心 - '.$_CFG['site_name']);
 	$captcha=get_cache('captcha');
 	$smarty->assign('verify_resume',$captcha['verify_resume']);
+        /**基本信息结束**/
+        /*求职意向开始*/
+        $smarty->assign('resume_basic',get_resume_basic($uid,$pid));
+        $smarty->assign('resume_education',get_resume_education($uid,$pid));
+        $smarty->assign('resume_work',get_resume_work($uid,$pid));
+        $smarty->assign('resume_training',get_resume_training($uid,$pid));
+        $resume_jobs=get_resume_jobs($pid);
+        if ($resume_jobs)
+        {
+                foreach($resume_jobs as $rjob)
+                {
+                 $jobsid[]=$rjob['category'].".".$rjob['subclass'];
+                }
+                $resume_jobs_id=implode("-",$jobsid);
+        }
+        $smarty->assign('resume_jobs_id',$resume_jobs_id);
+	$smarty->assign('act',$act);
+	$smarty->assign('pid',$pid);
+        /*求职意向结束*/
+        /*技能特长开始*/
+        //技能特长模板不需要单独设置变量
+        /*技能特长结束*/
+         
+        /*教育经历、工作经历、培训经历结束*/
+        $templateName = 'member_personal/personal_resume_make1.htm';
+        if($_GET['resumeType']==1 || (!empty($resume_basic) && $resume_basic['resume_type']=='1'))
+        {
+            $templateName='member_personal/personal_resume_make1_en.htm';
+        }
 	$smarty->assign('go_resume_show',$_GET['go_resume_show']);
-	$smarty->display('member_personal/personal_resume_make1.htm');
+	$smarty->display($templateName);
 }
 //创建简历 -保存基本信息
 elseif ($act=='make1_save')
 {
 	$captcha=get_cache('captcha');
 	$postcaptcha = trim($_POST['postcaptcha']);
+        $uid = intval($_SESSION['uid']);
 	if($captcha['verify_resume']=='1' && empty($postcaptcha) && intval($_REQUEST['pid'])===0)
 	{
 		showmsg("请填写验证码",1);
@@ -114,7 +150,7 @@ elseif ($act=='make1_save')
 	{
 		showmsg("验证码错误",1);
 	}
-	$setsqlarr['uid']=intval($_SESSION['uid']);
+	$setsqlarr['uid']=$uid;
 	$setsqlarr['title']=trim($_POST['title'])?trim($_POST['title']):showmsg('请填写简历名称！',1);
 	$setsqlarr['fullname']=trim($_POST['fullname'])?trim($_POST['fullname']):showmsg('请填写姓名！',1);
 	$setsqlarr['sex']=trim($_POST['sex'])?intval($_POST['sex']):showmsg('请选择性别！',1);
@@ -137,43 +173,165 @@ elseif ($act=='make1_save')
 	$setsqlarr['qq']=trim($_POST['qq']);
 	$setsqlarr['refreshtime']=$timestamp;
 	$setsqlarr['subsite_id']=intval($_CFG['subsite_id']);
-	$setsqlarr['display_name']=intval($_CFG['resume_privacy']);	
-	if (intval($_REQUEST['pid'])===0)
+	$setsqlarr['display_name']=intval($_CFG['resume_privacy']);
+        $resumepid=intval($_REQUEST['pid']);
+	if ($resumepid===0)
 	{	
+              $resumeType = $_GET['resumeType'];
+            if(!isset($resumeType) || ($resumeType!=1&&$resumeType!=0))
+                $resumeType =0;
+            
+                $setsqlarr['resume_type']=$resumeType;
 			$setsqlarr['audit']=intval($_CFG['audit_resume']);
 			$total[0]=$db->get_total("SELECT COUNT(*) AS num FROM ".table('resume')." WHERE uid='{$_SESSION['uid']}'");
 			$total[1]=$db->get_total("SELECT COUNT(*) AS num FROM ".table('resume_tmp')." WHERE uid='{$_SESSION['uid']}'");
 			$total[2]=$total[0]+$total[1];
 			if ($total[2]>=intval($_CFG['resume_max']))
 			{
-			showmsg("您最多可以创建{$_CFG['resume_max']} 份简历,已经超出了最大限制！",1);
+                            showmsg("您最多可以创建{$_CFG['resume_max']} 份简历,已经超出了最大限制！",1);
 			}
 			else
 			{
-			$setsqlarr['addtime']=$timestamp;
-			$pid=inserttable(table('resume'),$setsqlarr,1);
-			if (empty($pid))showmsg("保存失败！",0);
-			check_resume($_SESSION['uid'],$pid);
-			write_memberslog($_SESSION['uid'],2,1101,$_SESSION['username'],"创建了简历");
-			header("Location: ?act=make2&pid=".$pid);
+                            $setsqlarr['addtime']=$timestamp;
+                            $pid = inserttable(table('resume'),$setsqlarr,1);
+                            $resumepid = $pid;
+                            if (empty($pid))showmsg("保存失败！",0);
+                            check_resume($uid,$pid);
+                            write_memberslog($_SESSION['uid'],2,1101,$_SESSION['username'],"创建了简历");
 			}
 	}
 	else
 	{
-		$_CFG['audit_edit_resume']!="-1"?$setsqlarr['audit']=intval($_CFG['audit_edit_resume']):"";
+           $_CFG['audit_edit_resume']!="-1"?$setsqlarr['audit']=intval($_CFG['audit_edit_resume']):"";
 		updatetable(table('resume'),$setsqlarr," id='".intval($_REQUEST['pid'])."'  AND uid='{$setsqlarr['uid']}'");
 		updatetable(table('resume_tmp'),$setsqlarr," id='".intval($_REQUEST['pid'])."'  AND uid='{$setsqlarr['uid']}'");
 		check_resume($_SESSION['uid'],intval($_REQUEST['pid']));
 		write_memberslog($_SESSION['uid'],2,1105,$_SESSION['username'],"修改了简历({$_POST['title']})");
-		if ($_POST['go_resume_show'])
+	}
+         
+        $resumeuid=$uid;
+        /*求职意向开始*/
+        if ($resumepid==0 || $resumeuid==0) showmsg('保存基本信息失败，无法保存求职意向！',1);
+	$resumearr['recentjobs']=trim($_POST['recentjobs']);
+	$resumearr['nature']=intval($_POST['nature'])?intval($_POST['nature']):showmsg('请选择期望岗位性质！',1);
+	$resumearr['nature_cn']=trim($_POST['nature_cn']);
+	$resumearr['district']=trim($_POST['district'])?intval($_POST['district']):showmsg('请选择期望工作地！',1);
+	$resumearr['sdistrict']=intval($_POST['sdistrict']);
+	$resumearr['district_cn']=trim($_POST['district_cn']);
+	$resumearr['wage']=intval($_POST['wage'])?intval($_POST['wage']):showmsg('请选择期望月薪！',1);
+	$resumearr['wage_cn']=trim($_POST['wage_cn']);
+	$resumearr['trade']=$_POST['trade']?trim($_POST['trade']):showmsg('请选择期望从事的行业！',1);
+	$resumearr['trade_cn']=trim($_POST['trade_cn']);
+	$resumearr['intention_jobs']=trim($_POST['intention_jobs']);
+	if ($_CFG['audit_edit_resume']!="-1")
+	{
+            $resumearr['audit']=$_CFG['audit_edit_resume'];
+	}
+	add_resume_jobs($resumepid,$_SESSION['uid'],$_POST['intention_jobs_id'])?"":showmsg('更新失败！',0);
+	updatetable(table('resume'),$resumearr," id='{$resumepid}'  AND   uid='{$resumeuid}'");
+	updatetable(table('resume_tmp'),$resumearr," id='{$resumepid}'  AND   uid='{$resumeuid}'");
+	check_resume($resumeuid,$resumepid);
+        /*求职意向结束*/
+        /*技能特长保存开始*/
+        $setsqlarrspecialty['specialty']=!empty($_POST['specialty'])?$_POST['specialty']:showmsg('请填写您的技能特长！',1);
+	$_CFG['audit_edit_resume']!="-1"?$setsqlarrspecialty['audit']=intval($_CFG['audit_edit_resume']):"";
+	updatetable(table('resume'),$setsqlarrspecialty," id='".$resumepid ."' AND uid='".$resumeuid."'");
+	updatetable(table('resume_tmp'),$setsqlarrspecialty," id='".$resumepid."' AND uid='".$resumeuid."'");
+       check_resume($resumeuid,$resumepid);
+	/*技能特长保存结束*/
+        
+        /*教育经历保存开始*/
+        $edusqlarr['start']='1900-01-01';
+	$edusqlarr['endtime']='1900-01-01';
+	$edusqlarr['school']='no';
+	$edusqlarr['speciality']='no';
+	$edusqlarr['education']='no';
+	$edusqlarr['education_cn']='no';
+        $edusqlarr['uid']=$resumeuid;
+	$edusqlarr['pid']=$resumepid;
+        $edusqlarr['education_remark']=$_POST['education_remark']?trim($_POST['education_remark']):showmsg('请填写教育经历！',1);
+        $resume_education = get_resume_education($resumeuid,$resumepid);
+        $resume_work = get_resume_work($resumeuid,$resumepid);
+        $resume_training=get_resume_training($resumeuid,$resumepid);
+        if(empty($resume_education))
+        { 
+            if (!inserttable(table('resume_education'),$edusqlarr))
+            { 
+                showmsg("保存教育经历失败！",0,$link);
+            }
+        }
+        else
+        {
+            $education_id=$resume_education['id'];
+            if (!updatetable(table('resume_education'),$edusqlarr," id='{$education_id}' AND uid='{$resumeuid}'")){
+                  showmsg("保存教育经历失败！",0,$link);
+            }
+        }
+        check_resume($resumeuid,$resumepid);
+        /*教育经历保存结束*/
+        
+        /*工作经历保存开始*/
+        $worksqlarr['uid']=$resumeuid;
+	$worksqlarr['pid']=$resumepid;
+	$worksqlarr['start']='1900-01-01';
+	$worksqlarr['endtime']='1900-01-01';
+	$worksqlarr['companyname']='no';
+	$worksqlarr['jobs']='no';
+	$worksqlarr['companyprofile']='no';
+	$worksqlarr['achievements']='no';
+        $worksqlarr['work_remark']=trim($_POST['work_remark'])?$_POST['work_remark']:showmsg('请填写工作经历！',1,$link);
+    
+        if(empty($resume_work))
+        { 
+            if (!inserttable(table('resume_work'),$worksqlarr))
+            { 
+                showmsg("保存教育经历失败！",0,$link);
+            }
+        }
+        else
+        {
+            $work_id=$resume_work['id'];
+            if (!updatetable(table('resume_work'),$worksqlarr," id='{$work_id}' AND uid='{$resumeuid}'")){
+                  showmsg("保存工作经历失败！",0,$link);
+            }
+        }
+        check_resume($resumeuid,$resumepid);
+                /*工作经历保存结束*/
+                /*培训经历保存开始*/
+      $trainingsqlarr['uid']=$resumeuid;
+	$trainingsqlarr['pid']=$resumepid;
+	$trainingsqlarr['start']='1900-01-01';
+	$trainingsqlarr['endtime']='1900-01-01';
+	$trainingsqlarr['agency']='no';
+	$trainingsqlarr['course']='no';
+	$trainingsqlarr['description']='no';
+        $trainingsqlarr['training_remark']=trim($_POST['training_remark'])?$_POST['training_remark']:showmsg('请填写培训经历！',1,$link);
+        
+        if(empty($resume_training))
+        { 
+            if (!inserttable(table('resume_training'),$trainingsqlarr))
+            { 
+                showmsg("保存培训经历失败！",0,$link);
+            }
+        }
+        else
+        {
+            $training_id=$resume_training['id'];
+            if (!updatetable(table('resume_training'),$trainingsqlarr," id='{$training_id}' AND uid='{$resumeuid}'")){
+                  showmsg("保存培训经历失败！",0,$link);
+            }
+        }
+        check_resume($resumeuid,$resumepid);
+        /*培训经历保存结束*/
+        
+       	if ($_POST['go_resume_show'])
 		{
-		header("Location: ?act=resume_show&pid={$_REQUEST['pid']}");
+                    header("Location: ?act=resume_show&pid=$resumepid");
 		}
 		else
 		{
-		header("Location: ?act=make2&pid={$_REQUEST['pid']}");
+                    header("Location: ?act=resume_list");
 		}
-	}		
 }
 //创建简历-求职意向
 elseif ($act=='make2')
@@ -210,7 +368,6 @@ elseif ($act=='make2')
 //保存-求职意向
 elseif ($act=='make2_save')
 {
-	
 	$resumeuid=intval($_SESSION['uid']);
 	$resumepid=intval($_REQUEST['pid']);
 	if ($resumeuid==0 || $resumepid==0 ) showmsg('参数错误！',1);
@@ -775,7 +932,7 @@ elseif ($act=='photo_cutting')
 					$resume_basic=get_resume_basic($uid,$pid);
 					$link[0]['text'] = "填写简历基本信息";
 					$link[0]['href'] = '?act=make1';
-					if (empty($resume_basic)) showmsg("请先填写简历基本信息！",1,$link);
+				/*	if (empty($resume_basic)) showmsg("请先填写简历基本信息！",1,$link);
 					$link[0]['text'] = "填写求职意向";
 					$link[0]['href'] = '?act=make2&pid='.$pid;
 					if (empty($resume_basic['intention_jobs'])) showmsg("请先填写求职意向！",1,$link);
@@ -786,6 +943,8 @@ elseif ($act=='photo_cutting')
 					$link[0]['text'] = "填写请先填写教育经历";
 					$link[0]['href'] = '?act=make4&pid='.$pid;
 					if (empty($resume_education)) showmsg("请先填写教育经历！",1,$link);
+                                 * 
+                                 */
 					if (empty($resume_basic['photo_img']))
 					{
 					header('Location: ?act=make7&pid='.$_REQUEST['pid']);
@@ -815,9 +974,13 @@ elseif ($act=='save_resume_photo_cutting')
 	require_once(QISHI_ROOT_PATH.'include/imageresize.class.php');
 	$imgresize = new ImageResize();
 	$photo_dir=substr($_CFG['resume_photo_dir'],strlen($_CFG['site_dir']));
+        
 	$photo_dir="../../".$photo_dir;
+       
 	$photo_thumb_dir=substr($_CFG['resume_photo_dir_thumb'],strlen($_CFG['site_dir']));
 	$photo_thumb_dir="../../".$photo_thumb_dir;
+        
+       
 	$imgresize->load($photo_dir.$resume_basic['photo_img']);
 	$posary=explode(',', $_POST['cut_pos']);
 	foreach($posary as $k=>$v) $posary[$k]=intval($v); 
@@ -930,7 +1093,7 @@ elseif ($act=='talent_save')
 	$resume=get_resume_basic($uid,$pid);
 	if ($resume['complete_percent']<$_CFG['elite_resume_complete_percent'])
 	{
-	showmsg("简历完整指数小于{$_CFG['elite_resume_complete_percent']}%，禁止申请！",0);
+            showmsg("简历完整指数小于{$_CFG['elite_resume_complete_percent']}%，禁止申请！",0);
 	}
 	$setsqlarr['talent']=3;
 	$wheresql=" uid='".intval($_SESSION['uid'])."' AND id='{$pid}' ";
@@ -938,6 +1101,46 @@ elseif ($act=='talent_save')
 	updatetable(table('resume_tmp'),$setsqlarr,$wheresql);
 	write_memberslog($_SESSION['uid'],2,1107,$_SESSION['username'],"申请高级人才");
 	showmsg('申请成功，请等待管理员审核！',2);
+}
+elseif($act=='upload')
+{
+    $uid=intval($_SESSION['uid']);
+    require_once(QISHI_ROOT_PATH.'include/fun_personal.php');
+     $member_basic_info = get_user_info($uid);
+     $attach_resume_path =$member_basic_info['attach_resume_path'];
+
+     if($attach_resume_path)
+     {
+         $smarty->assign('resume_path',$_CFG['updir_resumes'] .$attach_resume_path);
+     }
+   $smarty->display('member_personal/personal_resume_upload.htm');
+}
+elseif($act=="upload_save")
+{
+   !$_FILES['attach_resume']['name']?showmsg('请上传附件！',1):"";
+    require_once(QISHI_ROOT_PATH.'include/upload.php');
+    require_once(QISHI_ROOT_PATH.'include/fun_personal.php');
+    
+    $uid=intval($_SESSION['uid']);
+    $member_basic_info = get_user_info($uid);
+    
+    $attach_dir=substr($_CFG['updir_resumes'],strlen($_CFG['site_dir']));
+    $attach_dir="../../".$attach_dir.date("Y/m/d/");
+    
+    make_dir($attach_dir);
+    $setsqlarr['attach_resume_path']=_asUpFiles($attach_dir, "attach_resume",$_CFG['updir_resumes_max'],'doc/docx/wps/pdf',true);
+    $setsqlarr['attach_resume_path']=date("Y/m/d/").$setsqlarr['attach_resume_path'];
+
+    !updatetable(table('members'),$setsqlarr," uid='".intval($_SESSION['uid'])."'")?showmsg("保存失败！",0):'';
+    
+    $attach_resume_path= '../..'.$_CFG['updir_resumes'] . $member_basic_info['attach_resume_path'];
+
+    if(is_file($attach_resume_path))
+    {
+        unlink($attach_resume_path);
+    }
+    //如果附件存在，则先删除原有的文件
+    header('Location: ?act=upload');
 }
 unset($smarty);
 ?>

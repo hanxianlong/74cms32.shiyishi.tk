@@ -153,25 +153,10 @@ $(document).ready(function()
       <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>教育经历</strong></td>
     </tr>
 	{#foreach from=$show.education_list item=list#}
-	  <tr>
-      <td colspan="2" bgcolor="#FAFAFA"><strong>{#$list.school#} </strong>({#$list.education_cn#})</td>
-    </tr>
-    <tr>
-      <td width="80" align="right" bgcolor="#FAFAFA">起止年月：</td>
-      <td bgcolor="#FFFFFF">{#$list.start#}至{#$list.endtime#}&nbsp;</td>
-    </tr>
-    <tr>
-      <td align="right" bgcolor="#FAFAFA">学校名称：</td>
-      <td bgcolor="#FFFFFF">{#$list.school#}</td>
-    </tr>
-    <tr>
-      <td align="right" bgcolor="#FAFAFA">专业名称：</td>
-      <td bgcolor="#FFFFFF">{#$list.speciality#}</td>
-    </tr>
-    <tr>
-      <td align="right" bgcolor="#FAFAFA">获得学历：</td>
-      <td bgcolor="#FFFFFF">{#$list.education_cn#}</td>
-    </tr>
+        <tr>
+         <td colspan="2" bgcolor="#FFF">({#$list.education_remark#})</td>
+      </tr>
+	 
 	{#/foreach#}
   </table>
   <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
@@ -180,29 +165,10 @@ $(document).ready(function()
     </tr>
 	{#if $show.work_list#}
 	{#foreach from=$show.work_list item=list#}
-	 <tr>
-      <td colspan="2" bgcolor="#FAFAFA"><strong>{#$list.companyname#}</strong> - {#$list.jobs#}</td>
-    </tr>
-    <tr>
-      <td width="80" align="right" bgcolor="#FAFAFA">起止日期：</td>
-      <td bgcolor="#FFFFFF">{#$list.start#}至{#$list.endtime#}&nbsp;</td>
-    </tr>
-	<tr>
-      <td align="right"  bgcolor="#FAFAFA">企业名称：</td>
-      <td bgcolor="#FFFFFF">{#$list.companyname#}</td>
-    </tr>
-	<tr>
-      <td align="right" bgcolor="#FAFAFA">从事职位：</td>
-      <td bgcolor="#FFFFFF">{#$list.jobs#}</td>
-    </tr>
-	<tr>
-      <td align="right" bgcolor="#FAFAFA">业绩表现：</td>
-      <td bgcolor="#FFFFFF">{#$list.achievements#}</td>
-    </tr>
-	<tr>
-      <td align="right"  bgcolor="#FAFAFA">企业介绍：</td>
-      <td bgcolor="#FFFFFF">{#$list.companyprofile#}</td>
-    </tr>
+        <tr>
+            <td colspan="2" bgcolor="#fff">{#$list.work_remark#}</td>
+        </tr>
+	 
 	{#/foreach#}
 	{#else#}
     <tr>
@@ -217,24 +183,9 @@ $(document).ready(function()
 	{#if $show.training_list#}
 	{#foreach from=$show.training_list item=list#}
 	 <tr>
-      <td colspan="2" bgcolor="#FAFAFA"><strong>{#$list.agency#}</strong> - {#$list.course#}</td>
+      <td colspan="2" bgcolor="#FAFAFA">{#$list.training_remark#}</td>
     </tr>
-    <tr>
-      <td width="80" align="right" bgcolor="#FAFAFA">起止日期：</td>
-      <td bgcolor="#FFFFFF">{#$list.start#}至{#$list.endtime#}</td>
-    </tr>
-	<tr>
-      <td align="right"  bgcolor="#FAFAFA">培训机构：</td>
-      <td bgcolor="#FFFFFF">{#$list.agency#}</td>
-    </tr>
-	<tr>
-      <td align="right" bgcolor="#FAFAFA">培训课程：</td>
-      <td bgcolor="#FFFFFF">{#$list.course#}</td>
-    </tr>
-	<tr>
-      <td align="right" bgcolor="#FAFAFA">培训描述：</td>
-      <td bgcolor="#FFFFFF">{#$list.description#}</td>
-    </tr>
+     
 	{#/foreach#}
 	{#else#}
     <tr>

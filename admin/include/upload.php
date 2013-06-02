@@ -17,10 +17,10 @@
 */ 
 function _asUpFiles($dir, $file_var, $max_size='', $type='', $name=false) 
 {
-if (!file_exists($dir)) adminmsg("上传图片失败：上传目录 ".$dir." 不存在!",0);
+if (!file_exists($dir)) adminmsg("上传失败：上传目录 ".$dir." 不存在!",0);
 if (!is_writable($dir)) 
 {
-adminmsg("上传图片失败：上传目录 ".$dir." 无法写入!",0);
+adminmsg("上传失败：上传目录 ".$dir." 无法写入!",0);
 exit(); 
 }
 $upfile=& $_FILES["$file_var"]; 
@@ -29,18 +29,18 @@ if (!($upfilename===''))
 { 
 if (!is_uploaded_file($upfile['tmp_name'])) 
 { 
-adminmsg('上传图片失败：你选择的文件无法上传',0);
+adminmsg('上传失败：你选择的文件无法上传',0);
 exit(); 
 } 
 if ($max_size>0 && $upfile['size']/1024>$max_size) 
 { 
-adminmsg("上传图片失败：文件大小不能超过  ".$max_size."KB",0);
+adminmsg("上传失败：文件大小不能超过  ".$max_size."KB",0);
 exit(); 
 } 
 $ext_name = strtolower(str_replace(".", "", strrchr($upfilename, "."))); 
 if (!($type==='') && strpos($type, $ext_name)===false) 
 { 
-adminmsg("上传图片失败：只允许上传 ".$type." 的文件！",0);
+adminmsg("上传失败：只允许上传 ".$type." 的文件！",0);
 exit(); 
 }
 ($name==true)?$uploadname=time().mt_rand(100,999).".".$ext_name :'';
@@ -49,7 +49,7 @@ exit();
 //$uploadname = $name ? md5(uniqid(rand())).".".$ext_name : $upfilename; 
 if (!move_uploaded_file($upfile['tmp_name'], $dir.$uploadname)) 
 { 
-adminmsg('上传图片失败：文件上传出错！',0);
+adminmsg('上传失败：文件上传出错！',0);
  exit(); 
 } 
 return $uploadname; 

@@ -77,5 +77,7 @@ $data = array (
   'login_com_audit_mobile' => '0',
   'login_per_audit_email' => '0',
   'login_per_audit_mobile' => '0',
+  'updir_resumes' => 'resumes',
+  'updir_resumes_max' => '2048',
 );
 ?>

@@ -32,7 +32,9 @@
 	   <div class="us_tab">
 			<a href="?act={#$act#}&jobtype=" {#if $smarty.get.jobtype==""#}class="select"{#/if#}>所有职位{#if $total.2>0#}<span>({#$total.2#})</span>{#/if#}</a>
               <a href="?act={#$act#}&jobtype=1" {#if $smarty.get.jobtype=="1"#}class="select"{#/if#}>显示中{#if $total.0>0#}<span>({#$total.0#})</span>{#/if#}</a>
-              <a href="?act={#$act#}&jobtype=2" {#if $smarty.get.jobtype=="2"#}class="select"{#/if#}>不显示{#if $total.1>0#}<span>({#$total.1#})</span>{#/if#}</a><div style="padding-right:10px; text-align:right; float:right" ><a href="{#"QS_helplist,9"|qishi_url#}" target="_blank" style="width: auto; border:0px; background-color: #FFFFFF; color:#FF0000; text-align:right">为什么审核未通过?</a></div>
+              <a href="?act={#$act#}&jobtype=2" {#if $smarty.get.jobtype=="2"#}class="select"{#/if#}>不显示{#if $total.1>0#}<span>({#$total.1#})</span>{#/if#}</a>
+               <a href="?act={#$act#}&jobtype=-1" {#if $smarty.get.jobtype=="-1"#}class="select"{#/if#}>回收站{#if $total.3>0#}<span>({#$total.3#})</span>{#/if#}</a>
+              <div style="padding-right:10px; text-align:right; float:right" ><a href="{#"QS_helplist,9"|qishi_url#}" target="_blank" style="width: auto; border:0px; background-color: #FFFFFF; color:#FF0000; text-align:right">为什么审核未通过?</a></div>
 			  <div class="clear"></div>
 			  </div>
 	    <form id="form1" name="form1" method="post" action="?act=jobs_perform">
@@ -71,7 +73,12 @@
            
                 <td align="center"  >
 				<a href="?act=editjobs&id={#$li.id#}">修改</a>&nbsp;
+                                {# if $li.is_deleted==0 #}
+                                <a href="?act=jobs_perform&delete=-1&y_id={#$li.id#}" onclick="return confirm('您确定移动到回收站吗?')">回收站</a>
+                                {# else #}
+                                <a href="?act=jobs_perform&delete=-2&y_id={#$li.id#}" onclick="return confirm('您确定恢复吗?')">恢复</a>
 				<a href="?act=jobs_perform&delete=1&y_id={#$li.id#}" onclick="return confirm('您确定删除吗?')">删除</a>
+                                {#/if#}
 				</td>
 			     <td align="center"  >
 				<a href="?act=jobs_perform&refresh=1&y_id={#$li.id#}" {#if $points_rule.jobs_refresh.value>0#} onclick="return confirm('刷新职位可提高职位排名，每次消耗 {#$points_rule.jobs_refresh.value#} {#$QISHI.points_quantifier#}{#$QISHI.points_byname#}，确定刷新吗？')"{#/if#}>刷新</a>&nbsp;
@@ -91,9 +98,6 @@
 				{#else#}
 				<a href="company_promotion.php?act=promotion_add&promotionid=4&jobsid={#$li.id#}&jobsname={#$li.jobs_name_#}&golist=1" title="推广后职位名称会变色，使职位更加醒目" class="vtip">变色</a>&nbsp;
 				{#/if#}
-				
-				
-				
 				{#if $li.emergency=="1"#}
 				<a href="javascript:void(0);" title="此职位已紧急，正在推广中..." class="vtip" style="color:#999999">紧急</a>&nbsp;
 				{#else#}

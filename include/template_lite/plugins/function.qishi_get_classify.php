@@ -1,8 +1,10 @@
 <?php
+
 function tpl_function_qishi_get_classify($params, &$smarty)
 {
 global $db;
 $_CAT=get_cache('category');
+
 $arr=explode(',',$params['set']);
 foreach($arr as $str)
 {
@@ -43,6 +45,7 @@ if ($act=="QS_jobs")
 	while($row = $db->fetch_array($result))
 	{
 	$row['categoryname']=cut_str($row['categoryname'],$aset['titlelen'],0,$aset['dot']);
+        $row['categoryname_en']=cut_str($row['categoryname_en'],$aset['titlelen'],0,$aset['dot']);
 	$row['title']=cut_str($row['categoryname'],$aset['titlelen'],0,$aset['dot']);
 	$row['jobcategory']=$row['parentid']=='0'?$row['id'].".0":$row['parentid'].".".$row['id'];
 	$list[] = $row;
@@ -87,6 +90,7 @@ elseif ($act=="QS_district")
 	while($row = $db->fetch_array($result))
 	{
 	$row['categoryname']=cut_str($row['categoryname'],$aset['titlelen'],0,$aset['dot']);
+        $row['categoryname_en']=cut_str($row['categoryname_en'],$aset['titlelen'],0,$aset['dot']);
 	$row['title']=cut_str($row['categoryname'],$aset['titlelen'],0,$aset['dot']);
 	$row['citycategory']=$row['parentid']=='0'?$row['id'].".0":$row['parentid'].".".$row['id'];
 	$list[] = $row;
@@ -127,6 +131,7 @@ elseif ($act=="QS_officebuilding")
 	while($row = $db->fetch_array($result))
 	{
 	$row['categoryname']=cut_str($row['c_name'],$aset['titlelen'],0,$aset['dot']);
+        $row['categoryname_en']=cut_str($row['c_name_en'],$aset['titlelen'],0,$aset['dot']);
 	$list[] = $row;
 	}
 }
@@ -138,6 +143,7 @@ elseif ($act=="QS_street")
 	while($row = $db->fetch_array($result))
 	{
 	$row['categoryname']=cut_str($row['c_name'],$aset['titlelen'],0,$aset['dot']);
+        $row['categoryname_en']=cut_str($row['c_name_en'],$aset['titlelen'],0,$aset['dot']);
 	$list[] = $row;
 	}
 }
@@ -147,8 +153,9 @@ else
 	{
 		foreach ($_CAT[$act] as $cat)
 		{
-		$cat['categoryname']=cut_str($cat['categoryname'],$aset['titlelen'],0,$aset['dot']);
-		$list[] = $cat;
+                    $cat['categoryname']=cut_str($cat['categoryname'],$aset['titlelen'],0,$aset['dot']);
+                    $cat['categoryname_en']=cut_str($cat['categoryname_en'],$aset['titlelen'],0,$aset['dot']);
+                    $list[] = $cat;
 		}
 		if (intval($aset['row'])>0)
 		{
@@ -156,6 +163,7 @@ else
 		}		
 	}
 }
+        
 $smarty->assign($aset['listname'],$list);
 }
 ?>

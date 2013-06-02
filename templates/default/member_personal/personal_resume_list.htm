@@ -48,7 +48,7 @@ $(document).ready(function()
                 <td width="85" class="us_list_title" align="center">完整指数</td>
                 <td width="10" class="us_list_title"></td>
                 <td width="50" align="center" class="us_list_title">等级</td>
-	
+	 <td width="50" align="center" class="us_list_title">类型</td>
                 <td width="150" align="center" class="us_list_title">操作</td>
               </tr>
 			   {#foreach from=$resume_list item=list#}
@@ -76,7 +76,12 @@ $(document).ready(function()
 				  {#else#}
 				  普通
 				  {#/if#}				</td>
-        
+           <td align="center" >
+				 {#if $list.resume_type=="1"#}
+				  <span style="color:#FF6600">英文简历</span>
+				  {#else#}
+				  中文简历
+				  {#/if#}				</td>
                 <td align="center" >
 				<a href="?act=resume_show&pid={#$list.id#}" >修改</a>&nbsp;&nbsp;
 				<a href="?act=resume_privacy&pid={#$list.id#}" >隐私</a>&nbsp;&nbsp;
@@ -96,10 +101,11 @@ $(document).ready(function()
 			  <table width="100%" border="0" cellspacing="8" cellpadding="0"  style="margin-bottom:15px;">
                 <tr>
                   <td>
-				   <input type="button" name="add" value="创建一份简历"   class="user_submit" onclick="javascript:location.href='?act=make1' " />
+			  <input type="button" name="add" value="创建中文简历"   class="user_submit" onclick="javascript:location.href='?act=make1' " />
+                         <input type="button" name="add" value="创建英文简历"   class="user_submit" onclick="javascript:location.href='?act=make1&resumeType=1' " />
                     &nbsp;&nbsp;&nbsp;&nbsp;
-				  <input type="button" name="refresh" value="一键提升简历排名"   class="user_long_submit" onclick="javascript:location.href='?act=refresh' " />
-                    &nbsp;&nbsp;&nbsp;&nbsp;                   
+			<input type="button" name="refresh" value="一键提升简历排名"   class="user_long_submit" onclick="javascript:location.href='?act=refresh' " />
+                    &nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="submit" name="delete" value="删除简历"   class="user_submit"  onclick="return confirm('您确定删除吗?')"/></td>
                 </tr>
               </table>
@@ -108,7 +114,8 @@ $(document).ready(function()
 			<table width="100%" border="0" cellspacing="8" cellpadding="0">
                 <tr>
                   <td>
-				   <input type="button" name="add" value="创建一份简历"   class="user_submit" onclick="javascript:location.href='?act=make1' " />
+				    <input type="button" name="add" value="创建中文简历"   class="user_submit" onclick="javascript:location.href='?act=make1' " />
+                         <input type="button" name="add" value="创建英文简历"   class="user_submit" onclick="javascript:location.href='?act=make1&resumeType=1' " />
 					</td>
                 </tr>
               </table>
