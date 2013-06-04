@@ -22,18 +22,23 @@ function user_register($username,$password,$member_type=0,$email,$uc_reg=true)
 	$ck_email=get_user_inemail($email);
 	if ($member_type==0) 
 	{
-	return -1;
+            return -1;
 	}
 	elseif (!empty($ck_username))
 	{
-	return -2;
+            return -2;
 	}
 	elseif (!empty($ck_email))
 	{
-	return -3;
+            return -3;
 	}
 	$pwd_hash=randstr();
 	$password_hash=md5(md5($password).$pwd_hash.$QS_pwdhash);
+        if(!empty($user_id))
+        {
+            $setsqlarr['uid']=$user_id;
+        }
+        
 	$setsqlarr['username']=$username;
 	$setsqlarr['password']=$password_hash;
 	$setsqlarr['pwd_hash']=$pwd_hash;
@@ -41,10 +46,11 @@ function user_register($username,$password,$member_type=0,$email,$uc_reg=true)
 	$setsqlarr['utype']=intval($member_type);
 	$setsqlarr['reg_time']=$timestamp;
 	$setsqlarr['reg_ip']=$online_ip;
+      
 	if ($_SESSION["openid"] && $_CFG['qq_apiopen']=="1")
 	{
-	$setsqlarr['qq_openid']=$_SESSION["openid"];
-	}	
+            $setsqlarr['qq_openid']=$_SESSION["openid"];
+	}
 	$insert_id=inserttable(table('members'),$setsqlarr,true);
 			if($member_type=="1")
 			{
@@ -66,8 +72,13 @@ function user_register($username,$password,$member_type=0,$email,$uc_reg=true)
 								write_memberslog($insert_id,1,9002,$username,"注册会员系统自动赠送：{$setmeal['setmeal_name']}");
 							}
 			}
-			write_memberslog($insert_id,$member_type,1000,$username,"注册成为会员");
-return $insert_id;
+    if(defined('UC_API') && $uc_reg)
+    {
+        include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');
+        $uc_reg_uid=uc_user_register($username,$password,$email);
+    }
+    write_memberslog($insert_id,$member_type,1000,$username,"注册成为会员");
+    return $insert_id;
 }
 //会员登录
 function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NULL)
@@ -90,6 +101,36 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
 		$usinfo=get_user_inmobile($account);
 		$audit=$usinfo['mobile_audit'];
 	}
+        
+        //如果未查询到用户信息，则检查uc中是否存在该用户,如果存在，则注册到本系统中来
+        /*-------------开始-----------------*/
+        if(empty($usinfo))
+        {
+            if(!(defined('UC_API') && $uc_login)){
+                return $login;
+            }
+            //检查用户是否存在于ucenter中，如果不存在，则返回登录失败
+            //如果存在，则将信息注册到本系统中
+            include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');
+            list($uc_uid, $uc_username, $uc_password, $uc_email) = uc_user_login($account, $password);
+            if($uc_uid == -1)//如果不存在于ucenter中，则登录失败 
+            {
+                return $login;
+            }
+
+            //用户名存在于uc中,并且登录成功，则同步到本系统中来,然后登录
+            if ($uc_uid>0)
+            {
+               $qs_uid =  user_register($account,$password,1,$uc_email,false);
+               update_user_info($qs_uid,true,true,$expire);
+                
+               $login['qs_login']=get_member_url(1);
+               $login['uc_login']=uc_user_synlogin($uc_uid);
+            }
+        }
+        /*如果未查询到用户信息，则检查uc中是否存在该用户-------------结束-----------------*/
+        
+        //如果用户存在，并且验证方式为1“用户名"
 	if (!empty($usinfo) && $audit=="1")
 	{
 		$pwd_hash=$usinfo['pwd_hash'];
@@ -97,15 +138,38 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
 		$pwd=md5(md5($password).$pwd_hash.$QS_pwdhash);
 		if ($usinfo['password']==$pwd)
 		{
-		update_user_info($usinfo['uid'],true,true,$expire);
-		$login['qs_login']=get_member_url($usinfo['utype']);
-		$success=true;
-		write_memberslog($usinfo['uid'],$usinfo['utype'],1001,$usinfo['username'],"成功登录");
+                   update_user_info($usinfo['uid'],true,true,$expire);
+                    $login['qs_login']=get_member_url($usinfo['utype']);
+                    $success=true;
+                    write_memberslog($usinfo['uid'],$usinfo['utype'],1001,$usinfo['username'],"成功登录");
+                
+                 /*如果选择uc同步登录，则同步登录uc         开始*/
+                     $login['uc_login']='';
+                    if(defined('UC_API') && $uc_login)
+                    {
+                        include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');
+                        list($uc_uid, $uc_username, $uc_password, $uc_email) = uc_user_login($usname, $password);
+                        
+                        //如果用户名已存在并且登录成功，则同步登录到uc
+                        if ($uc_uid>0)
+                        {
+                            $login['uc_login']=uc_user_synlogin($uc_uid);
+                        }
+                        elseif($uc_uid === -1)//如果用户名在uc中不存在，则将此用户注册到uc中去
+                        {
+                            $uc_reg_uid = uc_user_register($usname, $password, $usinfo['email']);
+                            if ($uc_reg_uid>0)
+                            {
+                                $login['uc_login']=uc_user_synlogin($uc_reg_uid);
+                            }
+                        }
+                    }
+                    /*uc登录结束*/
 		}
 		else
 		{
-		$usinfo='';
-		$success=false;
+                    $usinfo='';
+                    $success=false;
 		}
 	}
 	return $login;	
@@ -114,18 +178,12 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
 function check_cookie($name,$pwd){
  	global $db;
  	$row = $db->getone("SELECT COUNT(*) AS num FROM ".table('members')." WHERE username='{$name}' and password = '{$pwd}'");
- 	if($row['num'] > 0)
-	{
- 	return true;
- 	}else{
- 	return false;
- 	}
+ 	
+        return $row['num'] > 0;
  }
  /**
   *
   * 更新用户信息
-  *
-  *
   */
  function update_user_info($uid,$record=true,$setcookie=true,$cookie_expire=NULL)
  {

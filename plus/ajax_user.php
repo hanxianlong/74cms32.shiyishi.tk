@@ -63,29 +63,23 @@ if($act =='do_login')
 	if ($username && $password)
 	{
             $user=get_user_inusername($username);
-		if(empty($user)){
-			//修改64-72行同步获取用户源
-			if(!$passport = getpassport($username, $password)) {
-				exit("login_failure_please_re_login");
-			}else{
-				user_register($passport['username'],$password,2,$passport['email'],true,$passport['uid']);
-			}
-		}
-                
-		$login=user_login($username,$password,$account_type,true,$expire);
-		$url=$url?$url:$login['qs_login'];
-		if ($login['qs_login'])
-		{
-                    /*uc同步登录*/
-			if(defined('UC_API')){
-				$login['uc_login']=uc_user_synlogin($_SESSION['uid']);
-			}
-                    exit($login['uc_login']."<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$url."\";</script>");
-		}
-		else
-		{
-		exit("err");
-		}
+            $login=user_login($username,$password,$account_type,true,$expire);
+            $url=$url?$url:$login['qs_login'];
+            if ($login['qs_login'])
+            {
+                /*uc同步登录*/
+            /*	if(defined('UC_API')){
+                            $login['uc_login']=uc_user_synlogin($_SESSION['uid']);
+                    }
+             * */
+                //    print('session uid:'. $_SESSION['uid']);
+               //     die('uc:' . $login['uc_login']);
+                exit($login['uc_login']."<script language=\"javascript\" type=\"text/javascript\">window.setTimeout(function(){window.location.href=\"".$url."\"},1500);</script>");
+            }
+            else
+            {
+            exit("err");
+            }
 	}
 	exit("err");
 }
@@ -114,15 +108,18 @@ elseif ($act=='do_reg')
 	$username=iconv("utf-8",QISHI_DBCHARSET,$username);
 	$password=iconv("utf-8",QISHI_DBCHARSET,$password);
 	}
-	$register=user_register($username,$password,$member_type,$email);
+        /*uc注册,lftqgc  
+        if(defined('UC_API')){
+                $uid=uc_user_register($username,$password,$email);
+        }*/
+        
+	$register=user_register($username,$password,$member_type,$email,true);
 	if ($register>0)
 	{	
-		$login_js=user_login($username,$password);
-                /*uc注册*/
-		if(defined('UC_API')){
-			$uid=uc_user_register($username,$password,$email);
-			if($uid>0)$ucjs=uc_user_synlogin($uid);//uc登录通知
-		}
+		$login_js=user_login($username,$password,$member_type,true);
+                
+               // if($uid>0)$ucjs=uc_user_synlogin($uid);//uc登录通知
+                
 		$mailconfig=get_cache('mailconfig');
 		if ($mailconfig['set_reg']=="1")
 		{
