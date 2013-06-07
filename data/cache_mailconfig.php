@@ -1,10 +1,10 @@
 <?php
 $data = array (
   'method' => '1',
-  'smtpservers' => '',
-  'smtpusername' => '',
-  'smtppassword' => '',
-  'smtpfrom' => '',
+  'smtpservers' => 'smtp.163.com',
+  'smtpusername' => 'abc',
+  'smtppassword' => 'def',
+  'smtpfrom' => 'abc@bb.cc',
   'smtpport' => '25',
   'set_reg' => '0',
   'set_applyjobs' => '0',

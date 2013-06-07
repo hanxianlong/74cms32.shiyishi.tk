@@ -105,7 +105,7 @@ elseif ($act=='do_reg')
 	$register=user_register($username,$password,$member_type,$email,true);
 	if ($register>0)
 	{	
-		$login_js=user_login($username,$password,$member_type,true);
+		$login_js=user_login($username,$password,'1',true);
                 
 		$mailconfig=get_cache('mailconfig');
 		if ($mailconfig['set_reg']=="1")
