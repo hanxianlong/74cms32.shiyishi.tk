@@ -1,0 +1,8 @@
+<div class="ver_line"></div>
+<div id="web_bottom">
+    <div id="copyright" class="deep_grey_l f12">
+    	<a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('{#$QISHI.site_domain#}');" href="javascript:"  class="white">设为首页</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="javascript:" onclick="window.external.addFavorite(parent.location.href,document.title);"  class="white">加入收藏</a>
+    	{#qishi_explain_list set="列表名:explain,分类ID:1"#}{#foreach from=$explain item=list#}&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="{#$list.url#}" target="_blank" class="white">{#$list.title#}</a>{#/foreach#}<br />
+    	联系地址：{#$QISHI.address#} 联系电话：{#$QISHI.bootom_tel#} 网站备案：<a href="http://www.miibeian.gov.cn/" target="_blank">{#$QISHI.icp#}</a><br />{#$QISHI.bottom_other#} 
+    </div>
+</div>

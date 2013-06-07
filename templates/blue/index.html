@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>蓝色模版</title>
+<link href="css/global.css" rel="stylesheet" type="text/css" />
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+<link href="css/font.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.js" type='text/javascript' ></script>
+<script type="text/javascript"> 
+$(document).ready(function()
+{
+	$("#hot_ad li:nth-child(5n)").css("margin-right","0")
+});
+</script>		
+</head>
+
+<body>
+
+<div id="web_head">
+
+	<div class="top_line_bg"></div>
+    
+    <div class="main_frame">
+    
+    	<div class="top_middle">
+        	<div id="logo_box" class="left">
+            	<div id="logo"><img src="images/logo.jpg" /></div>
+            </div>
+            <div id="top_split" class="left"></div>
+            <div id="top_banner_box" class="left">
+            	<div id="top_banner">
+            		<img src="images/top_banner.jpg" />
+                </div>
+            </div>
+    	</div>
+        
+        <div id="main_nav">
+        	<div class="nav_bg_left left"></div>
+            <div class="nav_bg_mid left">
+            	<div id="nav">
+                	<ul class="f12">
+                    	<li class="nav_selected"><a href="#">首 页</a></li>
+                        <li class="nav_normal"><a href="#">招聘信息</a></li>
+                        <li class="nav_normal"><a href="#">兼职信息</a></li>
+                        <li class="nav_normal"><a href="#">微招聘</a></li>
+                        <li class="nav_normal"><a href="#">地图搜索</a></li>
+                        <li class="nav_normal"><a href="#">求职信息</a></li>
+                        <li class="nav_normal"><a href="#">照片人才 </a></li>
+                        <li class="nav_normal"><a href="#">高级人才</a></li>
+                        <li class="nav_normal"><a href="#">HR工具箱</a></li>
+                        <li class="nav_normal"><a href="#">招聘会</a></li>
+                        <li class="nav_normal"><a href="#">新闻资讯</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="nav_bg_right left"></div>
+        </div>
+        
+    </div>
+    
+    <div class="header_line"></div>
+    
+</div>
+
+<div id="web_body" class="main_frame">
+	<div id="blue_box">
+    	<div id="button_box" class="left">
+        	<ul>
+            	<li><a href="#"><img src="images/new_button.jpg" /></a></li>
+                <li><a href="#"><img src="images/resume_button.jpg" /></a></li>
+                <li><a href="#"><img src="images/employ_button.jpg" /></a></li>
+            </ul>
+        </div>
+        <div id="split_line" class="left">
+        </div>
+        <div id="search_box" class="left">
+        	<form id="searcform" name="searcform" method="get" action="{#"QS_jobslist"|qishi_url#}">
+        	<ul class="white_n f12">
+            	<li><label for="category">职位类别：</label><select name="category" id="category">
+                    	<option value="">请选择职业类别</option>
+						{#qishi_get_classify set="列表名:li,类型:QS_jobs"#}
+						{#foreach from=$li item=li#}
+						<option value="{#$li.id#}">{#$li.categoryname#}</option>
+						{#/foreach#}
+                    </select>&nbsp;&nbsp;<label><input type="button" name="advance" value="" class="advance_search" onClick="window.location.href='main.php?act=deal_orders'"/></label></li>
+                 <li><label for="trade">行业分类：</label><select name="trade" id="trade">
+                 		<option value="">请选择行业分类</option>
+                    	{#qishi_get_classify set="列表名:li,类型:QS_trade"#}
+						{#foreach from=$li item=li#}
+						<option value="{#$li.id#}">{#$li.categoryname#}</option>
+						{#/foreach#}
+                    </select>&nbsp;&nbsp;<label><input type="submit" name="Submit" value="" class="resume_search"/></label></li>
+                  <li><label for="key">关&nbsp;&nbsp;键&nbsp;&nbsp;字：</label><input name="key" type="text" id="key" maxlength="24" value="请输入关键字..." style="width:145px;"/></li>
+            </ul>
+            </form>
+        </div>
+        <div id="hot_cate" class="left">
+        	<ul>
+            	<li class="white_n f14b">太原招聘热门分类</li>
+                <li class="white f12"><a href="#">销售 导购 房地产经纪人 保险经纪人 技工/工人 司机 保安 人事专员 行政专员 秘书/文员 前台 仓库管理员 跟单员 客服 会计 出纳 服务员</a></li>
+            </ul>
+        </div>
+    </div><!--end of blue_box -->
+    
+    <div class="ver_line"></div>
+    
+    <div class="left">
+    	<div id="s_comment">
+        	<div class="blue_bar">
+            	<ul>
+                	<li><img src="images/icon_1.png" /></li>
+                    <li class="white_n f12">特别推荐</li>
+                </ul>
+            </div>
+            <div class="content">
+            	<ul class="blue_l f12">
+                	<li><a href="#">·&nbsp;&nbsp;创业以后你就不是你自己了</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;创业以后你就不是你自己了</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;创业以后你就不是你自己了</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;创业以后你就不是你自己了</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;创业以后你就不是你自己了</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;创业以后你就不是你自己了</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;创业以后你就不是你自己了</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="hot_left_ad">
+        	<ul>
+            	<li><a href="#"><img src="images/ad_34.jpg" /></a></li>
+                <li><a href="#"><img src="images/ad_37.jpg" /></a></li>
+                <li><a href="#"><img src="images/ad_39.jpg" /></a></li>
+                <li><a href="#"><img src="images/ad_41.jpg" /></a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="right">
+    	<div id="hot_job_info">
+        	<div class="hot_job_bar">
+            	<ul>
+                	<li class="left"><img src="images/icon_2.png" /></li>
+                    <li class="left orange f14b">热点招聘信息</li>
+                    <li class="right blue_l f12"><a href="#">更多...</a></li>
+                </ul>
+            </div>
+            <div class="content">
+            	<ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+                <ul>
+                	<li class="blue_l f12"><a href="#">·&nbsp;&nbsp;石狮市赛琪体育用品有限公司</a></li>
+                    <li class="grey_l f12"><a href="#">&nbsp;&nbsp;&nbsp;诚聘：服装设计师、运动鞋设计师、财务</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div id="hot_ad" class="clear">
+        	<ul>
+            	<li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+    </div>
+    
+    <div class="ver_line"></div>
+    
+    <div id="new_resume" class="left">
+    	<div class="resume_bar">
+        	<ul>
+            	<li class="left" style="margin-top:2px;margin-left:6px;"><img src="images/icon_3.png" /></li>
+                <li style="width:103px;background:url(images/resume_blue_box.jpg) no-repeat" class="left white_n f14b">最新职位</li>
+                <li class="right white f12"><a href="#">更多...</a></li>
+            </ul>
+        </div>
+        <div class="content">
+        	<ul class="grey_bg">
+            	<li class="left blue_l f12"><img src="images/blue_delta.jpg" />&nbsp;<a href="#">诺基亚手机导购-钦州</a></li>
+                <li class="left blue_l f12"><img src="images/blue_delta.jpg" />&nbsp;<a href="#">诺基亚手机导购-钦州</a></li>
+                <li class="left blue_l f12"><img src="images/blue_delta.jpg" />&nbsp;<a href="#">诺基亚手机导购-钦州</a></li>
+                <li class="left blue_l f12"><img src="images/blue_delta.jpg" />&nbsp;<a href="#">诺基亚手机导购-钦州</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="right">
+    	<div id="emer_recuit">
+        	<div class="recuit_bar">
+            	<div class="recuit_bar_bg">
+                	<ul>
+                    	<li><img src="images/icon_4.png" /></li>
+                        <li class="red f14b">紧急招聘</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="emer_content">
+            	<ul>
+                	<li class="left f12"><a href="#" class="orange">ADP品牌店员/店长</a></li>
+                    <li class="left" style="margin-left:5px"><img src="images/emer_icon.jpg" /></li>
+                    <li class="clear f12 grey_n">时间：2012-10-9  待遇：3000/月</li>
+                </ul>
+                <ul>
+                	<li class="left f12"><a href="#" class="orange">ADP品牌店员/店长</a></li>
+                    <li class="left" style="margin-left:5px"><img src="images/emer_icon.jpg" /></li>
+                    <li class="clear f12 grey_n">时间：2012-10-9  待遇：3000/月</li>
+                </ul>
+                <ul>
+                	<li class="left f12"><a href="#" class="orange">ADP品牌店员/店长</a></li>
+                    <li class="left" style="margin-left:5px"><img src="images/emer_icon.jpg" /></li>
+                    <li class="clear f12 grey_n">时间：2012-10-9  待遇：3000/月</li>
+                </ul>
+                <ul>
+                	<li class="left f12"><a href="#" class="orange">ADP品牌店员/店长</a></li>
+                    <li class="left" style="margin-left:5px"><img src="images/emer_icon.jpg" /></li>
+                    <li class="clear f12 grey_n">时间：2012-10-9  待遇：3000/月</li>
+                </ul>
+                <ul>
+                	<li class="left f12"><a href="#" class="orange">ADP品牌店员/店长</a></li>
+                    <li class="left" style="margin-left:5px"><img src="images/emer_icon.jpg" /></li>
+                    <li class="clear f12 grey_n">时间：2012-10-9  待遇：3000/月</li>
+                </ul>
+            </div>
+        </div>
+        <div id="emer_ad">
+        	<ul>
+            	<li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="ver_line"></div>
+    
+    <div id="job_news">
+    	<div id="news_box" class="left">
+        	<div class="news_bar">
+            	<ul>
+                	<li class="left"><img src="images/icon_5.png" /></li>
+                    <li class="left white_n f14b">职场资讯</li>
+                    <li class="right white f12"><a href="#">更多...</a></li>
+                </ul>
+            </div>
+            <div class="news_content">
+            	<ul class="deep_grey_l f12">
+                	<li><a href="#">·&nbsp;&nbsp;健康管理让您的员工更有归属感</a></li>
+					<li><a href="#">·&nbsp;&nbsp;企业现金管理年度评选活动再度启航</a></li>
+					<li><a href="#">·&nbsp;&nbsp;切莫忽视员工心理薪酬</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;员工招聘，不是人事部的独角戏</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;当“属相”成为选人标准时</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;校园招聘：你为何招不到人？</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;面试时的“规矩”</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;HR工作者的五个表率</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;如何用好物质奖励提升员工士气</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hor_line left"></div>
+        <div id="news_box" class="left">
+        	<div class="news_bar">
+            	<ul>
+                	<li class="left"><img src="images/icon_5.png" /></li>
+                    <li class="left white_n f14b">HR杂谈</li>
+                    <li class="right white f12"><a href="#">更多...</a></li>
+                </ul>
+            </div>
+            <div class="news_content">
+            	<ul class="deep_grey_l f12">
+                	<li><a href="#">·&nbsp;&nbsp;健康管理让您的员工更有归属感</a></li>
+					<li><a href="#">·&nbsp;&nbsp;企业现金管理年度评选活动再度启航</a></li>
+					<li><a href="#">·&nbsp;&nbsp;切莫忽视员工心理薪酬</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;员工招聘，不是人事部的独角戏</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;当“属相”成为选人标准时</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;校园招聘：你为何招不到人？</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;面试时的“规矩”</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;HR工作者的五个表率</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;如何用好物质奖励提升员工士气</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hor_line left"></div>
+        <div id="news_box" class="left">
+        	<div class="news_bar">
+            	<ul>
+                	<li class="left"><img src="images/icon_5.png" /></li>
+                    <li class="left white_n f14b">职业规划</li>
+                    <li class="right white f12"><a href="#">更多...</a></li>
+                </ul>
+            </div>
+            <div class="news_content">
+            	<ul class="deep_grey_l f12">
+                	<li><a href="#">·&nbsp;&nbsp;健康管理让您的员工更有归属感</a></li>
+					<li><a href="#">·&nbsp;&nbsp;企业现金管理年度评选活动再度启航</a></li>
+					<li><a href="#">·&nbsp;&nbsp;切莫忽视员工心理薪酬</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;员工招聘，不是人事部的独角戏</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;当“属相”成为选人标准时</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;校园招聘：你为何招不到人？</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;面试时的“规矩”</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;HR工作者的五个表率</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;如何用好物质奖励提升员工士气</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hor_line left"></div>
+        <div id="news_box" class="left">
+        	<div class="news_bar">
+            	<ul>
+                	<li class="left"><img src="images/icon_5.png" /></li>
+                    <li class="left white_n f14b">劳动法规</li>
+                    <li class="right white f12"><a href="#">更多...</a></li>
+                </ul>
+            </div>
+            <div class="news_content">
+            	<ul class="deep_grey_l f12">
+                	<li><a href="#">·&nbsp;&nbsp;健康管理让您的员工更有归属感</a></li>
+					<li><a href="#">·&nbsp;&nbsp;企业现金管理年度评选活动再度启航</a></li>
+					<li><a href="#">·&nbsp;&nbsp;切莫忽视员工心理薪酬</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;员工招聘，不是人事部的独角戏</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;当“属相”成为选人标准时</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;校园招聘：你为何招不到人？</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;面试时的“规矩”</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;HR工作者的五个表率</a></li>
+                    <li><a href="#">·&nbsp;&nbsp;如何用好物质奖励提升员工士气</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ver_line"></div>
+    
+    <div id="friend_links">
+    	<div class="links_bar">
+            <ul>
+                <li class="f14b grey_n">·友情链接</li>
+            </ul>
+        </div>
+        <div class="content">
+        	<ul class="grey_l f12">
+            	<li><a href="#">山西就业网</a></li>  
+                <li><a href="#">山西中小企业网</a></li>
+                <li><a href="#">青年在线</a></li> 
+                <li><a href="#">汇能网</a></li> 
+                <li><a href="#">海南人才招聘网</a></li> 
+                <li><a href="#">保定招聘</a></li> 
+                <li><a href="#">全国招聘信息网</a></li> 
+                <li><a href="#">西安人才网</a></li> 
+                <li><a href="#">安徽人才网</a></li> 
+                <li><a href="#">南方人才网</a></li> 
+                <li><a href="#">学历考试网</a></li> 
+                <li><a href="#">合肥人才网</a></li> 
+                <li><a href="#">搜狐焦点网</a></li> 
+				<li><a href="#">太原站</a></li> 
+                <li><a href="#">湖北人才网</a></li> 
+                <li><a href="#">华美整形医院</a></li> 
+                <li><a href="#">南昌人才网</a></li> 
+                <li><a href="#">山西创业就业网</a></li> 
+                <li><a href="#">山西人事考试网</a></li> 
+                <li><a href="#">厦门人才网</a></li> 
+                <li><a href="#">深圳人才网</a></li> 
+                <li><a href="#">中国劳动争议网</a></li> 
+                <li><a href="#">海南人才市场</a></li> 
+                <li><a href="#">江苏人事</a></li> 
+                <li><a href="#">人才网</a></li> 
+                <li><a href="#">江西人才网</a></li> 
+				<li><a href="#">山西就业网</a></li> 
+                <li><a href="#">山西中小企业网</a></li> 
+                <li><a href="#">青年在线</a></li> 
+                <li><a href="#">汇能网</a></li> 
+                <li><a href="#">海南人才招聘网</a></li> 
+                <li><a href="#">保定招聘</a></li> 
+                <li><a href="#">全国招聘信息网</a></li> 
+                <li><a href="#">西安人才网</a></li> 
+                <li><a href="#">安徽人才网</a></li> 
+                <li><a href="#">南方人才网</a></li> 
+                <li><a href="#">学历考试网</a></li> 
+                <li><a href="#">合肥人才网</a></li> 
+                <li><a href="#">搜狐焦点网</a></li> 
+            </ul>
+        </div>
+    </div>
+    
+    <div class="ver_line"></div>
+    
+</div><!--end of web_body -->
+
+<div id="web_bottom">
+    <div id="copyright" class="deep_grey_l f12">
+    	<a href="#">关于我们  |  联系我们  |  加入我们  |  收费标准  |  广告投放  |  网站留言  |  友情链接  |  网站地图  |  法律声明  |  隐私声明</a><br />
+    	联系地址：00省00市00路00号0大厦00楼 联系电话：000-00000000 网站备案：<a href="#">icp000000000</a><br />Copyright @ 2010 74cms.com All Right Reserved 
+    </div>
+</div>
+
+</body>
+</html>
