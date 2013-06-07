@@ -1,6 +1,6 @@
 <?php
 $data = array (
-  'site_name' => '骑士人才系统',
+  'site_name' => '你的人才',
   'site_domain' => 'http://my74cms32.shiyishi.tk',
   'site_dir' => '/',
   'template_dir' => 'default/',
