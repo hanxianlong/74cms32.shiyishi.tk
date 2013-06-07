@@ -113,64 +113,66 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
             //如果存在，则将信息注册到本系统中
             include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');
             list($uc_uid, $uc_username, $uc_password, $uc_email) = uc_user_login($account, $password);
-            if($uc_uid == -1)//如果不存在于ucenter中，则登录失败 
+            
+            if($uc_uid<0)
             {
                 return $login;
             }
-
+            
             //用户名存在于uc中,并且登录成功，则同步到本系统中来,然后登录
-            if ($uc_uid>0)
-            {
-               $qs_uid =  user_register($account,$password,1,$uc_email,false);
-               update_user_info($qs_uid,true,true,$expire);
-                
-               $login['qs_login']=get_member_url(1);
-               $login['uc_login']=uc_user_synlogin($uc_uid);
-            }
+            $qs_uid =  user_register($account,$password,1,$uc_email,false);
+            update_user_info($qs_uid,true,true,$expire);
+
+            $login['qs_login']=get_member_url(1);
+            $login['uc_login']=uc_user_synlogin($uc_uid);
+            return $login;
         }
         /*如果未查询到用户信息，则检查uc中是否存在该用户-------------结束-----------------*/
         
-        //如果用户存在，并且验证方式为1“用户名"
+        //如果用户存在，并且已验证通过的（手机和邮箱）
 	if (!empty($usinfo) && $audit=="1")
 	{
-		$pwd_hash=$usinfo['pwd_hash'];
-		$usname=$usinfo['username'];
-		$pwd=md5(md5($password).$pwd_hash.$QS_pwdhash);
-		if ($usinfo['password']==$pwd)
-		{
-                   update_user_info($usinfo['uid'],true,true,$expire);
-                    $login['qs_login']=get_member_url($usinfo['utype']);
-                    $success=true;
-                    write_memberslog($usinfo['uid'],$usinfo['utype'],1001,$usinfo['username'],"成功登录");
-                
-                 /*如果选择uc同步登录，则同步登录uc         开始*/
-                     $login['uc_login']='';
+              //先登录uc,如果登录成功，判断本地密码与uc密码是否一致，不一致的话就更新本地密码
+                    $login['uc_login']='';
+                    $loginOk=true;
                     if(defined('UC_API') && $uc_login)
                     {
                         include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');
-                        list($uc_uid, $uc_username, $uc_password, $uc_email) = uc_user_login($usname, $password);
+                        list($uc_uid, $uc_username, $uc_password, $uc_email) = uc_user_login($usinfo['username'], $password);
                         
                         //如果用户名已存在并且登录成功，则同步登录到uc
                         if ($uc_uid>0)
                         {
                             $login['uc_login']=uc_user_synlogin($uc_uid);
+                            $password = $uc_password;//将当前密码设置uc的密码
                         }
-                        elseif($uc_uid === -1)//如果用户名在uc中不存在，则将此用户注册到uc中去
+                        else
                         {
-                            $uc_reg_uid = uc_user_register($usname, $password, $usinfo['email']);
-                            if ($uc_reg_uid>0)
-                            {
-                                $login['uc_login']=uc_user_synlogin($uc_reg_uid);
-                            }
+                            $loginOk=false;
                         }
                     }
                     /*uc登录结束*/
-		}
-		else
-		{
-                    $usinfo='';
-                    $success=false;
-		}
+                    
+                    if ($loginOk) { 
+                        $pwd_hash=$usinfo['pwd_hash'];
+                        $username =$usinfo['username'];
+                        $pwd=md5(md5($password).$pwd_hash.$QS_pwdhash);
+                        if ($usinfo['password']==$pwd)
+                        {
+                           update_user_info($usinfo['uid'],true,true,$expire);
+                            $login['qs_login']=get_member_url($usinfo['utype']);
+                            write_memberslog($usinfo['uid'],$usinfo['utype'],1001,$usinfo['username'],"成功登录");
+                        }
+                        else if(defined('UC_API') && $uc_login)
+                        {
+                            //将本地密码更新为ucenter中的密码
+                            global $db;
+                            $db->query( "UPDATE ".table('members')." SET password = '$pwd'  WHERE username='".$username."'");
+                            update_user_info($usinfo['uid'],true,true,$expire);
+                            $login['qs_login']=get_member_url($usinfo['utype']);
+                            write_memberslog($usinfo['uid'],$usinfo['utype'],1001,$usinfo['username'],"成功登录");
+                        }
+                    }
 	}
 	return $login;	
 }
@@ -235,6 +237,7 @@ function check_cookie($name,$pwd){
 			}
 		}
 	}
+        
 	return true;
  }
 function get_user_inemail($email)
@@ -283,12 +286,29 @@ $hash.=$chars[mt_rand(0,$max)];
 }   
 return $hash;   
 }
-//修改密码
+//修改密码(如果经过了uc整合，则先修改uc密码)
 function edit_password($arr,$check=true)
 {
-	global $db,$QS_pwdhash;
 	if (!is_array($arr))return false;
-	$user_info=get_user_inusername($arr['username']);
+         //先更新ucenter中的密码，更新成功后再更新本地密码
+        if(defined('UC_API'))
+        {
+           include_once(QISHI_ROOT_PATH . 'api/uc_client/client.php');
+           $edit_id=  uc_user_edit($arr['username'], $arr['oldpassword'], $arr['password'], '');
+           if($edit_id==1)
+           {
+               return edit_qs_password($arr,$check);
+           }
+           return -1;
+        }
+        return edit_qs_password($arr,$check);
+}
+
+///修改骑士的密码
+function edit_qs_password($arr,$check=true)
+{
+    global $db,$QS_pwdhash;
+    	$user_info=get_user_inusername($arr['username']);
 	$pwd_hash=$user_info['pwd_hash'];
 	$password=md5(md5($arr['oldpassword']).$pwd_hash.$QS_pwdhash);
 	if ($check)
@@ -301,7 +321,9 @@ function edit_password($arr,$check=true)
 	}
 	$md5password=md5(md5($arr['password']).$pwd_hash.$QS_pwdhash);	
 	if ($db->query( "UPDATE ".table('members')." SET password = '$md5password'  WHERE username='".$arr['username']."'")) return $arr['username'];
-	write_memberslog($_SESSION['uid'],$_SESSION['utype'],1004,$_SESSION['username'],"修改了密码");
+        $msg="修改了密码";
+	write_memberslog($_SESSION['uid'],$_SESSION['utype'],1004,$_SESSION['username'],$msg);
 	return false;
 }
+
 ?>

@@ -9,12 +9,13 @@ function OpenCategoryLayer(click_obj,showid,input,input_cn,input_txt,QSarr,strle
 			$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"0","background-color":"#000000"});
 			$(".menu_bg_layer").css("opacity",0);
 			$(showid+" .OpenFloatBoxBg").css("opacity", 0.2);
-			$(showid).show();			
-			$(showid+" .OpenFloatBox").css({"left":($(document).width()-$(showid+" .OpenFloatBox").width())/2,"top":"120"});
+			$(showid).show();
+                        var top = $(document).scrollTop()+120;
+			$(showid+" .OpenFloatBox").css({"left":($(document).width()-$(showid+" .OpenFloatBox").width())/2,"top":top,"z-index":"999"});
 			SetBoxBg(showid);
 			$(showid+" .item").unbind("hover").hover(
 				function(){
-				$(this).find(".titem").addClass("titemhover");				
+				$(this).find(".titem").addClass("titemhover");	
 				var strclass=QSarr[$(this).attr("id")];
 				var pid=$(this).attr("id");
 				if (strclass)
@@ -248,8 +249,9 @@ function OpentradeLayer(click_obj,input,input_cn,input_txt,showid,strlen)
 			$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"0","background-color":"#000000"});
 			//$(".menu_bg_layer").css("opacity",10);
 			$(showid+" .OpenFloatBoxBg").css("opacity", 0.2);
-			$(showid).show();			
-			$(showid+" .OpenFloatBox").css({"left":($(document).width()-$(showid+" .OpenFloatBox").width())/2,"top":"150"});
+			$(showid).show();
+                          var top = $(document).scrollTop()+120;
+			$(showid+" .OpenFloatBox").css({"left":($(document).width()-$(showid+" .OpenFloatBox").width())/2,"top":top});
 			SetBoxBg(showid);
 			$(showid+"  label").hover(function()	{$(this).css("background-color","#E3F0FF");},function(){	$(this).css("background-color","");});
 				$(showid+"  label").unbind().click(function(){

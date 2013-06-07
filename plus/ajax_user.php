@@ -42,8 +42,8 @@ if($act =='do_login')
 	$url=isset($_POST['url'])?$_POST['url']:"";
 	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 	{
-	$username=iconv("utf-8",QISHI_DBCHARSET,$username);
-	$password=iconv("utf-8",QISHI_DBCHARSET,$password);
+            $username=iconv("utf-8",QISHI_DBCHARSET,$username);
+            $password=iconv("utf-8",QISHI_DBCHARSET,$password);
 	}
 	$captcha=get_cache('captcha');
 	if ($captcha['verify_userlogin']=="1")
@@ -67,13 +67,6 @@ if($act =='do_login')
             $url=$url?$url:$login['qs_login'];
             if ($login['qs_login'])
             {
-                /*uc同步登录*/
-            /*	if(defined('UC_API')){
-                            $login['uc_login']=uc_user_synlogin($_SESSION['uid']);
-                    }
-             * */
-                //    print('session uid:'. $_SESSION['uid']);
-               //     die('uc:' . $login['uc_login']);
                 exit($login['uc_login']."<script language=\"javascript\" type=\"text/javascript\">window.setTimeout(function(){window.location.href=\"".$url."\"},1500);</script>");
             }
             else
@@ -103,22 +96,16 @@ elseif ($act=='do_reg')
 	$password = isset($_POST['password'])?trim($_POST['password']):exit("err");
 	$member_type = isset($_POST['member_type'])?intval($_POST['member_type']):exit("err");
 	$email = isset($_POST['email'])?trim($_POST['email']):exit("err");
-	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	 if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 	{
 	$username=iconv("utf-8",QISHI_DBCHARSET,$username);
 	$password=iconv("utf-8",QISHI_DBCHARSET,$password);
 	}
-        /*uc注册,lftqgc  
-        if(defined('UC_API')){
-                $uid=uc_user_register($username,$password,$email);
-        }*/
         
 	$register=user_register($username,$password,$member_type,$email,true);
 	if ($register>0)
 	{	
 		$login_js=user_login($username,$password,$member_type,true);
-                
-               // if($uid>0)$ucjs=uc_user_synlogin($uid);//uc登录通知
                 
 		$mailconfig=get_cache('mailconfig');
 		if ($mailconfig['set_reg']=="1")
@@ -130,14 +117,14 @@ elseif ($act=='do_reg')
                 //新注册的用户跳转到简历填写界面
                 if($member_type=='2')//2为个人用户
                     $qsurl = '/user/personal/personal_user.php?act=reg_success';
-		$qsjs="<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$qsurl."\";</script>";
-		 if ($ucjs || $qsurl)
+                    $qsjs="<script language=\"javascript\" type=\"text/javascript\">window.location.href=\"".$qsurl."\";</script>";
+                         if ($ucjs || $qsurl)
 			{
-			exit($ucjs.$qsjs);
+                            exit($ucjs.$qsjs);
 			}
 			else
 			{
-			exit("err");
+                            exit("err");
 			}
 	}
 	else
@@ -151,8 +138,23 @@ elseif($act =='check_usname')
 	$usname=trim($_POST['usname']);
 	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 	{
-	$usname=iconv("utf-8",QISHI_DBCHARSET,$usname);
+            $usname=iconv("utf-8",QISHI_DBCHARSET,$usname);
 	}
+        
+        //如果集成了UC验证，则调用ucenter接口中判断是否存在用户名
+        if(defined("UC_API"))
+        {
+            /*
+            -1 : 用户名不合法
+            -2 : 包含要允许注册的词语
+            -3 : 用户名已经存在*/
+            $uid = uc_user_checkname($usname);
+            if($uid<0)//在uc中已经存在，则不允许注册
+            {
+                exit("false");
+            }
+        }
+        //判断在本地系统中是否存在
 	$user=get_user_inusername($usname);
 	empty($user)?exit("true"):exit("false");
 }
@@ -164,6 +166,21 @@ elseif($act == 'check_email')
 	{
 	$email=iconv("utf-8",QISHI_DBCHARSET,$email);
 	}
+        
+          if(defined("UC_API"))
+        {
+            /*
+           *  	1  : 成功
+ * 	-4 : email 格式有误
+ * 	-5 : email 不允许注册
+ * 	-6 : 该 email 已经被注册*/
+            $uid = uc_user_checkemail($email);
+            if($uid<0)//在uc中已经存在，则不允许注册
+            {
+                exit("false");
+            }
+        }
+        
 	$user=get_user_inemail($email);
 	empty($user)?exit("true"):exit("false");
 }

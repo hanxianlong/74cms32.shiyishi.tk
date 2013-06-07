@@ -133,8 +133,16 @@ class uc_note
 		{
 			return API_RETURN_FORBIDDEN;
 		}
+                
+              
 		//note 同步登录 API 接口\
 		header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
+                
+                /*解决中文用户名无法同步登录的问题*/
+                if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+                {
+                    $username=iconv("utf-8",QISHI_DBCHARSET,$username);
+                }
 		$result=$this->db->getone("SELECT * FROM ".$this->tablepre."members WHERE username='".$username."' LIMIT 1 ");
 		if(is_array($result))
 		{
@@ -177,7 +185,7 @@ class uc_note
 	{
 		if(!API_UPDATEPW)
 		{
-			return API_RETURN_FORBIDDEN;
+                    return API_RETURN_FORBIDDEN;
 		}
 		//note 修改密码 API 接口
 		$username = $get['username'];
