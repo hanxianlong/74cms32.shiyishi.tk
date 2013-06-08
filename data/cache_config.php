@@ -1,9 +1,9 @@
 <?php
 $data = array (
-  'site_name' => '骑士人才系统',
+  'site_name' => '龙船招聘网',
   'site_domain' => 'http://my74cms32.shiyishi.tk',
   'site_dir' => '/',
-  'template_dir' => 'job/',
+  'template_dir' => 'shiphr/',
   'outdated_jobs' => '1',
   'top_tel' => '000-00000000',
   'bootom_tel' => '000-00000000',

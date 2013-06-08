@@ -1,4 +1,0 @@
-name:À¶É«Ä£°å
-version:3.2
-author:74cms.com
-authorurl:http://www.74cms.com

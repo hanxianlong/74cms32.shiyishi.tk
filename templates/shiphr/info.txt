@@ -1,0 +1,4 @@
+name:hrship
+version:3.2
+author:shiyishi.tk
+authorurl:http://www.shiyishi.tk

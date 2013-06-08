@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/user.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.vtip-min.js" type='text/javascript' language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.idTabs.min.js" type='text/javascript' language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#tabshow li:nth-child(1)>a").addClass("selected");
+	
+	$("#show_avatars_url").mouseover(function() {
+		$(".avatars_edit").show();
+		$("#show_avatars_url").mouseout(function() {
+		$(".avatars_edit").hide();
+		});	
+	});
+});
+</script>
+<style>img{border:0}</style>
+</head>
+<body>
+{#include file="member_personal/header.htm"#}
+ <div class="reg_box">
+   <div class="reg_box_tit"><strong>注册成功！</strong></div>
+   <div class="item"><table width="100%" border="0" cellspacing="10" cellpadding="0">
+      <tbody><tr>
+         <td align="center"><a href="/user/personal/personal_resume.php?act=make1" title="创建会员简历"><img src="/templates/default/images/reg_resume.png" width="212" height="108" alt="国际船舶人才网会员注册中心创建会员简历"></a></td>
+     </tr>
+       <tr>
+         <td class="itemtxt">
+		 按照“国际船舶人才网”优化过的简历模板填写，可以使您的简历更加清晰详尽，充分展现个人的魅力和工作能力，同时简历也更容易被企业检索到。
+         </td>
+       </tr>
+     </tbody></table>
+   </div>
+   <div class="item" style="border-right:0px;">
+     <table width="100%" border="0" cellspacing="10" cellpadding="0">
+       <tbody><tr>
+         <td align="center"><a href="/user/personal/personal_resume.php?act=upload" title="创建附件简历"><img src="/templates/default/images/reg_resume_ext.png" alt="国际船舶人才网会员注册中心创建附件简历" width="215" height="105"></a></td>
+       </tr>
+       <tr>
+         <td class="itemtxt">如果您已经制作好一份简历，现在您只需上传它，即可创建一份附件简历。</td>
+       </tr>
+     </tbody></table>
+   </div>
+   <div class="clear"></div>
+ </div>
+{#include file="footer.htm"#}
+</body>
+</html>

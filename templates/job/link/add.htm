@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>友情链接申请 - {#$QISHI.site_name#}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/link.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
+
+</head>
+<body>
+{#include file="header.htm"#}
+<div class="page_location link_bk">
+当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;友情链接申请
+</div>
+<div class="linkbox">
+<h1>友情链接申请</h1>
+  <form action="?act=save" method="post">
+  <table width="100%" border="0" cellspacing="0" cellpadding="5">
+  
+   <tr>
+      <td width="120" align="right">申请页面(必填)：</td>
+      <td width="460">
+       {#foreach from=$cat item=li#}	
+	   <label>
+              <input name="alias" type="radio" value="{#$li.c_alias#}" {#if $li.c_alias==$cat.0.c_alias#} checked="checked" {#/if#}/>
+              {#$li.categoryname#}</label>
+			
+	   {#/foreach#}	    </td>
+      <td><strong>申请说明：</strong></td>
+   </tr>
+    <tr>
+      <td width="120" align="right">连接名称(必填)：</td>
+      <td>
+        <input type="text" name="link_name" class="link_input" />      </td>
+      <td rowspan="5" valign="top">{#$link_application_txt#}</td>
+    </tr>
+    <tr>
+      <td align="right">连接地址(必填)：</td>
+      <td>  <input type="text" name="link_url" class="link_input" /></td>
+      </tr>
+    <tr>
+      <td align="right">LOGO地址(选填)：</td>
+      <td>  <input type="text" name="link_logo" class="link_input" /></td>
+      </tr>
+    <tr>
+      <td align="right" valign="top">申请说明(选填)：</td>
+      <td><textarea name="app_notes"  style="width:300px; height:60px;"></textarea></td>
+      </tr>
+    <tr>
+      <td align="right" valign="top">&nbsp;</td>
+      <td><label>
+        <input type="submit" name="Submit" value="提交" class="but80" />
+      </label></td>
+      </tr>
+  </table>
+  </form>
+</div>
+{#include file="footer.htm"#}
+</body>
+</html>

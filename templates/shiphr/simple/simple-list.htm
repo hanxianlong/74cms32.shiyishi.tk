@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />{#qishi_pageinfo set="列表名:page,调用:simple"#}
+<title>商家招聘 - {#$QISHI.site_name#}</title>
+<meta name="description" content="{#$page.description#}" />
+<meta name="keywords" content="{#$page.keywords#}" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/simple.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_template#}js/jquery.dialog.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript'></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	var key=$('#key').val();
+	//发布
+	$("#add").click(function(){
+	var url="{#$QISHI.site_dir#}plus/ajax_simple.php";
+	dialog("发布商家招聘","url:get?"+url,"600px","auto","");				
+	});	
+	$("#key").focus(function(){
+	if ($("#key").val()=="请输入关键字...")
+	{
+	$("#key").val('');
+	}  
+	});
+	//提交表单
+	$("form[name=search]").submit( function () {
+		if ($("#key").val()=='请输入关键字...')
+		{
+		$("#key").val("");
+		}
+	});
+	$("#keytype2").click(function(){
+		$("#keytype").val("2");
+		if ($("#key").val()=='请输入关键字...')
+		{
+		$("#key").val("");
+		}
+		$("form[name=search]").submit();
+	});
+	$(".editsimple").click(function(){
+	var url="{#$QISHI.site_dir#}plus/ajax_simple.php?act=editsimple&id="+$(this).attr("id");
+	dialog("编辑信息","url:get?"+url,"600px","auto","");				
+	});
+	$(".vjob_list").hover(
+		function()
+		{
+		$(this).css("background-color","#FFEFDD");
+		},
+		function()
+		{
+		$(this).css("background-color","");
+		}
+	);
+});
+</script>
+</head>
+<body>
+{#include file="jobs-header.htm"#}
+<div class="tip">
+<p>为了方便（餐饮、商铺、网吧、家教、娱乐、淘宝等行业）发布全职或兼职招聘信息，{#$QISHI.site_name#}特开设了无需注册即可发布简短信息的“商家招聘”功能。所有招聘信息需审核通过后才能显示，有限公司、非小微行业招聘信息不予通过审核。</p>
+<p>我们会认真审核每条招聘信息，尽量避免求职者上当受骗，但求职者也须自行辨别、谨慎对待。</p>
+</div>
+
+<div id="vjob_search">
+  <div class="search_left">
+    <div class="s_tit"></div>
+    <div class="s_input">
+      <form name="search" method="get"><strong>搜索职位：</strong><input type="text" name="key" id="key" class="key" style="width:200px" value="{#$smarty.get.key|default:"请输入关键字..."#}"><input type="submit" name="" value=" " class="s_sub"></form>
+    </div>
+    <div class="s_key">
+      <strong>热门搜索：</strong>
+      <?php
+	  $arr=array("不限", "收银", "营业员", "服务员", "司机", "前台", "导购", "销售", "厨师", "普工", "保安", "保洁", "电工");
+	  foreach ($arr as $value)
+	  {
+	    echo '<a href="?key='.($value=='不限' ? '' : $value).'"'.($value==$_GET['key'] || ($_GET['key']=='' && $value=='不限') ? ' class="cur"' : '').'>'.$value.'</a>';
+	  }
+	  ?>
+    </div>
+  </div>
+  <div class="post_right">
+    <div class="post_box">
+      <div class="post"><a id="add" href="javascript:void(0);"><img src="{#$QISHI.site_template#}images/v_post.gif" border="0" width="235" height="57"></a></div>
+    </div>
+  </div>
+</div>
+
+<div id="vjob_box">
+  <div class="vjob_list vbgtitle">
+    <div class="title title_bg">商家招聘信息</div>
+    <div class="time">更新日期</div>
+    <div class="views">操作</div>
+  </div>
+{#qishi_simple_list set="分页显示:1,列表名:simplelist,显示数目:20,填补字符:...,职位名长度:16,企业名长度:18,描述长度:52,关键字:GET[key],关键字类型:GET[keytype],排序:refreshtime>desc"#}
+{#foreach from=$simplelist item=li#}
+  <div class="vjob_list">
+    <div class="title link_lan"><a href="{#$li.simple_url#}" target="_blank">{#$li.jobname#}</a> 招聘单位：<span>{#$li.comname#} </span>（{#$li.detailed#}）</div>
+    <div class="time">{#$li.refreshtime_cn#}</div>
+    <div class="view"><a href="{#$li.simple_url#}" target="_blank">详情</a><a href="javascript:void(0)" class="editsimple" id="{#$li.id#}">编辑</a></div>
+  </div>
+{#/foreach#}
+{#if !$simplelist#}
+<div class="vjob_list"><div class="title">抱歉，没有符合此条件的信息。</div></div>
+{#/if#}
+</div>
+
+{#if $page#}
+<table width="" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+		<div class="page link_bk">
+		{#$page#}
+		</div>
+		</td>
+  </tr>
+</table>
+{#/if#}
+
+{#include file="footer.htm"#}
+</body>
+</html>

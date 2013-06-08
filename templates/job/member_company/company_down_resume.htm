@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$title#}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link href="{#$QISHI.site_template#}css/user.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
+
+<script src="{#$QISHI.site_template#}js/jquery.idTabs.min.js" type='text/javascript' language="javascript"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#tabshow #top_nav_rec>a").addClass("selected");
+});
+</script>
+</head>
+<body>
+{#include file="member_company/header.htm"#}
+<table width="960" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:6px;" >
+  <tr>
+    <td width="173" valign="top" class="link_bk">
+	{#include file="member_company/left.htm"#}
+	</td>
+    <td valign="top">
+	<div class="user_right_box">
+		<div class="user_right_top_tit_bg">		
+		  <h1>已下载简历</h1>
+		</div>
+		<div class="us_tab">
+			<a href="?act={#$act#}&settr=" {#if $smarty.get.settr==""#}class="select"{#/if#}>所有的</a>
+              <a href="?act={#$act#}&settr=3" {#if $smarty.get.settr=="3"#}class="select"{#/if#}>最近3天</a>
+              <a href="?act={#$act#}&settr=7" {#if $smarty.get.settr=="7"#}class="select"{#/if#}>最近7天</a>
+			  <a href="?act={#$act#}&settr=30" {#if $smarty.get.settr=="30"#}class="select"{#/if#}>最近1月</a>
+			  <a href="?act={#$act#}&settr=90" {#if $smarty.get.settr=="90"#}class="select"{#/if#}>最近3月</a>
+			  <div class="clear"></div>
+			  </div>
+	<form id="form1" name="form1" method="post" action="?act=del_down_resume">
+		  <table width="97%" border="0" align="center" cellpadding="0" cellspacing="0"  id="list" class="link_lan">
+              <tr>
+                <td width="120" height="26"  class="us_list_title"><label id="chkAll"><input type="checkbox" name="chkAll"  id="chk" title="全选/反选" />简历名称</label></td>
+                <td width="50" align="center"    class="us_list_title" >性别</td>
+                <td width="70" class="us_list_title">学历</td>
+                <td width="80" class="us_list_title" >工作经验</td>              
+                <td   class="us_list_title">意向职位</td>
+				<td width="50" class="us_list_title" >等级</td>
+				  <td width="70" class="us_list_title" >下载日期</td>
+            </tr>
+				{#foreach  from=$list item=list#}
+<tr >
+<td   height="32" class="us_list"><input name="y_id[]" type="checkbox" id="y_id"   value="{#$list.did#}"/>&nbsp;<a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a></td>
+<td align="center" class="us_list" >{#$list.sex_cn#}</td>
+<td class="us_list" >{#$list.education_cn#}</td>
+<td class="us_list">{#$list.experience_cn#}</td>
+<td class="us_list">{#$list.intention_jobs#}</td>
+<td class="us_list">
+{#if $list.talent=="2"#}
+<span style="color:#FF6600">高级</span>
+{#else#}
+普通
+{#/if#}
+</td>
+<td class="us_list">{#$list.down_addtime|date_format:"%Y-%m-%d"#}</td>
+</tr>
+  {#/foreach#}
+          </table>            
+			{#if $list#}
+            <table width="100%" border="0" cellspacing="8" cellpadding="0">
+              <tr>
+                <td><input type="submit" name="delete" value="删除所选"  class="user_submit"  onClick="return confirm('您确定删除吗?')"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="shift" value="转至人才库" class="user_submit"/></td>
+              </tr>
+            </table>
+			{#else#}
+			<div class="us_list_no_content">没有您要找的信息</div>
+			{#/if#}
+            <table border="0" align="center" cellpadding="0" cellspacing="0" class="link_bk">
+              <tr>
+                <td height="50" align="center"> <div class="page link_bk">{#$page#}</div></td>
+              </tr>
+            </table>
+        </form>
+		</div>
+    </td>
+  </tr>
+</table>
+{#include file="footer.htm"#}
+</body>
+</html>

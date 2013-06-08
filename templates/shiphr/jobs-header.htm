@@ -1,0 +1,17 @@
+
+{#include file="top_nav.htm"#}
+<div class='nav'>
+  <div class='logo_nav'>
+    <a href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" width="200" height="60" border="0" align="absmiddle" /></a>
+  </div>
+  <div class="clear"></div>
+  <div class='dao_nav'>
+    <ul>
+{#qishi_nav set="调用名称:QS_top,列表名:list"#}
+  {#foreach from=$list item=list#}
+      <li{#if $list.tag==$page_select && $list.tag!=""#} class="current"{#/if#}><a href="{#$list.url#}" target="{#$list.target#}">{#$list.title#}</a></li>
+  {#/foreach#}
+    </ul>
+  </div>
+  <div class="clear"></div>
+</div>
