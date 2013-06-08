@@ -1,9 +1,9 @@
 <?php
 $data = array (
-  'site_name' => '你的人才',
+  'site_name' => '骑士人才系统',
   'site_domain' => 'http://my74cms32.shiyishi.tk',
   'site_dir' => '/',
-  'template_dir' => 'default/',
+  'template_dir' => 'job/',
   'outdated_jobs' => '1',
   'top_tel' => '000-00000000',
   'bootom_tel' => '000-00000000',

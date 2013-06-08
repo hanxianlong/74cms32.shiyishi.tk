@@ -1,0 +1,64 @@
+a{ text-decoration:none}
+/*Î¢ÕÐÆ¸*/
+#vjob_search{width:958px; height:135px; margin:10px auto 0; border:#d9d9d9 solid 1px; border-top:#d9d9d9 solid 1px; background:url(../images/v_search_bg.gif) top right no-repeat; overflow:hidden}
+.search_left{width:690px; float:left; height:auto; padding-left:10px}
+.search_left .s_tit{width:680px; height:30px; line-height:26px; padding-right:10px; text-align:right; background:url(../images/v_search.gif) top left no-repeat; margin-top:10px; color:#F63}
+.search_left .s_input{width:100%; height:30px; line-height:20px;margin-top:10px}
+.search_left .s_input input.key{vertical-align:middle;width:185px;border:1px solid #CCC;height:18px;line-height:18px;padding:3px;color:#666;}
+.search_left .s_sub{background-image:url(../images/55.gif);width:64px;height:24px;border:0;vertical-align:middle;margin-left:8px;}
+.search_left .s_key{width:100%; line-height:25px; margin-top:5px}
+.search_left .s_key strong{float:left}
+.search_left .s_key a{padding:3px 5px;background:#FFF;color:#397db5;border:#CCC solid 1px;margin-right:4px}
+.search_left .s_key .cur{background:#397db5;color:#FFF;border:#397db5 solid 1px;}
+
+.post_right{width:auto; float:right; padding-top:10px;}
+.post_right .post_box{width:257px; border-left:#d9d9d9 solid 1px; height:100px;margin:10px auto;}
+.post_right .post_box .post{text-align:center;padding-top:20px;}
+
+.tip{width:960px;margin:10px auto 0;height:78px;color:#333;padding-top:15px;background:url(../images/v_tip.gif);}
+.tip p {display:block;width:750px;line-height:22px;padding-left:190px;text-indent:2em;}
+
+
+#vjob_box{width:958px; border:#ccc solid 1px; border-bottom:0; margin:10px auto 0; height:auto;}
+.vjob_list{width:100%; height:35px; line-height:35px; border-bottom:#CCC solid 1px; overflow:hidden}
+.vjob_list .title{float:left; width:760px; padding:0 10px;_width:765px; color:#666; overflow:hidden}
+.vjob_list .title_bg{background:url(../images/v_title.gif) no-repeat 5px 2px;width:735px;padding-left:35px;}
+/*
+.vjob_list .title a{font-size:14px;color:#0067e0}
+*/
+.vjob_list .title span{color:#000}
+.vjob_list .time{float:left; width:85px;}
+.vjob_list .views{float:left; width:82px;}
+.vjob_list .view{float:left; width:82px;line-height:20px;padding-top:6px;}
+.vjob_list .view a{line-height:20px;padding-top:6px;width:auto!important;color:#3e3e3e;display:block;border:1px solid #A6A6A6;background:url('../Images/base-x.gif') left -97px repeat-x; float:left; padding:0 5px; margin-right:5px}
+.vjob_list .view a:hover{width:auto!important;border:1px solid #FEC799;background:#FEF2D5;color:#D84600;text-decoration:none;display:block}
+
+.vbgtitle{background-image:url(../images/56.gif);background-repeat:repeat-x;font-size:14px;font-weight:bold;}
+
+
+.simpleinput200 { width:200px; padding:3px; vertical-align:middle;font-family:Arial, Helvetica, sans-serif; font-size:12px; height:16px; line-height:16px;border:1px solid;border-color:#666666 #CCCCCC #CCCCCC #666666;}
+.simpleinput400 { width:400px; padding:3px; vertical-align:middle;font-family:Arial, Helvetica, sans-serif; font-size:12px; height:16px; line-height:16px;border:1px solid;border-color:#666666 #CCCCCC #CCCCCC #666666;}
+.simple_note { color:#999999; padding-left:8px;}
+.simple_tip{ height:20px;color: #FF6600;background:url(../images/72.gif)  no-repeat  0px -95px; padding-left:26px; padding-top:2px;}
+label.error {margin-left:6px;color:#FF0000}
+input.error {border:1px #FF6600 solid; background-color:#FFEDE8; color:#FF0000}
+textarea.error {border:1px #FF6600 solid; background-color:#FFEDE8; color:#FF0000}
+
+
+.simple-show{ width:960px;margin:0 auto; margin-top:8px;}
+.simple-show .left{ width:635px; float:left; color:#000}
+.simple-show .left .show{ width:625px;border:1px solid #E4E4E4;background:url(../images/16.jpg) repeat-x;}
+.simple-show .left .show h1{height:35px;font-size:25px;font-family:"microsoft yahei","ºÚÌå";padding-left:3px; overflow:hidden;}
+.simple-show .left .show .comname{margin:25px 0 10px 30px;color:#06c; margin-bottom:5px; position:relative}
+.simple-show .left .show .comname .edit{ position:absolute;right:30px;top:13px;font-size:12px;}
+.simple-show .left .show .comname .edit a{padding-left:12px;}
+.simple-show .left .show .txtbox{ border:1px #E7E7E7 solid; background-color: #F5F8FD; width:530px; padding:8px 15px;margin:0 auto; line-height:180%}
+.simple-show .left .show .conbox{ min-height:68px;height:100%;_height:68px;}
+.simple-show .left .show .txttit {padding:12px 0px;margin:0 auto; font-size:14px; width:560px;}
+.simple-show .right{ width:325px; float:left; overflow:hidden}
+.simple-show .right .listbox{border:1px solid #E4E4E4;}
+.simple-show .right .listbox .tit{height:30px;background:url(../images/52.gif) repeat-x 0px -239px; border-bottom:1px solid #E4E4E4; line-height:30px;}
+.simple-show .right .listbox .tit strong {font-size:14px;  color:#666666; padding-left:15px;}
+.simple-show .right .listbox .txt { padding:5px; border-bottom:1px #E4E4E4 solid}
+.simple-show .right .listbox .txt li { padding-left:12px;line-height:180%;}
+.simple-show .right .listbox .txt .date{ position:absolute; right:8px; top:0px;}

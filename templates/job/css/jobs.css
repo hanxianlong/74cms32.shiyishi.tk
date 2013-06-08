@@ -1,0 +1,94 @@
+/*-----职位首页，最新职位------*/
+.jobsbox {width:938px;  margin:0 auto; margin-top:8px;border:1px solid #E4E4E4;background:url(../images/16.jpg) repeat-x; padding:10px;}
+.jobsbox h2{ font-size:14px; font-weight:bold; padding-bottom:10px;}
+.jobsbox li{ float:left; width:220px; height:25px; line-height:25px; padding-left:13px;background:url(../images/01.gif) no-repeat 5px -29px;  }
+.jobsbox li.city{ width:120px;}
+.jobsbox li.newjob{ width:295px;}
+.jobsbox li a.jobsname{ color: #0066CC}
+.jobsbox li span{ font-size:12px; color:#FF6600}
+/*-----职位搜索------*/
+.jobs_search {width:958px; margin:0 auto; border:1px solid #E4E4E4; background:url(../images/54.gif) repeat-x; background-position:bottom; margin-top:8px; padding-bottom:10px;}
+.jobs_search .toptit{ height:30px;background:url(../images/52.gif) repeat-x 0px -239px; border-bottom:1px solid #E4E4E4; margin-bottom:10px;}
+.jobs_search .toptit .left{ float:left; width:500px; font-size:14px; line-height:30px; font-weight:bold; padding-left:10px;}
+.jobs_search .toptit .right{ float:left; width:430px; line-height:30px; text-align:right}
+.jobs_search .tit { width:75px; height:32px;  float:left; text-align:right; padding-top:5px; line-height:32px;}
+.jobs_search .item { width:283px; height:32px; float:left; padding-top:5px;}
+.jobs_search .item .sltinput{ width:275px; background-image:url(../images/09.gif); background-position:right center; background-repeat:no-repeat; cursor:pointer; border:1px solid 
+#cccccc; height:18px; line-height:18px; padding:3px; color:#666666; }
+.jobs_search .item_nature { padding-left:12px; height:29px; float:left; padding-top:8px;}
+.jobs_search .item_key { width:283px; height:32px; float:left; padding-top:5px; position:relative}
+.jobs_search .item_key .keyinput{ width:275px;border:1px solid #cccccc; height:18px; line-height:18px; padding:3px; color:#666666; }
+.jobs_search .item_submit { padding-left:12px; height:31px; float:left; padding-top:6px;}
+.jobs_search .item_submit .searcsubmit{background-image:url(../images/55.gif); width:64px; height:24px; border:0px;vertical-align:middle; margin-right:8px;}
+.jobs_search .item_submit .moresubmit{background-image:url(../images/63.gif); width:64px; height:24px; border:0px;vertical-align:middle;}
+.jobs_search_adv{border-top:1px solid  #E4E4E4; margin-top:5px; padding-top:5px; display:none}
+.jobs_search_adv .advtit { width:75px; height:32px;  float:left; text-align:right; padding-top:5px; line-height:32px;}
+.jobs_search_adv .advitem { width:160px; height:32px; float:left; padding-top:5px;}
+.jobs_search_adv .advitem .advinput{ width:150px; background-image:url(../images/09.gif); background-position:right center; background-repeat:no-repeat; cursor:pointer; border:1px solid 
+#cccccc; height:18px; line-height:18px; padding:3px; color:#666666;}
+.jobs_search_adv .advitem .menu { position:absolute; left:0px; top:31px; z-index:88; background-color:#FFFFFF; border:1px #cccccc solid; width:156px; display:none;}
+.jobs_search_adv .advitem ul { padding:0px; margin:0px;}
+.jobs_search_adv .advitem li { padding-left:10px; line-height:23px; cursor:pointer}
+.highlight { color: #FF0000}
+/*-----职位列表*/
+.jobs_list{width:960px; margin:0 auto; margin-top:8px;}
+.jobs_list .left{ width:730px; float:left;} 
+.jobs_list .left .tit{ width:712px; border:1px #E4E4E4 solid; height:32px; background-image:url(../images/56.gif); background-repeat:repeat-x; padding-left:8px; padding-top:8px;}
+.jobs_list .left .tit .titsub{ border:1px #E4E4E4 solid; background-image:url(../images/56.gif); height:22px; float:left; line-height:22px; padding-left:8px; padding-right:8px; border-left:0px; background-position:0px -40px; cursor: pointer}
+.jobs_list .left .tit .titsub input{vertical-align:middle;}
+.jobs_list .left .tit .titsub_h{background-image:url(../images/56.gif);background-position:0px -64px; color:#000000 }
+.jobs_list .list{width:700px; border-bottom:1px #E3E3E3 solid;color:#666;padding:10px;border-left:1px #E4E4E4 solid;border-right:1px #E4E4E4 solid;}
+.jobs_list .list.seclect {background-image:url(../images/57.gif);}
+.jobs_list .noinfo{ padding:10px; width:700px;  border-bottom:1px #E3E3E3 solid; line-height:180%}
+.jobs_list .noinfo span{ font-size:14px; font-weight:bold; color:#FF6600}
+.jobs_list .right { width:228px; float:left;border:1px #E4E4E4 solid; padding-bottom:10px; }
+.jobs_list .right .tit{ width:218px;  height:28px; background-image:url(../images/56.gif); background-repeat:repeat-x; padding-left:10px; padding-top:12px; font-size:14px; border-bottom:1px #E3E3E3 solid; margin-bottom:5px; font-weight:bold}
+.jobs_list .right .txt { padding:8px 0 8px 10px;   line-height:160%; color:#666666; border-bottom:1px #CCCCCC dashed}
+
+.jobs_list .job_list_t a{color:#2F7BD1;}
+.jobs_list .job_list_t a:hover {color: #f00;}
+.jobs_list .jid {float:left;}
+.jobs_list .jobs {float:left;width:250px;padding:3px 0 0 2px;font-weight:bold;font-size:14px;}
+.jobs_list .company {float:left;padding-top:3px;}
+.jobs_list .job_list_c {float:left;width:600px;padding:10px 10px 0 20px;line-height:2em;}
+.jobs_list .job_list_c span{color:#2D7DD4;padding-right:6px;}
+.jobs_list .job_list_r {float:right;text-align:center;line-height:2.5em;}
+
+/*弹出层*/
+.pop-up-category {width:700px; border:5px #666666 solid; background-color:#FFFFFF ;color:#0066CC;position:absolute; padding-bottom:15px; display:none}
+.pop-up-category .ptit{width:420px; background-color:#E3F0FF; line-height:32px; font-size:14px; float:left; padding-left:15px; font-weight:bold;}
+.pop-up-category .pcloss{ width:250px;height:32px; background-color:#E3F0FF; line-height:32px;float:left; padding-right:15px; text-align:right; cursor:pointer}
+.pop-up-category .is_slt{background:url(../images/29.gif) no-repeat 20px 10px;line-height:27px;background-repeat:no-repeat; padding:10px 0px; padding-left:80px; color:#FF6600; height:27px;}
+.pop-up-category .is_slt label{ display:block; height:25px; float:left; padding-right:6px;}
+.pop-up-category .titllong{background-color: #FFFFCC;height:32px;  line-height:32px;padding-left:15px; width:685px;}
+.pop-up-category .txt{ padding:15px 20px;}
+.pop-up-category .txt label{ width:150px; padding-left:10px;height:23px; line-height:23px;margin-right:6px; float:left; cursor:pointer}
+.pop-up-category .sm{ display:none}
+.pop-up-category .go_back{ color: #333333; margin-bottom:10px; padding-left:15px;}
+.pop-up-category .go_back span{ color: #FF6600; cursor:pointer}
+.pop-up-district {width:700px; border:5px #666666 solid; background-color:#FFFFFF ;color:#0066CC;position:absolute; padding-bottom:15px; display:none}
+.pop-up-district .ptit{width:420px; background-color:#E3F0FF; line-height:32px; font-size:14px; float:left; padding-left:15px; font-weight:bold;}
+.pop-up-district .pcloss{ width:250px;height:32px; background-color:#E3F0FF; line-height:32px;  float:left; padding-right:15px; text-align:right; cursor:pointer}
+.pop-up-district .is_slt{background:url(../images/29.gif) no-repeat 20px 10px;line-height:27px;background-repeat:no-repeat; padding:10px 0px; padding-left:80px; color:#FF6600; height:27px;}
+.pop-up-district .is_slt label{ display:block; height:25px; float:left; padding-right:6px;}
+.pop-up-district .titllong{background-color: #FFFFCC;height:32px;  line-height:32px;padding-left:15px; width:685px;}
+.pop-up-district .districttxt{ padding:15px 20px;}
+.pop-up-district .districttxt label{ width:86px; padding-left:6px;height:23px; line-height:23px;margin-right:6px; float:left; cursor:pointer}
+.pop-up-district .sm{ display:none}
+.pop-up-district .go_back{ color: #333333; margin-bottom:10px; padding-left:15px;}
+.pop-up-district .go_back span{ color: #FF6600; cursor:pointer}
+.pop-up-trade {width:760px; border:5px #666666 solid; background-color:#FFFFFF ;color:#0066CC;position:absolute; padding-bottom:15px; display:none}
+.pop-up-trade .ptit{width:480px; background-color:#E3F0FF; line-height:32px; font-size:14px; float:left; padding-left:15px; font-weight:bold;}
+.pop-up-trade .ptit span{ padding-left:15px; color: #FF6600; font-size:12px; font-weight:100}
+.pop-up-trade .pcloss{ width:250px;height:32px; background-color:#E3F0FF; line-height:32px;  float:left; padding-right:15px; text-align:right; cursor:pointer}
+.pop-up-trade .tradetxt{padding:15px 15px;}
+.pop-up-trade .tradetxt li{ float:left; margin-bottom:5px;}
+.pop-up-trade .tradetxt label{ width:180px;margin-right:5px; float:left; cursor:pointer; height:23px; line-height:23px; display:block}
+.pop-up-trade .txt{ padding:15px 20px;}
+/*--------职位对比-------*/
+.company-contrast {width:960px; margin:0 auto; margin-top:8px;}
+.company-contrast .box{width:230px; margin-right:8px; float:left;border:1px solid #E4E4E4;}
+.company-contrast .box .tit{height:30px;background:url(../images/52.gif) repeat-x 0px -239px; border-bottom:1px solid #E4E4E4; line-height:30px; font-size:14px; font-weight:bold; color:#666666; padding-left:15px; overflow:hidden}
+.company-contrast .box li{ padding:5px; height:25px; line-height:25px; border-bottom:1px #e4e4e4 solid; overflow:hidden}
+.company-contrast .box .but{ padding:10px;}
+.company-contrast .box .txt{ padding:5px; line-height:180%}

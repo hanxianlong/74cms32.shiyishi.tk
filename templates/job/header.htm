@@ -1,0 +1,42 @@
+{#include file="top_nav.htm"#}
+<div class='nav'>
+  <div class='logo_nav'>
+    <a href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" width="200" height="60" border="0" align="absmiddle" /></a>
+  </div>
+  <div class='logo_addition'>
+    <img src="{#$QISHI.upfiles_dir#}logo_duanwu.gif" width="200" height="65" border="0" align="absmiddle" />
+  </div>
+  <div id="scbar" class="cl">
+    <form id="scbar_form" method="get" action="/jobs/jobs-list.php">
+    <table cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="scbar_icon_td"></td>
+        <td class="scbar_txt_td"><input type="text" name="key" id="scbar_txt" value="" /></td>
+        <td class="scbar_type_td">
+          <label><input name="searchtype" type="radio" value="1" checked="checked" class='search_radio'/>搜职位</label>
+          <label><input name="searchtype" type="radio" value="2"  class='search_radio'/>搜人才</label>
+        </td>
+        <td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn"><strong>搜索</strong></button></td>
+      </tr>
+    </table>
+    </form>
+    <script type="text/javascript">
+      $("#scbar_form #scbar_btn").click(function(){
+      var searchtype=$("#scbar_form :radio[checked]").val();
+      searchtype=="1"?$("#scbar_form").attr("action","/jobs/jobs-list.php"):$("#scbar_form").attr("action","/resume/resume-list.php");
+      $("#scbar_form").submit();
+      });  
+    </script>
+  </div>
+  <div class="clear"></div>
+  <div class='dao_nav'>
+    <ul>
+{#qishi_nav set="调用名称:QS_top,列表名:list"#}
+  {#foreach from=$list item=list#}
+      <li{#if $list.tag==$page_select && $list.tag!=""#} class="current"{#/if#}><a href="{#$list.url#}" target="{#$list.target#}">{#$list.title#}</a></li>
+  {#/foreach#}
+      <li class="tel"></li>
+    </ul>
+  </div>
+  <div class="clear"></div>
+</div>
