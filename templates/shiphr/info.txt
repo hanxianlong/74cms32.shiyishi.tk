@@ -1,4 +1,4 @@
-name:hrship
+name:简洁大气的蓝色模板
 version:3.2
 author:shiyishi.tk
 authorurl:http://www.shiyishi.tk

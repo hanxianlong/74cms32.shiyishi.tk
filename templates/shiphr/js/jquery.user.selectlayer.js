@@ -9,12 +9,13 @@ function OpenCategoryLayer(click_obj,showid,input,input_cn,input_txt,QSarr,strle
 			$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"0","background-color":"#000000"});
 			$(".menu_bg_layer").css("opacity",0);
 			$(showid+" .OpenFloatBoxBg").css("opacity", 0.2);
-			$(showid).show();			
-			$(showid+" .OpenFloatBox").css({"left":($(document).width()-$(showid+" .OpenFloatBox").width())/2,"top":"120"});
+			$(showid).show();
+                        var top = $(document).scrollTop()+120;
+			$(showid+" .OpenFloatBox").css({"left":($(document).width()-$(showid+" .OpenFloatBox").width())/2,"top":top,"z-index":"999"});
 			SetBoxBg(showid);
 			$(showid+" .item").unbind("hover").hover(
 				function(){
-				$(this).find(".titem").addClass("titemhover");				
+				$(this).find(".titem").addClass("titemhover");	
 				var strclass=QSarr[$(this).attr("id")];
 				var pid=$(this).attr("id");
 				if (strclass)
@@ -183,6 +184,10 @@ function CopyItem(showid)
 //截取字符
 function limit(objString,num)
 {
+	if (num==0)
+	{
+		return objString;
+	}
 	var objLength =objString.length;
 	if(objLength > num){ 
 	return objString.substring(0,num) + "...";
@@ -202,7 +207,7 @@ function showmenu(menuID,showID,inputname,Form,Forminput)
 		$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute", left: "0", top: "0" , "z-index": "0", "background-color": "#ffffff"});
 		$(".menu_bg_layer").css("opacity","0");
 		//生成背景结束
-		$(showID+" li").unbind("click").click(function(){
+		$(showID+" li").live("click",function(){
 			$(menuID).val($(this).attr("title"));
 			$(inputname).val($(this).attr("id"));
 			$(".menu_bg_layer").hide();
@@ -234,7 +239,7 @@ function showmenu(menuID,showID,inputname,Form,Forminput)
 	});
 }
 //打开行业(此函数仅限创建简历填写意向行业)
-function OpenTradeLayer(click_obj,input,input_cn,input_txt,showid,strlen)
+function OpentradeLayer(click_obj,input,input_cn,input_txt,showid,strlen)
 {
 	$(click_obj).click(function()
 	{
@@ -242,16 +247,17 @@ function OpenTradeLayer(click_obj,input,input_cn,input_txt,showid,strlen)
 			$(this).parent("div").before("<div class=\"menu_bg_layer\"></div>");
 			$(".menu_bg_layer").height($(document).height());
 			$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute",left:"0", top:"0","z-index":"0","background-color":"#000000"});
-			$(".menu_bg_layer").css("opacity",0);
+			//$(".menu_bg_layer").css("opacity",10);
 			$(showid+" .OpenFloatBoxBg").css("opacity", 0.2);
-			$(showid).show();			
-			$(showid+" .OpenFloatBox").css({"left":($(document).width()-$(showid+" .OpenFloatBox").width())/2,"top":"120"});
+			$(showid).show();
+                          var top = $(document).scrollTop()+120;
+			$(showid+" .OpenFloatBox").css({"left":($(document).width()-$(showid+" .OpenFloatBox").width())/2,"top":top});
 			SetBoxBg(showid);
 			$(showid+"  label").hover(function()	{$(this).css("background-color","#E3F0FF");},function(){	$(this).css("background-color","");});
 				$(showid+"  label").unbind().click(function(){
-						if ($(showid+" .content :checkbox[checked]").length>8)
+						if ($(showid+" .content :checkbox[checked]").length>5)
 						{
-							alert("不能超过8个选项");
+							alert("不能超过5个选项");
 							$(this).attr("checked",false);
 							return false;
 						}
@@ -301,6 +307,65 @@ function OpenTradeLayer(click_obj,input,input_cn,input_txt,showid,strlen)
 	}
 	
 }
+function showtaglayer(menuID,showID,inputname,inputname1,strlen,get)
+{
+	if (get)
+	{
+		arr=get.split("|");
+		tcn=new Array();
+		for(var i=0;i<arr.length;i++)
+		{
+			 var tid=arr[i].split(",");
+			$(showID+" :checkbox[id="+tid[0]+"]").attr("checked",true);
+			tcn[i]=tid[1];
+		}
+		$(inputname).val(limit(tcn.join(","),strlen));
+		$(showID+"  :checkbox").parent().css("color","");
+		$(showID+"  :checkbox[checked]").parent().css("color","#FF3300");
+	}
+	$(menuID).click(function(){
+		$(menuID).blur();
+		$(menuID).parent("div").css("position","relative");
+		$(showID).slideToggle("fast");
+		//生成背景
+		$(menuID).parent("div").before("<div class=\"menu_bg_layer\"></div>");
+		$(".menu_bg_layer").height($(document).height());
+		$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute", left: "0", top: "0" , "z-index": "0"});
+		$(showID+"  label").unbind().click(function(){
+						if ($(showID+" :checkbox[checked]").length>5)
+						{
+							alert("不能超过5个选项");
+							$(this).attr("checked",false);
+							return false;
+						}
+						else
+						{
+						$(showID+"  :checkbox").parent().css("color","");
+						$(showID+"  :checkbox[checked]").parent().css("color","#FF3300");
+						}
+		});
+		//确定选择
+		$(showID+" .Set").click(function()
+		{
+				var a_cn=new Array();
+				var a_id=new Array();
+				$(showID+" :checkbox[checked]").each(function(i){
+				a_cn[i]=$(this).attr("title");
+				a_id[i]=$(this).attr("value");
+				});
+				$(inputname).val(limit(a_cn.join(","),strlen));
+				$(inputname1).val(limit(a_id.join("|"),0));
+					$(".menu_bg_layer").hide();
+					$(showID).hide();
+					$(menuID).parent("div").css("position","");
+		});			
+		$(".menu_bg_layer").click(function(){
+					$(".menu_bg_layer").hide();
+					$(showID).hide();
+					$(menuID).parent("div").css("position","");
+				});
+	});
+}
 //大列表(单选)
 function showmenulayer(menuID,showID,inputname,inputname1,arr)
 {
@@ -323,8 +388,9 @@ function showmenulayer(menuID,showID,inputname,inputname1,arr)
 				$(showID+"_s").show();
 				var	go_back="<span class=\"go_back\">[返回上层分类>>]</span>";
 				$(showID+"_s").html(go_back+getcathtml(strclass));//生成LI
+				
 					$(showID+"_s>ul>li").click(function(){//点击小类	
-						$(menuID).val($(menuID).val()+" / "+$(this).attr("title"));
+						$(menuID).val($(menuID).val()+"/"+$(this).attr("title"));
 						$(inputname1).val($(this).attr("id"));
 						$(".menu_bg_layer").hide();	
 						$(showID).hide();
@@ -382,11 +448,93 @@ function getcathtml(val)
 	if (val=="")return false;
     arrcity=val.split("|");
 	var htmlstr='<ul>';
-	for (x in arrcity)
-	{
-	 var city=arrcity[x].split(",");
+	for(var i=0;i<arrcity.length;i++)
+		{
+			 var city=arrcity[i].split(",");
 	htmlstr+="<li id=\""+city[0]+"\" title=\""+city[1]+"\">"+city[1]+"</li>";
-	}
+		}
 	htmlstr+="</ul>";
 	return htmlstr; 
+}
+
+//年月(单选)
+function showyearbox(inputname)
+{
+	$(inputname).click(function(){
+		var input=$(this);
+		$(input).parent("div").before("<div class=\"menu_bg_layer\"></div>");
+		$(".menu_bg_layer").height($(document).height());
+		$(".menu_bg_layer").css({ width: $(document).width(), position: "absolute", left: "0", top: "0" , "z-index": "0"});
+		$(input).parent("div").css("position","relative");
+		
+		var myDate = new Date();
+		var y=myDate.getFullYear();
+		var ymin=y-65;
+		htm="<div class=\"showyearbox yearlist\">";		
+		htm+="<div class=\"tit\">请选择年份>></div>";
+		htm+="<ul>";
+		for (i=y;i>=ymin;i--)
+		{
+		htm+="<li title=\""+i+"年\">"+i+"年</li>";
+		}
+		htm+="<div class=\"clear\"></div>";
+		htm+="</ul>";
+		htm+="</div>";
+		//
+		htm+="<div class=\"showyearbox monthlist\">";
+		htm+="<div class=\"tit\">请选择月份>></div>";
+		htm+="<ul>";
+		for (i=1;i<=12;i++)
+		{
+		htm+="<li title=\""+i+"月\">"+i+"月</li>";
+		}
+		htm+="<div class=\"clear\"></div>";
+		htm+="</ul>";
+		htm+="</div>";
+		$(input).blur();
+		if ($(input).parent("div").find(".showyearbox").html())
+		{
+			$(input).parent("div").children(".showyearbox.yearlist").slideToggle("fast");
+		}
+		else
+		{
+			$(input).parent("div").append(htm);
+			$(input).parent("div").children(".showyearbox.yearlist").slideToggle("fast");
+		}
+		//
+		$(input).parent("div").children(".yearlist").find("li").unbind("click").click(function()
+		{
+			$(input).val($(this).attr("title"));
+			$(input).parent("div").children(".yearlist").hide();
+			$(input).parent("div").children(".monthlist").show();
+			$(input).parent("div").children(".monthlist").find("li").unbind("click").click(function()
+			{
+				$(input).val($(input).val()+$(this).attr("title"));
+				$(".menu_bg_layer").hide();
+				$(input).parent("div").css("position","");
+				$(input).parent("div").find(".showyearbox").hide();
+			});	
+		});	
+		//
+		$(".showyearbox>ul>li").hover(
+		function()
+		{
+		$(this).css("background-color","#DAECF5");
+		$(this).css("color","#ff0000");
+		},
+		function()
+		{
+		$(this).css("background-color","");
+		$(this).css("color","");
+		}
+		);
+		//
+		$(".menu_bg_layer").click(function(){
+					$(".menu_bg_layer").hide();
+					$(input).parent("div").css("position","");
+					$(input).parent("div").find(".showyearbox").hide();
+					//$(inputname+"_s").hide();
+					
+		});
+	});
 }
