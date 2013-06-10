@@ -16,10 +16,15 @@ a.website:hover {color:#f00;text-decoration:underline;}
 .link_lan a:hover {text-decoration: underline;color: #009900;}
 .link_lan a:active {text-decoration: none;color: #0066CC;}
 
-.link_bk a:link {color: #666; text-decoration: none;}
-.link_bk a:visited {text-decoration: none;color: #666;}
-.link_bk a:hover {text-decoration: underline;color: #0066CC;}
-.link_bk a:active {text-decoration: none;color: #666;}
+.link_bk a:link {color: #4D4D4D; text-decoration: none;}
+.link_bk a:visited {text-decoration: none;color: #009900;}
+.link_bk a:hover {text-decoration: underline;color: #009900;}
+.link_bk a:active {text-decoration: none;color: #009900;}
+ .link_bku a{color: #4D4D4D;text-decoration: underline;}
+.link_bku a:hover {text-decoration: underline;color: #009900;}
+
+.link_orangeu a{color: #FF6600;text-decoration: underline;}
+.link_orangeu a:hover {text-decoration: underline;color: #FF3300;}
 
 .link_b2 a:link {color: #999999;	text-decoration: none;}
 .link_b2 a:visited {text-decoration: none;color: #999999;}
@@ -35,7 +40,7 @@ a.website:hover {color:#f00;text-decoration:underline;}
 .head_top{ width:100%; background:url(../images/top_bg.jpg); background-repeat:repeat-x; height:33px;}
 .head_top_box{width:960px;  margin:0 auto;height:33px; line-height:33px;}
 .head_top_box_left{width:710px;height:33px; float:left}
-.head_top_box_right{width:250px;height:33px; float:left; text-align:right;}
+.head_top_box_right{width:250px;height:33px; float:right; text-align:right;}
 .head { width:960px;  margin:0 auto;}
 /*ËÑË÷*/
 .search_box_key { width: 300px; height:17px; border:1px #FF9900 solid; font-size:12px; padding-left:5px; padding-top:4px;}

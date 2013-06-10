@@ -5,7 +5,7 @@ $data = array (
     0 => 
     array (
       'title' => '首  页',
-      'url' => '/index.php',
+      'url' => '/index.htm',
       'target' => '_self',
       'tag' => 'homepage',
     ),
@@ -18,40 +18,33 @@ $data = array (
     ),
     2 => 
     array (
-      'title' => '微招聘',
-      'url' => '/simple/simple-list.php',
-      'target' => '_self',
-      'tag' => 'simple',
-    ),
-    3 => 
-    array (
       'title' => '求职信息',
       'url' => '/resume/',
       'target' => '_blank',
       'tag' => 'resume',
     ),
-    4 => 
+    3 => 
     array (
       'title' => 'HR工具箱',
-      'url' => '/hrtools/hrtools-list.php?id=1',
+      'url' => '/hrtools/hrtools-list-1.htm',
       'target' => '_self',
       'tag' => 'hrtools',
     ),
-    5 => 
+    4 => 
     array (
       'title' => '新闻资讯',
       'url' => '/news/',
       'target' => '_self',
       'tag' => 'news',
     ),
-    6 => 
+    5 => 
     array (
       'title' => '会员中心',
       'url' => '/user/login.php',
       'target' => '_self',
       'tag' => 'user',
     ),
-    7 => 
+    6 => 
     array (
       'title' => '<span style="color:#FF0000">进入论坛</span>',
       'url' => 'http://www.74cms.com/bbs/',

@@ -1,6 +1,6 @@
 <?php
 $data = array (
-  'site_name' => '骑士人才系统',
+  'site_name' => '龙船招聘网',
   'site_domain' => 'http://my74cms32.shiyishi.tk',
   'site_dir' => '/',
   'template_dir' => 'shiphr/',
@@ -67,8 +67,8 @@ $data = array (
   'qq_apiopen' => '0',
   'qq_appid' => '',
   'qq_appkey' => '',
-  'open_csrf' => '1',
-  'simple_open' => '1',
+  'open_csrf' => '0',
+  'simple_open' => '0',
   'simple_add_audit' => '1',
   'simple_edit_audit' => '-1',
   'simple_tel_repeat' => '0',

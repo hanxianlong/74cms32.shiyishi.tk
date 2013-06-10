@@ -61,7 +61,7 @@ $(document).ready(function()
   });
   
     //最新职位
-    $.joblisttip("{#$QISHI.site_dir#}plus/ajax.php?act=joblisttip","载入中...",'comvtipshow');
+    $.joblisttip("{#$QISHI.site_dir#}plus/ajax_common.php?act=joblisttip","载入中...",'comvtipshow');
     //推荐职位
     $(".commendjob .list").hover(
       function () {
@@ -105,24 +105,25 @@ $(document).ready(function()
     </ul>
   </div>
   <div class='login_adv'>
-    <div class='left_adv'><a href="/wap/wap.php" target="_blank"><img src="/data/ads/wap.jpg" width="314" height="95" border="0" /></a></div>
-    <div class='left_adv'><a href="/simple/" target="_blank"><img src="/data/ads/shangjia.jpg" width="314" height="95" border="0" /></a></div>
+    <div class='left_adv'><a href="/user/user_reg.php" target="_blank"><img src="/data/images/ads/reg.jpg" width="314" height="95" border="0" /></a></div>
+    <div class='left_adv'><a href="http://www.tmarine.cn/" target="_blank"><img src="/data/images/ads/tmarine.jpg" width="314" height="95" border="0" /></a></div>
   </div>
   <div class="clear"></div>
 </div>
 
 <!--QQ群-->
-<div class="box_960"><img src="{#$QISHI.site_template#}images/qq.gif" border="0" width="960" height="30" /></div>
+<?php /**<div class="box_960"><img src="{#$QISHI.site_template#}images/qq.gif" border="0" width="960" height="30" /></div> */ ?>
 
 <!--以下为推荐企业-->
 <div class='box_960'>
   <div class='bg_960'>
     <div class='dao_txt'>推荐企业</div>
     <div class='dao_more'><a href="{#"QS_jobs"|qishi_url#}" title="查看更多企业招聘信息">更多</a></div>
-    <div class='dao_info'><a href="/explain/explain-show-3.htm" target="_blank">{#$QISHI.site_name#}提醒您：开通企业VIP会员,立即享受下方推荐企业服务,轻松招聘人才</a></div>
+  
+    <div class='dao_info'><a href="{#"QS_explainshow,3"|qishi_url#}" target="_blank">{#$QISHI.site_name#}提醒您：开通企业VIP会员,立即享受下方推荐企业服务,轻松招聘人才</a></div>
   </div>
   <div class='commendjob'>
-      {#qishi_company_list set="列表名:company,显示数目:24,显示职位:4,收费企业:1,职位名长度:6,企业名长度:17,排序:refreshtime>desc"#}
+      {#qishi_company_list set="列表名:company,显示数目:24,显示职位:4,职位名长度:6,企业名长度:17,推荐:1,排序:refreshtime>desc"#}
 	  {#foreach from=$company item=list#}
       <div class="list">
       <a class="companyname" href="{#$list.company_url#}" title="{#$list.companyname#}" target="_blank">{#$list.companyname#}</a>
@@ -138,8 +139,10 @@ $(document).ready(function()
   </div>
 </div>
 
+{#*
 <!--横幅 -->
 <div class="box_960"><img src="{#$QISHI.site_template#}images/tips.png" border="0" width="960" height="45" /></div>
+*#}
 
 <!--以下为最新招聘 -->
 <div class='box_960'>
@@ -177,28 +180,11 @@ $(document).ready(function()
 	<div class="clear"></div>
 </div>
 {#/if#}
-
-<!--以下为微招聘 -->
-<div class='box_960'>
-  <div class='bg_960'>
-    <div class='dao_txt'>商家招聘</div>
-    <div class='dao_more'><a href="/simple/" title="查看更多企业招聘信息">更多商家招聘信息</a></div>
-    <div class='dao_info'></div>
-  </div>
-  <div class="simplejob">
-{#qishi_simple_list set="列表名:simplelist,显示数目:10,填补字符:...,职位名长度:16,企业名长度:18,描述长度:45,排序:refreshtime>desc"#}
-{#foreach from=$simplelist item=li#}
-  <div class="vjob_list link_bk">
-    <div class="title"><a href="{#$li.simple_url#}" target="_blank" class="link_lan">{#$li.jobname#}</a> 招聘单位：<strong>{#$li.comname#}</strong> （{#$li.detailed#}）</div>
-    <div class="time">{#$li.refreshtime|date_format:"%Y-%m-%d"#}</div>
-  </div>
-{#/foreach#}
-	<div class="clear"></div>
-  </div>
-</div>
-
+ 
 <!--横幅 -->
+<?php /**
 <div class="box_960"><a href="http://www.jhrcw.com/user/user_reg.php?act=form&type=2" target="_blank"><img src="{#$QISHI.site_template#}images/resume_top.jpg" border="0" /></a></div>
+*/ ?>
 
 <!--以下为最新简历 -->
 <div class='box_960'>
@@ -237,10 +223,10 @@ $(document).ready(function()
   <div class='box_314'>
     <div class='bg_314'>
       <div class='dao_txt2'>照片简历</div>
-      <div class='dao_more'><a href="/resume/photoresume.php" title="查看更多照片简历">更多</a></div>
+      <div class='dao_more'><a href="{#"QS_resumelist"|qishi_url#}?photo=1" title="查看更多照片简历">更多</a></div>
     </div>
     <div class='zpjl'>
-{#qishi_resume_list set="列表名:resume,显示数目:5,照片:2,特长描述长度:12,填补字符:...,排序:refreshtime>desc"#}
+{#qishi_resume_list set="列表名:resume,显示数目:5,照片:1,特长描述长度:12,填补字符:...,排序:refreshtime>desc"#}
 {#foreach from=$resume item=list#}
       <div class='zpjl_li'>
         <table width="296" border="0" cellspacing="0" cellpadding="0">
@@ -265,6 +251,19 @@ $(document).ready(function()
   </div>
   <div class='clear'></div>
 </div>
+<!-- 以下是首页底部广告-->
+{#qishi_ad set="显示数目:16,调用名称:QS_indexfootimg,列表名:ad,文字长度:18"#}
+{#if $ad#}
+<div class="vipqy link_bk">
+	{#foreach from=$ad item=list#}
+	<div class="list">
+		<div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
+		<div class="text"><a target="_blank" href="{#$list.img_url#}">{#$list.img_explain#}</a></div>
+	</div>
+	{#/foreach#}
+	<div class="clear"></div>
+</div>
+{#/if#}
 
 <!--以下为资讯 -->
 <div class='box_960'>
@@ -327,13 +326,9 @@ $(document).ready(function()
   </div>
 </div>
 
-<link href="/data/weixin/contact.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/data/weixin/totop.js"></script>
-<script type="text/javascript" src="/data/weixin/ContactIndex.js"></script>
 <!--以下为尾部 -->
 {#include file="footer.htm"#}
 <!--浮动代码 -->
 {#qishi_ad set="显示数目:10,调用名称:QS_indexfloat,列表名:ad"#}{#foreach from=$ad  item=float#}{#$float#}{#/foreach#}
-<script type="text/javascript" src="/data/qq/qq_f.js"></script>
 </body>
 </html>

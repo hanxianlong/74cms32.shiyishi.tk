@@ -420,8 +420,14 @@ function makejs_classify()
 		}
 	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 	{
-	$content=iconv(QISHI_DBCHARSET,"utf-8//IGNORE",$content);
+            $content=iconv(QISHI_DBCHARSET,"utf-8//IGNORE",$content);
 	}
+        
+        if (strcasecmp(QISHI_CHARSET,"utf8")!=0)
+	{
+           // $content=iconv("utf-8//IGNORE",QISHI_CHARSET,$content);
+	}
+        
 	 if (!@fwrite($fp, trim($content))){
 			exit('Ð´ÈëJSÎÄ¼þÊ§°Ü');
 		}

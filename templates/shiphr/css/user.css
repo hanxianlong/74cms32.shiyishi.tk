@@ -40,11 +40,11 @@ li { padding:0px; margin:0px; line-height:180%;list-style-type:none;}
 .getpass_submit { width:100px; height:32px; font-size:14px; font-weight:bold; color:#FFFFFF; border:0px; background-image:url(../images/41.jpg); background-repeat:no-repeat;}
 .getpass_submit_hover{ background-position:0px -32px;}
 /*会员中心顶部*/
-.head_top{ width:100%;  background:url(../images/04.jpg); background-repeat:repeat-x; height:33px; z-index:100; position:relative}
+ /**.head_top{ width:100%;  background:url(../images/04.jpg); background-repeat:repeat-x; height:33px; z-index:100; position:relative}
 .head_top_box{width:960px;  margin:0 auto;height:33px;}
 .head_top_box_left{width:450px;height:23px; float:left;padding-top:10px; overflow:hidden}
 .head_top_box_right{width:510px;height:33px; float:left; position:relative}
-.head { width:960px;  margin:0 auto;}
+.head { width:960px;  margin:0 auto;}*/
 .head_logo { width:400px;  padding-left:10px; padding-top:8px;float:left; padding-bottom:10px;position:relative}
 .head_logo .citydiv{ position:absolute; left:280px; top:28px; position:absolute; background-color:#99CCCC}
 .head_logo .citydiv .subbox{ height:28px; width:130px; border:1px #D8D8D8 solid; background:url(../images/43.gif) no-repeat right -408px; line-height:28px; font-size:14px; font-weight:bold; position:absolute; z-index:2}
@@ -53,6 +53,18 @@ li { padding:0px; margin:0px; line-height:180%;list-style-type:none;}
 .head_logo .citybox a{  background:url(../images/71.jpg) no-repeat; height:22px; width:70px; margin-right:10px; margin-bottom:5px; float:left; text-decoration:none; text-align:center; color:#990000; margin-top:5px;}
 .head_logo .citybox a:hover { color:#FF3300}
 .head_logo_right { width:550px; float:left;  padding-top:15px; text-align:right}
+a.website {font-weight:bold;color:#000;padding-left:5px;padding-right:10px;line-height:33px;text-decoration:none;}
+a.website:hover {color:#f00;text-decoration:underline;}
+#top_loginform a ,#top_loginform a:link ,#top_loginform a:visited ,#top_loginform a:active {color: #0066CC;text-decoration: none;}
+#top_loginform a:hover {color: #009900;text-decoration: underline;}
+.top_nav a{background-image: url(../images/food_list2.gif);background-repeat: no-repeat;background-position: left 1px;width: 100px;padding-left: 14px;font-family: "新宋体";line-height: 33px;color:#000;text-decoration: none;margin-right: 10px;font-weight: normal;}
+
+.head_top{ width:100%; background:url(../images/top_bg.jpg); background-repeat:repeat-x; height:33px;}
+.head_top_box{width:960px;  margin:0 auto;height:33px; line-height:33px;}
+.head_top_box_left{width:710px;height:33px; float:left}
+.head_top_box_right{width:250px;height:33px; float:right; text-align:right;}
+.head { width:960px;  margin:0 auto;}
+
 /*会员中心导航*/
 .nav_outer{ width:960px;margin:0 auto;}
 .nav { font-size:14px;width:960px; height:27px;}
@@ -222,3 +234,47 @@ p#vtip { display: none; position: absolute; padding: 10px; left: 5px; font-size:
 .OpenFloatBox .content .item .sitem label{ padding-bottom:5px; line-height:23px;}
 /*底部*/
 .footer {width:930px; text-align:center; padding:15px; line-height:180%; font-size:12px; margin:0 auto;}
+
+.tagmenu {position:absolute; left:0px; top:23px; z-index:99; background-color: #F7FBFD; border:1px #8A89A9 solid; width:650px; display:none; padding:15px;}
+.tagmenu .tit { color:#FF0000; margin-bottom:5px;}
+.tagmenu ul { padding:0px; margin:0px;}
+.tagmenu li { line-height:23px;;width:110px; float:left;}
+
+.user_search_input { width:400px; padding:5px; vertical-align:middle;font-family:Arial, Helvetica, sans-serif; font-size:12px; height:16px; line-height:16px;border:1px solid;border-color:#666666 #CCCCCC #CCCCCC #666666;}
+.input_text_200_selsect{ background-image:url(../images/09.gif); background-position:right center; background-repeat:no-repeat; cursor:pointer;}
+.input_text_200_textarea { width:300px; height:80px; font-size:12px; line-height:180%; font-family:Arial, Helvetica, sans-serif; font-size:12px;border:1px solid;border-color:#666666 #CCCCCC #CCCCCC #666666;}
+.input_text_400 {width:400px; height:20px;border:1px  solid;border-color:#666666 #CCCCCC #CCCCCC #666666; font-size:12px; line-height:20px; padding-left:3px;}
+.input_text_150 {width:150px; height:20px; border:1px  solid;border-color:#666666 #CCCCCC #CCCCCC #666666; font-size:12px;line-height:20px;padding-left:3px;}
+.input_text_200 {width:200px; height:16px; border:1px solid; border-color:#666666 #CCCCCC #CCCCCC #666666; font-size:12px;line-height:16px;padding:3px;}
+.input_text_100 {width:100px; height:16px; border:1px   solid; border-color:#666666 #CCCCCC #CCCCCC #666666; font-size:12px;line-height:16px;padding:3px;}
+.input_text_50 {width:50px; height:20px; border:1px solid; border-color:#666666 #CCCCCC #CCCCCC #666666; font-size:12px;line-height:20px;padding-left:3px}
+.input_textarea_200{ width:200px; height:50px; border:1px  solid;border-color:#666666 #CCCCCC #CCCCCC #666666; font-size:12px;line-height:20px;}
+.input_textarea_400{ width:400px; height:120px; border:1px  solid;border-color:#666666 #CCCCCC #CCCCCC #666666; font-size:12px;line-height:20px;}
+.user_submit{ font-size:12px; width:95px; height:28px; background-image:url(../images/23.gif); background-repeat:repeat-x; border:0px;}
+.user_submit_on {background-image:url(../images/23.gif); background-repeat:repeat-x; background-position:0px bottom}
+.user_long_submit{ font-size:12px; width:115px; height:28px; background-image:url(../images/27.gif); background-repeat:repeat-x; border:0px;}
+.user_long_submit_on {background-image:url(../images/27.gif); background-repeat:repeat-x; background-position:0px bottom}
+
+
+.somenu {position:absolute; left:0px; top:23px; z-index:99;border:1px #8A89A9 solid; width:620px; display:none; background-color:#FFFFFF}
+.somenu .sobox{ background-color:#F7F7F7; border-bottom:1px #CCCCCC solid; height:100px;}
+.somenu .sobox .tit { margin-bottom:5px; color:#FF0000; padding-left:10px; padding-top:10px;}
+.somenu .sobox .left{ width:100px; float:left; text-align:right; padding-top:12px;}
+.somenu .sobox .right{ width:510px; float:left;  padding-left:5px;padding-top:10px; }
+.somenu .sobox .right a{ display:block; float:left; width:14px; height:14px; border:1px #CCCCCC solid;margin-right:5px; font-size:10px; font-family:Arial, Helvetica, sans-serif; text-align:center;}
+.somenu .sobox .right a.select{color:#FFFFFF; background-color: #0066CC; border-color: #0033CC}
+.somenu .sobox .right a:hover{ background-color: #0066CC; border-color: #003399; color:#FFFFFF} 
+.somenu .sobox .right .inputbox{ float:left; width:195px;}
+.somenu .sobox .right .inputbox input{width:180px;border:1px solid; border-color:#666666 #CCCCCC #CCCCCC #666666;height:14px;line-height:14px; padding:3px;color:#666666;}
+.somenu .sobox .right .inputsub{ float:left; width:100px;}
+.somenu .sobox .right .inputsub a{ display:block; width:50px; text-align:center; border:1px  #999999 solid; height:21px; line-height:21px; text-decoration:none; color: #666666}
+.somenu .sobox .right .inputsub a:hover{ background-color: #0066CC; border-color: #003399; color:#FFFFFF} 
+.somenu .showli {}
+.somenu .showli .left{ float:left; width:100px; text-align:right; padding-top:10px;}
+.somenu .showli .left b{ color:#FF3300}
+.somenu .showli .right{ float:left; padding-top:5px; padding-bottom:10px;}
+.somenu .showli ul { padding:0px; margin:0px;}
+.somenu .showli li { line-height:25px; cursor:pointer; width:95px; float:left; color:#0066CC; padding-left:5px; overflow:hidden; height:25px;}
+.somenu .showli span { width:90%; padding-left:15px; line-height:25px;}
+
+.menu_bg_layer{background-image:url(../images/28.gif);}

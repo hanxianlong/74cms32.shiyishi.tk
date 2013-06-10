@@ -247,9 +247,10 @@ $(".item_key :input[name='keytype'][value="+get_keytype+"]").attr("checked",true
 <div class="jobs_search">
 <div class="toptit">
   <div class="left">职位搜索</div>
-  <div class="right link_bk">
+ {#* <div class="right link_bk">
   <a href="{#"QS_index"|qishi_url#}">网站首页</a>&nbsp;&nbsp;&nbsp;<a href="{#"QS_user,1"|qishi_url#}?act=addjobs">发布职位</a>&nbsp;&nbsp;&nbsp;<a href="{#"QS_user,2"|qishi_url#}?act=resume_list">填写简历</a>
   </div>
+ *#}
   <div class="clear"></div>
 </div>
 <form id="form_1" name="form_1" method="get" action="">
@@ -365,12 +366,6 @@ $(".item_key :input[name='keytype'][value="+get_keytype+"]").attr("checked",true
 						width:281,
 						zIndex: 9999,
 						deferRequestBy: 0 //miliseconds
-						//params: { country:'Yes' }, //aditional parameters
-						//noCache: false, //default is false, set to true to disable caching
-						// callback function:
-						//onSelect: function(value, data){ alert('You selected: ' + value + ', ' + data); },
-						// local autosugest options:
-						//lookup: ['January', 'February', 'March', 'April', 'May'] //local lookup values 
 					  });
 				
 				});
@@ -500,7 +495,7 @@ $(".item_key :input[name='keytype'][value="+get_keytype+"]").attr("checked",true
   </div>
   <div class="right">
     <div class="tit">推荐企业</div>
-	  {#qishi_company_list set="列表名:company,显示数目:50,显示职位:0,收费企业:1,职位名长度:6,企业名长度:16,排序:refreshtime>desc"#}
+	  {#qishi_company_list set="列表名:company,显示数目:50,显示职位:1,职位名长度:6,企业名长度:17,推荐:1,排序:refreshtime>desc"#}
 	  {#foreach from=$company item=list#}
       <div class="txt link_lan">
       <a class="companyname" href="{#$list.company_url#}" title="{#$list.companyname#}" target="_blank">{#$list.companyname#}</a>
