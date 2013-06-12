@@ -275,7 +275,7 @@
                                                 <td></td>
                                             </tr>
                                             <tr>
-                                                <td width="100" height="23" align="right" valign="top" style="padding-top:10px;"><strong  style="color:#FF0000">*</strong>Resume Name：</td>
+                                                <td width="100" height="23" align="right" valign="top" style="padding-top:10px;"><strong  style="color:#FF0000">*</strong>Resume Title：</td>
                                                 <td><input name="title" type="text" class="input_text_200" id="title" maxlength="80"   value="{#$resume_basic.title#}"/>&nbsp;&nbsp;{#*简历名称不在网站显示，用于区分多个简历*#}<br />
                                                 </td>
                                             </tr>
@@ -445,15 +445,13 @@
                                         <input name="go_resume_show" type="hidden"  value="{#$go_resume_show#}" />
                                         <!--求职意向开始-->
                                         <table width="100%" border="0" cellspacing="0" cellpadding="4">
-
-                                       
                                             <tr>
-                                                <td width="160" height="23" align="right">Recent Job：</td>
+                                                <td  width="100" height="23" align="right">Recent Job：</td>
                                                 <td><input name="recentjobs" type="text" class="input_text_200" id="recentjobs" maxlength="40" style="width:280px;" value="{#$resume_basic.recentjobs#}"/><span style="color:#999999"> (无工作经验者可忽略)</span></td>
                                             </tr>
                                             <tr>
-                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>Target Job Nature ：</td>
-                                                <td>		  
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>Target Job Nature：</td>
+                                                <td>
                                                     {#qishi_get_classify  set="类型:QS_jobs_nature,列表名:c_nature"#}
                                                     {#foreach from=$c_nature item=list#}
                                                     <label><input name="nature"  type="radio" value="{#$list.id#}"   {#if $resume_basic.nature==$list.id#} checked="checked"{#/if#}/ title="{#$list.categoryname_en#}">{#$list.categoryname_en#}</label>  &nbsp;&nbsp;&nbsp;&nbsp;
@@ -496,7 +494,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>Target Job：</td>
+                                                <td height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>Target Job Cateogory：</td>
                                                 <td>
                                                     <div>
                                                         <input type="button" name="Submit22" value="--Select/Modify---" class="user_submit"  id="showjobs" />
@@ -506,7 +504,7 @@
                                                         <div  style="display:none" id="sel_category">
                                                             <div class="OpenFloatBoxBg" ></div>
                                                             <div class="OpenFloatBox">
-                                                                <div class="title"><h4>请选择职位类别</h4><div class="DialogClose" title="Close"></div></div>
+                                                                <div class="title"><h4>Select Target Cateogry</h4><div class="DialogClose" title="Close"></div></div>
                                                                 <div class="tip">可多选，最多选择8项</div>
                                                                 <div class="content link_lan">					
                                                                     <div class="txt">							
@@ -557,7 +555,7 @@
                                                                 </div>						
                                                                 <div class="txt">
                                                                     <div align="center"><input type="button"  class="but80 Set" value="OK" /></div>
-                                                                </div>			
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -596,9 +594,9 @@
                                           <table width="100%" border="0" cellspacing="0" cellpadding="4" style=" line-height:180%;">
            
             <tr>
-              <td width="100" height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>Education：</td>
+              <td width="100" height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>Education Experience：</td>
               <td><textarea name="education_remark"   id="education_remark" style=" width:450px; height:100px; font-size:12px; line-height:160%;">{#if $resume_education#}{#$resume_education.education_remark#}{#/if#}</textarea>
-                  <div style="color:#962e01">  请用简洁的文字描述自己的教育经历。例如以下文字：（<span style='color:red'>No more than 2000 characters</span>）<br/>
+                  <div style="color:#962e01">  请用简洁的文字描述自己的教育经历。例如以下文字：（<span style='color:red'>Limit 2000 characters</span>）<br/>
             2001年7月~2005年7月 就读某大学专业，获本科学士学位<br/></div>
               </td>                  
             </tr>
@@ -611,7 +609,7 @@
             <tr>
               <td width="100" height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>Job Experience：</td>
               <td><textarea name="work_remark"   id="work_remark" style=" width:450px; height:100px; font-size:12px; line-height:160%;">{#if $resume_work#}{#$resume_work.work_remark#}{#/if#}</textarea>
-                   <div style="color:#962e01">  请用简洁的文字描述自己的工作经历。例如以下文字：（<span style='color:red'>No more than 2000 characters</span>）<br/>
+                   <div style="color:#962e01">  请用简洁的文字描述自己的工作经历。例如以下文字：（<span style='color:red'>Limit 2000 characters</span>）<br/>
 2006年2月~2007年7月某船体设计员，期间参与过某船型设计<br/>
 2007年8月~2009年5月上海某设计公司设计主管，期间主持某某船型设计<br/>
 2009年1月至今 上海某设计公司设计主管，主持某某船型设计</div></td>
@@ -623,7 +621,7 @@
             <tr>
               <td width="100" height="23" align="right" valign="top"><strong  style="color:#FF0000">*</strong>Training Experience：</td>
               <td><textarea name="training_remark"   id="training_remark" style=" width:450px; height:100px; font-size:12px; line-height:160%;">{#if $resume_training#}{#$resume_training.training_remark#}{#/if#}</textarea>
-                   <div style="color:#962e01">  请用简洁的文字描述自己培训经历。例如以下文字：（<span style='color:red'>No more than 2000 characters</span>）<br/>
+                   <div style="color:#962e01">  请用简洁的文字描述自己培训经历。例如以下文字：（<span style='color:red'>Limit 2000 characters</span>）<br/>
             2005年7月~2005年12月参加某船厂培训<br/>
             2006年1月~2006年2月参加某公司软件使用培训<br/></div></td>
               </td>
