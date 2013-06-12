@@ -69,7 +69,7 @@ $(document).ready(function()
   <tr>
     <td width="80" align="right" bgcolor="#FAFAFA">
 	Name：</td>
-    <td bgcolor="#FFFFFF">{#if $show.display_name=="2"#}<span style="color:#FF6600">[用户已隐藏]</span>{#/if#}{#$show.fullname#}</td>
+    <td bgcolor="#FFFFFF">{#if $show.display_name=="2"#}<span style="color:#FF6600">[Hidden by user]</span>{#/if#}{#$show.fullname#}</td>
     <td width="80" align="right" bgcolor="#FAFAFA">
 	Gendor：</td>
     <td bgcolor="#FFFFFF">{#$show.sex_cn#}</td>
@@ -114,41 +114,41 @@ $(document).ready(function()
 </table>
   <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
     <tr>
-      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>求职意向</strong></td>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Target Job</strong></td>
     </tr>
     <tr>
-      <td width="120" align="right" bgcolor="#FAFAFA">最近工作过的职位：</td>
+      <td width="120" align="right" bgcolor="#FAFAFA">Recent Jobs：</td>
       <td bgcolor="#FFFFFF">{#$show.recentjobs#}</td>
     </tr>
     <tr>
-      <td align="right" bgcolor="#FAFAFA">期望岗位性质：</td>
+      <td align="right" bgcolor="#FAFAFA">Target Job Nature：</td>
       <td bgcolor="#FFFFFF">{#$show.nature_cn#}</td>
     </tr>
     <tr>
-      <td align="right" bgcolor="#FAFAFA">期望月薪：</td>
+      <td align="right" bgcolor="#FAFAFA">Target Salary：</td>
       <td bgcolor="#FFFFFF">{#$show.wage_cn#}</td>
     </tr>
     <tr>
-      <td align="right" bgcolor="#FAFAFA">期望从事的岗位：</td>
+      <td align="right" bgcolor="#FAFAFA">Target Job Category：</td>
       <td bgcolor="#FFFFFF">{#$show.intention_jobs#}</td>
     </tr>
     <tr>
-      <td align="right" bgcolor="#FAFAFA">期望从事的行业：</td>
+      <td align="right" bgcolor="#FAFAFA">Target Industry：</td>
       <td bgcolor="#FFFFFF">{#$show.trade_cn#}</td>
     </tr>
 </table>
   <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
     <tr>
-      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>技能特长</strong></td>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Self Assessment</strong></td>
     </tr>
     <tr>
-      <td width="80" align="right" bgcolor="#FAFAFA">技能特长：</td>
+      <td width="80" align="right" bgcolor="#FAFAFA">Self Assessment：</td>
       <td bgcolor="#FFFFFF">{#$show.specialty|nl2br#}</td>
     </tr>
 </table>
   <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
     <tr>
-      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>教育经历</strong></td>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Education Experience</strong></td>
     </tr>
 	{#foreach from=$show.education_list item=list#}
         <tr>
@@ -159,7 +159,7 @@ $(document).ready(function()
   </table>
   <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
     <tr>
-      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>工作经历</strong></td>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Job Experience</strong></td>
     </tr>
 	{#if $show.work_list#}
 	{#foreach from=$show.work_list item=list#}
@@ -170,13 +170,13 @@ $(document).ready(function()
 	{#/foreach#}
 	{#else#}
     <tr>
-      <td colspan="2" bgcolor="#FFFFFF">没有填写工作经历。</td>
+      <td colspan="2" bgcolor="#FFFFFF">No Job Experience。</td>
     </tr>
 	{#/if#}
 </table>
   <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
     <tr>
-      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>培训经历</strong></td>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Training Experience</strong></td>
     </tr>
 	{#if $show.training_list#}
 	{#foreach from=$show.training_list item=list#}
@@ -187,14 +187,14 @@ $(document).ready(function()
 	{#/foreach#}
 	{#else#}
     <tr>
-      <td colspan="2" bgcolor="#FFFFFF">没有填写培训经历。</td>
+      <td colspan="2" bgcolor="#FFFFFF">No training experience。</td>
     </tr>
 	{#/if#}
 </table>
 
 <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show resume_contact" >
     <tr>
-      <td bgcolor="#FAFAFA" class="title"><strong>联系方式</strong></td>
+      <td bgcolor="#FAFAFA" class="title"><strong>Contact</strong></td>
     </tr>
     <tr>
       <td bgcolor="#FFFFFF">

@@ -12,6 +12,11 @@
 define('IN_QISHI', true);
 require_once(dirname(__FILE__) . '/personal_common.php');
 $smarty->assign('leftmenu',"resume");
+
+if(in_array($act,array('make2','make3','make4','make5','make6'))){
+    $act='make1';
+}
+
 if ($act=='resume_show')
 {
 	$uid=intval($_SESSION['uid']);
