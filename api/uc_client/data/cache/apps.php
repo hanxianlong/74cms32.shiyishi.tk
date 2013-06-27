@@ -33,5 +33,27 @@ $_CACHE['apps'] = array (
     'synlogin' => '1',
     'extra' => '',
   ),
-  'UC_API' => 'http://myucenter.shiyishi.tk:80',
+  4 => 
+  array (
+    'appid' => '4',
+    'type' => 'DISCUZX',
+    'name' => 'myshiphr.shiyishi.tk',
+    'url' => 'http://myshiphr.shiyishi.tk',
+    'ip' => '',
+    'charset' => '',
+    'synlogin' => '1',
+    'extra' => 'a:1:{s:7:"apppath";s:0:"";}',
+  ),
+  5 => 
+  array (
+    'appid' => '5',
+    'type' => 'UCHOME',
+    'name' => '个人家园',
+    'url' => 'http://myuhome.shiyishi.tk',
+    'ip' => '',
+    'charset' => 'utf-8',
+    'synlogin' => '1',
+    'extra' => '',
+  ),
+  'UC_API' => 'http://myucenter.shiyishi.tk',
 );
