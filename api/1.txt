@@ -1,11 +1,16 @@
 array (
-  'send_key' => 981548,
-  'imageCaptcha_content' => 'swfv',
-  'admin_id' => '1',
-  'admin_name' => 'hanxianlong',
-  'admin_purview' => 'all',
+  'send_key' => 509536,
+  'imageCaptcha_content' => 'ehpg',
   'uid' => '',
   'username' => '',
   'utype' => '',
-  'activate_username' => 'root',
+  'activate_username' => 'wnfk',
+  'uqqid' => '',
+  'token' => 
+  array (
+    '930517817118eb5ad96f4820d7dc1098' => 'c5fcf9be',
+  ),
+  'admin_id' => '1',
+  'admin_name' => 'web-admin',
+  'admin_purview' => 'all',
 )

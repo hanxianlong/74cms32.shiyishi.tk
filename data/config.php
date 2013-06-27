@@ -1,7 +1,7 @@
 <?php
 $dbhost   = "localhost";
 
-$dbname   = "74cms32";
+$dbname   = "ship74cms32";
 
 $dbuser   = "root";
 
@@ -33,16 +33,5 @@ define('UC_CHARSET', 'utf-8');
 define('UC_IP', '');
 define('UC_APPID', '2');
 define('UC_PPP', '20');
-
-
-
-
-
-
-
-
-
-
-
 
 ?>

@@ -22,7 +22,8 @@ die('Access Denied!');
 		{	
 			$row=expired_jobs_addslashes_deep($row);
 			$db->query("Delete from ".table('jobs_tmp')." WHERE id='{$row['id']}' LIMIT 1");
-			inserttable(table('jobs_tmp'),$row);			
+                        $db->query("Delete from ".table('jobs')." WHERE id='{$row['id']}' LIMIT 1");
+			inserttable(table('jobs_tmp'),$row);
 			$db->query("Delete from ".table('jobs_search_hot')." WHERE id='{$row['id']}' LIMIT 1");
 			$db->query("Delete from ".table('jobs_search_key')." WHERE id='{$row['id']}' LIMIT 1");
 			$db->query("Delete from ".table('jobs_search_rtime')." WHERE id='{$row['id']}' LIMIT 1");
