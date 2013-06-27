@@ -1,7 +1,7 @@
 <?php
 $data = array (
   'site_name' => 'Áú´¬ÕÐÆ¸Íø',
-  'site_domain' => 'http://my74cms32.shiyishi.tk',
+  'site_domain' => 'http://shiphr.imarine.cn',
   'site_dir' => '/',
   'template_dir' => 'shiphr/',
   'outdated_jobs' => '1',
@@ -61,7 +61,7 @@ $data = array (
   'setmeal_to_points' => '1',
   'meal_min_remind' => '0',
   'reg_service' => '1',
-  'operation_mode' => '1',
+  'operation_mode' => '2',
   'tpl_company' => 'default',
   'tpl_personal' => 'default',
   'qq_apiopen' => '0',

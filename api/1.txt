@@ -1,13 +1,16 @@
 array (
-  'admin_id' => '1',
-  'admin_name' => 'admin',
-  'admin_purview' => 'all',
-  'token' => 
-  array (
-    '10ca84010f36a5fd95e4faf48b330e2c' => '1a2ab615',
-  ),
+  'send_key' => 509536,
+  'imageCaptcha_content' => 'ehpg',
   'uid' => '',
   'username' => '',
   'utype' => '',
-  'activate_username' => 'test8',
+  'activate_username' => 'wnfk',
+  'uqqid' => '',
+  'token' => 
+  array (
+    '930517817118eb5ad96f4820d7dc1098' => 'c5fcf9be',
+  ),
+  'admin_id' => '1',
+  'admin_name' => 'web-admin',
+  'admin_purview' => 'all',
 )
