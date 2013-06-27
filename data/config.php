@@ -18,7 +18,7 @@ $QS_pwdhash = "LStuzsX-NpMjCAwn";
 define('QISHI_CHARSET','gb2312');
 
 define('QISHI_DBCHARSET','GBK');
-
+/*
 define('UC_CONNECT', 'mysql');
 define('UC_DBHOST', 'localhost');
 define('UC_DBUSER', 'root');
@@ -32,6 +32,22 @@ define('UC_API', 'http://myucenter.shiyishi.tk');
 define('UC_CHARSET', 'utf-8');
 define('UC_IP', '');
 define('UC_APPID', '2');
+define('UC_PPP', '20');
+*/
+
+define('UC_CONNECT', 'mysql');
+define('UC_DBHOST', 'localhost');
+define('UC_DBUSER', 'root');
+define('UC_DBPW', 'han1987118');
+define('UC_DBNAME', 'shiphr');
+define('UC_DBCHARSET', 'utf8');
+define('UC_DBTABLEPRE', '`shiphr`.uc_');
+define('UC_DBCONNECT', '0');
+define('UC_KEY', 'aabbbc');
+define('UC_API', 'http://myshipuc.shiyishi.tk');
+define('UC_CHARSET', 'utf-8');
+define('UC_IP', '');
+define('UC_APPID', '10');
 define('UC_PPP', '20');
 
 ?>
