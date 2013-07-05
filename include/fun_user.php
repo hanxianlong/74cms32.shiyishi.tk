@@ -119,11 +119,11 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
                 return $login;
             }
             
-            //用户名存在于uc中,并且登录成功，则同步到本系统中来,然后登录
-            $qs_uid =  user_register($account,$password,1,$uc_email,false);
+            //用户名存在于uc中,并且登录成功，则同步到本系统中来,然后登录,默认注册为个人用户
+            $qs_uid =  user_register($account,$password,2,$uc_email,false);
             update_user_info($qs_uid,true,true,$expire);
 
-            $login['qs_login']=get_member_url(1);
+            $login['qs_login']=get_member_url(2);
             $login['uc_login']=uc_user_synlogin($uc_uid);
             return $login;
         }

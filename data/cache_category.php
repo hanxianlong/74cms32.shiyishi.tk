@@ -31,7 +31,7 @@ $data = array (
       'id' => '4',
       'parentid' => '0',
       'categoryname' => '大型设备/机电设备/重工业',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     5 => 
@@ -39,7 +39,7 @@ $data = array (
       'id' => '5',
       'parentid' => '0',
       'categoryname' => '航运',
-      'stat_jobs' => '(3)',
+      'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
     6 => 
@@ -55,7 +55,7 @@ $data = array (
       'id' => '7',
       'parentid' => '0',
       'categoryname' => '港口航道与海岸工程',
-      'stat_jobs' => '',
+      'stat_jobs' => '(1)',
       'stat_resume ' => NULL,
     ),
     8 => 
@@ -181,7 +181,7 @@ $data = array (
       'id' => '58',
       'parentid' => '0',
       'categoryname' => '2000~3000元/月',
-      'stat_jobs' => '(2)',
+      'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
     59 => 
@@ -197,7 +197,7 @@ $data = array (
       'id' => '60',
       'parentid' => '0',
       'categoryname' => '4000~6000元/月',
-      'stat_jobs' => '(1)',
+      'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
     61 => 
@@ -205,7 +205,7 @@ $data = array (
       'id' => '61',
       'parentid' => '0',
       'categoryname' => '6000~8000元/月',
-      'stat_jobs' => '(1)',
+      'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
     176 => 
@@ -213,7 +213,7 @@ $data = array (
       'id' => '176',
       'parentid' => '0',
       'categoryname' => '8000~10000元/月',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     177 => 
@@ -229,7 +229,7 @@ $data = array (
       'id' => '178',
       'parentid' => '0',
       'categoryname' => '15000~20000元/月',
-      'stat_jobs' => '',
+      'stat_jobs' => '(1)',
       'stat_resume ' => NULL,
     ),
     179 => 
@@ -237,7 +237,7 @@ $data = array (
       'id' => '179',
       'parentid' => '0',
       'categoryname' => '20000~30000元/月',
-      'stat_jobs' => '',
+      'stat_jobs' => '(2)',
       'stat_resume ' => NULL,
     ),
     180 => 
@@ -256,7 +256,7 @@ $data = array (
       'id' => '62',
       'parentid' => '0',
       'categoryname' => '全职',
-      'stat_jobs' => '(5)',
+      'stat_jobs' => '(3)',
       'stat_resume ' => NULL,
     ),
     63 => 
@@ -271,16 +271,16 @@ $data = array (
     array (
       'id' => '64',
       'parentid' => '0',
-      'categoryname' => '实习',
-      'stat_jobs' => '',
+      'categoryname' => '临时',
+      'stat_jobs' => '(1)',
       'stat_resume ' => NULL,
     ),
     181 => 
     array (
       'id' => '181',
       'parentid' => '0',
-      'categoryname' => '临时',
-      'stat_jobs' => '',
+      'categoryname' => '实习',
+      'stat_jobs' => '(1)',
       'stat_resume ' => NULL,
     ),
   ),
@@ -350,6 +350,14 @@ $data = array (
       'stat_jobs' => '',
       'stat_resume ' => NULL,
     ),
+    182 => 
+    array (
+      'id' => '182',
+      'parentid' => '0',
+      'categoryname' => '不限',
+      'stat_jobs' => '',
+      'stat_resume ' => NULL,
+    ),
   ),
   'QS_experience' => 
   array (
@@ -396,6 +404,14 @@ $data = array (
     79 => 
     array (
       'id' => '79',
+      'parentid' => '0',
+      'categoryname' => '八年以上',
+      'stat_jobs' => '',
+      'stat_resume ' => NULL,
+    ),
+    183 => 
+    array (
+      'id' => '183',
       'parentid' => '0',
       'categoryname' => '十年以上',
       'stat_jobs' => '',

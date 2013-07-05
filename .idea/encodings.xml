@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="false" native2AsciiForPropertiesFiles="false" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/admin/admin_database.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/admin_left.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/admin/api/locoyspider.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/agreement/index.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/company/company-show.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/explain/explain-show.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/include/common.fun.php" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>
+
