@@ -26,13 +26,22 @@ $company_id = $_GET['id'];
 if(intval($company_id)>0){
     $com_domain = get_company_domain_from_id($company_id);
     if(!empty($com_domain)){
-        header("Location: /$com_domain");
+    	if(strpos($com_domain,"http://")===0)
+    	{ 
+    	  header("Location: " . $com_domain);
+    	}
+    	else
+    	{
+    		$host = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
+        header("Location: http://". $host. "/$com_domain");
+      }
     }
 }
 
 $custom_domain = $_GET['domain'];
 if(!empty($custom_domain)){
     $company_id = get_company_id_from_doamin($custom_domain);
+     
 }
 
 $mypage['tpl']=get_tpl("company_profile",$company_id);

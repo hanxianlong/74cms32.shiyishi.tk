@@ -53,7 +53,7 @@ a.website:hover {color:#f00;text-decoration:underline;}
 .dropDownList ul.show{display:block;}
 /*µ¼º½*/
 .nav{width:960px;margin:0 auto;}
-.logo_nav{float:left;height:55px;width:200px;margin:5px 8px 5px 9px;display:inline;}
+.logo_nav{float:left;height:55px;width:200px;margin:5px 8px 5px 0px;display:inline;}
 .logo_addition{float:left;width:200px;/*margin:36px 0 0 10px;*/display:inline;}
 .logo_addition p{line-height:22px;}
 

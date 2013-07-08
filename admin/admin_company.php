@@ -850,7 +850,7 @@ elseif($act == 'set_account_save')
 	}
 
     $custom_tpl_and_domain = array();
-	if ($_POST['tpl'])
+	if (isset($_POST['tpl']))
 	{
         $custom_tpl_and_domain['tpl']= trim($_POST['tpl']);
 		//$tplarr['tpl']=trim($_POST['tpl']);
@@ -863,7 +863,8 @@ elseif($act == 'set_account_save')
     if(isset($_POST['domain'])){
         $custom_tpl_and_domain['custom_url']=trim($_POST['domain']);
     }
-    if(count($custom_tpl_and_domain)>1){
+     
+    if(count($custom_tpl_and_domain)>0){
         updatetable(table('company_profile'),$custom_tpl_and_domain," uid='{$thisuid}'");
         unset($custom_tpl_and_domain);
     }

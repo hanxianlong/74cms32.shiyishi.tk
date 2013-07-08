@@ -1,4 +1,4 @@
-{#qishi_company_show set="列表名:company,企业ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{#qishi_company_show set="列表名:company,企业域名:GET[domain],企业ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
@@ -34,29 +34,8 @@ $(document).ready(function()
 </script>
 </head>
 <body>
-<div class="head_top">
-	<div class="head_top_box">
-			<div class="head_top_box_left link_lan"><span id="top_loginform"></span></div>
-			<div class="head_top_box_right link_bk">
-			{#include file="top_nav.htm"#}
-			</div>
-			<div class="clear"></div>
-	</div>
-</div>
-<div class="head">
-	<div class="head_logo">
-		<a href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" border="0" align="absmiddle" /></a>
+{#include file="header.htm"#}
  
-	</div>
-	<div class="head_logo_right">
-			{#qishi_ad set="显示数目:1,调用名称:QS_alltopimg,列表名:ad"#}
-			{#foreach from=$ad item=list#}
-			<a href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$QISHI.site_name#}" border="0" align="absmiddle" /></a>
-			{#/foreach#}
-	</div>
-	<div class="clear"></div>
-</div>
-
 
 <div class="jobstop">
   <div class="t">
