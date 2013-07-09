@@ -103,7 +103,9 @@ INSERT INTO `qs_config` (`id`, `name`, `value`) VALUES
 (NULL, 'login_com_audit_email', '0'),
 (NULL, 'login_com_audit_mobile', '0'),
 (NULL, 'login_per_audit_email', '0'),
-(NULL, 'login_per_audit_mobile', '0');
+(NULL, 'login_per_audit_mobile', '0'),
+(NULL, 'updir_resumes', 'resumes'),
+(NULL, 'updir_resumes_max', '2048');
 
 INSERT INTO `qs_explain` (`id`, `type_id`, `title`, `content`, `tit_color`, `tit_b`, `is_display`, `is_url`, `seo_keywords`, `seo_description`, `click`, `addtime`, `show_order`) VALUES 
 (NULL, 1, '自定义栏目', '', '', 0, 1, 'http://', '', '', 1, 1264332774, 0),
@@ -1672,7 +1674,3 @@ INSERT INTO `qs_help_category` (`id`, `parentid`, `categoryname`, `category_orde
 (15, 2, '资料与地图', 0),
 (16, 3, '简历创建与管理', 0),
 (17, 3, '求职管理', 0);
-
-update `qs_category_district` set categoryname_en=categoryname_cn;
-update `qs_category_jobs` set categoryname_en=categoryname_cn;
-update `qs_category_jobs` set categoryname_en=categoryname_cn;

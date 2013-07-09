@@ -1,6 +1,6 @@
 <?php
  /*
- * 74cms 共用函数
+ * 74cms 安装向导函数
  * ============================================================================
  * 版权所有: 骑士网络，并保留所有权利。
  * 网站地址: http://www.74cms.com；
@@ -9,8 +9,12 @@
  * 使用；不允许对程序代码以任何形式任何目的的再发布。
  * ============================================================================
 */
-if(!defined('IN_QISHI')) die('Access Denied!');
-function addslashes_deep($value)
+if(!defined('IN_QISHI'))
+{
+die('Access Denied!');
+}
+
+function install_addslashes_deep($value)
 {
     if (empty($value))
     {
@@ -20,9 +24,9 @@ function addslashes_deep($value)
     {
 		if (!get_magic_quotes_gpc())
 		{
-		$value=is_array($value) ? array_map('addslashes_deep', $value) : addslashes($value);
+		$value=is_array($value) ? array_map('install_addslashes_deep', $value) : addslashes($value);
 		}
-		$value=is_array($value) ? array_map('addslashes_deep', $value) : mystrip_tags($value);
+		$value=is_array($value) ? array_map('install_addslashes_deep', $value) : mystrip_tags($value);
 		return $value;
     }
 }
@@ -35,441 +39,274 @@ function mystrip_tags($string)
 function table($table)
 {
  	global $pre;
-    return $pre .$table ;
+    return  $pre .$table ;
 }
-function showmsg($msg_detail, $msg_type = 0, $links = array(), $auto_redirect = true,$seconds=3)
+ function install_showmsg($msg,$gourl='goback', $is_write = false)
+ {
+ 	global $install_smarty;
+	$install_smarty->cache = false;
+ 	$install_smarty->assign("msg",$msg);
+ 	$install_smarty->assign("gourl",$gourl);
+ 	$install_smarty->display("showmsg.htm");
+ 	exit();
+ }
+ function check_dirs($dirs)
 {
-	global $smarty;
-    if (count($links) == 0)
+    $checked_dirs = array();
+    foreach ($dirs AS $k=> $dir)
     {
-        $links[0]['text'] = '返回上一页';
-        $links[0]['href'] = 'javascript:history.go(-1)';
+	$checked_dirs[$k]['dir'] = $dir;
+        if (!file_exists(QISHI_ROOT_PATH .'/'. $dir))
+        {
+            $checked_dirs[$k]['read'] = '<span style="color:red;">目录不存在</span>';
+			$checked_dirs[$k]['write'] = '<span style="color:red;">目录不存在</span>';
+        }
+		else
+		{		
+        if (is_readable(QISHI_ROOT_PATH.'/'.$dir))
+        {
+            $checked_dirs[$k]['read'] = '<span style="color:green;">√可读</span>';
+        }else{
+            $checked_dirs[$k]['read'] = '<span sylt="color:red;">×不可读</span>';
+        }
+        if(is_writable(QISHI_ROOT_PATH.'/'.$dir)){
+        	$checked_dirs[$k]['write'] = '<span style="color:green;">√可写</span>';
+        }else{
+        	$checked_dirs[$k]['write'] = '<span style="color:red;">×不可写</span>';
+        }
+		}
     }
-   $smarty->assign('ur_here',     '系统提示');
-   $smarty->assign('msg_detail',  $msg_detail);
-   $smarty->assign('msg_type',    $msg_type);
-   $smarty->assign('links',       $links);
-   $smarty->assign('default_url', $links[0]['href']);
-   $smarty->assign('auto_redirect', $auto_redirect);
-   $smarty->assign('seconds', $seconds);
-   $smarty->display('showmsg.htm');
-	exit;
+    return $checked_dirs;
 }
-function get_smarty_request($str)
+ function randstr($length=6)
 {
-$str=rawurldecode($str);
-$strtrim=rtrim($str,']');
-	if (substr($strtrim,0,4)=='GET[')
-	{
-	$getkey=substr($strtrim,4);
-	return $_GET[$getkey];
-	}
-	elseif (substr($strtrim,0,5)=='POST[')
-	{
-	$getkey=substr($strtrim,5);
-	return $_POST[$getkey];
-	}
-	else
-	{
-	return $str;
-	}
+$hash='';
+$chars= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz@#!~?:-=';   
+$max=strlen($chars)-1;   
+mt_srand((double)microtime()*1000000);   
+for($i=0;$i<$length;$i++)   {   
+$hash.=$chars[mt_rand(0,$max)];   
+}   
+return $hash;   
 }
 function get_cache($cachename)
 {
 	$cache_file_path =QISHI_ROOT_PATH. "data/cache_".$cachename.".php";
-	@include($cache_file_path);
+	if (file_exists($cache_file_path))
+	{
+	include($cache_file_path);
 	return $data;
-}
-function exectime(){ 
-	$time = explode(" ", microtime());
-	$usec = (double)$time[0]; 
-	$sec = (double)$time[1]; 
-	return $sec + $usec; 
-}
-function check_word($noword,$content)
-{
-	$word=explode('|',$noword);
-	if (!empty($word) && !empty($content))
-	{
-		foreach($word as $str)
-		{
-			if(!empty($str) && strstr($content,$str))
-			{
-			return true;
-			}
-
-		}
-	}
-	return false;
-}
-function getip()
-{
-	if (getenv('HTTP_CLIENT_IP') and strcasecmp(getenv('HTTP_CLIENT_IP'),'unknown')) {
-		$onlineip=getenv('HTTP_CLIENT_IP');
-	}elseif (getenv('HTTP_X_FORWARDED_FOR') and strcasecmp(getenv('HTTP_X_FORWARDED_FOR'),'unknown')) {
-		$onlineip=getenv('HTTP_X_FORWARDED_FOR');
-	}elseif (getenv('REMOTE_ADDR') and strcasecmp(getenv('REMOTE_ADDR'),'unknown')) {
-		$onlineip=getenv('REMOTE_ADDR');
-	}elseif (isset($_SERVER['REMOTE_ADDR']) and $_SERVER['REMOTE_ADDR'] and strcasecmp($_SERVER['REMOTE_ADDR'],'unknown')) {
-		$onlineip=$_SERVER['REMOTE_ADDR'];
-	}
-	preg_match("/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/",$onlineip,$match);
-	return $onlineip = $match[0] ? $match[0] : 'unknown';
-}
-function inserttable($tablename, $insertsqlarr, $returnid=0, $replace = false, $silent=0) {
-	global $db;
-	$insertkeysql = $insertvaluesql = $comma = '';
-	foreach ($insertsqlarr as $insert_key => $insert_value) {
-		$insertkeysql .= $comma.'`'.$insert_key.'`';
-		$insertvaluesql .= $comma.'\''.$insert_value.'\'';
-		$comma = ', ';
-	}
-	$method = $replace?'REPLACE':'INSERT';
-	$state = $db->query($method." INTO $tablename ($insertkeysql) VALUES ($insertvaluesql)", $silent?'SILENT':'');
-	if($returnid && !$replace) {
-		return $db->insert_id();
-	}else {
-	    return $state;
-	} 
-}
-function updatetable($tablename, $setsqlarr, $wheresqlarr, $silent=0) {
-	global $db;
-	$setsql = $comma = '';
-	foreach ($setsqlarr as $set_key => $set_value) {
-		if(is_array($set_value)) {
-			$setsql .= $comma.'`'.$set_key.'`'.'='.$set_value[0];
-		} else {
-			$setsql .= $comma.'`'.$set_key.'`'.'=\''.$set_value.'\'';
-		}
-		$comma = ', ';
-	}
-	$where = $comma = '';
-	if(empty($wheresqlarr)) {
-		$where = '1';
-	} elseif(is_array($wheresqlarr)) {
-		foreach ($wheresqlarr as $key => $value) {
-			$where .= $comma.'`'.$key.'`'.'=\''.$value.'\'';
-			$comma = ' AND ';
-		}
-	} else {
-		$where = $wheresqlarr;
-	}
-	return $db->query("UPDATE ".($tablename)." SET ".$setsql." WHERE ".$where, $silent?"SILENT":"");
-}
-function wheresql($wherearr='')
-{
-	$wheresql="";
-	if (is_array($wherearr))
-		{
-		$where_set=' WHERE ';
-			foreach ($wherearr as $key => $value)
-			{
-			$wheresql .=$where_set. $comma.$key.'="'.$value.'"';
-			$comma = ' AND ';
-			$where_set=' ';
-			}
-		}
-	return $wheresql;
-}
-function convert_datefm ($date,$format,$separator="-")
-{
-	 if ($format=="1")
-	 {
-	 return date("Y-m-d", $date);
-	 }
-	 else
-	 {
-		if (!preg_match("/^[0-9]{4}(\\".$separator.")[0-9]{1,2}(\\1)[0-9]{1,2}(|\s+[0-9]{1,2}(|:[0-9]{1,2}(|:[0-9]{1,2})))$/",$date))  return false;
-		$date=explode($separator,$date);
-		return mktime(0,0,0,$date[1],$date[2],$date[0]);
-	 }
-}
-function sub_day($endday,$staday,$range='')
-{
-	$value = $endday - $staday;
-	if($value < 0)
-	{
-		return '';
-	}
-	elseif($value >= 0 && $value < 59)
-	{
-		return ($value+1)."秒";
-	}
-	elseif($value >= 60 && $value < 3600)
-	{
-		$min = intval($value / 60);
-		return $min."分钟";
-	}
-	elseif($value >=3600 && $value < 86400)
-	{
-		$h = intval($value / 3600);
-		return $h."小时";
-	}
-	elseif($value >= 86400 && $value < 86400*30)
-	{
-		$d = intval($value / 86400);
-		return intval($d)."天";
-	}
-	elseif($value >= 86400*30 && $value < 86400*30*12)
-	{
-		$mon  = intval($value / (86400*30));
-		return $mon."月";
-	}
-	else{	
-		$y = intval($value / (86400*30*12));
-		return $y."年";
-	}
-}
-function daterange($endday,$staday,$format='Y-m-d',$color='',$range=3)
-{
-	$value = $endday - $staday;
-	if($value < 0)
-	{
-		return '';
-	}
-	elseif($value >= 0 && $value < 59)
-	{
-		$return=($value+1)."秒前";
-	}
-	elseif($value >= 60 && $value < 3600)
-	{
-		$min = intval($value / 60);
-		$return=$min."分钟前";
-	}
-	elseif($value >=3600 && $value < 86400)
-	{
-		$h = intval($value / 3600);
-		$return=$h."小时前";
-	}
-	elseif($value >= 86400)
-	{
-		$d = intval($value / 86400);
-		if ($d>$range)
-		{
-		return date($format,$staday);
-		}
-		else
-		{
-		$return=$d."天前";
-		}
-	}
-	if ($color)
-	{
-	$return="<span style=\"color:{$color}\">".$return."</span>";
-	}
-	return $return;	 
-}
-function cut_str($string, $length, $start=0,$dot='') 
-{
-		$length=$length*2;
-		if(strlen($string) <= $length) {
-			return $string;
-		}
-		$string = str_replace(array('&amp;', '&quot;', '&lt;', '&gt;'), array('&', '"', '<', '>'), $string);
-		$strcut = '';	 
-			for($i = 0; $i < $length; $i++) {
-				$strcut .= ord($string[$i]) > 127 ? $string[$i].$string[++$i] : $string[$i];
-			}
-		$strcut = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $strcut);
-		return $strcut.$dot;
-}
-function smtp_mail($sendto_email,$subject,$body,$From='',$FromName='')
-{	
-	global $_CFG;
-	$mailconfig=get_cache('mailconfig');
-	require_once(QISHI_ROOT_PATH.'phpmailer/class.phpmailer.php');
-	$mail = new PHPMailer();
-	$From=$From?$From:$mailconfig['smtpfrom'];
-	$FromName=$FromName?$FromName:$_CFG['site_name'];
-	if ($mailconfig['method']=="1")
-	{
-		if (empty($mailconfig['smtpservers']) || empty($mailconfig['smtpusername']) || empty($mailconfig['smtppassword']) || empty($mailconfig['smtpfrom']))
-		{
-		write_syslog(2,'MAIL',"邮件配置信息不完整");
-		return false;
-		}
-	$mail->IsSMTP();
-	$mail->Host = $mailconfig['smtpservers'];
-	$mail->SMTPDebug= 0; 
-	$mail->SMTPAuth = true;
-	$mail->Username = $mailconfig['smtpusername']; 
-	$mail->Password = $mailconfig['smtppassword']; 
-	$mail->Port =$mailconfig['smtpport'];
-	$mail->From =$mailconfig['smtpfrom']; 
-	$mail->FromName =$FromName;
-	}
-	elseif($mailconfig['method']=="2")
-	{
-	$mail->IsSendmail();
-	}
-	elseif($mailconfig['method']=="3")
-	{
-	$mail->IsMail();
-	}
-	$mail->CharSet = QISHI_CHARSET;
-	$mail->Encoding = "base64";
-	$mail->AddReplyTo($From,$FromName);
-	$mail->AddAddress($sendto_email,"");
-	$mail->IsHTML(true);
-	$mail->Subject = $subject;
-	$mail->Body =$body;
-	$mail->AltBody ="text/html";
-	if($mail->Send())  
-	{
-	return true;
 	}
 	else
 	{
-	write_syslog(2,'MAIL',$mail->ErrorInfo);
-	return false;
+	exit("缓存文件意外丢失，请到进入后台更新缓存！");
 	}
 }
-function dfopen($url,$limit = 0, $post = '', $cookie = '', $bysocket = FALSE	, $ip = '', $timeout = 15, $block = TRUE, $encodetype  = 'URLENCOD')
+//更新缓存
+function refresh_cache($cachename)
 {
-		$return = '';
-		$matches = parse_url($url);
-		$host = $matches['host'];
-		$path = $matches['path'] ? $matches['path'].($matches['query'] ? '?'.$matches['query'] : '') : '/';
-		$port = !empty($matches['port']) ? $matches['port'] : 80;
-
-		if($post) {
-			$out = "POST $path HTTP/1.0\r\n";
-			$out .= "Accept: */*\r\n";
-			//$out .= "Referer: $boardurl\r\n";
-			$out .= "Accept-Language: zh-cn\r\n";
-			$boundary = $encodetype == 'URLENCODE' ? '' : ';'.substr($post, 0, trim(strpos($post, "\n")));
-			$out .= $encodetype == 'URLENCODE' ? "Content-Type: application/x-www-form-urlencoded\r\n" : "Content-Type: multipart/form-data$boundary\r\n";
-			$out .= "User-Agent: $_SERVER[HTTP_USER_AGENT]\r\n";
-			$out .= "Host: $host:$port\r\n";
-			$out .= 'Content-Length: '.strlen($post)."\r\n";
-			$out .= "Connection: Close\r\n";
-			$out .= "Cache-Control: no-cache\r\n";
-			$out .= "Cookie: $cookie\r\n\r\n";
-			$out .= $post;
-		} else {
-			$out = "GET $path HTTP/1.0\r\n";
-			$out .= "Accept: */*\r\n";
-			//$out .= "Referer: $boardurl\r\n";
-			$out .= "Accept-Language: zh-cn\r\n";
-			$out .= "User-Agent: $_SERVER[HTTP_USER_AGENT]\r\n";
-			$out .= "Host: $host:$port\r\n";
-			$out .= "Connection: Close\r\n";
-			$out .= "Cookie: $cookie\r\n\r\n";
+	global $db;
+	$config_arr = array();
+	$cache_file_path =QISHI_ROOT_PATH. "data/cache_".$cachename.".php";
+	$sql = "SELECT * FROM ".table($cachename);
+	$arr = $db->getall($sql);
+		foreach($arr as $key=> $val)
+		{
+		$config_arr[$val['name']] = $val['value'];
 		}
-
-		if(function_exists('fsockopen')) {
-			$fp = @fsockopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout);
-		} elseif (function_exists('pfsockopen')) {
-			$fp = @pfsockopen(($ip ? $ip : $host), $port, $errno, $errstr, $timeout);
-		} else {
-			$fp = false;
+	write_static_cache($cache_file_path,$config_arr);
+}
+function refresh_page_cache()
+{
+	global $db;
+	$cache_file_path =QISHI_ROOT_PATH. "data/cache_page.php";
+		$sql = "SELECT * FROM ".table('page');
+		$arr = $db->getall($sql);
+			foreach($arr as $key=> $val)
+			{
+			$config_arr[$val['alias']] =array("file"=>$val['file'],"tpl"=>$val['tpl'],"rewrite"=>$val['rewrite'],"html"=>$val['html'],"url"=>$val['url'],"caching"=>$val['caching'],"tag"=>$val['tag'],"alias"=>$val['alias']);
+			}
+		write_static_cache($cache_file_path,$config_arr);
+}
+function refresh_points_rule_cache()
+{
+	global $db;
+	$cache_file_path =QISHI_ROOT_PATH. "data/cache_points_rule.php";
+		$sql = "SELECT * FROM ".table('members_points_rule');
+		$arr = $db->getall($sql);
+			foreach($arr as $key=> $val)
+			{
+			$config_arr[$val['name']] =array("type"=>$val['operation'],"value"=>$val['value']);
+			}
+		write_static_cache($cache_file_path,$config_arr);
+}
+function refresh_category_cache()
+{
+	global $db;
+	$cache_file_path =QISHI_ROOT_PATH. "data/cache_category.php";
+	$sql = "SELECT * FROM ".table('category')."  ORDER BY c_order DESC,c_id ASC";
+	 
+	$result = $db->query($sql);
+		while($row = $db->fetch_array($result))
+		{
+			if ($row['c_alias']=="QS_officebuilding" || $row['c_alias']=="QS_street")
+			{
+			continue;
+			}
+			$catarr[$row['c_alias']][$row['c_id']] =array("id"=>$row['c_id'],"parentid"=>$row['c_parentid'],"categoryname"=>$row['c_name'],"stat_jobs"=>$row['stat_jobs'],"stat_resume "=>$row['stat_resume '],"categoryname_en"=>$row['c_name_en']);
 		}
-
-		if(!$fp) {
-			return '';
-		} else {
-			stream_set_blocking($fp, $block);
-			stream_set_timeout($fp, $timeout);
-			@fwrite($fp, $out);
-			$status = stream_get_meta_data($fp);
-			if(!$status['timed_out']) {
-				while (!feof($fp)) {
-					if(($header = @fgets($fp)) && ($header == "\r\n" ||  $header == "\n")) {
-						break;
-					}
+		 
+		write_static_cache($cache_file_path,$catarr);
+}
+function refresh_nav_cache()
+{
+	global $db;
+	$cache_file_path =QISHI_ROOT_PATH. "data/cache_nav.php";
+		$sql = "SELECT * FROM ".table('navigation')." WHERE display=1   ORDER BY navigationorder DESC";
+		$result = $db->query($sql);
+			while($row = $db->fetch_array($result))
+			{
+				$row['color']?$row['title']="<span style=\"color:".$row['color']."\">".$row['title']."</span>":'';
+				if ($row['urltype']=="0")
+				{
+				$row['url']=url_rewrite($row['pagealias'],!empty($row['list_id'])?array('id0'=>$row['list_id']):'');
 				}
-
-				$stop = false;
-				while(!feof($fp) && !$stop) {
-					$data = fread($fp, ($limit == 0 || $limit > 8192 ? 8192 : $limit));
-					$return .= $data;
-					if($limit) {
-						$limit -= strlen($data);
-						$stop = $limit <= 0;
-					}
-				}
+			$catarr[$row['alias']][] =array("title"=>$row['title'],"url"=>$row['url'],"target"=>$row['target'],"tag"=>$row['tag']);
 			}
-			@fclose($fp);
-			return $return;
-		}
+		write_static_cache($cache_file_path,$catarr);
 }
-function send_sms($mobile,$content)
+function write_static_cache($cache_file_path, $config_arr)
+{
+	$content = "<?php\r\n";
+	$content .= "\$data = " . var_export($config_arr, true) . ";\r\n";
+	$content .= "?>";
+	if (!file_put_contents($cache_file_path, $content, LOCK_EX))
+	{
+		$fp = @fopen($cache_file_path, 'wb+');
+		if (!$fp)
+		{
+			exit('生成缓存文件失败');
+		}
+		if (!@fwrite($fp, trim($content)))
+		{
+			exit('生成缓存文件失败');
+		}
+		@fclose($fp);
+	}
+}
+function makejs_classify()
 {
 	global $db;
-	$sms=get_cache('sms_config');
-	if ($sms['open']!="1" || empty($sms['sms_name']) || empty($sms['sms_key']) || empty($mobile) || empty($content))
+	$content = "//JavaScript Document 生成时间：".date("Y-m-d  H:i:s")."\n\n";
+	$sql = "select * from ".table('category_district')." where parentid=0 ";
+	$list=$db->getall($sql);
+	foreach($list as $parent)
 	{
-            return false;
+	$parentarr[]="\"".$parent['id'].",".$parent['categoryname']."\"";
 	}
-	else
+	$content .= "var QS_city_parent=new Array(".implode(',',$parentarr).");\n";	
+	unset($parentarr);
+	$content .= "var QS_city=new Array();\n";
+	foreach($list as $val)
 	{
-            return dfopen("http://www.74cms.com/SMSsend.php?sms_name={$sms['sms_name']}&sms_key={$sms['sms_key']}&mobile={$mobile}&content={$content}");
-	}
-}
-function execution_crons()
-{
-	global $db;
-	$crons=$db->getone("select * from ".table('crons')." WHERE (nextrun<".time()." OR nextrun=0) AND available=1 LIMIT 1  ");
-	if (!empty($crons))
-	{
-		require_once(QISHI_ROOT_PATH."include/crons/".$crons['filename']);
-	}
-}
-function get_tpl($type,$id)
-{
-	global $db,$_CFG,$smarty;
-	$id=intval($id);
-	$tarr=array("jobs","company_profile","resume");
-	if (!in_array($type,$tarr)) exit();
-	$utpl=$db->getone("SELECT tpl FROM ".table($type)." WHERE id='{$id}' limit 1");
-	$thistpl=$utpl['tpl'];
-	if (!empty($_GET['style']))
-	{
-            $thistpl=$_GET['style'];
-	}
-         
-	if (empty($thistpl))
-	{
-		if ($type=='resume')
-		{
-                    $resume=$db->getone("SELECT resume_type FROM ".table($type)." WHERE id='{$id}' limit 1");
-                    
-                    $thistpl="../tpl_resume/{$_CFG['tpl_personal']}/{$type}.htm";
-                    if($resume['resume_type']=='1')
-                    {
-                        $thistpl="../tpl_resume/{$_CFG['tpl_personal']}/{$type}_en.htm";
-                    } 
-                    $smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_resume/{$_CFG['tpl_personal']}/");
-                    return $thistpl;
-		}
-		else
-		{
-                    $thistpl="../tpl_company/{$_CFG['tpl_company']}/{$type}.htm";
-                    $smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_company/{$_CFG['tpl_company']}/");
-                    return $thistpl;
-		}
-	}
-	else
-	{
-		if ($type=='resume')
-		{
-			if (!file_exists(QISHI_ROOT_PATH."templates/tpl_resume/{$thistpl}/{$type}.htm"))
+		$sql1 = "select * from ".table('category_district')." where parentid=".$val['id']."  order BY category_order desc,id asc";
+		$list1=$db->getall($sql1);
+		if (is_array($list1))
+		{	
+			foreach($list1 as $val1)
 			{
-                            $thistpl=$_CFG['tpl_personal'];
+			$sarr[]=$val1['id'].",".$val1['categoryname'];
 			}
-			$smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_resume/{$thistpl}/");
-                    return "../tpl_resume/{$thistpl}/{$type}.htm";
-		}
-		else
-		{
-			if (!file_exists(QISHI_ROOT_PATH."templates/tpl_company/{$thistpl}/{$type}.htm"))
-			{
-                            $thistpl=$_CFG['tpl_company'];
-			}
-                        $smarty->assign('user_tpl',$_CFG['site_dir']."templates/tpl_company/{$thistpl}/");
-                        return "../tpl_company/{$thistpl}/{$type}.htm";
+		$content .= "QS_city[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
+		unset($sarr);
 		}
 	}
+	$sql = "select * from ".table('category_jobs')." where parentid=0 ";
+	$list=$db->getall($sql);
+	foreach($list as $parent)
+	{
+	$parentarr[]="\"".$parent['id'].",".$parent['categoryname']."\"";
+	}
+	$content .= "var QS_jobs_parent=new Array(".implode(',',$parentarr).");\n";	
+	$content .= "var QS_jobs=new Array(); \n";
+	foreach($list as $val)
+	{
+		$sql1 = "select * from ".table('category_jobs')." where parentid=".$val['id']."  order BY category_order asc,id asc";
+		$list1=$db->getall($sql1);
+		if (is_array($list1))
+		{	
+			foreach($list1 as $val1)
+			{
+			$sarr[]=$val1['id'].",".$val1['categoryname'];
+			}
+		$content .= "QS_jobs[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
+		unset($sarr);
+		}
+	}
+	//
+	$sql = "select * from ".table('category')." ORDER BY c_order DESC,c_id ASC";
+	$list=$db->getall($sql);
+	foreach($list as $li)
+	{
+		if ($li['c_alias']=="QS_trade")
+		{
+		$trade[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+		elseif ($li['c_alias']=="QS_company_type")
+		{
+		$companytype[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+		elseif ($li['c_alias']=="QS_wage")
+		{
+		$wage[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+		elseif ($li['c_alias']=="QS_jobs_nature")
+		{
+		$jobsnature[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+		elseif ($li['c_alias']=="QS_education")
+		{
+		$education[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+		elseif ($li['c_alias']=="QS_experience")
+		{
+		$experience[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+		elseif ($li['c_alias']=="QS_scale")
+		{
+		$scale[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+		elseif ($li['c_alias']=="QS_jobtag")
+		{
+		$jobtag[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+		elseif ($li['c_alias']=="QS_resumetag")
+		{
+		$resumetag[]="\"".$li['c_id'].",".$li['c_name']."\"";
+		}
+	
+	}
+	$content .= "var QS_trade=new Array(".implode(',',$trade).");\n";
+	$content .= "var QS_companytype=new Array(".implode(',',$companytype).");\n";
+	$content .= "var QS_wage=new Array(".implode(',',$wage).");\n";
+	$content .= "var QS_jobsnature=new Array(".implode(',',$jobsnature).");\n";
+	$content .= "var QS_education=new Array(".implode(',',$education).");\n";
+	$content .= "var QS_experience=new Array(".implode(',',$experience).");\n";
+	$content .= "var QS_scale=new Array(".implode(',',$scale).");\n";
+	$content .= "var QS_jobtag=new Array(".implode(',',$jobtag).");\n";
+	$content .= "var QS_resumetag=new Array(".implode(',',$resumetag).");\n";
+	$fp = @fopen(QISHI_ROOT_PATH . 'data/cache_classify.js', 'wb+');
+	if (!$fp){
+			exit('生成JS文件失败');
+		}
+	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
+	{
+	$content=iconv(QISHI_DBCHARSET,"utf-8//IGNORE",$content);
+	}
+	 if (!@fwrite($fp, trim($content))){
+			exit('写入JS文件失败');
+		}
+	@fclose($fp);
 }
 function url_rewrite($alias=NULL,$get=NULL,$rewrite=true)
 {
@@ -478,130 +315,40 @@ function url_rewrite($alias=NULL,$get=NULL,$rewrite=true)
 	if ($_PAGE[$alias]['url']=='0' || $rewrite==false)//原始链接
 	{
 		$url =$_CFG['site_dir'].$_PAGE[$alias]['file'];
-		isset($get['id0'])?$url .= '?id='.$get['id0']:'';		
-		isset($get['page'])?$url .=(isset($get['id0'])?'&amp;':'?').'page='.$get['page']:'';
+		$get['id0']?$url .= '?id='.$get['id0']:'';
+		$get['page']?$url .= '&amp;page='.$get['page']:'';
 		return $url;
 	}
-	elseif ($_PAGE[$alias]['url']=='1')
+	elseif ($_PAGE[$alias]['url']=='1')//伪静态
 	{
-		$addtime=isset($get['addtime'])?getdate($get['addtime']):'';
+		$addtime=getdate($get['addtime']);
 		$url =$_CFG['site_dir'].$_PAGE[$alias]['rewrite'];
 		$url=str_replace('($id)',$get['id0'],$url);
-		if (!empty($addtime)){
-		$url=str_replace('($y)',$addtime['year'],$url);
-		$url=str_replace('($m)',$addtime['mon'],$url);
-		$url=str_replace('($d)',$addtime['mday'],$url);
-		}
+		$url=str_replace('($y)',$addtime[year],$url);
+		$url=str_replace('($m)',$addtime[mon],$url);
+		$url=str_replace('($d)',$addtime[mday],$url);
 		$get['page']=$get['page']?$get['page']:1;
 		$url=str_replace('($page)',$get['page'],$url);
 		return $url;
 	}
-}
-function get_member_url($type,$dirname=false)
-{
-	global $_CFG;
-	$type=intval($type);
-	if ($type===0) 
+	elseif ($_PAGE[$alias]['url']=='2')//html
 	{
-	return "";
-	}
-	elseif ($type===1)
-	{
-            $return=$_CFG['site_dir']."user/company/company_index.php";
-	}
-	elseif ($type===2) 
-	{
-            $return=$_CFG['site_dir']."user/personal/personal_index.php";
-	}
-	if ($dirname)
-	{
-	return dirname($return).'/';
-	}
-	else
-	{
-	return $return;
-	}
-}
-function fulltextpad($str)
-{
-	if (empty($str))
-	{
-	return '';
-	}
-	$leng=strlen($str);
-	if ($leng>=8)
+	$addtime=getdate($get['addtime']);
+	$url =$_CFG['site_dir'].$_PAGE[$alias]['html'];
+	$url=str_replace('($id)',$get['id0'],$url);
+	$url=str_replace('($y)',$addtime[year],$url);
+	$url=str_replace('($m)',$addtime[mon],$url);
+	$url=str_replace('($d)',$addtime[mday],$url);
+		if (strpos($url,'($page)'))
 		{
-		return $str;
-	}
-	else
-	{
-		$l=4-($leng/2);
-		return str_pad($str,$leng+$l,'0');
-	}
-}
-function asyn_userkey($uid)
-{
-	global $db;
-	$sql = "select * from ".table('members')." where uid = '".intval($uid)."' LIMIT 1";
-	$user=$db->getone($sql);
-	return md5($user['username'].$user['pwd_hash'].$user['password']);
-}
-function write_syslog($type,$type_name,$str)
-{
- 	global $db,$online_ip;
-	$l_page = addslashes(request_url());
-	$str = addslashes($str);
- 	$sql = "INSERT INTO ".table('syslog')." (l_type, l_type_name, l_time,l_ip,l_page,l_str) VALUES ('{$type}', '{$type_name}', '".time()."','{$online_ip}','{$l_page}','{$str}')"; 
-	return $db->query($sql);
-}
-function write_memberslog($uid,$utype,$type,$username,$str)
-{
- 	global $db,$online_ip;
- 	$sql = "INSERT INTO ".table('members_log')." (log_uid,log_username,log_utype,log_type,log_addtime,log_ip,log_value) VALUES ( '{$uid}','{$username}','{$utype}','{$type}', '".time()."','{$online_ip}','{$str}')";
-	return $db->query($sql);
-}
-function request_url()
-{     
-  	if (isset($_SERVER['REQUEST_URI']))     
-    {        
-   	 $url = $_SERVER['REQUEST_URI'];    
-    }
-	else
-	{    
-		  if (isset($_SERVER['argv']))        
-			{           
-			$url = $_SERVER['PHP_SELF'] .'?'. $_SERVER['argv'][0];      
-			}         
-		  else        
-			{          
-			$url = $_SERVER['PHP_SELF'] .'?'.$_SERVER['QUERY_STRING'];
-			}  
-    }    
-    return urlencode($url); 
-}
-function label_replace($templates)
-{
-	global $_CFG;
-	$templates=str_replace('{sitename}',$_CFG['site_name'],$templates);
-	$templates=str_replace('{sitedomain}',$_CFG['site_domain'].$_CFG['site_dir'],$templates);
-	$templates=str_replace('{username}',$_GET['sendusername'],$templates);
-	$templates=str_replace('{password}',$_GET['sendpassword'],$templates);
-	$templates=str_replace('{newpassword}',$_GET['newpassword'],$templates);
-	$templates=str_replace('{personalfullname}',$_GET['personal_fullname'],$templates);
-	$templates=str_replace('{jobsname}',$_GET['jobs_name'],$templates);
-	$templates=str_replace('{companyname}',$_GET['companyname'],$templates);
-	$templates=str_replace('{paymenttpye}',$_GET['paymenttpye'],$templates);
-	$templates=str_replace('{amount}',$_GET['amount'],$templates);
-	$templates=str_replace('{oid}',$_GET['oid'],$templates);
-	return $templates;
-}
-function make_dir($path)
-{ 
-	if(!file_exists($path))
-	{
-	make_dir(dirname($path));
-	@mkdir($path,0777);
-	@chmod($path,0777);
+		$get['page']=$get['page']?$get['page']:1;
+		$url=str_replace('($page)',$get['page'],$url);
+		}
+			if ($get['totalpage'])	
+			{
+			$_SESSION['html_totalpage']=$get['totalpage'];
+			}
+	return $url;
 	}
 }
 ?>

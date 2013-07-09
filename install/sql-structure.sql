@@ -1,8 +1,3 @@
- 
-
--- ----------------------------
--- Table structure for qs32_ad
--- ----------------------------
 DROP TABLE IF EXISTS `qs_ad`;
 CREATE TABLE `qs_ad` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -42,9 +37,6 @@ CREATE TABLE `qs_ad` (
   KEY `alias_starttime_deadline` (`alias`,`starttime`,`deadline`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_admin
--- ----------------------------
 DROP TABLE IF EXISTS `qs_admin`;
 CREATE TABLE `qs_admin` (
   `admin_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -60,9 +52,9 @@ CREATE TABLE `qs_admin` (
   PRIMARY KEY (`admin_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_admin_log
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_admin_log`;
 CREATE TABLE `qs_admin_log` (
   `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -74,9 +66,9 @@ CREATE TABLE `qs_admin_log` (
   PRIMARY KEY (`log_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_ad_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_ad_category`;
 CREATE TABLE `qs_ad_category` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -87,9 +79,9 @@ CREATE TABLE `qs_ad_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_article
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_article`;
 CREATE TABLE `qs_article` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -119,9 +111,9 @@ CREATE TABLE `qs_article` (
   KEY `type_id` (`type_id`,`article_order`,`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_article_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_article_category`;
 CREATE TABLE `qs_article_category` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -135,9 +127,9 @@ CREATE TABLE `qs_article_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_article_property
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_article_property`;
 CREATE TABLE `qs_article_property` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -147,9 +139,9 @@ CREATE TABLE `qs_article_property` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_captcha
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_captcha`;
 CREATE TABLE `qs_captcha` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -158,9 +150,9 @@ CREATE TABLE `qs_captcha` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_category`;
 CREATE TABLE `qs_category` (
   `c_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -177,9 +169,9 @@ CREATE TABLE `qs_category` (
   KEY `c_alias` (`c_alias`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_category_district
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_category_district`;
 CREATE TABLE `qs_category_district` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -192,9 +184,9 @@ CREATE TABLE `qs_category_district` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_category_group
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_category_group`;
 CREATE TABLE `qs_category_group` (
   `g_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -204,9 +196,9 @@ CREATE TABLE `qs_category_group` (
   PRIMARY KEY (`g_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_category_jobs
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_category_jobs`;
 CREATE TABLE `qs_category_jobs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -220,9 +212,9 @@ CREATE TABLE `qs_category_jobs` (
   KEY `parentid` (`parentid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_company_down_resume
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_company_down_resume`;
 CREATE TABLE `qs_company_down_resume` (
   `did` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -238,9 +230,9 @@ CREATE TABLE `qs_company_down_resume` (
   KEY `resume_uid_rid` (`resume_uid`,`resume_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_company_favorites
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_company_favorites`;
 CREATE TABLE `qs_company_favorites` (
   `did` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -251,9 +243,9 @@ CREATE TABLE `qs_company_favorites` (
   KEY `company_uid` (`company_uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_company_interview
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_company_interview`;
 CREATE TABLE `qs_company_interview` (
   `did` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -276,9 +268,9 @@ CREATE TABLE `qs_company_interview` (
   KEY `resume_uid_resumeid` (`resume_uid`,`resume_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_company_profile
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_company_profile`;
 CREATE TABLE `qs_company_profile` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -326,9 +318,9 @@ CREATE TABLE `qs_company_profile` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_config
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_config`;
 CREATE TABLE `qs_config` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -337,9 +329,9 @@ CREATE TABLE `qs_config` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_crons
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_crons`;
 CREATE TABLE `qs_crons` (
   `cronid` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -356,9 +348,9 @@ CREATE TABLE `qs_crons` (
   PRIMARY KEY (`cronid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_explain
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_explain`;
 CREATE TABLE `qs_explain` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -378,9 +370,9 @@ CREATE TABLE `qs_explain` (
   KEY `type_id` (`type_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_explain_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_explain_category`;
 CREATE TABLE `qs_explain_category` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -390,9 +382,9 @@ CREATE TABLE `qs_explain_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_feedback
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_feedback`;
 CREATE TABLE `qs_feedback` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -409,9 +401,9 @@ CREATE TABLE `qs_feedback` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_help
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_help`;
 CREATE TABLE `qs_help` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -427,9 +419,9 @@ CREATE TABLE `qs_help` (
   KEY `type_id` (`type_id`,`order`,`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_help_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_help_category`;
 CREATE TABLE `qs_help_category` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -439,9 +431,9 @@ CREATE TABLE `qs_help_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_hotword
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_hotword`;
 CREATE TABLE `qs_hotword` (
   `w_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -452,9 +444,9 @@ CREATE TABLE `qs_hotword` (
   KEY `w_word` (`w_word`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_hrtools
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_hrtools`;
 CREATE TABLE `qs_hrtools` (
   `h_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -467,9 +459,9 @@ CREATE TABLE `qs_hrtools` (
   PRIMARY KEY (`h_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_hrtools_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_hrtools_category`;
 CREATE TABLE `qs_hrtools_category` (
   `c_id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -479,9 +471,9 @@ CREATE TABLE `qs_hrtools_category` (
   PRIMARY KEY (`c_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_jobs
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs`;
 CREATE TABLE `qs_jobs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -550,9 +542,9 @@ CREATE TABLE `qs_jobs` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_jobs_contact
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_contact`;
 CREATE TABLE `qs_jobs_contact` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -567,9 +559,9 @@ CREATE TABLE `qs_jobs_contact` (
   KEY `pid` (`pid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_jobs_search_hot
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_search_hot`;
 CREATE TABLE `qs_jobs_search_hot` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -605,9 +597,9 @@ CREATE TABLE `qs_jobs_search_hot` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_jobs_search_key
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_search_key`;
 CREATE TABLE `qs_jobs_search_key` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -642,9 +634,9 @@ CREATE TABLE `qs_jobs_search_key` (
   FULLTEXT KEY `key` (`key`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_jobs_search_rtime
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_search_rtime`;
 CREATE TABLE `qs_jobs_search_rtime` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -683,9 +675,9 @@ CREATE TABLE `qs_jobs_search_rtime` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_jobs_search_scale
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_search_scale`;
 CREATE TABLE `qs_jobs_search_scale` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -719,9 +711,9 @@ CREATE TABLE `qs_jobs_search_scale` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_jobs_search_stickrtime
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_search_stickrtime`;
 CREATE TABLE `qs_jobs_search_stickrtime` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -756,9 +748,9 @@ CREATE TABLE `qs_jobs_search_stickrtime` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_jobs_search_tag
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_search_tag`;
 CREATE TABLE `qs_jobs_search_tag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -776,9 +768,9 @@ CREATE TABLE `qs_jobs_search_tag` (
   KEY `tag` (`tag1`,`tag2`,`tag3`,`tag4`,`tag5`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_jobs_search_wage
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_search_wage`;
 CREATE TABLE `qs_jobs_search_wage` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -812,9 +804,9 @@ CREATE TABLE `qs_jobs_search_wage` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_jobs_tmp
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_jobs_tmp`;
 CREATE TABLE `qs_jobs_tmp` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -883,9 +875,9 @@ CREATE TABLE `qs_jobs_tmp` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_link
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_link`;
 CREATE TABLE `qs_link` (
   `link_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -902,9 +894,9 @@ CREATE TABLE `qs_link` (
   KEY `show_order` (`show_order`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_link_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_link_category`;
 CREATE TABLE `qs_link_category` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -914,9 +906,9 @@ CREATE TABLE `qs_link_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_locoyspider
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_locoyspider`;
 CREATE TABLE `qs_locoyspider` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -925,9 +917,9 @@ CREATE TABLE `qs_locoyspider` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_mailconfig
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_mailconfig`;
 CREATE TABLE `qs_mailconfig` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -936,9 +928,9 @@ CREATE TABLE `qs_mailconfig` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_mailqueue
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_mailqueue`;
 CREATE TABLE `qs_mailqueue` (
   `m_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -951,9 +943,9 @@ CREATE TABLE `qs_mailqueue` (
   PRIMARY KEY (`m_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_mail_templates
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_mail_templates`;
 CREATE TABLE `qs_mail_templates` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -962,9 +954,9 @@ CREATE TABLE `qs_mail_templates` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_members
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_members`;
 CREATE TABLE `qs_members` (
   `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -991,9 +983,9 @@ CREATE TABLE `qs_members` (
   KEY `username` (`username`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_members_handsel
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_members_handsel`;
 CREATE TABLE `qs_members_handsel` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -1004,9 +996,9 @@ CREATE TABLE `qs_members_handsel` (
   KEY `uid` (`uid`,`htype`,`addtime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_members_info
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_members_info`;
 CREATE TABLE `qs_members_info` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1024,9 +1016,9 @@ CREATE TABLE `qs_members_info` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_members_log
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_members_log`;
 CREATE TABLE `qs_members_log` (
   `log_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1045,9 +1037,9 @@ CREATE TABLE `qs_members_log` (
   KEY `utype_addtime` (`log_utype`,`log_addtime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_members_points
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_members_points`;
 CREATE TABLE `qs_members_points` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1058,9 +1050,9 @@ CREATE TABLE `qs_members_points` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_members_points_rule
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_members_points_rule`;
 CREATE TABLE `qs_members_points_rule` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1071,9 +1063,9 @@ CREATE TABLE `qs_members_points_rule` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_members_setmeal
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_members_setmeal`;
 CREATE TABLE `qs_members_setmeal` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1099,9 +1091,9 @@ CREATE TABLE `qs_members_setmeal` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_navigation
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_navigation`;
 CREATE TABLE `qs_navigation` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1119,9 +1111,9 @@ CREATE TABLE `qs_navigation` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_navigation_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_navigation_category`;
 CREATE TABLE `qs_navigation_category` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -1131,9 +1123,9 @@ CREATE TABLE `qs_navigation_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_notice
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_notice`;
 CREATE TABLE `qs_notice` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1153,9 +1145,9 @@ CREATE TABLE `qs_notice` (
   KEY `type_id` (`type_id`,`sort`,`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_notice_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_notice_category`;
 CREATE TABLE `qs_notice_category` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -1165,9 +1157,9 @@ CREATE TABLE `qs_notice_category` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_order
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_order`;
 CREATE TABLE `qs_order` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1189,9 +1181,9 @@ CREATE TABLE `qs_order` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_page
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_page`;
 CREATE TABLE `qs_page` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1212,9 +1204,9 @@ CREATE TABLE `qs_page` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_payment
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_payment`;
 CREATE TABLE `qs_payment` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1233,9 +1225,9 @@ CREATE TABLE `qs_payment` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_personal_favorites
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_personal_favorites`;
 CREATE TABLE `qs_personal_favorites` (
   `did` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1247,9 +1239,9 @@ CREATE TABLE `qs_personal_favorites` (
   KEY `personal_uid` (`personal_uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_personal_jobs_apply
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_personal_jobs_apply`;
 CREATE TABLE `qs_personal_jobs_apply` (
   `did` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1271,9 +1263,9 @@ CREATE TABLE `qs_personal_jobs_apply` (
   KEY `personal_uid_id` (`personal_uid`,`resume_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_promotion
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_promotion`;
 CREATE TABLE `qs_promotion` (
   `cp_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1290,9 +1282,9 @@ CREATE TABLE `qs_promotion` (
   KEY `cp_uid` (`cp_uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_promotion_category
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_promotion_category`;
 CREATE TABLE `qs_promotion_category` (
   `cat_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1307,9 +1299,9 @@ CREATE TABLE `qs_promotion_category` (
   PRIMARY KEY (`cat_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_report
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_report`;
 CREATE TABLE `qs_report` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1323,9 +1315,9 @@ CREATE TABLE `qs_report` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_resume
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume`;
 CREATE TABLE `qs_resume` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1386,9 +1378,9 @@ CREATE TABLE `qs_resume` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_resume_education
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume_education`;
 CREATE TABLE `qs_resume_education` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1405,9 +1397,9 @@ CREATE TABLE `qs_resume_education` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_resume_jobs
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume_jobs`;
 CREATE TABLE `qs_resume_jobs` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1420,9 +1412,9 @@ CREATE TABLE `qs_resume_jobs` (
   KEY `pid` (`pid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_resume_search_key
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume_search_key`;
 CREATE TABLE `qs_resume_search_key` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1445,9 +1437,9 @@ CREATE TABLE `qs_resume_search_key` (
   FULLTEXT KEY `key` (`key`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_resume_search_rtime
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume_search_rtime`;
 CREATE TABLE `qs_resume_search_rtime` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1473,9 +1465,9 @@ CREATE TABLE `qs_resume_search_rtime` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_resume_search_tag
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume_search_tag`;
 CREATE TABLE `qs_resume_search_tag` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1495,9 +1487,9 @@ CREATE TABLE `qs_resume_search_tag` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=FIXED;
 
--- ----------------------------
--- Table structure for qs32_resume_tmp
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume_tmp`;
 CREATE TABLE `qs_resume_tmp` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1559,9 +1551,9 @@ CREATE TABLE `qs_resume_tmp` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_resume_training
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume_training`;
 CREATE TABLE `qs_resume_training` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1577,9 +1569,9 @@ CREATE TABLE `qs_resume_training` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_resume_work
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_resume_work`;
 CREATE TABLE `qs_resume_work` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1596,9 +1588,9 @@ CREATE TABLE `qs_resume_work` (
   KEY `uid` (`uid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_setmeal
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_setmeal`;
 CREATE TABLE `qs_setmeal` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1618,9 +1610,9 @@ CREATE TABLE `qs_setmeal` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_simple
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_simple`;
 CREATE TABLE `qs_simple` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1650,9 +1642,9 @@ CREATE TABLE `qs_simple` (
   FULLTEXT KEY `key` (`key`)
 ) ENGINE=MyISAM DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_sms_config
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_sms_config`;
 CREATE TABLE `qs_sms_config` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -1661,9 +1653,9 @@ CREATE TABLE `qs_sms_config` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_sms_templates
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_sms_templates`;
 CREATE TABLE `qs_sms_templates` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -1672,9 +1664,9 @@ CREATE TABLE `qs_sms_templates` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_syslog
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_syslog`;
 CREATE TABLE `qs_syslog` (
   `l_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -1687,9 +1679,9 @@ CREATE TABLE `qs_syslog` (
   PRIMARY KEY (`l_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_text
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_text`;
 CREATE TABLE `qs_text` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
@@ -1698,9 +1690,9 @@ CREATE TABLE `qs_text` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=gbk ROW_FORMAT=DYNAMIC;
 
--- ----------------------------
--- Table structure for qs32_tpl
--- ----------------------------
+
+
+
 DROP TABLE IF EXISTS `qs_tpl`;
 CREATE TABLE `qs_tpl` (
   `tpl_id` int(10) unsigned NOT NULL AUTO_INCREMENT,

@@ -9,12 +9,16 @@
  * 使用；不允许对程序代码以任何形式任何目的的再发布。
  * ============================================================================
 */
+
 define('IN_QISHI', true);
 define('QISHI_PRE','qs_');
 define('QISHI_CHARSET', 'gb2312');
-define('QISHI_DBCHARSET', 'GBK');
+define('QISHI_DBCHARSET', 'GBK'); 
+
+//exit(dirname(__FILE__) . '/include/common.inc.php');
 require_once(dirname(__FILE__) . '/include/common.inc.php');
 require_once(QISHI_ROOT_PATH . 'include/74cms_version.php');
+
 if(file_exists(QISHI_ROOT_PATH.'data/install.lock'))
 {
 exit('您已经安装过本系统，如果想重新安装，请删除data目录下install.lock文件');
@@ -127,12 +131,12 @@ if($act =="4")
 			$query = str_replace(QISHI_PRE,$pre,$query);
 			if ( $mysql_version >= 4.1 )
 			{
-				mysql_query(str_replace("TYPE=MyISAM", "ENGINE=MyISAM  DEFAULT CHARSET=".QISHI_DBCHARSET,  $query), $db);
+				mysql_query(str_replace("TYPE=MyISAM", "ENGINE=MyISAM DEFAULT CHARSET=".QISHI_DBCHARSET,  $query), $db);
 			}
 			else
 			{
 				mysql_query($query, $db);
-			}
+			} 
 			$query='';
 		 }
 		 else if(!ereg('/^(//|--)/',$line))
@@ -211,8 +215,11 @@ if($act =="4")
 	$pwd_hash=randstr();
 	$admin_md5pwd=md5($admin_pwd.$pwd_hash.$QS_pwdhash);
 	mysql_query("INSERT INTO `{$pre}admin` (admin_id,admin_name, email, pwd,pwd_hash, purview, rank,add_time, last_login_time, last_login_ip) VALUES (1, '$admin_name', '$admin_email', '$admin_md5pwd', '$pwd_hash', 'all','超级管理员', '$timestamp', '$timestamp', '')",$db);
+	mysql_query("update `{$pre}category_district` set categoryname_en=categoryname");
+	mysql_query("update `{$pre}category_jobs` set categoryname_en=categoryname;");
+	mysql_query("update `{$pre}category` set c_name_en=c_name;");
 	//生成静态缓存
-	require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
+		require_once(QISHI_ROOT_PATH.'include/mysql.class.php');
 	$db = new mysql($dbhost,$dbuser,$dbpass,$dbname);
 	unset($dbhost,$dbuser,$dbpass,$dbname);		
 	refresh_cache('config');
