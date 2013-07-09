@@ -12,7 +12,6 @@
 define('IN_QISHI', true);
 require_once(dirname(dirname(__FILE__)).'/include/plus.common.inc.php');
 $act = !empty($_REQUEST['act']) ? trim($_REQUEST['act']) : '';
-include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');//引入uc
 //获取用户数据
 function getpassport($username, $password) {
 	$passport = array();
@@ -141,20 +140,6 @@ elseif($act =='check_usname')
             $usname=iconv("utf-8",QISHI_DBCHARSET,$usname);
 	}
         
-        //如果集成了UC验证，则调用ucenter接口中判断是否存在用户名
-        if(defined("UC_API"))
-        {
-            /*
-            -1 : 用户名不合法
-            -2 : 包含要允许注册的词语
-            -3 : 用户名已经存在*/
-            $uid = uc_user_checkname($usname);
-            if($uid<0)//在uc中已经存在，则不允许注册
-            {
-                exit("false");
-            }
-        }
-        //判断在本地系统中是否存在
 	$user=get_user_inusername($usname);
 	empty($user)?exit("true"):exit("false");
 }
@@ -166,20 +151,6 @@ elseif($act == 'check_email')
 	{
 	$email=iconv("utf-8",QISHI_DBCHARSET,$email);
 	}
-        
-          if(defined("UC_API"))
-        {
-            /*
-           *  	1  : 成功
- * 	-4 : email 格式有误
- * 	-5 : email 不允许注册
- * 	-6 : 该 email 已经被注册*/
-            $uid = uc_user_checkemail($email);
-            if($uid<0)//在uc中已经存在，则不允许注册
-            {
-                exit("false");
-            }
-        }
         
 	$user=get_user_inemail($email);
 	empty($user)?exit("true"):exit("false");
