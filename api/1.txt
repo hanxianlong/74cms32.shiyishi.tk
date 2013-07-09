@@ -1,16 +1,11 @@
 array (
-  'send_key' => 509536,
-  'imageCaptcha_content' => 'ehpg',
-  'uid' => '',
-  'username' => '',
-  'utype' => '',
-  'activate_username' => 'wnfk',
-  'uqqid' => '',
-  'token' => 
-  array (
-    '930517817118eb5ad96f4820d7dc1098' => 'c5fcf9be',
-  ),
+  'send_key' => 351592,
+  'imageCaptcha_content' => 'splx',
   'admin_id' => '1',
   'admin_name' => 'web-admin',
   'admin_purview' => 'all',
+  'activate_username' => 'qiye',
+  'uid' => '',
+  'username' => '',
+  'utype' => '',
 )

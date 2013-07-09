@@ -129,7 +129,6 @@ elseif($act == 'category_save')
 				$num=$num+$db->affected_rows();
 			}
 		}
-
 	}
 	refresh_category_cache();
 	adminmsg("ĞŞ¸ÄÍê³É£¡",2);

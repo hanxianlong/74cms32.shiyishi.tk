@@ -69,9 +69,18 @@
 		<tr>
         <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">展示模版：</td>
         <td  style=" border-bottom:1px #CCCCCC dashed;" >
-          <input name="tpl" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.tpl#}"  >
+          <input name="tpl" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.tpl#}"  ><br/>
+            (模板位于templates\tpl_company文件夹下，直接填写模板的文件夹名，如有二级文件夹，则需要填二级及其子目录的文件夹名）
+
 		</td>
       </tr>
+        <tr>
+            <td width="120" height="30" align="right"  style=" border-bottom:1px #CCCCCC dashed">自定义域名：</td>
+            <td  style=" border-bottom:1px #CCCCCC dashed;" >
+                <input name="domain" type="text" class="input_text_200"   maxlength="50" value="{#$company_user.custom_url#}"  ><br/>
+                (自定义域名必须以vip开头，字母与数字的组合，如域名为vip/microsoft，则企业的url则为http://shiphr.com/vip/microsoft)
+            </td>
+        </tr>
       </tr>
       <tr>
         <td height="30" align="right"  >&nbsp;</td>

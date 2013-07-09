@@ -29,80 +29,80 @@ $(document).ready(function()
 		</div>
       <table width="100%" border="0" cellpadding="0" cellspacing="0">
 	  <tr>
-          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>基本设置</strong></span></td>
+          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>Resume Settings</strong></span></td>
           </tr>
 		  <tr>
           <td style="border-bottom:1px #C9D9E7 solid;">
 		  <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0" class="link_lan">
 		    <tr>
-              <td height="30" class="link_lan">简历名称：{#$resume_basic.title#}&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}" >[设置隐私]</a> </td>
-              <td class="link_lan">简历公开：
+              <td height="30" class="link_lan">Resume Title：{#$resume_basic.title#}&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}" >[Privacy Settings]</a> </td>
+              <td class="link_lan">Resume Privacy：
 			  {#if $resume_basic.display=="1"#}
-			  公开&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}"  >[修改]</a> 
+			  Open&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}"  >[Edit]</a> 
 			  {#else#}
-			  半公开&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}" >[修改]</a> 
+			  Not Open&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}" >[Edit]</a> 
 			  {#/if#}</td>
 	            </tr>
             <tr>
-              <td height="30" class="link_lan">姓名：
+              <td height="30" class="link_lan">Full Name：
 			  {#if $resume_basic.display_name == "2"#}
-			  {#$resume_basic.number#}&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}"  >[姓名显示方式]</a> 
+			  {#$resume_basic.number#}&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}"  >[Name Display Type]</a> 
 			  {#elseif $resume_basic.display_name == "3"#}
-			  {#$resume_basic.lastname#}&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}"  >[姓名显示方式]</a> 
+			  {#$resume_basic.lastname#}&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}"  >[Name Display Type]</a> 
 			  {#else#}
-			  {#$resume_basic.fullname#}&nbsp;&nbsp;&nbsp; <a href="?act=resume_privacy&pid={#$resume_basic.id#}"  >[姓名显示方式]</a>
+			  {#$resume_basic.fullname#}&nbsp;&nbsp;&nbsp; <a href="?act=resume_privacy&pid={#$resume_basic.id#}"  >[Name Display Type]</a>
 			  {#/if#}			 </td>
               <td>
-			  简历审核状态：
-			  {#if $resume_basic.audit=="1"#}已通过审核{#/if#}
-			{#if $resume_basic.audit=="2"#}正在审核中{#/if#}
-			{#if $resume_basic.audit=="3"#}审核未通过,请修改{#/if#}
+			  Auditing Status：
+			  {#if $resume_basic.audit=="1"#}Passed{#/if#}
+			{#if $resume_basic.audit=="2"#}Auditing{#/if#}
+			{#if $resume_basic.audit=="3"#}Not Passed{#/if#}
 			</td>
               </tr>
             <tr>
               <td height="30" >
-			  简历完整度：{#$resume_basic.complete_percent#}%
+			  Completed Percent：{#$resume_basic.complete_percent#}%
 			  <span style="color: #999999">(完整指数小于60%的简历系统将视为无效简历)</span>
 			  </td>
-              <td>照片审核状态：
+              <td>Photo Status：
 			   {#if $resume_basic.photo_img<>""#}
-				  {#if $resume_basic.photo_audit=="1"#}已通过审核{#/if#}
-				  {#if $resume_basic.photo_audit=="2"#}正在审核中{#/if#}
-				  {#if $resume_basic.photo_audit=="3"#}审核未通过，请修改{#/if#}
+				  {#if $resume_basic.photo_audit=="1"#}Passed{#/if#}
+				  {#if $resume_basic.photo_audit=="2"#}Auditing{#/if#}
+				  {#if $resume_basic.photo_audit=="3"#}Not Passed{#/if#}
 				  {#else#}
-					未上传照片
+					No Photo
 				  {#/if#}			  </td>
             </tr>
             <tr>
               <td height="30" class="link_lan">
-			  创建时间：{#$resume_basic.addtime|date_format:"%Y.%m.%d"#}</td>
-              <td>照片公开状态：
+			  Created On：{#$resume_basic.addtime|date_format:"%Y.%m.%d"#}</td>
+              <td>Photo Privacy：
 			  {#if $resume_basic.photo_img<>""#}
 				  	 {#if $resume_basic.photo_display=="1"#}
-				     公开&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}" >[设置]</a> 
+				     Open&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}" >[Settings]</a> 
 					 {#else#}
-					 不公开&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}" >[设置]</a> 
+					 Not Open&nbsp;&nbsp;&nbsp;<a href="?act=resume_privacy&pid={#$resume_basic.id#}" >[Settings]</a> 
 				  	{#/if#}
 					{#else#}
-					未上传照片
+					No Photo
 				  {#/if#}			  </td>
             </tr>
             <tr>
               <td height="30" >
-			  刷新时间：{#$resume_basic.refreshtime|date_format:"%Y.%m.%d %H:%M"#}&nbsp;&nbsp;&nbsp;<a href="?act=refresh" >[刷新]</a> 
+			  Refreshed Time：{#$resume_basic.refreshtime|date_format:"%Y.%m.%d %H:%M"#}&nbsp;&nbsp;&nbsp;<a href="?act=refresh" >[Refresh]</a> 
 			  &nbsp;&nbsp;&nbsp;<span style="color: #999999">(刷新可以提升简历排名)</span>
 			  </td>
-              <td>简历等级：
+              <td>Resume Leve：
 			  {#if $resume_basic.talent=="2"#}
-			  <span style="color:#FF6600">高级</span>
+			  <span style="color:#FF6600">High Level</span>
 			  {#else#}
-				  普通&nbsp;&nbsp;&nbsp;<a href="?act=talent" >[升级]</a> 
+				  Normal&nbsp;&nbsp;&nbsp;<a href="?act=talent" >[升级]</a> 
 				  {#/if#}
 				  </td>
             </tr>
             <tr>
               <td height="30" >
-			 浏览次数：{#$resume_basic.click#}次
+			 Revied Count：{#$resume_basic.click#}
 			  </td>
               <td></td>
             </tr>
@@ -110,7 +110,7 @@ $(document).ready(function()
 		  </td>
         </tr>
         <tr>
-          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>基本信息</strong></span></td>
+          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>Basic Information</strong></span></td>
           </tr>
         <tr>
           <td height="22" style="border-bottom:1px #C9D9E7 solid;">
@@ -122,57 +122,54 @@ $(document).ready(function()
               <td valign="top">
 			  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="8">
 		    <tr>
-              <td class="link_lan">姓名：
+              <td class="link_lan">Full Name：
 			  {#if $resume_basic.display_name == "2"#}
 			  {#$resume_basic.number#}
 			  {#else#}
 			  {#$resume_basic.fullname#}
 			  {#/if#} </td>
-              <td class="link_lan">性别：{#$resume_basic.sex_cn#}</td>
+              <td class="link_lan">Gendor：{#$resume_basic.sex_cn#}</td>
 	            </tr>
             
             <tr>
-              <td>年龄：{#$resume_basic.age#} 岁</td>
-              <td>身高：
+              <td>Age：{#$resume_basic.age#} Years Old</td>
+              <td>Stature：
 			  {#if $resume_basic.height=="0"#}
-			  未填写
+			  N/A
 			  {#else#}
 			  {#$resume_basic.height#} CM
 			  {#/if#}			  </td>
               </tr>
             <tr>
-              <td>学历：{#$resume_basic.education_cn#}</td>
-              <td>婚姻状况：{#if $resume_basic.marriage==1#}未婚{#/if#}{#if $resume_basic.marriage==2#}已婚{#/if#}{#if $resume_basic.marriage==3#}保密{#/if#}</td>
+              <td>Degree：{#$resume_basic.education_cn#}</td>
+              <td>Marriage：{#if $resume_basic.marriage==1#}Single{#/if#}{#if $resume_basic.marriage==2#}Married{#/if#}{#if $resume_basic.marriage==3#}Keep Secret{#/if#}</td>
               </tr>
             <tr>
-              <td>工作经验：{#$resume_basic.experience_cn#}</td>
-              <td>户口所在地：{#$resume_basic.householdaddress#}</td>
+              <td>Yrs. Of Experience：{#$resume_basic.experience_cn#}</td>
+              <td>Hoursehold place：{#$resume_basic.householdaddress#}</td>
               </tr>
             <tr>
-              <td>联系电话：{#$resume_basic.telephone#}</td>
-              <td>电子邮箱：
+              <td>Phone：{#$resume_basic.telephone#}</td>
+              <td>Email：
 			  {#$user.email#}
 			  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			  {#if $user.email_audit=="1"#}
-			<a href="personal_user.php?act=user_email" style="color:#009900"> [已认证]</a>
+			<a href="personal_user.php?act=user_email" style="color:#009900"> [Verified]</a>
 			{#else#}
-			<a href="personal_user.php?act=user_email"> [点击认证]</a>
+			<a href="personal_user.php?act=user_email"> [Click To Verify]</a>
 			{#/if#}			  </td>
               </tr>
             <tr>
-              <td>通讯 Q Q：{#$resume_basic.qq#}</td>
-              <td>通讯地址：{#$resume_basic.address#}</td>
+              <td> Q Q：{#$resume_basic.qq#}</td>
+              <td>Address：{#$resume_basic.address#}</td>
             </tr>
 
 			<tr>
-			  <td colspan="2">个人主页/博客：{#$resume_basic.website#}</td>
+			  <td colspan="2">Blogs：{#$resume_basic.website#}</td>
 			  </tr>
 			<tr>
-			  <td colspan="2">特长标签：{#$resume_basic.tagcn#}</td>
-			  </tr>
-			  <tr>
-			  <td colspan="2">个人主页/博客：{#$resume_basic.website#}</td>
-			  </tr>
+			  <td colspan="2">Tags：{#$resume_basic.tagcn#}</td>
+			  </tr> 
           </table>
 			  </td>
               <td width="150" style="position:relative">
@@ -189,7 +186,7 @@ $(document).ready(function()
                 </tr>
                 <tr>
                   <td height="35" align="center" class="link_lan">
-				  <a href="?act=photo_cutting&show=ok&pid={#$resume_basic.id#}">修改照片</a>				  </td>
+				  <a href="?act=photo_cutting&show=ok&pid={#$resume_basic.id#}">Change Photo</a>				  </td>
                 </tr>
               </table>
 			  </div>
@@ -201,39 +198,39 @@ $(document).ready(function()
 			</td>
         </tr>
         <tr>
-          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>求职意向</strong></span></td>
+          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>Job Target</strong></span></td>
         </tr>
         <tr>
           <td style="border-bottom:1px #C9D9E7 solid;">
 		    {#if $resume_basic.intention_jobs#}
 		  <table width="98%" border="0" align="center" cellpadding="0" cellspacing="10">
             <tr>
-              <td>最近工作过的职位：{#$resume_basic.recentjobs#}</td>
+              <td>Recent Job：{#$resume_basic.recentjobs#}</td>
               </tr>
             <tr>
-              <td>期望岗位性质：{#$resume_basic.nature_cn#}</td>
+              <td>Target Job Nature：{#$resume_basic.nature_cn#}</td>
               </tr>
 			  <tr>
-              <td >期望工作地：{#$resume_basic.district_cn#}</td>
+              <td >Target Job Area：{#$resume_basic.district_cn#}</td>
               </tr>
             <tr>
-              <td>期望月薪：{#$resume_basic.wage_cn#}</td>
+              <td>Target Area：{#$resume_basic.wage_cn#}</td>
             </tr>
             <tr>
-              <td>期望从事的岗位：{#$resume_basic.intention_jobs#}</td>
+              <td>Target Job Category：{#$resume_basic.intention_jobs#}</td>
             </tr>
             <tr>
-              <td>期望从事的行业：{#$resume_basic.trade_cn#}</td>
+              <td>Target Industry：{#$resume_basic.trade_cn#}</td>
             </tr>
           </table>
 		   {#else#}
-			<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写求职意向。</div>
+			<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A。</div>
             {#/if#}
 			
 		  </td>
         </tr>
 		<tr>
-          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>技能特长</strong></span></td>
+          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>Self Assessment</strong></span></td>
         </tr>
 		<tr>
           <td   style="border-bottom:1px #C9D9E7 solid;">
@@ -244,12 +241,12 @@ $(document).ready(function()
               </tr>
           </table>
 		  {#else#}
-			<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您没有填写特长描述。</div>
+			<div style="height:40px; line-height:40px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;N/A。</div>
             {#/if#}
 		  </td>
         </tr>
 		<tr>
-          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>教育经历</strong></span></td>
+          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>Education Experience</strong></span></td>
         </tr>
 		<tr>
           <td   style="border-bottom:1px #C9D9E7 solid;">
@@ -260,14 +257,14 @@ $(document).ready(function()
 		  {#$resume_education.education_remark#}
            
 			{#else#}
-			您没有填写教育经历。
+			N/A
             {#/if#} 
              </td></tr>
           </table>
 			</td>
         </tr>
 		<tr>
-          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>工作经历</strong></span></td>
+          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>Job Experience</strong></span></td>
         </tr>
 		<tr>
 		  <td  style="border-bottom:1px #C9D9E7 solid;">
@@ -278,14 +275,14 @@ $(document).ready(function()
 		  {#$resume_work.work_remark#}
            
 			{#else#}
-			您没有填写工作经历。
+			N/A
             {#/if#} 
              </td></tr>
           </table>
 			</td>
 		  </tr>
 		  <tr>
-          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>培训经历</strong></span></td>
+          <td height="30" bgcolor="#F5FAFC"  style="border-bottom:1px #C9D9E7 solid;"><span style="color:#0066CC; padding-left:20px;"><strong>Training Experience</strong></span></td>
         </tr>
 		  <tr>
 		    <td>
@@ -296,7 +293,7 @@ $(document).ready(function()
 		  {#$resume_training.training_remark#}
            
 			{#else#}
-			您没有填写培训经历。
+			N/A
             {#/if#} 
              </td></tr>
           </table>
@@ -304,7 +301,7 @@ $(document).ready(function()
 	      </tr>
       </table>
         <div align="center" style="padding:15px; padding-top:6px;">
-		    <input name="" type="button" value="修改" class="but80"  onclick="window.location='?act=make1&pid={#$resume_basic.id#}&go_resume_show=1'" />		    
+		    <input name="" type="button" value="Edit" class="but80"  onclick="window.location='?act=make1&pid={#$resume_basic.id#}&go_resume_show=1'" />		    
 		    </div>
 		  </div>
     </td>

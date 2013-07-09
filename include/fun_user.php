@@ -119,11 +119,11 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
                 return $login;
             }
             
-            //用户名存在于uc中,并且登录成功，则同步到本系统中来,然后登录
-            $qs_uid =  user_register($account,$password,1,$uc_email,false);
+            //用户名存在于uc中,并且登录成功，则同步到本系统中来,然后登录,默认注册为个人用户
+            $qs_uid =  user_register($account,$password,2,$uc_email,false);
             update_user_info($qs_uid,true,true,$expire);
 
-            $login['qs_login']=get_member_url(1);
+            $login['qs_login']=get_member_url(2);
             $login['uc_login']=uc_user_synlogin($uc_uid);
             return $login;
         }
@@ -242,11 +242,39 @@ function check_cookie($name,$pwd){
  }
 function get_user_inemail($email)
 {
+      if(defined("UC_API"))
+        {
+            /*
+           *  	1  : 成功
+ * 	-4 : email 格式有误
+ * 	-5 : email 不允许注册
+ * 	-6 : 该 email 已经被注册*/
+            $uid = uc_user_checkemail($email);
+            if($uid<0)//在uc中已经存在，则不允许注册
+            {
+                exit("false");
+            }
+        }
 	global $db;
 	return $db->getone("select * from ".table('members')." where email = '{$email}' LIMIT 1");
 }
 function get_user_inusername($username)
 {
+        //如果集成了UC验证，则调用ucenter接口中判断是否存在用户名
+        if(defined("UC_API"))
+        {
+            /*
+            -1 : 用户名不合法
+            -2 : 包含要允许注册的词语
+            -3 : 用户名已经存在*/
+            $uid = uc_user_checkname($username);
+            if($uid<0)//在uc中已经存在，则不允许注册
+            {
+                exit("false");
+            }
+        }
+        
+            //判断在本地系统中是否存在
 	global $db;
 	$sql = "select * from ".table('members')." where username = '{$username}' LIMIT 1";
 	return $db->getone($sql);
@@ -293,7 +321,7 @@ function edit_password($arr,$check=true)
          //先更新ucenter中的密码，更新成功后再更新本地密码
         if(defined('UC_API'))
         {
-           include_once(QISHI_ROOT_PATH . 'api/uc_client/client.php');
+          // include_once(QISHI_ROOT_PATH . 'api/uc_client/client.php');
            $edit_id=  uc_user_edit($arr['username'], $arr['oldpassword'], $arr['password'], '');
            if($edit_id==1)
            {

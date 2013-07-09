@@ -14,6 +14,7 @@ require_once(dirname(__FILE__).'/company_common.php');
 $smarty->assign('leftmenu',"promotion");
 if ($act=='tpl')
 {
+    die('error');
 	$company_profile=get_company($_SESSION['uid']);
 		if (empty($company_profile['companyname']))
 		{
@@ -33,6 +34,7 @@ if ($act=='tpl')
 }
 elseif ($act=='tpl_save')
 {
+    die('error');
 	$seltpl=trim($_POST['tpl']);
 	$company_profile=get_company($_SESSION['uid']);
 	if ($company_profile['tpl']==$seltpl)

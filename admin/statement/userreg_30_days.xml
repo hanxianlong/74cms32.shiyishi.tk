@@ -33,11 +33,11 @@
 <category name='07/07'/>
 </categories>
 <dataset  color='00CC00' showValues='0' areaAlpha='30' showAreaBorder='1' areaBorderThickness='1' areaBorderColor='006600'>
-<set value='1' />
 <set value='0' />
-<set value='1' />
 <set value='0' />
-<set value='1' />
+<set value='0' />
+<set value='0' />
+<set value='0' />
 <set value='0' />
 <set value='0' />
 <set value='0' />

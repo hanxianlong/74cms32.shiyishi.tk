@@ -801,6 +801,7 @@ elseif($act == 'user_edit')
 	$smarty->assign('pageheader',"企业会员");
 	$company_profile=get_company_one_uid($company_user['uid']);
 	$company_user['tpl']=$company_profile['tpl'];
+    $company_user['custom_url'] = $company_profile['custom_url'];
 	$smarty->assign('company_user',$company_user);
 	$smarty->assign('userpoints',get_user_points($company_user['uid']));
 	$smarty->assign('setmeal',get_user_setmeal($company_user['uid']));
@@ -847,14 +848,27 @@ elseif($act == 'set_account_save')
 	{
 	adminmsg("手机号 {$setsqlarr['mobile']}  已经存在！",1);
 	}
-	if ($_POST['tpl'])
+
+    $custom_tpl_and_domain = array();
+	if (isset($_POST['tpl']))
 	{
-		$tplarr['tpl']=trim($_POST['tpl']);
-		updatetable(table('company_profile'),$tplarr," uid='{$thisuid}'");
-		updatetable(table('jobs'),$tplarr," uid='{$thisuid}'");
-		updatetable(table('jobs_tmp'),$tplarr," uid='{$thisuid}'");
-		unset($tplarr);
+        $custom_tpl_and_domain['tpl']= trim($_POST['tpl']);
+		//$tplarr['tpl']=trim($_POST['tpl']);
+
+		//updatetable(table('company_profile'),$tplarr," uid='{$thisuid}'");
+		//updatetable(table('jobs'),$tplarr," uid='{$thisuid}'");
+		//updatetable(table('jobs_tmp'),$tplarr," uid='{$thisuid}'");
+		//unset($tplarr);
 	}
+    if(isset($_POST['domain'])){
+        $custom_tpl_and_domain['custom_url']=trim($_POST['domain']);
+    }
+     
+    if(count($custom_tpl_and_domain)>0){
+        updatetable(table('company_profile'),$custom_tpl_and_domain," uid='{$thisuid}'");
+        unset($custom_tpl_and_domain);
+    }
+
 	if (updatetable(table('members'),$setsqlarr," uid=".$thisuid.""))
 	{
 	$link[0]['text'] = "返回列表";

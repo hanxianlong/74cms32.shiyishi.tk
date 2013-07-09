@@ -1,5 +1,5 @@
 /*--------职位展示-------*/
-.jobs-show-top {width:985px; margin:0 auto; margin-top:8px;}
+.jobs-show-top {width:960px; margin:0 auto; margin-top:8px;}
 .jobs-show-top  h1{  height:45px; font-size:30px; font-family:"黑体";}
 .jobs-show-top  .jobbottom{ height:25px;color:#FF6600; font-size:14px; color:#FF9900}
 .jobs-show-top  .jobbottom .comname{ float:left;}
@@ -33,8 +33,8 @@
 .jobs-show  .right .txtbox .txt li{ padding-left:10px;}
 .jobs-show  .right .txtbox .txt1{ padding:5px; padding-left:15px; line-height:180%; border-bottom:1px #E4E4E4 solid}
 /*--------企业展示-------*/
-.company-show {width:985px; margin:0 auto; margin-top:8px;}
-.company-show  .left{width: 710px; float:left}
+.company-show {width:960px; margin:0 auto; margin-top:8px;}
+.company-show  .left{width: 710px; float:left; overflow:hidden;}
 .company-show  .left .show{width:670px;border:1px solid #E4E4E4; padding:15px; line-height:180% ; position:relative;background-image:url(../images/16.jpg); background-repeat:repeat-x;word-break:break-all;word-wrap:break-word;}
 .company-show  .left .show  h1{height:35px; line-height:35px; font-size:30px; font-family:"黑体"; overflow:hidden; float:left}
 .company-show  .left .show  .item{width:500px; margin-bottom:20px;}
@@ -45,7 +45,7 @@
 .company-show  .left .show  .listtit{ font-weight:bold}
 .company-show  .left .show  .list{ border-bottom:1px  #CCCCCC dashed}
 .company-show  .left .show .contact{ padding:3px; border:1px   #FF9900 solid; background-color: #FDFBF0; padding-left:8px;}
-.company-show  .right{width:275px;float:left;}
+.company-show  .right{width:245px;float:left; overflow:hidden;}
 .company-show  .right .txtbox{width:273px;border:1px solid #E4E4E4; margin-bottom:8px;}
 .company-show  .right .txtbox .tit{height:30px;background:url(../images/52.gif) repeat-x 0px -239px; border-bottom:1px solid #E4E4E4; line-height:30px; font-size:14px; font-weight:bold; color:#666666; padding-left:15px;}
 .company-show  .right .txtbox .txt{ padding:5px;}

@@ -471,6 +471,23 @@ function get_tpl($type,$id)
 		}
 	}
 }
+
+function get_company_id_from_doamin($domain)
+{
+    global $db;
+    $utpl=$db->getone("SELECT id FROM ".table('company_profile')." WHERE custom_url='vip/{$domain}' limit 1");
+    return $utpl['id'];
+}
+
+function get_company_domain_from_id($id)
+{
+    global $db;
+    $id = intval($id);
+    $utpl=$db->getone("SELECT custom_url FROM ".table('company_profile')." WHERE id='{$id}' limit 1");
+    return $utpl['custom_url'];
+}
+
+
 function url_rewrite($alias=NULL,$get=NULL,$rewrite=true)
 {
 	global $_CFG,$_PAGE;
