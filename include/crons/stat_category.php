@@ -73,7 +73,7 @@ set_time_limit(180);
 	$result = $db->query($sql);
 		while($row = $db->fetch_array($result))
 		{
-			$catarr[$row['c_alias']][$row['c_id']] =array("id"=>$row['c_id'],"parentid"=>$row['c_parentid'],"categoryname"=>$row['c_name'],"stat_jobs"=>$row['stat_jobs'],"stat_resume "=>$row['stat_resume ']);
+			$catarr[$row['c_alias']][$row['c_id']] =array("id"=>$row['c_id'],"parentid"=>$row['c_parentid'],"categoryname"=>$row['c_name'],"stat_jobs"=>$row['stat_jobs'],"stat_resume "=>$row['stat_resume '],"categoryname_en"=>$row['c_name_en']);
 		}
 		stat_write_static_cache($cache_file_path,$catarr);
 		function stat_write_static_cache($cache_file_path, $config_arr)
