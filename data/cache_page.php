@@ -297,5 +297,16 @@ $data = array (
     'tag' => 'help',
     'alias' => 'QS_helpsearch',
   ),
+  'Custom_Pic_Joblist' => 
+  array (
+    'file' => 'bookstore',
+    'tpl' => 'pic-jobs.htm',
+    'rewrite' => '',
+    'html' => '',
+    'url' => '0',
+    'caching' => 0,
+    'tag' => '',
+    'alias' => 'Custom_Pic_Joblist',
+  ),
 );
 ?>

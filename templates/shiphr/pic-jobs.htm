@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#if $smarty.get.key#}{#$smarty.get.key#} - {#/if#}{#if $smarty.get.category#}{#"QS_jobs,"|cat:$smarty.get.category|qishi_categoryname#} - {#/if#}{#if $smarty.get.subclass#}{#"QS_jobs,"|cat:$smarty.get.subclass|qishi_categoryname#} - {#/if#}{#if $smarty.get.district#}{#"QS_district,"|cat:$smarty.get.district|qishi_categoryname#} - {#/if#}{#if $smarty.get.sdistrict#}{#"QS_district,"|cat:$smarty.get.sdistrict|qishi_categoryname#} - {#/if#}{#if $smarty.get.trade#}{#"QS_trade,"|cat:$smarty.get.trade|qishi_categoryname#} - {#/if#}{#if $smarty.get.settr#}{#$smarty.get.settr#}天内 - {#/if#}{#if $smarty.get.nature#}{#"QS_jobs_nature,"|cat:$smarty.get.nature|qishi_categoryname#} - {#/if#}职位列表  - {#$QISHI.site_name#}</title>
+<meta name="description" content="{#$QISHI.site_name#}招聘岗位">
+<meta name="keywords" content="{#$QISHI.site_name#},图片招聘">
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/jobs.css" rel="stylesheet" type="text/css" />
+<link href="{#$QISHI.site_template#}css/pic_jobs.css" rel="stylesheet" type="text/css" />
+
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script> 
+<script src="{#$QISHI.site_template#}js/highslide.js" type='text/javascript' ></script> 
+<link href="{#$QISHI.site_template#}js/highslide/highslide.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+		hs.graphicsDir = '{#$QISHI.site_template#}js/highslide/graphics/';
+		hs.transitions = ['expand', 'crossfade'];
+		hs.wrapperClassName = 'dark borderless floating-caption';
+		hs.fadeInOut = true;
+		hs.dimmingOpacity = .75;
+		hs.align = 'center';
+
+		if (hs.addSlideshow) hs.addSlideshow({
+			interval: 5000,
+			repeat: false,
+			useControls: true,
+			fixedControls: 'fit',
+			overlayOptions: {
+				opacity: .6,
+				position: 'bottom center',
+				hideOnMouseOut: true
+			}
+		});
+	</script>
+
+</head>
+<body>
+{#include file="header.htm"#}
+<div class="page_location link_bk">
+当前位置：<a href="{#$QISHI.site_dir#}">首页</a>&nbsp;>>&nbsp;<a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>&nbsp;>>&nbsp;搜索结果
+</div>
+ <div class="clear"></div>
+  <div class="clear"></div>
+  
+   <div class="clear"></div>
+    <div class="clear"></div>
+ <div class="booknews">
+
+<div class="maintabal">
+
+        <div class="sjs_dh">
+
+
+            <h3>图片招聘分类</h3>
+            <div class="sjs_dhnr">
+                <ul>
+
+
+
+                               <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%C9%E8%BC%C6%D7%DC%BC%E0">设计总监</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CA%D7%CF%AF%C9%E8%BC%C6%CA%A6">首席设计师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D6%F7%C9%E8%BC%C6%CA%A6">主设计师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%C9%E8%BC%C6%CA%A6">设计师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%C9%E8%BC%C6%D6%FA%C0%ED">设计助理</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CD%BC%B0%B8%C9%E8%BC%C6">图案设计</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%C6%BD%C3%E6%C9%E8%BC%C6">平面设计</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%C2%F2%CA%D6">买手</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%C9%FA%B2%FA%D6%F7%B9%DC">生产主管</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B3%A7%B3%A4">厂长</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B0%E5%B7%BF%D6%F7%B9%DC">板房主管</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D6%BD%D1%F9%CA%A6">纸样师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B4%F2%B0%E6%CA%A6">打版师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B7%C5%C2%EB%CA%A6">放码师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B2%C3%BC%F4%CA%A6">裁剪师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%DF%E9%BC%DC%CA%A6">唛架师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B2%C3%B4%B2">裁床</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B2%C3%BC%F4%CA%A6">裁剪师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B0%E5%B7%BF%D6%FA%C0%ED">板房助理</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B5%E7%BC%F4">电剪</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CB%C4%CF%DF">四线</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B4%F3%CC%CC">大烫</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D6%D0%CC%CC">中烫</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B3%B5%B0%E6%CA%A6">车版师</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D1%F9%D2%C2%B9%A4">样衣工</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D6%B8%B5%BC%B9%A4">指导工</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B3%B5%CE%BB">车位</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B8%FA%B5%A5">跟单</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B2%C9%B9%BA">采购</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D6%CA%BC%EC">质检</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=QC">QC</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D6%D0%B2%E9">中查</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B2%E9%BB%F5">查货</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CD%E2%B7%A2%D6%F7%B9%DC">外发主管</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CA%D5%B7%A2">收发</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B2%D6%B9%DC">仓管</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B2%D6%BF%E2">仓库</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CD%B3%BC%C6%D4%B1">统计员</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CE%C4%D4%B1">文员</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%BB%E1%BC%C6">会计</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CF%FA%CA%DB">销售</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B5%BC%B9%BA">导购</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B5%EA%B3%A4">店长</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D3%AA%D2%B5%D4%B1">营业员</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D3%AA%CF%FA%D4%B1">营销员</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D2%B5%CE%F1%BE%AD%C0%ED">业务经理</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D2%B5%CE%F1%D4%B1">业务员</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CC%D4%B1%A6%C3%C0%B9%A4">淘宝美工</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CC%D4%B1%A6%CF%FA%CA%DB">淘宝销售</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CC%D4%B1%A6%BF%CD%B7%FE">淘宝客服</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CC%D4%B1%A6%CE%C4%B0%B8">淘宝文案</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CD%F8%B5%EA%BF%CD%B7%FE">网店客服</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%CB%BE%BB%FA">司机</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%BA%F3%C7%DA">后勤</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%D4%D3%B9%A4">杂工</a></li>
+				                 <li><img height="9" border="0" width="5" src="{#$QISHI.site_template#}/images/ico01.gif"> <a target="_self" href="/bookstore/index.php?keyword=%B0%E1%D4%CB%B9%A4">搬运工</a></li>
+				
+
+                </ul>
+
+            </div>
+        </div>
+
+</div>
+<style type="text/css">
+.ld{position:relative;}
+.pi {
+    background-image: url("http://misc.360buyimg.com/product/skin/2012/i/20120209D.png");
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-family: "microsoft yahei";
+    font-size: 16px;
+    height: 41px;
+    line-height: 41px;
+    overflow: hidden;
+    padding-left: 12px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 40px;
+}
+.pix1 {
+    background-position: -219px 0;
+}
+#timed .p-img .pix1 {
+    height: 38px;
+    padding-top: 3px;
+}
+.p-img .pi {
+    cursor: pointer;
+}
+.ld s, .ld b, .ld .block {
+    overflow: hidden;
+    position: absolute;
+}
+a.redlink {text-decoration:none;}
+.redlink span{color:red;}
+</style>
+<div class="main_conAd">
+
+
+    <div style="margin-top:6px;" class="maintabar">
+
+        <div style=" border-top:#000 1px solid; ">
+
+        <form method="post" action="index.php" name="hiresimplesearch">
+
+        <li>职位搜索：
+        <input type="text" value="" class="input165" style="height:20px;" size="15" name="keyword">
+        <input type="submit" class="btn" value="搜 索" name="Submit3"></li></form>
+        <li style="font-weight:bold; padding-top:7px; width:500px;">  
+         																																																																																																																																																																																																																																														
+		        </li>
+        </div>
+ 
+        <div class="searchmaincon">
+
+
+
+
+        <div class="show">
+ 
+        		
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="客服文员" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                                            <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>客服文员</u></a></h2>
+                        
+                                                <p>电话：13760771652</p>
+                        <p>发布时间：2013-07-06</p>
+                        <p>工作地点：新港西路146号顺华辅料B入口</p>
+
+                      </dd>
+                    </dl>
+               </div> 
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="采购员兼跟单" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      <b id="icon36" class="pi pix1"><span>VIP</span><br></b>                      <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>采购员兼跟单</u></a></h2>
+                        
+                                                <a class="redlink" href="http://www.zzfzjob.com/company/company-show.php?id=1867" target="_blank">                        <span style="color:red">Johanna服饰</span>
+                        </a>                                                <p>电话：18628137533</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：海珠区</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="车版师" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      <b id="icon36" class="pi pix1"><span>VIP</span><br></b>                      <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>车版师</u></a></h2>
+                        
+                                                <a class="redlink" href="http://www.zzfzjob.com/company/company-show.php?id=1901" target="_blank">                        <span style="color:red">广州轩蕾服饰有限公司</span>
+                        </a>                                                <p>电话：15800012260</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：墩和路大塘东华后街一巷6-13大院3楼</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="生产管理 跟单QC 文员" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                                                  <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>生产管理 跟单Q</u></a></h2>
+                        
+                                                <p>电话：020-86343751</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：白云区远景路附近</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="童装设计师" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      <b id="icon36" class="pi pix1"><span>VIP</span><br></b>                           <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>童装设计师</u></a></h2>
+                        
+                                                <a class="redlink" href="http://www.zzfzjob.com/company/company-show.php?id=1900" target="_blank">                        <span style="color:red">广州流行秀童装有限公司</span>
+                        </a>                                                <p>电话：13682241890</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：广州番禺大石南浦</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="设计师 设计助理 打版师" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                                                    <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>设计师 设计助理</u></a></h2>
+                        
+                                                <p>电话：15920149129</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：中大双子星城B座星辰轩A座</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="设计师 设计助理 跟单员" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                                                   <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>设计师 设计助理</u></a></h2>
+                        
+                                                <p>电话：13016004448</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：广州</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="车版师 电剪师" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                                                    <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>车版师 电剪师</u></a></h2>
+                        
+                                                <p>电话：13288632063</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：工业大道</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="打版师  设计师  车版师  设计助理" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                                                  <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>打版师  设计师</u></a></h2>
+                        
+                                                <p>电话：13822132033</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：天雄布市旁</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="设计总监 生产厂长 设计师 打版师" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      <b id="icon36" class="pi pix1"><span>VIP</span><br></b>                            <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>设计总监 生产厂</u></a></h2>
+                        
+                                                <a class="redlink" href="http://www.zzfzjob.com/company/company-show.php?id=1899" target="_blank">                        <span style="color:red">广州法国CG成功服饰</span>
+                        </a>                                                <p>电话：18602160837</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：白云区萧岗明珠东路</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="设计师 设计助理" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                                                   <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>设计师 设计助理</u></a></h2>
+                        
+                                                <p>电话：13760820777</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：广州</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+                <div class="show-inner ld">
+                    <dl>
+                      <dt><a title="女装皮衣设计师  车版师  设计助理" onclick="return hs.expand(this)" class="highslide" href="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                                                 <img src="{#$QISHI.site_template#}images/pic_ad_01.jpg">
+                      </a></dt>
+                      <dd>
+                        <h2>职位：<a><u>女装皮衣设计师</u></a></h2>
+                        
+                                                <p>电话：15374098973</p>
+                        <p>发布时间：2013-07-10</p>
+                        <p>工作地点：南洲路44号盛恒商务中心515室</p>
+
+                      </dd>
+                    </dl>
+               </div>
+	  
+
+
+
+
+        </div>
+        <table border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px;">
+	  <tbody><tr>
+		<td height="50" class="link_bk"><div class="page link_bk"><a class="">首页</a><a class="">上一页</a><a class="select">1</a>
+<a href="/bookstore/?page=2">2</a>
+<a href="/bookstore/?page=3">3</a>
+<a href="/bookstore/?page=4">4</a>
+<a href="/bookstore/?page=5">5</a>
+<a href="/bookstore/?page=6">6</a>
+<a href="/bookstore/?page=7">7</a>
+<a href="/bookstore/?page=8">8</a>
+<a href="/bookstore/?page=9">9</a>
+<a href="/bookstore/?page=10">10</a>
+<a href="/bookstore/?page=11">11</a>
+<a href="/bookstore/?page=2">下一页</a><a href="/bookstore/?page=65">尾页</a><a>1/65页</a><div class="clear"></div></div></td>
+	  </tr>
+	</tbody></table>
+
+
+        </div>
+        </div>
+</div>
+  <div class="clear"></div>
+</div>
+
+<table width="" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>{#if $page#}
+		<div class="page link_bk">
+		{#$page#}
+		</div>
+		{#/if#}</td>
+  </tr>
+</table>
+{#include file="footer.htm"#}
+</body>
+</html>
