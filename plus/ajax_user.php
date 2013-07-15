@@ -57,11 +57,11 @@ if($act =='do_login')
 		unset($_SESSION['imageCaptcha_content']);
 		exit("errcaptcha");
 		}
-	}
+	} 
 	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
 	if ($username && $password)
 	{
-            $user=get_user_inusername($username);
+          //  $user=get_user_inusername($username);
             $login=user_login($username,$password,$account_type,true,$expire);
             $url=$url?$url:$login['qs_login'];
             if ($login['qs_login'])
@@ -70,7 +70,7 @@ if($act =='do_login')
             }
             else
             {
-            exit("err");
+                exit("err");
             }
 	}
 	exit("err");
@@ -140,7 +140,7 @@ elseif($act =='check_usname')
             $usname=iconv("utf-8",QISHI_DBCHARSET,$usname);
 	}
         
-	$user=get_user_inusername($usname);
+	$user=get_user_inusername($usname,true);
 	empty($user)?exit("true"):exit("false");
 }
 elseif($act == 'check_email')
@@ -152,7 +152,7 @@ elseif($act == 'check_email')
 	$email=iconv("utf-8",QISHI_DBCHARSET,$email);
 	}
         
-	$user=get_user_inemail($email);
+	$user=get_user_inemail($email,true);
 	empty($user)?exit("true"):exit("false");
 }
 elseif ($act=="top_loginform")

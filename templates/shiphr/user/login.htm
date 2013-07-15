@@ -14,7 +14,7 @@ $(document).ready(function()
 {
 //
 $("#username").focus(function(){
-	if ($("#username").val()=="用户名/邮箱/手机号")
+	if ($("#username").val()=="用户名")
 	{
 	$("#username").val('');
 	$("#username").css("color","");
@@ -25,9 +25,9 @@ $(".but80").hover(function(){$(this).addClass("but80_hover")},function(){$(this)
 //验证
 $("form[id=Formlogin]").submit(function(e) {
 e.preventDefault();
-	if ($("#username").val()=="" || $("#username").val()=="用户名/邮箱/手机号")
+	if ($("#username").val()=="" || $("#username").val()=="用户名")
 	{			
-		$(".login_err").html("请填写：用户名 / 邮箱 / 手机号");	
+		$(".login_err").html("请填写：用户名");	
 		$(".login_err").show();
 	}
 	else if($("#password").val()=="")
@@ -136,7 +136,7 @@ imgcaptcha("#postcaptcha","#imgdiv");
 			 
 			<tr><td width="55" align="right" id="account">帐号：</td>
 			<td>
-			  <input name="username" type="text"  class="login_input" id="username"   maxlength="30" value="用户名/邮箱/手机号" style="color:#999999"/>    </td>
+			  <input name="username" type="text"  class="login_input" id="username"   maxlength="30" value="用户名" style="color:#999999"/>    </td>
 		  </tr>
 		  <tr>
 			<td align="right">密码：</td>

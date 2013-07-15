@@ -13,6 +13,10 @@
  {
  	die('Access Denied!');
  }
+ if(defined('UC_API'))
+ {
+    include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');     
+ }
 //注册会员
 function user_register($username,$password,$member_type=0,$email,$uc_reg=true)
 {
@@ -74,7 +78,7 @@ function user_register($username,$password,$member_type=0,$email,$uc_reg=true)
 			}
     if(defined('UC_API') && $uc_reg)
     {
-        include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');
+       
         $uc_reg_uid=uc_user_register($username,$password,$email);
     }
     write_memberslog($insert_id,$member_type,1000,$username,"注册成为会员");
@@ -100,8 +104,7 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
 	{
 		$usinfo=get_user_inmobile($account);
 		$audit=$usinfo['mobile_audit'];
-	}
-        
+	} 
         //如果未查询到用户信息，则检查uc中是否存在该用户,如果存在，则注册到本系统中来
         /*-------------开始-----------------*/
         if(empty($usinfo))
@@ -110,10 +113,8 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
                 return $login;
             }
             //检查用户是否存在于ucenter中，如果不存在，则返回登录失败
-            //如果存在，则将信息注册到本系统中
-            include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');
+            //如果存在，则将信息注册到本系统中 
             list($uc_uid, $uc_username, $uc_password, $uc_email) = uc_user_login($account, $password);
-            
             if($uc_uid<0)
             {
                 return $login;
@@ -132,12 +133,12 @@ function user_login($account,$password,$account_type=1,$uc_login=true,$expire=NU
         //如果用户存在，并且已验证通过的（手机和邮箱）
 	if (!empty($usinfo) && $audit=="1")
 	{
+            
               //先登录uc,如果登录成功，判断本地密码与uc密码是否一致，不一致的话就更新本地密码
                     $login['uc_login']='';
                     $loginOk=true;
                     if(defined('UC_API') && $uc_login)
-                    {
-                        include_once(QISHI_ROOT_PATH.'api/uc_client/client.php');
+                    { 
                         list($uc_uid, $uc_username, $uc_password, $uc_email) = uc_user_login($usinfo['username'], $password);
                         
                         //如果用户名已存在并且登录成功，则同步登录到uc
@@ -240,40 +241,45 @@ function check_cookie($name,$pwd){
         
 	return true;
  }
-function get_user_inemail($email)
+function get_user_inemail($email,$register = false)
 {
-      if(defined("UC_API"))
+     //如果集成了UC验证，则调用ucenter接口中判断是否存在用户名
+        if(defined("UC_API") && $register)
         {
-            /*
+            $uid = uc_user_checkemail($username);
+            if($uid<0)//在uc中已经存在，则不允许注册
+            {
+                 return 'false';
+            }
+        }
+        
+  /*     if(defined("UC_API"))
+        {
+           
            *  	1  : 成功
  * 	-4 : email 格式有误
  * 	-5 : email 不允许注册
- * 	-6 : 该 email 已经被注册*/
+ * 	-6 : 该 email 已经被注册
             $uid = uc_user_checkemail($email);
             if($uid<0)//在uc中已经存在，则不允许注册
             {
                 exit("false");
             }
-        }
+        }*/
 	global $db;
 	return $db->getone("select * from ".table('members')." where email = '{$email}' LIMIT 1");
 }
-function get_user_inusername($username)
+function get_user_inusername($username,$register = false)
 {
         //如果集成了UC验证，则调用ucenter接口中判断是否存在用户名
-        if(defined("UC_API"))
+        if(defined("UC_API") && $register)
         {
-            /*
-            -1 : 用户名不合法
-            -2 : 包含要允许注册的词语
-            -3 : 用户名已经存在*/
             $uid = uc_user_checkname($username);
             if($uid<0)//在uc中已经存在，则不允许注册
             {
-                exit("false");
+                 return 'false';
             }
         }
-        
             //判断在本地系统中是否存在
 	global $db;
 	$sql = "select * from ".table('members')." where username = '{$username}' LIMIT 1";
@@ -321,7 +327,6 @@ function edit_password($arr,$check=true)
          //先更新ucenter中的密码，更新成功后再更新本地密码
         if(defined('UC_API'))
         {
-          // include_once(QISHI_ROOT_PATH . 'api/uc_client/client.php');
            $edit_id=  uc_user_edit($arr['username'], $arr['oldpassword'], $arr['password'], '');
            if($edit_id==1)
            {
