@@ -204,11 +204,11 @@ $(document).ready(function()
               <td width="224" bgcolor="#F2F2F2">意向工作职位</td>
               <td width="90" bgcolor="#F2F2F2" align="center">更新日期</td>
           </tr>
-{#qishi_resume_list set="列表名:resume,显示数目:16,意向职位长度:15,填补字符:...,排序:refreshtime>desc"#}
+{#qishi_resume_list set="列表名:resume,显示数目:16,意向职位长度:15,填补字符:...,排序:rtime>desc"#}
 {#foreach from=$resume item=list#}
           <tr>
               <td align="center">{#$list.id#}</td>
-              <td><a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a></td>
+              <td><a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a></td>
               <td>{#$list.sex_cn#}</td>
               <td>{#$list.age#}岁</td>
               <td>{#$list.education_cn#}</td>
@@ -226,13 +226,13 @@ $(document).ready(function()
       <div class='dao_more'><a href="{#"QS_resumelist"|qishi_url#}?photo=1" title="查看更多照片简历">更多</a></div>
     </div>
     <div class='zpjl'>
-{#qishi_resume_list set="列表名:resume,显示数目:5,照片:1,特长描述长度:12,填补字符:...,排序:refreshtime>desc"#}
+{#qishi_resume_list set="列表名:resume,显示数目:5,照片:1,特长描述长度:12,填补字符:...,排序:rtime>desc"#}
 {#foreach from=$resume item=list#}
       <div class='zpjl_li'>
         <table width="296" border="0" cellspacing="0" cellpadding="0">
             <tr>
                  <td width="85" rowspan="4"><a href="{#$list.resume_url#}" target="_blank"><img src="{#$list.photosrc#}" width="70" height="90" border="1" style="border-color:#CCCCCC"/></a></td>
-                 <td width="211"><span class='zpjl_info'><a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a></span>&nbsp;|&nbsp;<span class='zpjl_info'>{#$list.sex_cn#}</span>&nbsp;|&nbsp;<span class='zpjl_info'>{#$list.age#}岁</span>&nbsp;|&nbsp;<span class='zpjl_info'>{#$list.education_cn#}</span></td>
+                 <td width="211"><span class='zpjl_info'><a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a></span>&nbsp;|&nbsp;<span class='zpjl_info'>{#$list.sex_cn#}</span>&nbsp;|&nbsp;<span class='zpjl_info'>{#$list.age#}岁</span>&nbsp;|&nbsp;<span class='zpjl_info'>{#$list.education_cn#}</span></td>
             </tr>
             <tr>
                  <td><div style="float:left">求职岗位:</div>

@@ -140,6 +140,10 @@ $(document).ready(function()
 			  {#$resume_basic.height#} CM
 			  {#/if#}			  </td>
               </tr>
+                  <tr>
+                      <td>Graduated From£º{#$resume_basic.school#}</td>
+                      <td>Graduated On£º{#$resume_basic.graduate_date|truncate:14:"""#}</td>
+                  </tr>
             <tr>
               <td>Degree£º{#$resume_basic.education_cn#}</td>
               <td>Marriage£º{#if $resume_basic.marriage==1#}Single{#/if#}{#if $resume_basic.marriage==2#}Married{#/if#}{#if $resume_basic.marriage==3#}Keep Secret{#/if#}</td>
@@ -254,7 +258,7 @@ $(document).ready(function()
             <tr>
               <td style="line-height:180%">
 		  {#if $resume_education#}
-		  {#$resume_education.education_remark#}
+		  {#$resume_education.education_remark|nl2br#}
            
 			{#else#}
 			N/A
@@ -272,7 +276,7 @@ $(document).ready(function()
             <tr>
               <td style="line-height:180%">
 		  {#if $resume_work#}
-		  {#$resume_work.work_remark#}
+		  {#$resume_work.work_remark|nl2br#}
            
 			{#else#}
 			N/A
@@ -290,7 +294,7 @@ $(document).ready(function()
             <tr>
               <td style="line-height:180%">
 		  {#if $resume_training#}
-		  {#$resume_training.training_remark#}
+		  {#$resume_training.training_remark|nl2br#}
            
 			{#else#}
 			N/A

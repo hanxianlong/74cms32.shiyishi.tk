@@ -324,7 +324,7 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 	$limit=" LIMIT {$aset['start']} , {$aset['row']}";
 	$list = $id = array();
 	$idresult = $db->query("SELECT id FROM {$resumetable}  AS r".$joinsql.$wheresql.$orderbysql.$limit);
-	//echo "SELECT id FROM {$resumetable}  AS r".$joinsql.$wheresql.$orderbysql.$limit;
+	// echo "SELECT id FROM {$resumetable}  AS r".$joinsql.$wheresql.$orderbysql.$limit;
 	while($row = $db->fetch_array($idresult))
 	{
 	$id[]=$row['id'];
@@ -350,6 +350,7 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 					$row['fullname_']=$row['fullname'];
 					$row['fullname']=cut_str($row['fullname'],$aset['namelen'],0,$aset['dot']);
 				}
+            $row['resume_no']="N".str_pad($row['id'],7,"0",STR_PAD_LEFT);
 			$row['specialty_']=strip_tags($row['specialty']);
 			if ($aset['specialtylen']>0)
 			{

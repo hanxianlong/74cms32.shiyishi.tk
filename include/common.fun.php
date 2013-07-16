@@ -265,12 +265,12 @@ function cut_str($string, $length, $start=0,$dot='')
 		if(strlen($string) <= $length) {
 			return $string;
 		}
-		$string = str_replace(array('&amp;', '&quot;', '&lt;', '&gt;'), array('&', '"', '<', '>'), $string);
+		$string = str_replace(array('&amp;', '&quot;', '&lt;', '&gt;','&nbsp;'), array('&', '"', '<', '>',' '), $string);
 		$strcut = '';	 
 			for($i = 0; $i < $length; $i++) {
 				$strcut .= ord($string[$i]) > 127 ? $string[$i].$string[++$i] : $string[$i];
 			}
-		$strcut = str_replace(array('&', '"', '<', '>'), array('&amp;', '&quot;', '&lt;', '&gt;'), $strcut);
+		$strcut = str_replace(array('&', '"', '<', '>',' '), array('&amp;', '&quot;', '&lt;', '&gt;','&nbsp;'), $strcut);
 		return $strcut.$dot;
 }
 function smtp_mail($sendto_email,$subject,$body,$From='',$FromName='')

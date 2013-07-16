@@ -40,7 +40,7 @@ define('UC_DBHOST', 'localhost');
 define('UC_DBUSER', 'root');
 define('UC_DBPW', 'han1987118');
 define('UC_DBNAME', 'shiphr');
-define('UC_DBCHARSET', 'utf8');
+define('UC_DBCHARSET', 'gbk');
 define('UC_DBTABLEPRE', '`shiphr`.uc_');
 define('UC_DBCONNECT', '0');
 define('UC_KEY', 'aabbbc');

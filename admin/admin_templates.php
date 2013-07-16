@@ -44,14 +44,14 @@ elseif ($act == 'backup')
 	$tpl = trim($_REQUEST['tpl_name']);
 	if (dirname($tpl)<>'.')
 	{
-	adminmsg("²Ù×÷Ê§°Ü£¡",0);
+	 adminmsg("²Ù×÷Ê§°Ü£¡",0);
 	}
 	$filename = '../temp/backup_templates/' . $tpl . '_' . date('Ymd') . '.zip';
 	$zip = new PHPZip;
 	$done = $zip->zip('../templates/' . $tpl . '/', $filename);
 		if ($done)
 		{
-		header("Location:".$filename."");
+		  header("Location:".$filename."");
 		}
 		else
 		{

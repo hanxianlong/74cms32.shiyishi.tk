@@ -5,8 +5,6 @@
 <title>{#$show.fullname#}的个人简历 - {#$QISHI.site_name#}</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
-<meta name="author" content="骑士CMS" />
-<meta name="copyright" content="74cms.com" />
 <meta http-equiv="X-UA-Compatible" content="IE=7">
 <link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
 <link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
@@ -89,12 +87,19 @@ $(document).ready(function()
     <td align="right" bgcolor="#FAFAFA">户籍所在：</td>
     <td bgcolor="#FFFFFF">{#$show.householdaddress#}</td>
   </tr>
+      <tr>
+          <td align="right" bgcolor="#FAFAFA">毕业院校：</td>
+          <td bgcolor="#FFFFFF">{#$show.school#}</td>
+          <td align="right" bgcolor="#FAFAFA">毕业时间：</td>
+          <td bgcolor="#FFFFFF">{#$show.graduate_date|truncate:14:"""#}</td>
+      </tr>
   <tr>
     <td align="right" bgcolor="#FAFAFA">最高学历：</td>
     <td bgcolor="#FFFFFF">{#$show.education_cn#}</td>
     <td align="right" bgcolor="#FAFAFA">工作经验：</td>
     <td bgcolor="#FFFFFF">{#$show.experience_cn#}</td>
   </tr>
+
   <tr>
     <td align="right" bgcolor="#FAFAFA">联系地址：</td>
     <td bgcolor="#FFFFFF">{#$show.address#}</td>
@@ -154,7 +159,7 @@ $(document).ready(function()
     </tr>
 	{#foreach from=$show.education_list item=list#}
         <tr>
-         <td colspan="2" bgcolor="#FFF">({#$list.education_remark#})</td>
+         <td colspan="2" bgcolor="#FFF">{#$list.education_remark|nl2br#}</td>
       </tr>
 	 
 	{#/foreach#}
@@ -166,7 +171,7 @@ $(document).ready(function()
 	{#if $show.work_list#}
 	{#foreach from=$show.work_list item=list#}
         <tr>
-            <td colspan="2" bgcolor="#fff">{#$list.work_remark#}</td>
+            <td colspan="2" bgcolor="#fff">{#$list.work_remark|nl2br#}</td>
         </tr>
 	 
 	{#/foreach#}
@@ -183,7 +188,7 @@ $(document).ready(function()
 	{#if $show.training_list#}
 	{#foreach from=$show.training_list item=list#}
 	 <tr>
-      <td colspan="2" bgcolor="#FAFAFA">{#$list.training_remark#}</td>
+      <td colspan="2" bgcolor="#FAFAFA">{#$list.training_remark|nl2br#}</td>
     </tr>
      
 	{#/foreach#}

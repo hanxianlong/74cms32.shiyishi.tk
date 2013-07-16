@@ -144,6 +144,10 @@ $(document).ready(function()
               <td>学历：{#$resume_basic.education_cn#}</td>
               <td>婚姻状况：{#if $resume_basic.marriage==1#}未婚{#/if#}{#if $resume_basic.marriage==2#}已婚{#/if#}{#if $resume_basic.marriage==3#}保密{#/if#}</td>
               </tr>
+                  <tr>
+                      <td >毕业院校：{#$resume_basic.school#}</td>
+                      <td>毕业时间：{#$resume_basic.graduate_date|truncate:14:"""#}</td>
+                  </tr>
             <tr>
               <td>工作经验：{#$resume_basic.experience_cn#}</td>
               <td>户口所在地：{#$resume_basic.householdaddress#}</td>
@@ -257,7 +261,7 @@ $(document).ready(function()
             <tr>
               <td style="line-height:180%">
 		  {#if $resume_education#}
-		  {#$resume_education.education_remark#}
+		  {#$resume_education.education_remark|nl2br#}
            
 			{#else#}
 			您没有填写教育经历。
@@ -275,7 +279,7 @@ $(document).ready(function()
             <tr>
               <td style="line-height:180%">
 		  {#if $resume_work#}
-		  {#$resume_work.work_remark#}
+		  {#$resume_work.work_remark|nl2br#}
            
 			{#else#}
 			您没有填写工作经历。
@@ -293,8 +297,7 @@ $(document).ready(function()
             <tr>
               <td style="line-height:180%">
 		  {#if $resume_training#}
-		  {#$resume_training.training_remark#}
-           
+		  {#$resume_training.training_remark|nl2br#}
 			{#else#}
 			您没有填写培训经历。
             {#/if#} 

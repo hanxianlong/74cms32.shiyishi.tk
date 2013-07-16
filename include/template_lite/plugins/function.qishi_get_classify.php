@@ -41,7 +41,7 @@ $list =array();
 if ($act=="QS_jobs")
 {
 	$id=intval($aset['id']);
-	$result = $db->query("SELECT * FROM ".table('category_jobs')." where parentid=".$id." ORDER BY category_order desc,id asc".$limit);
+	$result = $db->query("SELECT * FROM ".table('category_jobs')." where parentid=".$id." ORDER BY category_order asc,id asc".$limit);
 	while($row = $db->fetch_array($result))
 	{
 	$row['categoryname']=cut_str($row['categoryname'],$aset['titlelen'],0,$aset['dot']);
@@ -85,7 +85,7 @@ elseif ($act=="QS_district")
 	{
 	$wheresql=" WHERE parentid=".intval($aset['id'])." ";
 	}
-	$sql = "select * from ".table('category_district')." ".$wheresql."  ORDER BY category_order desc,id asc".$limit;
+	$sql = "select * from ".table('category_district')." ".$wheresql."  ORDER BY category_order asc,id asc".$limit;
 	$result = $db->query($sql);
 	while($row = $db->fetch_array($result))
 	{
@@ -126,7 +126,7 @@ elseif ($act=="QS_district_parent")
 elseif ($act=="QS_officebuilding")
 {
 	$wheresql=" WHERE c_alias='QS_officebuilding' ";
-	$sql = "select * from ".table('category')." {$wheresql} ORDER BY c_order desc,c_id asc {$limit}";
+	$sql = "select * from ".table('category')." {$wheresql} ORDER BY c_order asc,c_id asc {$limit}";
 	$result = $db->query($sql);
 	while($row = $db->fetch_array($result))
 	{
@@ -138,7 +138,7 @@ elseif ($act=="QS_officebuilding")
 elseif ($act=="QS_street")
 {
 	$wheresql=" WHERE c_alias='QS_street' ";
-	$sql = "select * from ".table('category')." {$wheresql} ORDER BY c_order desc,c_id asc {$limit}";
+	$sql = "select * from ".table('category')." {$wheresql} ORDER BY c_order asc,c_id asc {$limit}";
 	$result = $db->query($sql);
 	while($row = $db->fetch_array($result))
 	{

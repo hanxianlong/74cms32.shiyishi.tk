@@ -140,7 +140,7 @@ function refresh_category_cache()
 {
 	global $db;
 	$cache_file_path =QISHI_ROOT_PATH. "data/cache_category.php";
-	$sql = "SELECT * FROM ".table('category')."  ORDER BY c_order DESC,c_id ASC";
+	$sql = "SELECT * FROM ".table('category')."  ORDER BY c_order asc,c_id ASC";
 	$result = $db->query($sql);
 		while($row = $db->fetch_array($result))
 		{
@@ -317,7 +317,7 @@ function makejs_classify()
 {
 	global $db;
 	$content = "//JavaScript Document 生成时间：".date("Y-m-d  H:i:s")."\n\n";
-	$sql = "select * from ".table('category_district')." where parentid=0 ORDER BY category_order desc,id asc";
+	$sql = "select * from ".table('category_district')." where parentid=0 ORDER BY category_order asc,id asc";
 	$list=$db->getall($sql);
 	foreach($list as $parent)
 	{
@@ -328,7 +328,7 @@ function makejs_classify()
 	$content .= "var QS_city=new Array();\n";
 	foreach($list as $val)
 	{
-		$sql1 = "select * from ".table('category_district')." where parentid=".$val['id']."  ORDER BY category_order desc,id asc";
+		$sql1 = "select * from ".table('category_district')." where parentid=".$val['id']."  ORDER BY category_order asc,id asc";
 		$list1=$db->getall($sql1);
 		if (is_array($list1))
 		{	
@@ -340,7 +340,7 @@ function makejs_classify()
 		unset($sarr);
 		}
 	}
-	$sql = "select * from ".table('category_jobs')." where parentid=0 ORDER BY category_order desc,id asc";
+	$sql = "select * from ".table('category_jobs')." where parentid=0 ORDER BY category_order asc,id asc";
 	$list=$db->getall($sql);
 	foreach($list as $parent)
 	{
@@ -350,7 +350,7 @@ function makejs_classify()
 	$content .= "var QS_jobs=new Array(); \n";
 	foreach($list as $val)
 	{
-		$sql1 = "select * from ".table('category_jobs')." where parentid=".$val['id']."  ORDER BY category_order desc,id asc";
+		$sql1 = "select * from ".table('category_jobs')." where parentid=".$val['id']."  ORDER BY category_order asc,id asc";
 		$list1=$db->getall($sql1);
 		if (is_array($list1))
 		{	
@@ -363,7 +363,7 @@ function makejs_classify()
 		}
 	}
 	//
-	$sql = "select * from ".table('category')." ORDER BY c_order DESC,c_id ASC";
+	$sql = "select * from ".table('category')." ORDER BY c_order asc,c_id ASC";
 	$list=$db->getall($sql);
 	foreach($list as $li)
 	{

@@ -69,7 +69,7 @@ set_time_limit(180);
 	}
 	//更新分类缓存
 	$cache_file_path =QISHI_ROOT_PATH. "data/cache_category.php";
-	$sql = "SELECT * FROM ".table('category')."  ORDER BY c_order DESC,c_id ASC";
+	$sql = "SELECT * FROM ".table('category')."  ORDER BY c_order asc,c_id ASC";
 	$result = $db->query($sql);
 		while($row = $db->fetch_array($result))
 		{

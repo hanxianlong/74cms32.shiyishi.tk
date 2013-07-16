@@ -6,11 +6,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=7">
             <link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
             <link href="{#$QISHI.site_template#}css/user.css" rel="stylesheet" type="text/css" />
+        <link href="{#$QISHI.site_template#}css/date_input.css" rel="stylesheet" type="text/css" />
             <script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
             <script src="{#$QISHI.site_template#}js/jquery.idTabs.min.js" type='text/javascript' language="javascript"></script>
             <script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
             <script src="{#$QISHI.site_template#}js/jquery.user.selectlayer.js" type='text/javascript' language="javascript"></script>
             <script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+        <script src="{#$QISHI.site_template#}js/jquery.date_input.js" type="text/javascript"></script>
             <script type="text/javascript">
                 $(document).ready(function()
                 {
@@ -68,6 +70,12 @@
                         min:130,
                         max:250
                 },
+                    school:{
+                        required:true,maxlength:40
+                    },
+                    graduate_date:{
+                        required:true,minlength:10,maxlength:10
+                     },
                         experience: "required",
                         householdaddress: "required",
                         education: "required",
@@ -103,7 +111,7 @@
                  specialty:{
                     required: true,
                         minlength:20,
-                        maxlength:300
+                        maxlength:2000
                    },//技能特长结束
                    education_remark:{
                        required:true,minlength:20,maxlength:2000
@@ -128,6 +136,11 @@
                         min: jQuery.format("出生年份不能小于{0}"),
                         max: jQuery.format("出生年份不能大于{0}")
                 },
+                            school:{
+                                required:"请填写毕业院校",
+                                max:"毕业院校不能超过40个字"
+                            },
+                            graduate_date:{required:"请填写毕业时间",minlength:jQuery.format("毕业时间格式不正确"),maxlength:jQuery.format("毕业时间格式不正确")},
                         height: {
                 digits: jQuery.format("必须是整数"),
                         min: jQuery.format("请正确填写"),
@@ -249,7 +262,24 @@
                 imgcaptcha("#postcaptcha", "#imgdiv");
                         //验证码结束
                         {#/if#}
-                        });            </script>
+                        });
+                            jQuery.extend(DateInput.DEFAULT_OPTS, {
+                                month_names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                                short_month_names: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"],
+                                short_day_names: ["一", "二", "三", "四", "五", "六", "日"],
+                                dateToString: function(date) {
+                                    var month = (date.getMonth() + 1).toString();
+                                    var dom = date.getDate().toString();
+                                    if (month.length == 1) month = "0" + month;
+                                    if (dom.length == 1) dom = "0" + dom;
+                                    return date.getFullYear() + "-" + month + "-" + dom;
+                                }
+                            });
+                            $(function() {
+                                $("#graduate_date").date_input();
+                            });
+
+            </script>
     </head>
     <body>
         {#include file="member_personal/header.htm"#}
@@ -318,7 +348,22 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>工作经验：</td>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>毕业院校：</td>
+                                                <td>
+                                                    <input name="school" type="text" class="input_text_200" id="school" maxlength="40"  value="{#$resume_basic.school#}" /></td>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>毕业时间：</td>
+                                                <td>
+                                                    <input name="graduate_date" type="text"
+                                                           class="input_text_200 date_input"
+                                                           id="graduate_date" maxlength="40"  value="{#$resume_basic.graduate_date|truncate:10:""#}" /></td>
+                                                </td>
+                                            </tr>
+                                            {#*  <tr>
+
+                                            <td height="23" align="right"><strong  style="color:#FF0000">*</strong>工作经验：</td>
                                                 <td>
                                                     <div>
                                                         <input type="text" value="{#$resume_basic.experience_cn|default:"请选择工作经验"#}"  readonly="readonly" name="experience_cn" id="experience_cn" class="input_text_200 input_text_200_selsect"/>
@@ -332,7 +377,8 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                            </tr>
+
+                                            </tr> *#}
                                             <tr>
                                                 <td height="23" align="right"><strong  style="color:#FF0000">*</strong>户口所在地：</td>
                                                 <td><input name="householdaddress" type="text" class="input_text_200" id="householdaddress" maxlength="60"  value="{#$resume_basic.householdaddress#}"/></td>

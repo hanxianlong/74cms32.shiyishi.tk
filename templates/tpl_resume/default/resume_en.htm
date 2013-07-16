@@ -87,6 +87,12 @@ $(document).ready(function()
     <td align="right" bgcolor="#FAFAFA">Home£º</td>
     <td bgcolor="#FFFFFF">{#$show.householdaddress#}</td>
   </tr>
+      <tr>
+          <td align="right" bgcolor="#FAFAFA">Graduated From£º</td>
+          <td bgcolor="#FFFFFF">{#$show.school#}</td>
+          <td align="right" bgcolor="#FAFAFA">Graduated On£º</td>
+          <td bgcolor="#FFFFFF">{#$show.graduate_date|truncate:14:"""#}</td>
+      </tr>
   <tr>
     <td align="right" bgcolor="#FAFAFA">Education£º</td>
     <td bgcolor="#FFFFFF">{#$show.education_cn#}</td>
@@ -152,7 +158,7 @@ $(document).ready(function()
     </tr>
 	{#foreach from=$show.education_list item=list#}
         <tr>
-         <td colspan="2" bgcolor="#FFF">({#$list.education_remark#})</td>
+         <td colspan="2" bgcolor="#FFF">{#$list.education_remark|nl2br#}</td>
       </tr>
 	 
 	{#/foreach#}
@@ -164,7 +170,7 @@ $(document).ready(function()
 	{#if $show.work_list#}
 	{#foreach from=$show.work_list item=list#}
         <tr>
-            <td colspan="2" bgcolor="#fff">{#$list.work_remark#}</td>
+            <td colspan="2" bgcolor="#fff">{#$list.work_remark|nl2br#}</td>
         </tr>
 	 
 	{#/foreach#}
@@ -181,7 +187,7 @@ $(document).ready(function()
 	{#if $show.training_list#}
 	{#foreach from=$show.training_list item=list#}
 	 <tr>
-      <td colspan="2" bgcolor="#FAFAFA">{#$list.training_remark#}</td>
+      <td colspan="2" bgcolor="#FAFAFA">{#$list.training_remark|nl2br#}</td>
     </tr>
      
 	{#/foreach#}
