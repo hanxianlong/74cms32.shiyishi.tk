@@ -6,7 +6,7 @@
 .jobs-show-top  .jobbottom .comname a{ color: #FF6600; text-decoration:none}
 .jobs-show-top  .jobbottom .comname a:hover{ text-decoration:underline}
 .jobs-show-top  .jobbottom .date{float:left;color: #666666; font-size:12px; padding-left:5px;}
-.jobs-show {width:985px; margin:0 auto; margin-top:8px;}
+.jobs-show {width:960px; margin:0 auto; margin-top:8px;}
 .jobs-show  .left{width: 710px; float:left}
 .jobs-show  .left .toptabs{width: 702px; background-image: url(../images/59.gif); background-position:bottom; height:33px; line-height:33px; background-repeat:repeat-x;}
 .jobs-show  .left .toptabs a{ height:33px; line-height:33px; text-align:center; display:block; font-size:14px;width:104px;background:url(../images/58.gif) no-repeat 0px -36px; float:left; text-decoration:none; color:#666666; margin-right:8px;}
@@ -26,7 +26,7 @@
 .jobs-show  .left .show .joblist{ line-height:180%}
 .jobs-show  .left .show .joblist  .listtit{ font-weight:bold}
 .jobs-show  .left .show .joblist  .list{ border-bottom:1px  #CCCCCC dashed}
-.jobs-show  .right{width:275px;float:left; padding-top:33px;}
+.jobs-show  .right{width:245px;float:left; padding-top:32px;}
 .jobs-show  .right .txtbox{width:273px;border:1px solid #E4E4E4; margin-bottom:8px;}
 .jobs-show  .right .txtbox .tit{height:30px;background:url(../images/52.gif) repeat-x 0px -239px; border-bottom:1px solid #E4E4E4; line-height:30px; font-size:14px; font-weight:bold; color:#666666; padding-left:15px;}
 .jobs-show  .right .txtbox .txt{ padding:5px;}
