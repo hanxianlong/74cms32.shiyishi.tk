@@ -96,12 +96,15 @@ $(document).ready(function()
     </div>    
   </div>
   <div class='login_urgent'>
-    <div class='title_urgent'>新闻公告</div>
-    <ul>
-	{#qishi_notice_list set="列表名:notice,显示数目:7,标题长度:22,分类:1,填补字符:..."#}
-	{#foreach from=$notice item=list#}
-	<li><span class="time">{#$list.addtime|date_format:"%m-%d"#}</span><a href="{#$list.url#}" target="_blank">{#$list.title#}</a></li>
-	{#/foreach#}
+    <div class='title_urgent'>紧急招聘</div>
+        <ul>
+                {#qishi_jobs_list set="列表名:jobs,显示数目:9,填补字符:...,职位名长度:27,紧急招聘:1,排序:rtime>desc"#}
+                {#foreach from=$jobs item=jobslist#}						
+                <li>
+                <a href="{#$jobslist.jobs_url#}" target="_blank">
+                    {#$jobslist.jobs_name#} </a>
+                </li>				
+                {#/foreach#}
     </ul>
   </div>
   <div class='login_adv'>
@@ -123,7 +126,7 @@ $(document).ready(function()
     <div class='dao_info'><a href="{#"QS_explainshow,3"|qishi_url#}" target="_blank">{#$QISHI.site_name#}提醒您：开通企业VIP会员,立即享受下方推荐企业服务,轻松招聘人才</a></div>
   </div>
   <div class='commendjob'>
-      {#qishi_company_list set="列表名:company,显示数目:24,显示职位:4,职位名长度:6,企业名长度:17,推荐:1,排序:refreshtime>desc"#}
+      {#qishi_company_list set="列表名:company,显示数目:24,显示职位:4,职位名长度:32,企业名长度:17,推荐:1,排序:rtime>desc"#}
 	  {#foreach from=$company item=list#}
       <div class="list">
       <a class="companyname" href="{#$list.company_url#}" title="{#$list.companyname#}" target="_blank">{#$list.companyname#}</a>
@@ -153,7 +156,7 @@ $(document).ready(function()
   </div>
   <div class="newjob">
     <div class="newjob_con">
-    {#qishi_company_list set="列表名:company,显示数目:75,显示职位:2,职位名长度:5,企业名长度:13,排序:refreshtime>desc"#}
+    {#qishi_company_list set="列表名:company,显示数目:75,显示职位:2,职位名长度:5,企业名长度:13,套餐类型:2|3|4|5|6|7|8|9,排序:rtime>desc"#}
   	{#foreach from=$company item=list#}
 	<div class="list">
 		<span class="comtip" id="{#$list.uid#}"><a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a></span>

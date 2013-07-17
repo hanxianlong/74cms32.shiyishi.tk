@@ -6,11 +6,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=7">
             <link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
             <link href="{#$QISHI.site_template#}css/user.css" rel="stylesheet" type="text/css" />
+              <link href="{#$QISHI.site_template#}css/date_input.css" rel="stylesheet" type="text/css" />
             <script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' language="javascript"></script>
             <script src="{#$QISHI.site_template#}js/jquery.idTabs.min.js" type='text/javascript' language="javascript"></script>
             <script src="{#$QISHI.site_template#}js/jquery.validate.min.js" type='text/javascript' language="javascript"></script>
             <script src="{#$QISHI.site_template#}js/jquery.user.selectlayer.js" type='text/javascript' language="javascript"></script>
             <script src="{#$QISHI.site_dir#}data/cache_classify.js" type="text/javascript" charset="utf-8"></script>
+            <script src="{#$QISHI.site_template#}js/jquery.date_input.js" type="text/javascript"></script>
             <script type="text/javascript">
                 $(document).ready(function()
                 {
@@ -97,7 +99,13 @@
                 min:1
                 },
                         intention_jobs:"required",
-                        trade_cn:"required",//求职意向结束
+                        trade_cn:"required",//求职意向结束,
+                   school:{
+                                required:"required",
+                                maxlength:80
+                            },
+                graduate_date:{required:"required",minlength:10,maxlength:10},
+
                 //技能特长开始
                  specialty:{
                     required: true,
@@ -248,7 +256,24 @@
                 imgcaptcha("#postcaptcha", "#imgdiv");
                         //验证码结束
                         {#/if#}
-                        });            </script>
+                        });       
+                                    
+              jQuery.extend(DateInput.DEFAULT_OPTS, {
+                                month_names: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                                short_month_names: ["一", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二"],
+                                short_day_names: ["一", "二", "三", "四", "五", "六", "日"],
+                                dateToString: function(date) {
+                                    var month = (date.getMonth() + 1).toString();
+                                    var dom = date.getDate().toString();
+                                    if (month.length == 1) month = "0" + month;
+                                    if (dom.length == 1) dom = "0" + dom;
+                                    return date.getFullYear() + "-" + month + "-" + dom;
+                                }
+                            });
+                            $(function() {
+                                $("#graduate_date").date_input();
+                            });
+            </script>
     </head>
     <body>
         {#include file="member_personal/header.htm"#}
@@ -316,7 +341,21 @@
                                                     <input name="marriage_cn" id="marriage_cn" type="hidden" value="{#$resume_basic.marriage_cn#}" />
                                                 </td>
                                             </tr>
+                                               <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>School：</td>
+                                                <td>
+                                                    <input name="school" type="text" class="input_text_200" id="school" maxlength="40"  value="{#$resume_basic.school#}" /></td>
+                                                </td>
+                                            </tr>
                                             <tr>
+                                                <td height="23" align="right"><strong  style="color:#FF0000">*</strong>Graduated On：</td>
+                                                <td>
+                                                    <input name="graduate_date" type="text"
+                                                           class="input_text_200 date_input"
+                                                           id="graduate_date" maxlength="40"  value="{#$resume_basic.graduate_date|truncate:10:""#}" /></td>
+                                                </td>
+                                            </tr>
+                                           {#* <tr>
                                                 <td height="23" align="right"><strong  style="color:#FF0000">*</strong>Yrs.of Experience：</td>
                                                 <td>
                                                     <div>
@@ -332,6 +371,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                           *#}
                                             <tr>
                                                 <td height="23" align="right"><strong  style="color:#FF0000">*</strong>Household registration place：</td>
                                                 <td><input name="householdaddress" type="text" class="input_text_200" id="householdaddress" maxlength="60"  value="{#$resume_basic.householdaddress#}"/></td>

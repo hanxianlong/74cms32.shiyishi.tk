@@ -12,6 +12,13 @@
 define('IN_QISHI', true);
 $alias="QS_resume";
 require_once(dirname(__FILE__).'/../include/common.inc.php');
+require_once(dirname(__FILE__).'/../include/common.inc.php');
+   
+//仅企业会员及管理员登录后方可查看求职信息
+if(!(($_SESSION['uid'] && $_SESSION['username'] && $_SESSION['utype']=='1') || $_SESSION['admin_name']) ){
+     showmsg("企业会员登录后方可查看", 1);
+}
+
 if($mypage['caching']>0){
         $smarty->cache =true;
 		$smarty->cache_lifetime=$mypage['caching'];

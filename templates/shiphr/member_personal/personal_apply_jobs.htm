@@ -62,7 +62,7 @@ $(document).ready(function()
 				</td>
                 <td   class="us_list_title">公司名称</td>                
                 <td width="140" align="center" class="us_list_title">投递的简历</td>
-                <td width="100" align="center" class="us_list_title">对方查看</td>
+             {#*   <td width="100" align="center" class="us_list_title">对方查看</td> *#}
                 <td width="80" align="center" class="us_list_title">其他说明</td>
               </tr>
 			   {#foreach from=$jobs_apply item=list#}
@@ -79,9 +79,9 @@ $(document).ready(function()
                 
                 <td align="center" ><a href="personal_resume.php?act=resume_show&pid={#$list.resume_id#}" target="_blank">{#$list.resume_name#}</a></td>
 
-                <td align="center">
+               {#*   <td align="center">
 				{#if $list.personal_look eq '2'#}<span style="color: #999999">对方已看</span>{#else#}<span style="color: #FF6600">对方未看</span>{#/if#}				</td>
-                <td align="center" >
+               *#} <td align="center" >
 				{#if $list.notes#}
 				<img src="{#$QISHI.site_template#}images/32.gif"  border="0"  style="cursor:pointer" title="{#$list.notes|nl2br#}" class="vtip"/>	
 				{#/if#}	&nbsp;			</td>

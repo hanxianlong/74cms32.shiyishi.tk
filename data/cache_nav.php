@@ -20,7 +20,7 @@ $data = array (
     array (
       'title' => '求职信息',
       'url' => '/resume/',
-      'target' => '_blank',
+      'target' => '_self',
       'tag' => 'resume',
     ),
     3 => 

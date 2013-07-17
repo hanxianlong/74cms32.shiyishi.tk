@@ -164,9 +164,11 @@ elseif ($act=='make1_save')
 	$setsqlarr['height']=intval($_POST['height']);
 	$setsqlarr['marriage']=intval($_POST['marriage']);
 	$setsqlarr['marriage_cn']=trim($_POST['marriage_cn']);
-	$setsqlarr['experience']=intval($_POST['experience']);
-	$setsqlarr['experience_cn']=trim($_POST['experience_cn']);
+	
 	$setsqlarr['householdaddress']=trim($_POST['householdaddress'])?trim($_POST['householdaddress']):showmsg('请填写户口所在地！',1);	
+    
+   
+    
 	$setsqlarr['education']=intval($_POST['education']);
 	$setsqlarr['education_cn']=trim($_POST['education_cn']);
 	$setsqlarr['tag']=trim($_POST['tag']);
@@ -179,21 +181,54 @@ elseif ($act=='make1_save')
 	$setsqlarr['refreshtime']=$timestamp;
 	$setsqlarr['subsite_id']=intval($_CFG['subsite_id']);
 	$setsqlarr['display_name']=intval($_CFG['resume_privacy']);
-        $resumepid=intval($_REQUEST['pid']);
+    $resumepid=intval($_REQUEST['pid']);
+     //新增毕业学校及毕业时间
+	$setsqlarr['school']=trim($_POST['school'])?trim($_POST['school']):showmsg('请填写毕业院校！',1);
+    
+    if(!($graduate_date = strtotime(trim($_POST['graduate_date']))))
+    {
+        showmsg('请填写正确的毕业时间!',1);
+    }
+    
+    $resumeType = $_GET['resumeType'];
+    if(!isset($resumeType) || ($resumeType!=1&&$resumeType!=0))
+        $resumeType =0;
+                
+    $d = floor((time()-$graduate_date)/60/60/24/360);//工作经验由此算出
+    $experience_array_cache = array(
+    0=>array('id'=>74,'cn'=>'不限','en'=>'All'),
+    1=>array('id'=>75,'cn'=>'一年以上','en'=>'One Year'),
+    2=>array('id'=>76,'cn'=>'两年以上','en'=>'Two Years'),
+    3=>array('id'=>77,'cn'=>'三年以上','en'=>'Three Years'),
+        4=>array('id'=>77,'cn'=>'三年以上','en'=>'Three Years'),
+    5=>array('id'=>78,'cn'=>'五年以上','en'=>'Five Years'),
+        6=>array('id'=>78,'cn'=>'五年以上','en'=>'Five Years'),
+        7=>array('id'=>78,'cn'=>'五年以上','en'=>'Five Years'),
+              
+    8=>array('id'=>79,'cn'=>'八年以上','en'=>'Eight Years'),
+        9=>array('id'=>79,'cn'=>'八年以上','en'=>'Eight Years'),
+    10=>array('id'=>183,'cn'=>'十年以上','en'=>'Ten Years'),
+    ); 
+        
+    if($d<0) $d=1;
+    if($d>10) $d=10;
+    
+    $current_experience = $experience_array_cache[$d];
+    $lang = $resumeType==1?'en':'cn';
+    $setsqlarr['graduate_date']=date('Y-m-d',$graduate_date);
+    $setsqlarr['experience']=intval($current_experience['id']);
+	$setsqlarr['experience_cn']=$current_experience[$lang];
+    
 	if ($resumepid===0)
 	{	
-              $resumeType = $_GET['resumeType'];
-            if(!isset($resumeType) || ($resumeType!=1&&$resumeType!=0))
-                $resumeType =0;
-            
-                $setsqlarr['resume_type']=$resumeType;
+           $setsqlarr['resume_type']=$resumeType;
 			$setsqlarr['audit']=intval($_CFG['audit_resume']);
 			$total[0]=$db->get_total("SELECT COUNT(*) AS num FROM ".table('resume')." WHERE uid='{$_SESSION['uid']}'");
 			$total[1]=$db->get_total("SELECT COUNT(*) AS num FROM ".table('resume_tmp')." WHERE uid='{$_SESSION['uid']}'");
 			$total[2]=$total[0]+$total[1];
 			if ($total[2]>=intval($_CFG['resume_max']))
 			{
-                            showmsg("您最多可以创建{$_CFG['resume_max']} 份简历,已经超出了最大限制！",1);
+                showmsg("您最多可以创建{$_CFG['resume_max']} 份简历,已经超出了最大限制！",1);
 			}
 			else
 			{
@@ -207,13 +242,13 @@ elseif ($act=='make1_save')
 	}
 	else
 	{
-           $_CFG['audit_edit_resume']!="-1"?$setsqlarr['audit']=intval($_CFG['audit_edit_resume']):"";
+        $_CFG['audit_edit_resume']!="-1"?$setsqlarr['audit']=intval($_CFG['audit_edit_resume']):"";
 		updatetable(table('resume'),$setsqlarr," id='".intval($_REQUEST['pid'])."'  AND uid='{$setsqlarr['uid']}'");
 		updatetable(table('resume_tmp'),$setsqlarr," id='".intval($_REQUEST['pid'])."'  AND uid='{$setsqlarr['uid']}'");
 		check_resume($_SESSION['uid'],intval($_REQUEST['pid']));
 		write_memberslog($_SESSION['uid'],2,1105,$_SESSION['username'],"修改了简历({$_POST['title']})");
 	}
-         
+    
         $resumeuid=$uid;
         /*求职意向开始*/
         if ($resumepid==0 || $resumeuid==0) showmsg('保存基本信息失败，无法保存求职意向！',1);

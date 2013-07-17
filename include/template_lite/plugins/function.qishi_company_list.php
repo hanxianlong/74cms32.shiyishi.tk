@@ -59,6 +59,9 @@ $a=explode(':',$str);
 	case "职位页面":
 		$aset['jobsshow'] = $a[1];
 		break;
+        case "套餐类型":
+                $aset['setmeal_id'] = str_replace('|', ',', $a[1]);
+                break;
 	}
 }
 if (is_array($aset)) $aset=array_map("get_smarty_request",$aset);
@@ -71,6 +74,8 @@ $aset['companynamelen']=isset($aset['companynamelen'])?intval($aset['companyname
 $aset['dot']=isset($aset['dot'])?$aset['dot']:null;
 $aset['companyshow']=isset($aset['companyshow'])?$aset['companyshow']:'QS_companyshow';
 $aset['jobsshow']=isset($aset['jobsshow'])?$aset['jobsshow']:'QS_jobsshow';
+        
+ 
 if (isset($aset['displayorder']))
 {
 		$arr=explode('>',$aset['displayorder']);
@@ -170,7 +175,12 @@ if (!empty($uidarr))
 {
 	$uidarr= implode(",",$uidarr);
 	$wheresql=$wheresql?$wheresql." AND uid IN ({$uidarr}) ":" WHERE uid IN ({$uidarr}) ";
-	$sql2="SELECT company_id,companyname,company_addtime,refreshtime,id,jobs_name,addtime,uid,click,highlight,highlight,setmeal_id,setmeal_name FROM ".table('jobs').$wheresql.$orderbysql;
+	$sql2="SELECT company_id,companyname,company_addtime,refreshtime,id,jobs_name,addtime,uid,click,highlight,highlight,setmeal_id,setmeal_name FROM ".table('jobs').$wheresql;
+        if(isset($aset['setmeal_id']))
+        {
+            $sql2 .=' and setmeal_id in('.$aset['setmeal_id'] .') ';
+        }
+        $sql2 .= $orderbysql;
 	//echo $sql2;
 	$result2 = $db->query($sql2);
 	$countuid=array();

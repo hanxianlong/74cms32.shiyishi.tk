@@ -142,7 +142,7 @@ elseif($act == 'resume_contact')
 		$show=false;
 		if($_CFG['showresumecontact']=='0')
 		{
-		$show=true;
+                    $show=true;
 		}
 		elseif($_CFG['showresumecontact']=='1')
 		{
@@ -178,16 +178,17 @@ elseif($act == 'resume_contact')
 			$html="<div class=\"contact link_lan\">企业会员请 <a href=\"".url_rewrite('QS_login')."\">登录</a>  查看联系方式！如果您不是企业会员，请先 <a href=\"".$_CFG['site_dir']."user/user_reg.php\">免费注册</a> </div>";
 			}
 		}
-		if ($show)
+		if ($show || $_SESSION['admin_name'])//管理员登录后也可以查看简历联系方式
 		{
-                        $tb1=$db->getone("select telephone,email,qq,address,website,uid from ".table('resume')." WHERE  id='{$id}'  LIMIT 1");
-			$tb2=$db->getone("select telephone,email,qq,address,website,uid from ".table('resume_tmp')." WHERE  id='{$id}'  LIMIT 1");		
+                        $tb1=$db->getone("select telephone,email,qq,address,website,uid,fullname from ".table('resume')." WHERE  id='{$id}'  LIMIT 1");
+			$tb2=$db->getone("select telephone,email,qq,address,website,uid,fullname from ".table('resume_tmp')." WHERE  id='{$id}'  LIMIT 1");		
 			$val=!empty($tb1)?$tb1:$tb2;
                         
                         $uid = intval($val['uid']);
                         $tb_resume=$db->getone("select attach_resume_path from ".table('members')." WHERE  uid='{$uid}'  LIMIT 1");	
                         
 			$html="<ul>";
+                        $html.="<li>真实姓名：".$val['fullname']."</li>";
 			$html.="<li>联系电话：".$val['telephone']."</li>";
 			$html.="<li>联系邮箱：".$val['email']."</li>";
 			$html.="<li>联系 Q Q：".$val['qq']."</li>";
@@ -202,11 +203,8 @@ elseif($act == 'resume_contact')
 			$html.="<div align=\"center\"><br/><img src=\"{$_CFG['site_template']}images/64.gif\"  border=\"0\" id=\"invited\"/></div>";
 			$html.="<div align=\"center\"><span class=\"add_resume_pool\">[添加到人才库]</span><br/><br/></div>";
 			exit($html);
-		exit($html);
 		}
-		else
-		{		
+                
 		exit($html);
-		}
 }
 ?>
