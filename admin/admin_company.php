@@ -618,7 +618,7 @@ elseif($act == 'meal_members')
 			}			
 		}
 	}
-	$joinsql=" LEFT JOIN ".table('members')." as b ON a.uid=b.uid ";
+	$joinsql=" LEFT JOIN ".table('members')." as b ON a.uid=b.uid inner join ".table('company_profile') ." as com on com.uid=a.uid ";
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('members_setmeal')." as a ".$joinsql.$wheresql;
 	$total_val=$db->get_total($total_sql);
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage));
@@ -628,7 +628,7 @@ elseif($act == 'meal_members')
 	$smarty->assign('pageheader',"ÒÑ¹ºÂòÌ×²Í»áÔ±");
 	$smarty->assign('member',$member);
 	$smarty->assign('setmeal',get_setmeal());	
-	$smarty->assign('page',$page->show(3));
+	$smarty->assign('page',$page->show(3,true));
 	$smarty->display('company/admin_company_meal_members.htm');
 }
 elseif($act == 'meal_delay')

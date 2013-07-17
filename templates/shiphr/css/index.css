@@ -213,11 +213,11 @@
 .commendjob .jobslist a {font-size:12px;line-height:20px;color:#4d4d4d;text-decoration:none;}
 
 .newjob {width:930px;border:1px solid #b7d3eb;padding:10px 14px;}
-.newjob .list{float:left;width:295px;height:30px; overflow:hidden;background: url(../images/ali.png) no-repeat 5px 10px;padding-left:15px;white-space:nowrap;}
+.newjob .list{overflow:hidden;float:left;width:295px;height:30px;background: url(../images/ali.png) no-repeat 5px 10px;padding-left:15px;white-space:nowrap;}
 .newjob .list_new{float:left;width:295px;height:30px;background: url(../images/tp_new.png) no-repeat 5px 10px;padding-left:15px;white-space:nowrap;}
-.newjob .comtip {line-height:30px;font-weight:normal;padding-right:3px;}
-.newjob .comtip a{text-decoration:none;color:#59656f;}
-.newjob .comtip a:hover{text-decoration: underline;color:#59656f;}
+.newjob .comtip1 {line-height:30px; font-weight:normal;padding-right:3px;}
+.newjob .comtip1 a{text-decoration:none;color:#59656f;}
+.newjob .comtip1 a:hover{text-decoration: underline;color:#59656f;}
 .newjob a{text-decoration:none;color:#2d79cf;}
 .newjob a:hover{text-decoration: underline;}
 .newjob .newjob_con {
@@ -392,7 +392,7 @@ border-collapse:collapse;
 
 .vipqy {
 	padding: 0px;
-	width: 976px;
+	width: 975px;
 	margin: 0 auto;
 }
 .vipqy .list {
@@ -421,7 +421,42 @@ border-collapse:collapse;
 	border-top: 0px;
 	text-align: center;
 }
+.vipqy2 {
+    padding: 0px;
+    width: 984px;
+    margin: 0 auto;
+}
+.vipqy2 .list2 {
+    width: 473px;
+    float: left;
+    padding-left: 12px;
+    margin-bottom: 8px;
+}
+.vipqy2 .list2 .imgbox {
+    width: 473px;
+    background-color: white;
+    border: 1px #D5D5D5 solid;
+    height: 60px;
+}
+.vipqy2 .list2 .imgbox img {
+    width: 473px;
+    height: 60px;
+    border: 0px;
+}
 
+.banner_ad {
+    width: 960px;
+    background-color: #F6FCFF;
+    border: 1px #D5D5D5 solid;
+    border-top: 0px;
+    text-align: center;
+    margin:0 auto;
+    margin-bottom:10px;
+}
+
+.banner_ad img {
+    width: 100%;
+}
 .zpjl_li .zpjl_info2 {
 	font-family: "ÐÂËÎÌå";
 	font-size: 12px;

@@ -45,6 +45,7 @@ $(document).ready(function()
     <tr>
       <td  class="admin_list_tit admin_list_first" >
       <label id="chkAll"><input type="checkbox" name=" " title="全选/反选" id="chk"/>用户名</label></td>
+        <td  class="admin_list_tit">企业名称</td>
 	   <td  class="admin_list_tit">套餐名称</td>
       <td  class="admin_list_tit">email</td>     
       <td     class="admin_list_tit">服务开始时间</td>
@@ -58,6 +59,9 @@ $(document).ready(function()
 		
 		<span style="color:#CCCCCC">(uid:{#$list.uid#})</span>
 		</td>
+          <td class="admin_list">
+              <a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
+          </td>
 		 <td class="admin_list">
 		{#$list.setmeal_name#}
 		</td>

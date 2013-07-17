@@ -174,13 +174,14 @@ while($row = $db->fetch_array($result1))
 if (!empty($uidarr))
 {
 	$uidarr= implode(",",$uidarr);
-	$wheresql=$wheresql?$wheresql." AND uid IN ({$uidarr}) ":" WHERE uid IN ({$uidarr}) ";
-	$sql2="SELECT company_id,companyname,company_addtime,refreshtime,id,jobs_name,addtime,uid,click,highlight,highlight,setmeal_id,setmeal_name FROM ".table('jobs').$wheresql;
-        if(isset($aset['setmeal_id']))
+	$wheresql=$wheresql?$wheresql." AND jobs.uid IN ({$uidarr}) ":" WHERE jobs.uid IN ({$uidarr}) ";
+	$sql2="SELECT company_id,companyname,company_addtime,refreshtime,id,jobs_name,addtime,uid,click,highlight,setmeal_id,setmeal_name FROM ".table('jobs') .' jobs ';
+     /*   if(isset($aset['setmeal_id']))
         {
-            $sql2 .=' and setmeal_id in('.$aset['setmeal_id'] .') ';
-        }
-        $sql2 .= $orderbysql;
+            $sql2="SELECT company_id,companyname,company_addtime,refreshtime,jobs.id,jobs_name,addtime,jobs.uid,click,highlight,meal.setmeal_id,meal.setmeal_name FROM ".table('jobs');
+            $sql2 .=' jobs inner join '. table('members_setmeal').' meal on meal.uid=jobs.uid and meal.setmeal_id in('.$aset['setmeal_id'] .') ';
+        }*/
+        $sql2 .= $wheresql . $orderbysql;
 	//echo $sql2;
 	$result2 = $db->query($sql2);
 	$countuid=array();

@@ -2,11 +2,11 @@
 Vertigo Tip by www.vertigo-project.com
 Requires jQuery
 */
-jQuery.joblisttip= function(ajaxurl,loading,css) {  
-    $(".comtip").unbind().hover(    
+jQuery.joblisttip= function(ajaxurl,loading,css) {
+    $(".comtip").unbind().hover(
         function(event)
 		{
-			event.stopPropagation(); // do something 
+			event.stopPropagation(); // do something
 			var domtitle = this.title;
 			var uid = this.id;
             this.title = ''; 
@@ -20,7 +20,6 @@ jQuery.joblisttip= function(ajaxurl,loading,css) {
 						{
 						insertobj.find("ul").html(data);
 						domtitle=data;
-						
 						}
 				);				
 			}
@@ -39,11 +38,9 @@ jQuery.joblisttip= function(ajaxurl,loading,css) {
 					else
 					{
 						this.title = $("."+css).find("ul").html();
-					}        			
+					}
 					$(this).css("position","");
 					$("."+css).fadeOut("slow").remove();
         }
     );
-	
-    
 };

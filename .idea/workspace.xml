@@ -2,33 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b581189e-2c6d-49ea-902d-666a94677d21" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/404.htm" afterPath="$PROJECT_DIR$/templates/shiphr/404.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/include/admin_common.fun.php" afterPath="$PROJECT_DIR$/admin/include/admin_common.fun.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/admin_templates.php" afterPath="$PROJECT_DIR$/admin/admin_templates.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/cache_classify.js" afterPath="$PROJECT_DIR$/data/cache_classify.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/common.fun.php" afterPath="$PROJECT_DIR$/include/common.fun.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/config.php" afterPath="$PROJECT_DIR$/data/config.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_get_classify.php" afterPath="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_get_classify.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_resume_list.php" afterPath="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_resume_list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/todo_list.doc" afterPath="$PROJECT_DIR$/docs/todo_list.doc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/admin_company.php" afterPath="$PROJECT_DIR$/admin/admin_company.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/include/admin_company_fun.php" afterPath="$PROJECT_DIR$/admin/include/admin_company_fun.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/templates/default/company/admin_company_meal_members.htm" afterPath="$PROJECT_DIR$/admin/templates/default/company/admin_company_meal_members.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/cache_category.php" afterPath="$PROJECT_DIR$/data/cache_category.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_company_list.php" afterPath="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_company_list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/css/index.css" afterPath="$PROJECT_DIR$/templates/shiphr/css/index.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/index.htm" afterPath="$PROJECT_DIR$/templates/shiphr/index.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume.htm" afterPath="$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_en.htm" afterPath="$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_en.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_make1.htm" afterPath="$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_make1.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/resume-list.htm" afterPath="$PROJECT_DIR$/templates/default/resume-list.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/resume-list.htm" afterPath="$PROJECT_DIR$/templates/shiphr/resume-list.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tpl_resume/default/resume.htm" afterPath="$PROJECT_DIR$/templates/tpl_resume/default/resume.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tpl_resume/default/resume_en.htm" afterPath="$PROJECT_DIR$/templates/tpl_resume/default/resume_en.htm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/crons/stat_category.php" afterPath="$PROJECT_DIR$/include/crons/stat_category.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/js/jquery.comtip-min.js" afterPath="$PROJECT_DIR$/templates/shiphr/js/jquery.comtip-min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/page.class.php" afterPath="$PROJECT_DIR$/include/page.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="upload.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373976735569" ignored="false" />
+    <file path="/Dummy.txt" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374064852641" ignored="false" />
     <file path="$PROJECT_DIR$/admin/kindeditor/kindeditor.js" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373040669588" ignored="false" />
     <file path="/.htaccess" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373044068885" ignored="false" />
     <file path="/company_promotion.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373042901189" ignored="false" />
     <file path="/admin_company_user_edit.htm" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373048829077" ignored="false" />
-    <file path="/admin_company.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373045008036" ignored="false" />
+    <file path="/admin_company.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374072719010" ignored="false" />
     <file path="/company-show.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373049153217" ignored="false" />
     <file path="/common.fun.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373049029924" ignored="false" />
     <file path="/function.qishi_company_show.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373047825101" ignored="false" />
@@ -207,6 +200,13 @@
     <file path="/personal_resume.htm" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373983971654" ignored="false" />
     <file path="/resume_en.htm" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373984732667" ignored="false" />
     <file path="/personal_resume_make1.htm" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373987650829" ignored="false" />
+    <file path="/function.qishi_company_list.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374065932789" ignored="false" />
+    <file path="/index.css" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374076966863" ignored="false" />
+    <file path="/index.htm" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374076874313" ignored="false" />
+    <file path="/jquery.comtip-min.js" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374069363000" ignored="false" />
+    <file path="/admin_company_meal_members.htm" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374072382719" ignored="false" />
+    <file path="/page.class.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374072129962" ignored="false" />
+    <file path="/admin_company_fun.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374072511602" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,100 +226,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="personal_resume.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume.htm">
+      <file leaf-file-name="index.htm" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/shiphr/index.htm">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="16" selection-start="6099" selection-end="6099" vertical-scroll-proportion="-4.8490567">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personal_resume_make1.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_make1.htm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="143" column="33" selection-start="6837" selection-end="6837" vertical-scroll-proportion="-10.178572">
+            <state line="328" column="10" selection-start="12426" selection-end="12426" vertical-scroll-proportion="0.73397434">
               <folding>
-                <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#strong#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#strong#0;n#td#0;n#tr#3;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#5;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#6;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#strong#0;n#td#0;n#tr#8;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#strong#0;n#td#0;n#tr#9;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1373987649114" expanded="false" signature="10835:10862" placeholder="..." />
+                <element signature="n#style#0;n#div#2;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jquery.date_input.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/shiphr/js/jquery.date_input.js">
+      <file leaf-file-name="index.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/shiphr/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="2" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="personal_resume_en.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_en.htm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="16" selection-start="6584" selection-end="6584" vertical-scroll-proportion="-12.892858">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajax_user.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plus/ajax_user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="154" column="20" selection-start="5119" selection-end="5119" vertical-scroll-proportion="-8.821428">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fun_user.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/include/fun_user.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="273" column="13" selection-start="9743" selection-end="9743" vertical-scroll-proportion="0.11253197">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resume.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/tpl_resume/default/resume.htm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="11" selection-start="4185" selection-end="4449" vertical-scroll-proportion="-5.5660377">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resume-show.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resume/resume-show.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="38" selection-start="965" selection-end="965" vertical-scroll-proportion="-15.607142">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.fun.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/common.fun.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="272" column="109" selection-start="6913" selection-end="6913" vertical-scroll-proportion="-15.5">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resume-list.htm" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/shiphr/resume-list.htm">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="248" column="58" selection-start="11374" selection-end="11383" vertical-scroll-proportion="-9.5">
+            <state line="453" column="23" selection-start="9098" selection-end="9098" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -343,15 +264,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/company/company-show.php" />
-        <option value="$PROJECT_DIR$/admin/admin_templates.php" />
-        <option value="$PROJECT_DIR$/include/crons/stat_category.php" />
-        <option value="$PROJECT_DIR$/admin/include/admin_common.fun.php" />
-        <option value="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_get_classify.php" />
-        <option value="$PROJECT_DIR$/templates/shiphr/index.htm" />
-        <option value="$PROJECT_DIR$/templates/default/resume-list.htm" />
-        <option value="$PROJECT_DIR$/templates/shiphr/resume-list.htm" />
-        <option value="$PROJECT_DIR$/include/common.fun.php" />
         <option value="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_resume_list.php" />
         <option value="$PROJECT_DIR$/templates/tpl_resume/default/resume.htm" />
         <option value="$PROJECT_DIR$/templates/tpl_resume/default/resume_en.htm" />
@@ -359,6 +271,15 @@
         <option value="$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_en.htm" />
         <option value="$PROJECT_DIR$/templates/shiphr/js/calendar.js" />
         <option value="$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_make1.htm" />
+        <option value="$PROJECT_DIR$/include/fun_user.php" />
+        <option value="$PROJECT_DIR$/include/template_lite/plugins/function.qishi_company_list.php" />
+        <option value="$PROJECT_DIR$/templates/shiphr/js/jquery.comtip-min.js" />
+        <option value="$PROJECT_DIR$/include/page.class.php" />
+        <option value="$PROJECT_DIR$/admin/admin_company.php" />
+        <option value="$PROJECT_DIR$/admin/templates/default/company/admin_company_meal_members.htm" />
+        <option value="$PROJECT_DIR$/admin/include/admin_company_fun.php" />
+        <option value="$PROJECT_DIR$/templates/shiphr/css/index.css" />
+        <option value="$PROJECT_DIR$/templates/shiphr/index.htm" />
       </list>
     </option>
   </component>
@@ -424,7 +345,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plus" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -435,12 +356,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="File.Encoding" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../74cms_3.2_enterprise" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="my74cms32.shiyishi.tk" serverId="fd35165c-1736-4907-b7dc-46fc8bcf2f21">
     <servers>
@@ -474,10 +395,10 @@
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
       <method />
     </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
       <method />
     </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -509,14 +430,14 @@
       </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="fd35165c-1736-4907-b7dc-46fc8bcf2f21" server_name="my74cms32.shiyishi.tk">
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="fd35165c-1736-4907-b7dc-46fc8bcf2f21" server_name="my74cms32.shiyishi.tk">
       <method />
     </configuration>
     <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
@@ -538,14 +459,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26640928" sideWeight="0.67085075" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27027026" sideWeight="0.67085075" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -554,6 +474,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32914925" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -620,124 +541,124 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/shiphr/resume-list.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="248" column="58" selection-start="11374" selection-end="11383" vertical-scroll-proportion="-9.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/common.fun.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="272" column="109" selection-start="6913" selection-end="6913" vertical-scroll-proportion="-15.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resume/resume-show.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="38" selection-start="965" selection-end="965" vertical-scroll-proportion="-15.607142">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/template_lite/plugins/function.qishi_resume_list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="25" selection-start="2722" selection-end="2722" vertical-scroll-proportion="0.5252032">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tpl_resume/default/resume_en.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="4" selection-start="4267" selection-end="4548" vertical-scroll-proportion="0.6060606">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/shiphr/resume.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="17" selection-start="7818" selection-end="7818" vertical-scroll-proportion="2.090909">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/shiphr/index.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="75" selection-start="7984" selection-end="7984" vertical-scroll-proportion="-1.5151515">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tpl_resume/default/resume.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="11" selection-start="4185" selection-end="4449" vertical-scroll-proportion="-5.5660377">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="16" selection-start="6099" selection-end="6099" vertical-scroll-proportion="-4.8490567">
+        <state line="150" column="16" selection-start="6099" selection-end="6099" vertical-scroll-proportion="0.029275808">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/shiphr/js/jquery.date_input.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0">
+        <state line="17" column="18" selection-start="716" selection-end="716" vertical-scroll-proportion="0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/default/js/jquery.date_input.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="20" selection-start="336" selection-end="336" vertical-scroll-proportion="0.29007635">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/templates/default/ads/admin_ad_edit.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="35" selection-start="318" selection-end="318" vertical-scroll-proportion="0.3887468">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_make1.htm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="33" selection-start="6837" selection-end="6837" vertical-scroll-proportion="-10.178572">
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#td#0;n#tr#2;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#td#0;n#tr#3;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#5;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#6;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#td#0;n#tr#8;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#strong#0;n#td#0;n#tr#9;n#table#0;n#form#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1373987649114" expanded="false" signature="10835:10862" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/shiphr/member_personal/personal_resume_en.htm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="16" selection-start="6584" selection-end="6584" vertical-scroll-proportion="-12.892858">
+        <state line="154" column="16" selection-start="6584" selection-end="6584" vertical-scroll-proportion="-0.6785714">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plus/ajax_user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="20" selection-start="5119" selection-end="5119" vertical-scroll-proportion="-8.821428">
+        <state line="154" column="20" selection-start="5131" selection-end="5131" vertical-scroll-proportion="-0.6785714">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/fun_user.php">
+    <entry file="file://$PROJECT_DIR$/include/template_lite/plugins/function.qishi_company_show.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="273" column="13" selection-start="9743" selection-end="9743" vertical-scroll-proportion="0.11253197">
+        <state line="21" column="9" selection-start="479" selection-end="479" vertical-scroll-proportion="7.571429">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/template_lite/plugins/function.qishi_company_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="182" column="11" selection-start="4892" selection-end="4892" vertical-scroll-proportion="0.64784056">
+          <folding>
+            <marker date="1374066760885" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/default/company/admin_company_user_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="71" column="81" selection-start="3158" selection-end="3231" vertical-scroll-proportion="0.5804878">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/default/company/admin_company_list.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="216" column="8" selection-start="7952" selection-end="7952" vertical-scroll-proportion="0.14471544">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/include/admin_company_fun.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="661" column="5" selection-start="24262" selection-end="24262" vertical-scroll-proportion="0.3372093">
+          <folding>
+            <marker date="1374073247258" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1374073247258" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/admin_company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="701" column="37" selection-start="24832" selection-end="24832" vertical-scroll-proportion="0.41945773">
+          <folding>
+            <marker date="1374072739761" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/common.fun.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="490" column="9" selection-start="13585" selection-end="13585" vertical-scroll-proportion="-0.2788906">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/templates/default/company/admin_company_meal_members.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="31" selection-start="2455" selection-end="2455" vertical-scroll-proportion="0.5649547">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/page.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="245" column="10" selection-start="4619" selection-end="4619" vertical-scroll-proportion="-15.607142">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/shiphr/js/jquery.comtip-min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="9" selection-start="173" selection-end="173" vertical-scroll-proportion="0.14202899">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/shiphr/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="453" column="23" selection-start="9098" selection-end="9098" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/shiphr/index.htm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="328" column="10" selection-start="12426" selection-end="12426" vertical-scroll-proportion="0.73397434">
+          <folding>
+            <element signature="n#style#0;n#div#2;n#div#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

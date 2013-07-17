@@ -654,12 +654,14 @@ function get_meal_members_list($offset,$perpage,$get_sql= '')
 	global $db;
 	$row_arr = array();
 	$limit=" LIMIT ".$offset.','.$perpage;
-	$result = $db->query("SELECT * FROM ".table('members_setmeal')." as a ".$get_sql.$limit);
+	$result = $db->query("SELECT com.id as comid,com.*,a.*,b.* FROM ".table('members_setmeal')." as a ".$get_sql.$limit);
 	while($row = $db->fetch_array($result))
 	{
-	$row_arr[] = $row;
+        $row['company_url']=url_rewrite('QS_companyshow',array('id0'=>$row['comid'],'addtime'=>$row['addtime']));
+	    $row_arr[] = $row;
 	}
-	return $row_arr;
+
+    return $row_arr;
 }
 function get_member_list($offset,$perpage,$get_sql= '')
 {

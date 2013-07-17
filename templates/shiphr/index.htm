@@ -116,7 +116,29 @@ $(document).ready(function()
 
 <!--QQ群-->
 <?php /**<div class="box_960"><img src="{#$QISHI.site_template#}images/qq.gif" border="0" width="960" height="30" /></div> */ ?>
-
+<!-- 以下为推荐VIP广告位-->
+{#qishi_ad set="显示数目:16,调用名称:QS_indexbefore_recommend_2,列表名:ad,文字长度:18"#}
+{#if $ad#}
+<div class="vipqy2 link_bk">
+    {#foreach from=$ad item=list#}
+    <div class="list2">
+        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
+    </div>
+    {#/foreach#}
+    <div class="clear"></div>
+</div>
+{#/if#}
+{#qishi_ad set="显示数目:16,调用名称:QS_indexbefore_recommend_4,列表名:ad,文字长度:18"#}
+{#if $ad#}
+<div class="vipqy link_bk">
+    {#foreach from=$ad item=list#}
+    <div class="list">
+        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
+    </div>
+    {#/foreach#}
+    <div class="clear"></div>
+</div>
+{#/if#}
 <!--以下为推荐企业-->
 <div class='box_960'>
   <div class='bg_960'>
@@ -156,31 +178,28 @@ $(document).ready(function()
   </div>
   <div class="newjob">
     <div class="newjob_con">
-    {#qishi_company_list set="列表名:company,显示数目:75,显示职位:2,职位名长度:5,企业名长度:13,套餐类型:2|3|4|5|6|7|8|9,排序:rtime>desc"#}
+    {#qishi_company_list set="列表名:company,显示数目:75,显示职位:2,职位名长度:25,企业名长度:13,套餐类型:0|2|3|4|5|6|7|8|9,排序:rtime>desc"#}
   	{#foreach from=$company item=list#}
-	<div class="list">
-		<span class="comtip" id="{#$list.uid#}"><a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a></span>
-		{#foreach from=$list.jobs item=jobslist#}
+	<span class="list">
+		<span class="comtip1" id="{#$list.uid#}"><a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
+        </span>
+        {#foreach from=$list.jobs item=jobslist#}
 		<a href="{#$jobslist.jobs_url#}" target="_blank">{#$jobslist.jobs_name#}</a>
 		{#/foreach#}
-	</div>
+	</span>
     {#/foreach#}
     </div>
     <div class="clear"></div>
   </div>
 </div>
-
-<!-- 以下为推荐VIP广告位-->
-{#qishi_ad set="显示数目:16,调用名称:QS_indexcentreimg,列表名:ad,文字长度:18"#}
+{#*通栏,横幅*}
+{#qishi_ad set="显示数目:1,调用名称:QS_indexbelow_newjobs_banner,列表名:ad,文字长度:18"#}
 {#if $ad#}
-<div class="vipqy link_bk">
-	{#foreach from=$ad item=list#}
-	<div class="list">
-		<div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
-		<div class="text"><a target="_blank" href="{#$list.img_url#}">{#$list.img_explain#}</a></div>
-	</div>
-	{#/foreach#}
-	<div class="clear"></div>
+<div class="banner_ad">
+    {#foreach from=$ad item=list#}
+        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
+    {#/foreach#}
+    <div class="clear"></div>
 </div>
 {#/if#}
  
@@ -254,20 +273,6 @@ $(document).ready(function()
   </div>
   <div class='clear'></div>
 </div>
-<!-- 以下是首页底部广告-->
-{#qishi_ad set="显示数目:16,调用名称:QS_indexfootimg,列表名:ad,文字长度:18"#}
-{#if $ad#}
-<div class="vipqy link_bk">
-	{#foreach from=$ad item=list#}
-	<div class="list">
-		<div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
-		<div class="text"><a target="_blank" href="{#$list.img_url#}">{#$list.img_explain#}</a></div>
-	</div>
-	{#/foreach#}
-	<div class="clear"></div>
-</div>
-{#/if#}
-
 <!--以下为资讯 -->
 <div class='box_960'>
   <div class='box_314' style="float:left; margin-right:9px;dispaly:inline;">
@@ -314,7 +319,18 @@ $(document).ready(function()
   </div>
   <div class='clear'></div>
 </div>
-
+<!-- 以下是首页底部广告-->
+{#qishi_ad set="显示数目:16,调用名称:QS_indexbelow_news,列表名:ad,文字长度:18"#}
+{#if $ad#}
+<div class="vipqy link_bk">
+    {#foreach from=$ad item=list#}
+    <div class="list">
+        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
+    </div>
+    {#/foreach#}
+    <div class="clear"></div>
+</div>
+{#/if#}
 <!--以下为友情链接 -->
 <div class='box_960'>
   <div class='bg_960'>

@@ -29,7 +29,8 @@ class page{
  var $url="";
  var $offset=0;
  var $rewrite = array();
- 
+ var $total_count = 0;
+
  function page($array)
  {
   if(is_array($array))
@@ -68,7 +69,7 @@ class page{
   $this->offset=($this->nowindex-1)*$perpage;
   
   $this->alias = $alias;
-  
+  $this->total_count = $total;
   $this->rewrite = array('alias'=>$alias,'id0'=>$id0);
  }
 
@@ -210,19 +211,13 @@ class page{
  /**
 
   * 获取mysql 语句中limit需要的值
-
   *
-
   * @return string
-
   */
 
  function offset()
-
  {
-
   return $this->offset;
-
  }
 
 
@@ -239,68 +234,39 @@ class page{
 
   */
 
- function show($mode=1)
+ function show($mode=1,$showTotal=false)
 
  {
-
   switch ($mode)
-
   {
-
    case '1':
-
     $this->next_page='下一页';
-
     $this->pre_page='上一页';
-
     return $this->pre_page().$this->nowbar().$this->next_page().'第'.$this->select().'页';
-
     break;
-
    case '2':
-
     $this->next_page='下一页';
-
     $this->pre_page='上一页';
-
     $this->first_page='首页';
-
     $this->last_page='尾页';
-
     return $this->first_page().$this->pre_page().'[第'.$this->nowindex.'页]'.$this->next_page().$this->last_page().'第'.$this->select().'页';
-
     break;
-
    case '3':
-
     $this->next_page='下一页';
-
     $this->pre_page='上一页';
-
     $this->first_page='首页';
-
     $this->last_page='尾页';
-
-    return $this->first_page()."".$this->pre_page()."".$this->nowbar("","select")."".$this->next_page()."".$this->last_page()."<a>".$this->nowindex."/".$this->totalpage."页</a><div class=\"clear\"></div>";
-
+    $total_count=$showTotal? "共$this->total_count 条记录":"";
+    return $this->first_page()."".$this->pre_page()."".$this->nowbar("","select")."".$this->next_page()."".$this->last_page()."<a>".$this->nowindex."/".$this->totalpage."页 $total_count </a><div class=\"clear\"></div>";
     break;
-
    case '4':
-
     $this->next_page='下一页';
-
     $this->pre_page='<';
-
     return "<span>".$this->nowindex."/".$this->totalpage."页</span>".$this->pre_page().$this->next_page()."<div class=\"clear\"></div>";
-
     break;
-
    case '5':
-
     return $this->pre_bar().$this->pre_page().$this->nowbar().$this->next_page().$this->next_bar();
-
     break;
-
   }
 
 
@@ -308,13 +274,11 @@ class page{
  }
 
  function _set_url($url="")
-
  {
 
   if(!empty($url)){
 
    $this->url=$url.((stristr($url,'?'))?'&':'?').$this->page_name."=";
-
   }else{
 
    if(empty($_SERVER['QUERY_STRING'])){
@@ -342,11 +306,8 @@ class page{
     }else{
 
      $this->url=$this->request_url().'&'.$this->page_name.'=';
-
     }
-
    }
-
   }
 
  }
