@@ -27,7 +27,7 @@
 .jobs-show  .left .show .joblist  .listtit{ font-weight:bold}
 .jobs-show  .left .show .joblist  .list{ border-bottom:1px  #CCCCCC dashed}
 .jobs-show  .right{width:245px;float:left; padding-top:32px;}
-.jobs-show  .right .txtbox{width:273px;border:1px solid #E4E4E4; margin-bottom:8px;}
+.jobs-show  .right .txtbox{width:243px;border:1px solid #E4E4E4; margin-bottom:8px;}
 .jobs-show  .right .txtbox .tit{height:30px;background:url(../images/52.gif) repeat-x 0px -239px; border-bottom:1px solid #E4E4E4; line-height:30px; font-size:14px; font-weight:bold; color:#666666; padding-left:15px;}
 .jobs-show  .right .txtbox .txt{ padding:5px;}
 .jobs-show  .right .txtbox .txt li{ padding-left:10px;}
@@ -46,7 +46,7 @@
 .company-show  .left .show  .list{ border-bottom:1px  #CCCCCC dashed}
 .company-show  .left .show .contact{ padding:3px; border:1px   #FF9900 solid; background-color: #FDFBF0; padding-left:8px;}
 .company-show  .right{width:245px;float:left; overflow:hidden;}
-.company-show  .right .txtbox{width:273px;border:1px solid #E4E4E4; margin-bottom:8px;}
+.company-show  .right .txtbox{width:243px;border:1px solid #E4E4E4; margin-bottom:8px;}
 .company-show  .right .txtbox .tit{height:30px;background:url(../images/52.gif) repeat-x 0px -239px; border-bottom:1px solid #E4E4E4; line-height:30px; font-size:14px; font-weight:bold; color:#666666; padding-left:15px;}
 .company-show  .right .txtbox .txt{ padding:5px;}
 .company-show  .right .txtbox .txt li{ padding-left:10px;}

@@ -25,6 +25,7 @@ function tpl_function_qishi_jobs_show($params, &$smarty)
 	$wheresql=" WHERE id={$aset['id']} and is_deleted=0";
 	$sql = "select * from ".table('jobs').$wheresql." LIMIT 1";
 	$val=$db->getone($sql);
+
 	if (empty($val))
 	{
 		header("HTTP/1.1 404 Not Found"); 

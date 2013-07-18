@@ -174,13 +174,13 @@ while($row = $db->fetch_array($result1))
 if (!empty($uidarr))
 {
 	$uidarr= implode(",",$uidarr);
-	$wheresql=$wheresql?$wheresql." AND jobs.uid IN ({$uidarr}) ":" WHERE jobs.uid IN ({$uidarr}) ";
+	$wheresql=$wheresql?$wheresql." AND jobs.uid IN ({$uidarr}) and jobs.is_deleted=0":" WHERE jobs.uid IN ({$uidarr}) and jobs.is_deleted=0";
 	$sql2="SELECT company_id,companyname,company_addtime,refreshtime,id,jobs_name,addtime,uid,click,highlight,setmeal_id,setmeal_name FROM ".table('jobs') .' jobs ';
-     /*   if(isset($aset['setmeal_id']))
+         if(isset($aset['setmeal_id']))
         {
             $sql2="SELECT company_id,companyname,company_addtime,refreshtime,jobs.id,jobs_name,addtime,jobs.uid,click,highlight,meal.setmeal_id,meal.setmeal_name FROM ".table('jobs');
             $sql2 .=' jobs inner join '. table('members_setmeal').' meal on meal.uid=jobs.uid and meal.setmeal_id in('.$aset['setmeal_id'] .') ';
-        }*/
+        } 
         $sql2 .= $wheresql . $orderbysql;
 	//echo $sql2;
 	$result2 = $db->query($sql2);
