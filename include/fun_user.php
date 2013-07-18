@@ -246,7 +246,7 @@ function get_user_inemail($email,$register = false)
      //如果集成了UC验证，则调用ucenter接口中判断是否存在用户名
         if(defined("UC_API") && $register)
         {
-            $uid = uc_user_checkemail($username);
+            $uid = uc_user_checkemail($email);
             if($uid<0)//在uc中已经存在，则不允许注册
             {
                  return 'false';
