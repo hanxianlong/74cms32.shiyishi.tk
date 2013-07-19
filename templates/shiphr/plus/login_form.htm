@@ -1,22 +1,44 @@
-<form id="loginform" name="loginform" method="post"  >
+<form id="loginform" name="loginform" method="post">
 <table width="100%" border="0" cellspacing="0" cellpadding="3" align="center">
-<tr>
-<td width="45" align="right">’À∫≈£∫<br /></td>
-<td width="105"><input name="username" type="text" class="index_login_input" id="username" size="15" maxlength="20" /></td>
-<td rowspan="2"><input type="image" name="imageField" src="{#$site_template#}images/a1.jpg" /></td>
-</tr>
-<tr>
-<td align="right">√‹¬Î£∫</td>
-<td><input name="password" type="password"  class="index_login_input" id="password" size="15" maxlength="20" /></td>	
-</tr>
+    <tr>
+        <td width="45" align="right">
+            ’À∫≈£∫ 
+        </td>
+        <td width="105">
+            <input name="username" tabindex="1" type="text" class="index_login_input" id="username" size="15"
+                maxlength="20" />
+        </td> 
+         <td rowspan="2">
+            <input type="image" tabindex="3" name="imageField" src="{#$site_template#}images/a1.jpg" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            √‹¬Î£∫
+        </td>
+        <td>
+            <input name="password" type="password" tabindex="2" class="index_login_input" id="password" size="15"
+                maxlength="20" />
+        </td>
+       
+    </tr>
 </table>
-<table width="220" border="0" cellspacing="0" cellpadding="0" align="center"  >
-<tr>
-<td colspan="2" align="center" style="height:20px; padding-top:3px; padding-bottom:3px;"><div class="login_err"></div></td>
-</tr>
-<tr>
-<td align="center" style="height:16px;"><a href="{#$reg_url#}?act=form&type=1"><img src="{#$site_template#}images/06.jpg"  border="0" /></a></td>
-<td align="center" style="height:16px;"><a href="{#$reg_url#}?act=form&type=2"><img src="{#$site_template#}images/07.jpg"  border="0" /></a></td>
-</tr>
+<table width="220" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+        <td colspan="2" align="center" style="height: 20px; padding-top: 3px; padding-bottom: 3px;">
+            <div class="login_err">
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" style="height: 16px;">
+            <a href="{#$reg_url#}?act=form&type=1" tabindex="3">
+                <img src="{#$site_template#}images/06.jpg" border="0" /></a>
+        </td>
+        <td align="center" style="height: 16px;">
+            <a href="{#$reg_url#}?act=form&type=2" tabindex="4">
+                <img src="{#$site_template#}images/07.jpg" border="0" /></a>
+        </td>
+    </tr>
 </table>
 </form>

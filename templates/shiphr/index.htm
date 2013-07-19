@@ -12,67 +12,62 @@
 <script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
 <script src="{#$QISHI.site_template#}js/jquery.comtip-min.js" type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function()
-{
-  //登录
-  $("form[name='loginform']").submit(function() {
-  if ($("#username").val()=="")
-  {
-  $(".login_err").show();
-  $(".login_err").html("×请填写用户名！");  
-  }
-  else if($("#password").val()=="")
-  {
-  $(".login_err").show();
-  $(".login_err").html("×请填写密码！");
-  }
-  else
-  {
-    $("#login").hide();
-    $("#waiting").show();
-    var tsTimeStamp= new Date().getTime();
-     if($("#expire").attr("checked")==true)
-     {
-     var expire=$("#expire").val();
-     }
-     else
-     {
-     var expire="";
-     }
-     //alert(expire);
-    $.post("{#$QISHI.site_dir#}plus/ajax_user.php", { "username": $("#username").val(),"password": $("#password").val(),"expire":expire,"url":"{#$smarty.get.url#}","time":tsTimeStamp,"act":"do_login"},
-     function (data,textStatus)
-      {
-      if (data=="err")
-      {
-      $("#waiting").hide();
-      $("#login").show();
-      $("#password").attr("value","");
-      $(".login_err").show();
-      $(".login_err").html("×用户名或者密码错误");
-      }
-      else
-      {
-        $("body").append(data);
-      }
-      })
-  }
-  return false;
-  });
-  
-    //最新职位
-    $.joblisttip("{#$QISHI.site_dir#}plus/ajax_common.php?act=joblisttip","载入中...",'comvtipshow');
-    //推荐职位
-    $(".commendjob .list").hover(
+    $(document).ready(function () {
+       
+
+        //最新职位
+        $.joblisttip("{#$QISHI.site_dir#}plus/ajax_common.php?act=joblisttip", "载入中...", 'comvtipshow');
+        //推荐职位
+        $(".commendjob .list").hover(
       function () {
-        $(this).css("borderColor","#00a0e2");
+          $(this).css("borderColor", "#00a0e2");
       },
       function () {
-        $(this).css("borderColor","");
+          $(this).css("borderColor", "");
       }
     );
 
-});
+  });
+
+  function bind_Login() {
+      //登录
+      $("form[name='loginform']").submit(function () {
+          if ($("#username").val() == "") {
+              $(".login_err").show();
+              $(".login_err").html("请填写用户名！");
+          }
+          else if ($("#password").val() == "") {
+              $(".login_err").show();
+              $(".login_err").html("请填写密码！");
+          }
+          else {
+              $("#login").hide();
+              $("#waiting").show();
+              var tsTimeStamp = new Date().getTime();
+              if ($("#expire").attr("checked") == true) {
+                  var expire = $("#expire").val();
+              }
+              else {
+                  var expire = "";
+              }
+              //alert(expire);
+              $.post("{#$QISHI.site_dir#}plus/ajax_user.php", { "username": $("#username").val(), "password": $("#password").val(), "expire": expire, "url": "{#$smarty.get.url#}", "time": tsTimeStamp, "act": "do_login" },
+     function (data, textStatus) {
+         if (data == "err") {
+             $("#waiting").hide();
+             $("#login").show();
+             $("#password").attr("value", "");
+             $(".login_err").show();
+             $(".login_err").html("用户名或者密码错误");
+         }
+         else {
+             $("body").append(data);
+         }
+     })
+          }
+          return false;
+      });
+  }
 </script>
 
 </head>
@@ -86,10 +81,10 @@ $(document).ready(function()
 	<span id="loginform"></span>
 	<script type="text/javascript">
 	//首页登录
-	$.get("{#$QISHI.site_dir#}plus/ajax_user.php", {"act":"loginform"},
-		function (data,textStatus)
-		{
-			$("#loginform").html(data);
+	    $.get("{#$QISHI.site_dir#}plus/ajax_user.php", { "act": "loginform" },
+		function (data, textStatus) {
+		    $("#loginform").html(data);
+		    bind_Login();
 		}
 	);
 	</script>
@@ -179,7 +174,7 @@ $(document).ready(function()
 		<span class="comtip1" id="{#$list.uid#}"><a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
         </span>
         {#foreach from=$list.jobs item=jobslist#}
-		<a href="{#$jobslist.jobs_url#}" target="_blank">{#$jobslist.jobs_name#}</a>
+		<a href="{#$jobslist.jobs_url#}" title="{#$jobslist.jobs_name#}" target="_blank">{#$jobslist.jobs_name#}</a>
 		{#/foreach#}
 	</span>
     {#/foreach#}
@@ -187,7 +182,6 @@ $(document).ready(function()
     <div class="clear"></div>
   </div>
 </div>
-{#*通栏,横幅*}
 {#qishi_ad set="显示数目:1,调用名称:QS_indexbelow_newjobs_banner,列表名:ad,文字长度:18"#}
 {#if $ad#}
 <div class="banner_ad">
@@ -224,7 +218,7 @@ $(document).ready(function()
               <td>{#$list.sex_cn#}</td>
               <td>{#$list.age#}岁</td>
               <td>{#$list.education_cn#}</td>
-              <td align="left">{#$list.intention_jobs#}</td>
+              <td align="left" title="{#$list.intention_jobs#}">{#$list.intention_jobs#}</td>
               <td align="center">{#$list.refreshtime|date_format:"%Y-%m-%d"#}</td>
           </tr>
 {#/foreach#}
