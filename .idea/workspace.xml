@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b581189e-2c6d-49ea-902d-666a94677d21" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/private/private.properties" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api/uc_client/data/cache/apps.php" afterPath="$PROJECT_DIR$/api/uc_client/data/cache/apps.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/cache_category.php" afterPath="$PROJECT_DIR$/data/cache_category.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/config.php" afterPath="$PROJECT_DIR$/data/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/css/index.css" afterPath="$PROJECT_DIR$/templates/shiphr/css/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/shiphr/index.htm" afterPath="$PROJECT_DIR$/templates/shiphr/index.htm" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user/login.php" afterPath="$PROJECT_DIR$/user/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nbproject/private/private.xml" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/admin/statement/userreg_30_days.xml" afterPath="$PROJECT_DIR$/admin/statement/userreg_30_days.xml" />
     </list>
     <ignored path="upload.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374153150347" ignored="false" />
+    <file path="/Dummy.txt" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1374286397160" ignored="false" />
     <file path="$PROJECT_DIR$/admin/kindeditor/kindeditor.js" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373040669588" ignored="false" />
     <file path="/.htaccess" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373044068885" ignored="false" />
     <file path="/company_promotion.php" changelist="b581189e-2c6d-49ea-902d-666a94677d21" time="1373042901189" ignored="false" />
@@ -285,7 +293,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,17 +303,18 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="File.Encoding" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../74cms_3.2_enterprise" />
+    <property name="recentsLimit" value="5" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../74cms_3.3_enterprise" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="my74cms32.shiyishi.tk" serverId="fd35165c-1736-4907-b7dc-46fc8bcf2f21">
     <servers>
@@ -340,10 +348,10 @@
     <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application">
       <method />
     </configuration>
-    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
       <method />
     </configuration>
-    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -375,14 +383,14 @@
       </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="fd35165c-1736-4907-b7dc-46fc8bcf2f21" server_name="my74cms32.shiyishi.tk">
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Local" singleton="true">
       <JSDebuggerConfigurationSettings>
         <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSDebuggerConfigurationSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="fd35165c-1736-4907-b7dc-46fc8bcf2f21" server_name="my74cms32.shiyishi.tk">
       <method />
     </configuration>
     <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
@@ -410,7 +418,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27413127" sideWeight="0.67085075" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27799228" sideWeight="0.67085075" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />

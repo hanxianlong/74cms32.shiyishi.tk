@@ -91,7 +91,7 @@ $(document).ready(function()
           <td align="right" bgcolor="#FAFAFA">毕业院校：</td>
           <td bgcolor="#FFFFFF">{#$show.school#}</td>
           <td align="right" bgcolor="#FAFAFA">毕业时间：</td>
-          <td bgcolor="#FFFFFF">{#$show.graduate_date|truncate:14:"""#}</td>
+          <td bgcolor="#FFFFFF">{#$show.graduate_date|truncate:7:"""#}</td>
       </tr>
   <tr>
     <td align="right" bgcolor="#FAFAFA">最高学历：</td>
@@ -159,7 +159,7 @@ $(document).ready(function()
     </tr>
 	{#foreach from=$show.education_list item=list#}
         <tr>
-         <td colspan="2" bgcolor="#FFF">{#$list.education_remark|nl2br#}</td>
+         <td colspan="2" bgcolor="#FFFFFF">{#$list.education_remark|nl2br#}</td>
       </tr>
 	 
 	{#/foreach#}
@@ -171,7 +171,7 @@ $(document).ready(function()
 	{#if $show.work_list#}
 	{#foreach from=$show.work_list item=list#}
         <tr>
-            <td colspan="2" bgcolor="#fff">{#$list.work_remark|nl2br#}</td>
+            <td colspan="2" bgcolor="#FFFFFF">{#$list.work_remark|nl2br#}</td>
         </tr>
 	 
 	{#/foreach#}

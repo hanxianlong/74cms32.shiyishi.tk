@@ -1,7 +1,7 @@
 <?php
 $data = array (
   'site_name' => 'Áú´¬ÕÐÆ¸Íø',
-  'site_domain' => 'http://shiphr.imarine.cn',
+  'site_domain' => 'http://my74cms32.shiyishi.tk',
   'site_dir' => '/',
   'template_dir' => 'shiphr/',
   'outdated_jobs' => '1',
@@ -68,7 +68,7 @@ $data = array (
   'qq_appid' => '',
   'qq_appkey' => '',
   'open_csrf' => '0',
-  'simple_open' => '0',
+  'simple_open' => '1',
   'simple_add_audit' => '1',
   'simple_edit_audit' => '-1',
   'simple_tel_repeat' => '0',

@@ -1,59 +1,55 @@
 <?php
 $_CACHE['apps'] = array (
-  1 => 
+  11 => 
   array (
-    'appid' => '1',
+    'appid' => '11',
     'type' => 'OTHER',
-    'name' => 'my74cms',
-    'url' => 'http://my74cms.shiyishi.tk',
-    'ip' => '127.0.0.1',
-    'charset' => '',
-    'synlogin' => '1',
-    'extra' => 'a:2:{s:7:"apppath";s:0:"";s:8:"extraurl";a:0:{}}',
-  ),
-  2 => 
-  array (
-    'appid' => '2',
-    'type' => 'OTHER',
-    'name' => 'my74cms32',
+    'name' => 'http://my74cms32.shi',
     'url' => 'http://my74cms32.shiyishi.tk',
     'ip' => '',
+    'viewprourl' => '',
+    'apifilename' => 'uc.php',
     'charset' => '',
     'synlogin' => '1',
-    'extra' => 'a:2:{s:7:"apppath";s:0:"";s:8:"extraurl";a:0:{}}',
+    'extra' => 
+    array (
+      'apppath' => '',
+    ),
+    'recvnote' => '1',
   ),
-  3 => 
+  12 => 
   array (
-    'appid' => '3',
-    'type' => 'DISCUZX',
-    'name' => 'Discuz!',
-    'url' => 'http://mydiscuz.shiyishi.tk',
+    'appid' => '12',
+    'type' => 'OTHER',
+    'name' => 'my74cms32e.shiyishi.',
+    'url' => 'http://my74cms32e.shiyishi.tk',
     'ip' => '',
-    'charset' => 'utf-8',
-    'synlogin' => '1',
-    'extra' => '',
-  ),
-  4 => 
-  array (
-    'appid' => '4',
-    'type' => 'DISCUZX',
-    'name' => 'myshiphr.shiyishi.tk',
-    'url' => 'http://myshiphr.shiyishi.tk',
-    'ip' => '',
+    'viewprourl' => '',
+    'apifilename' => 'uc.php',
     'charset' => '',
     'synlogin' => '1',
-    'extra' => 'a:1:{s:7:"apppath";s:0:"";}',
+    'extra' => 
+    array (
+      'apppath' => '',
+    ),
+    'recvnote' => '1',
   ),
-  5 => 
+  9 => 
   array (
-    'appid' => '5',
-    'type' => 'UCHOME',
-    'name' => '个人家园',
-    'url' => 'http://myuhome.shiyishi.tk',
+    'appid' => '9',
+    'type' => 'OTHER',
+    'name' => 'http://myshiphr.shiy',
+    'url' => 'http://myshiphr.shiyishi.tk/',
     'ip' => '',
-    'charset' => 'utf-8',
+    'viewprourl' => '',
+    'apifilename' => 'uc.php',
+    'charset' => '',
     'synlogin' => '1',
-    'extra' => '',
+    'extra' => 
+    array (
+      'apppath' => '',
+    ),
+    'recvnote' => '1',
   ),
-  'UC_API' => 'http://myucenter.shiyishi.tk',
+  'UC_API' => 'http://myshipuc.shiyishi.tk',
 );

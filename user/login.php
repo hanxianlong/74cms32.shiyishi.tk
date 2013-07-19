@@ -38,17 +38,17 @@ elseif((empty($_SESSION['uid']) || empty($_SESSION['username']) || empty($_SESSI
 {
 	if(check_cookie($_COOKIE['QS']['username'],$_COOKIE['QS']['password']))
 	{
-	update_user_info($_COOKIE['QS']['uid'],false,false);
-	header("Location:".get_member_url($_SESSION['utype']));
+            update_user_info($_COOKIE['QS']['uid'],false,false);
+            header("Location:".get_member_url($_SESSION['utype']));
 	}
 	else
 	{
-	unset($_SESSION['uid'],$_SESSION['username'],$_SESSION['utype'],$_SESSION['uqqid'],$_SESSION['activate_username'],$_SESSION['activate_email'],$_SESSION["openid"]);
-	setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('QS[username]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie('QS[password]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
-	header("Location:".url_rewrite('QS_login'));
+            unset($_SESSION['uid'],$_SESSION['username'],$_SESSION['utype'],$_SESSION['uqqid'],$_SESSION['activate_username'],$_SESSION['activate_email'],$_SESSION["openid"]);
+            setcookie("QS[uid]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+            setcookie('QS[username]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+            setcookie('QS[password]',"", time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+            setcookie("QS[utype]","",time() - 3600,$QS_cookiepath, $QS_cookiedomain);
+            header("Location:".url_rewrite('QS_login'));
 	}
 }
 elseif ($_SESSION['username'] && $_SESSION['utype'] &&  $_COOKIE['QS']['username'] && $_COOKIE['QS']['password'])

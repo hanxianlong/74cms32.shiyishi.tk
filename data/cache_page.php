@@ -299,13 +299,13 @@ $data = array (
   ),
   'Custom_Pic_Joblist' => 
   array (
-    'file' => 'bookstore/index.php',
+    'file' => 'bookstore',
     'tpl' => 'pic-jobs.htm',
     'rewrite' => '',
     'html' => '',
     'url' => '0',
     'caching' => 0,
-    'tag' => 'bookstore',
+    'tag' => '',
     'alias' => 'Custom_Pic_Joblist',
   ),
 );

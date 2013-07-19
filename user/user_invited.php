@@ -291,7 +291,7 @@ elseif ($act=="invited_save")
 	}
 	$mailconfig=get_cache('mailconfig');
 	$sms=get_cache('sms_config');
-	if ($mailconfig['set_invite']=="1" && $resume['email_notify']=='1' && $resume_user['email_audit']=="1")
+	if ($mailconfig['set_invite']=="1" && $resume['email_notify']=='1')// && $resume_user['email_audit']=="1")
 	{
 		dfopen("{$_CFG['site_domain']}{$_CFG['site_dir']}plus/asyn_mail.php?uid={$_SESSION['uid']}&key=".asyn_userkey($_SESSION['uid'])."&act=set_invite&companyname={$jobs['companyname']}&email={$resume_user['email']}");				
 	}
