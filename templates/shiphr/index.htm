@@ -202,24 +202,24 @@
     <div class='zxjl'>
       <table width="619" border="0" cellspacing="0" cellpadding="0">
          <tr>
-              <td width="60" bgcolor="#F2F2F2" align="center">编号</td>
-              <td width="70" bgcolor="#F2F2F2">姓名</td>
-              <td width="50" bgcolor="#F2F2F2">性别</td>
-              <td width="65" bgcolor="#F2F2F2">年龄</td>
-              <td width="60" bgcolor="#F2F2F2">学历</td>
-              <td width="224" bgcolor="#F2F2F2">意向工作职位</td>
-              <td width="90" bgcolor="#F2F2F2" align="center">更新日期</td>
+              <th width="60" align="center">编号</th>
+              <th width="70">姓名</th>
+              <th width="50">性别</th>
+              <th width="65">年龄</th>
+              <th width="60">学历</th>
+              <th width="224" align="left">意向工作职位</th>
+              <th width="90" align="center">更新日期</th>
           </tr>
-{#qishi_resume_list set="列表名:resume,显示数目:16,意向职位长度:15,填补字符:...,排序:rtime>desc"#}
+{#qishi_resume_list set="列表名:resume,显示数目:16,意向职位长度:18,填补字符:...,排序:rtime>desc"#}
 {#foreach from=$resume item=list#}
           <tr>
               <td align="center">{#$list.id#}</td>
               <td><a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a></td>
-              <td>{#$list.sex_cn#}</td>
-              <td>{#$list.age#}岁</td>
-              <td>{#$list.education_cn#}</td>
-              <td align="left" title="{#$list.intention_jobs#}">{#$list.intention_jobs#}</td>
-              <td align="center">{#$list.refreshtime|date_format:"%Y-%m-%d"#}</td>
+              <td align="center">{#$list.sex_cn#}</td>
+              <td align="center">{#$list.age#}岁</td>
+              <td width="60" align="center" title="{#$list.education_cn#}">{#$list.education_cn#}</td>
+              <td align="left"  width="224" title="{#$list.intention_jobs#}">{#$list.intention_jobs#}</td>
+              <td align="center"  width="90">{#$list.refreshtime|date_format:"%Y-%m-%d"#}</td>
           </tr>
 {#/foreach#}
       </table>

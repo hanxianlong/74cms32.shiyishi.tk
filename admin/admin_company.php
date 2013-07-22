@@ -618,7 +618,7 @@ elseif($act == 'meal_members')
 			}			
 		}
 	}
-	$joinsql=" LEFT JOIN ".table('members')." as b ON a.uid=b.uid inner join ".table('company_profile') ." as com on com.uid=a.uid ";
+	$joinsql=" LEFT JOIN ".table('members')." as b ON a.uid=b.uid left join ".table('company_profile') ." as com on com.uid=a.uid ";
 	$total_sql="SELECT COUNT(*) AS num FROM ".table('members_setmeal')." as a ".$joinsql.$wheresql;
 	$total_val=$db->get_total($total_sql);
 	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage));

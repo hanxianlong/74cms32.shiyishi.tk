@@ -81,7 +81,7 @@ function allaround(templatedir,dir,jobslisturl,getkey,getarr)
 			var b="";
 			if (subclassstr)
 			{
-				b="<span>¨‹</span>";
+				b="<span>?</span>";
 			}
 		opthtm+='<li><span  id="category-'+get[0]+'">'+categoryname+'</span>'+b+'</li>';
 		}
@@ -192,7 +192,7 @@ function allaround(templatedir,dir,jobslisturl,getkey,getarr)
 			var b="";
 			if (sdistrictstr)
 			{
-				b="<span>¨‹</span>";
+				b="<span>?</span>";
 			}
 		opthtm+='<li><span  id="district-'+get[2]+'">'+districtname+'</span>'+b+'</li>';
 		}
