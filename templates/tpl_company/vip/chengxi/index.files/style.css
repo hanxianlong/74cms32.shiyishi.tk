@@ -1,0 +1,84 @@
+.clear {
+	CLEAR: both
+}
+ {
+	BORDER-TOP-WIDTH: 0px; PADDING-RIGHT: 0px; PADDING-LEFT: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-TOP: 0px; BORDER-RIGHT-WIDTH: 0px
+}
+A {
+	COLOR: #3399cc; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff3300; TEXT-DECORATION: underline
+}
+A:hover IMG {
+	FILTER: alpha(opacity=50); CURSOR: hand; moz-opacity: 0.5
+}
+BODY {
+	FONT-SIZE: 12px; MARGIN: 0px; COLOR: #666666; LINE-HEIGHT: 24px;  BACKGROUND-COLOR: #cccccc; text-align:center
+}
+.logo {
+	WIDTH: 960px; HEIGHT: 64px
+}
+.footer {
+	WIDTH: 960px;MARGIN: 0 auto; COLOR: #ffffff; PADDING-TOP: 10px; HEIGHT: 46px; BACKGROUND-COLOR: #003399; TEXT-ALIGN: center
+}
+.footer A {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.footer A:hover {
+	COLOR: #ffff00; TEXT-DECORATION: none
+}
+.images_border {
+	BORDER-RIGHT: #ffcece 1px solid; PADDING-RIGHT: 2px; BORDER-TOP: #ffcece 1px solid; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; MARGIN: 2px; BORDER-LEFT: #ffcece 1px solid; PADDING-TOP: 2px; BORDER-BOTTOM: #ffcece 1px solid
+}
+.banner {
+	BACKGROUND-POSITION: center 50%; WIDTH: 960px; BACKGROUND-REPEAT: no-repeat; TEXT-ALIGN: center
+}
+.main {
+	BACKGROUND-POSITION: center 50%; BACKGROUND-IMAGE: url(main_bg.jpg); WIDTH: 958px
+}
+.title {
+	WIDTH: 960px; HEIGHT: 30px
+}
+.main_content TD {
+	TEXT-INDENT: 10px; LINE-HEIGHT: 30px; HEIGHT: 30px
+}
+.main_content {
+	PADDING-RIGHT: 10px; PADDING-LEFT: 10px; BACKGROUND-IMAGE: url(images/content_bg.jpg); WIDTH: 940px; TEXT-ALIGN: justify
+}
+.sub_title {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #ff3300; BORDER-BOTTOM: #f2cdb7 1px dashed; HEIGHT: 30px
+}
+.title12b {
+	FONT-WEIGHT: bold; COLOR: #993300
+}
+.title12white {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #ffffff
+}
+.show_position TD {
+	FONT-SIZE: 12px; LINE-HEIGHT: 36px; BORDER-BOTTOM: #999999 1px dashed
+}
+.page {
+	WIDTH: 960px; BACKGROUND-COLOR: #ffffff; text-align:left; margin:0 auto;
+}
+.main_gap {
+	BACKGROUND-IMAGE: url(images/line.gif); HEIGHT: 11px
+}
+.content_footer {
+	BACKGROUND-IMAGE: url(images/content_footer.jpg); WIDTH: 1002px; HEIGHT: 42px
+}
+#job_list {
+	FONT: 12px/150% Arial, Helvetica, sans-serif; WIDTH: 100%
+}
+#job_list TH {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+#job_list TD {
+	PADDING-RIGHT: 6px; PADDING-LEFT: 6px; PADDING-BOTTOM: 3px; PADDING-TOP: 3px
+}
+#job_list TH {
+	COLOR: #660000; BACKGROUND-COLOR: #b5ddf0
+}
+#job_list TD {
+	LINE-HEIGHT: 30px; BORDER-BOTTOM: #ddf2f9 1px solid
+}

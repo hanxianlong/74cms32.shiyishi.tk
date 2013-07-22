@@ -1,0 +1,118 @@
+{#qishi_company_show set="列表名:company,企业域名:GET[domain],企业ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>沪东中华造船(集团)有限公司 -- 龙船招聘网</TITLE>
+<META content="龙船招聘网提供船舶招聘求职,海洋工程招聘求职,航运招聘求职等服务" name=description>
+<META content="船厂招聘,船舶人才招聘,船舶求职,船舶设计招聘求职,中国船舶人才求职招聘,船舶与海洋工程求职招聘" name=keywords>
+<META http-equiv=Content-Type content="text/html; charset=gb2312">
+<link rel="stylesheet" href="{#$user_tpl#}skin.css" type="text/css" />
+</head>
+<body>
+	<div class="container">
+	<div class="header">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="80%"><img src="{#$user_tpl#}images/logo_2.gif" width="468" height="68"></td>
+    <td width="20%" align="center"><a href="http://hr.imarine.cn" target="_blank"><img src="{#$user_tpl#}images/shiphr.png" border="0"></a></td>
+  </tr>
+</table>
+<table width="100%" height="190" border="0" cellpadding="0" cellspacing="0" background="{#$user_tpl#}images/gongchangtupian.jpg">
+  <tr>
+    <td align="center"><p><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="320" height="134">
+        <param name="movie" value="{#$user_tpl#}images/6.swf" />
+        <param name="quality" value="high" />
+        <param name="wmode" value="transparent" />
+        <embed src="{#$user_tpl#}images/6.swf" width="320" height="134" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent"></embed>
+      </object>
+        </p>
+      </td>
+  </tr>
+</table>
+
+    </div>
+	
+	<div class="nav">
+		<ul>
+			<li><a  href="#main2"></a></li>
+			<li><a href="#main3"></a></li>
+			<li><a target="_blank" href="http://hz-shipgroup.cssc.net.cn/"></a></li>
+			<li><a  href="#main4"></a></li>
+		</ul>
+	</div>
+	
+	<div class="content">
+		<div class="main1">
+			<div class="product">
+			<marquee loop="-1" onMouseOver="this.stop()" onMouseOut="this.start()"  scrollamount="4">
+			<ul class="productmain">
+				<li><img src="{#$user_tpl#}images/1.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/2.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/3.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/4.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/5.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/6.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/7.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/8.jpg"/></li>
+                <li><img src="{#$user_tpl#}images/9.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/10.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/11.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/12.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/13.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/14.jpg"/></li>
+				<li><img src="{#$user_tpl#}images/15.jpg"/></li>
+			</ul></marquee>
+			</div>
+		</div>
+		<div class="main2" id="main2">
+			
+			<div class="hd">
+				<img src="{#$user_tpl#}images/jianjie.PNG"/>
+			</div>
+			<div class="bd"><p>
+               {#$company.contents|nl2br#}</p>
+		  </div>
+		</div>
+		
+		<div class="main3" id="main3">
+		
+			<div class="hd">
+				<img src="{#$user_tpl#}images/zhaopinxinxi.PNG"/>
+			</div>
+			<div class="bd">
+				<ul>
+			  {#qishi_jobs_list set="列表名:jobs,填补字符:...,职位名长度:14,显示数目:50,会员UID:"|cat:$company.uid#}
+                 {#foreach from=$jobs item=list#}
+                 <li>
+				    <a href="{#$list.jobs_url#}">{#$list.jobs_name#}</a>
+				    {#if $list.emergency=="1"#} <img src="{#$QISHI.site_template#}{#$user_tpl#}images/61.gif" border="0" align="absmiddle" />{#/if#}
+				    {#if $list.recommend=="1"#} <img src="{#$QISHI.site_template#}{#$user_tpl#}images/62.gif" border="0" align="absmiddle" />{#/if#}
+				    {#$list.amount#}人
+                </li>
+			         {#/foreach#}
+				</ul>
+			</div>
+		</div>
+		<div class="main4" id="main4">
+			
+			<div class="hd">
+				<img src="{#$user_tpl#}images/lianxifangshi.png"/>
+			</div>
+			<div class="bd">
+				<div class="p1">
+				  <p><span>联系地址:上海浦东新区浦东大道2851号沪东中华(造船)集团有限公司人力资源部<br>
+			    邮政编码:200129</span></p>
+				  <p>联&nbsp;系&nbsp;人:孟老师</p>
+				  <p>联系电话:021-58713503 58713222-3727 </p>
+				</div>
+				<p class="p2"><span></span></p>
+			</div>
+		</div>
+	</div>
+    <div class="clear"></div>
+	<div class="footer">
+		<a href="http://www.imarine.cn" target="_blank"><font color="#FFFFFF">龙de船人</font></a>旗下网站 《<a href="http://www.shiphr.com" target="_blank"><font color="#FFFFFF">龙船招聘网</font></a>》 版权所有(<a href="http://www.shiphr.com" target="_blank"><font color="#FFFFFF">http://www.shiphr.com</font></a>)
+    <script language="javascript" type="text/javascript" src="http://js.users.51.la/3954073.js"></script>
+    <noscript>
+    <a href="http://www.51.la/?3954073" target="_blank"><img  src="http://img.users.51.la/3954073.asp" style="border:none" /></a></div>
+	</div>
+</body>
+</html>

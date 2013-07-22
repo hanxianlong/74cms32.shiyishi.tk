@@ -1,0 +1,225 @@
+/* ----------------------公共及全局样式------------------------------ */
+*{
+	margin: 0;
+	padding: 0;
+	}
+body{
+	background:url(images/beijing.png) repeat-y;
+	font-size: 12px;
+	background-position: center;
+	}
+ul{
+	list-style: none;
+	}
+img{
+	border: 0;
+	vertical-align: baseline;
+	}
+html{
+	overflow: -moz-scrollbars-vertical;
+	}
+a{
+	text-decoration: none;
+	font-size:12px;
+	color:#383838;
+	}
+a:hover{
+	text-decoration: none;
+	}
+body .container{
+	width:947px;
+	margin:0 auto;
+	overflow:hidden;
+	}
+/* ----------------------头部样式----------------------------- */
+.header .top{
+	width:947px;
+	height:114px;
+	overflow:hidden;
+	}
+.header .bottom{
+	width:947px;
+	height:403px;
+	overflow:hidden;
+	}
+/* ----------------------导航--------------------------- */
+.nav ul{
+	background:url(images/daohang.png) no-repeat;
+	width:947px;
+	height:50px;
+	}
+.nav li{
+	height:50px;
+	float:left;
+	width:236px;
+	}
+.nav a{
+	display:block;
+	height:50px;
+	width:236px;
+	}
+	
+/* ---------------------main1---------------------------- */
+.main1 {
+	height:179px;
+	width:947px;
+	overflow:hidden;
+	clear:both;
+	margin-top:10px;
+	margin-bottom:10px;
+	}
+.main1 .goleft{
+	float:left;
+	width:36px;
+	height:179px;
+	}
+.main1 .goleft a{
+	width:36px;
+	height:179px;
+	background:url(images/shubiaoweijingguo-left.png) left center no-repeat;
+	display:block;
+	}
+	.main1 .goright{
+	float:right;
+	width:36px;
+	height:179px;
+
+	}
+.main1 .goright a{
+	width:36px;
+	height:179px;
+	background:url(images/shubiaoweijingguo-right.png) right center no-repeat;
+	display:block;
+	}
+.main1 .goleft a:hover{
+	background:url(images/shubiaojingguo-left.png) left center no-repeat;
+	}
+.main1 .goright a:hover{
+	background:url(images/shubiaojingguo-right.png) right center no-repeat;
+	}
+
+.main1 .product{
+		width:947px;
+		float:left;
+		overflow:hidden;
+		height:180px;
+		}
+.main1 .productmain{
+	
+	display:inline;
+	float:left;
+	height:180px;
+	}
+.main1 .productmain li{
+	width:280px;
+	height:180px;
+	margin-right:17px;
+	float:left;
+	}
+.main1 .productmain .li3,.main1 .productmain .li6,.main1 .productmain .li9,.main1 .productmain .li12,.main1 .productmain .li15{
+	margin-right:0px;
+	}
+/* ---------------------main2---------------------------- */	
+.main2 .hd{
+	margin-bottom:10px;
+	}
+.main2 .bd p{
+	line-height:2;
+	font-size:14px;
+	color:#404040;
+	padding-top:10px;
+	margin-bottom:15px;
+	}
+/* ---------------------main3---------------------------- */	
+.main3{
+
+	}
+	.main3 .hd{
+	margin-bottom:5px;
+	}
+.main3 .bd {padding-left:27px}
+.main3 .bd ul {
+	clear:both;
+	
+	}
+.main3 .bd ul li {
+	float:left;
+	height:30px;
+	line-height:30px;
+	text-align:left;
+	padding-left:10px;
+	float:left;
+	width:280px;
+	background:url(images/sanjiao.png) no-repeat left center;
+	}
+.main3 .bd ul li a{
+	font-size:14px;
+	color:#404040;
+	padding-left:10px;
+	text-align:left;
+	}
+.main3 .bd ul  .li1 a,.main3 .bd ul  .li3 a,.main3 .bd ul  .li5 a,.main3 .bd ul  .li7 a,.main3 .bd ul  .li9 a{
+	float:left;
+	height:43px;
+	line-height:43px;
+	background:url(images/sanjiao.png) no-repeat left center;
+	width:471px;
+	display:inline;
+	}
+	.main3 .bd ul  .li2 a,.main3 .bd ul  .li4 a,.main3 .bd ul  .li6 a,.main3 .bd ul  .li8 a,.main3 .bd ul  .li10 a,.main3 .bd ul  .li12 a{
+	width:404px;
+	float:left;
+	height:43px;
+	line-height:43px;
+	background:url(images/sanjiao.png) no-repeat left center;
+	display:inline;
+	}
+	.main3 .bd ul  .li1,.main3 .bd ul .li2,.main3 .bd ul  .li5,.main3 .bd ul  .li6,.main3 .bd ul  .li9,.main3 .bd ul  .li10 {
+	background:#f3f3f3;
+	}
+	.main3 .bd ul  .li3,.main3 .bd ul  .li4,.main3 .bd ul  .li7,.main3 .bd ul  .li8 {
+	background:#fafafa;
+	}
+
+
+/* ---------------------main4---------------------------- */	
+.main4  .hd{
+	margin-bottom:20px;
+	}
+.main4  {
+		margin-top:21px;
+		}
+		.main4  .bd{
+			padding-left:27px;
+			}
+.main4 .div1{
+	width:225px;
+	float:left;}
+.main4 .p2{
+	font-size:14px;
+	line-height:2;
+	}
+.main4 .p1{
+	width:600px;
+	font-size:12px;
+	line-height:25px
+	}
+.main4 .p1 a  {
+		float:right;
+		height:20px;
+		background:url(images/weizhi.png) top right no-repeat;
+		width:61px;
+		}
+	
+.footer{
+	height:76px;
+	width:947px;
+	overflow:hidden;
+	background:url(images/dibutupian.png) repeat-x;
+	color:#eaeaea;
+	line-height:76px;
+	text-align:center;
+	margin-top:15px;
+	}
+
+	
