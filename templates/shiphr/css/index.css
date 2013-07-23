@@ -284,8 +284,8 @@ border-collapse:collapse;table-layout:fixed;
 	color: #4d4d4d;
 	height: 28px;
 	padding-right: 3px;
-	padding-left: 3px;
-	border-bottom: 1px dotted #CCC; overflow:hidden; text-overflow:ellipsis;  white-space:nowrap;
+	padding-left: 3px; text-wrap:no-space;
+	border-bottom: 1px dotted #CCC; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
 .zxjl table td a{
 	color: #FF6600;
