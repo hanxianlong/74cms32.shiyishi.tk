@@ -70,7 +70,7 @@ showmenu("#sex_cn","#menu3","#sex");
 			</div>
 	  </div>
   </div>
-  <div class="item_tit">所在地区：</div>
+  <div class="item_tit">期望工作地区：</div>
   <div class="item">
   <input name="district_cn"  id="district_cn" type="text" value="{#$smarty.get.district_cn|default:"请选择所在地区"#}"  readonly="true" class="sltinput"/>
   <input name="citycategory" id="citycategory" type="hidden" value="{#$smarty.get.citycategory#}" />
@@ -189,7 +189,7 @@ showmenu("#sex_cn","#menu3","#sex");
     <td height="33" style="padding-left:20px;" class="resume_index_right_table"><a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a></td>
     <td align="center"  class="resume_index_right_table">{#$list.sex_cn#}</td>
     <td align="center"  class="resume_index_right_table">{#$list.age#} 岁</td>
-    <td align="center"  class="resume_index_right_table">{#$list.experience_cn#}</td>
+    <td align="center"  class="resume_index_right_table">{#$list.graduated_date#}</td>
     <td align="center"  class="resume_index_right_table">{#$list.education_cn#}</td>
     <td class="resume_index_right_table">{#$list.intention_jobs#}</td>
   </tr>

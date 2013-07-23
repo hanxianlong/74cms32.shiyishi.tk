@@ -52,15 +52,23 @@ if ($val)
 	$val['age']=date("Y")-$val['birthdate'];
 	if ($val['photo']=="1")
 	{
-	$val['photosrc']=$_CFG['resume_photo_dir_thumb'].$val['photo_img'];
+            $val['photosrc']=$_CFG['resume_photo_dir_thumb'].$val['photo_img'];
 	}
 	else
 	{
-	$val['photosrc']=$_CFG['resume_photo_dir_thumb']."no_photo.gif";
+            $val['photosrc']=$_CFG['resume_photo_dir_thumb']."no_photo.gif";
 	}
 	$val['tagcn']=preg_replace("/\d+/", '',$val['tag']);
 	$val['tagcn']=preg_replace('/\,/','',$val['tagcn']);
 	$val['tagcn']=preg_replace('/\|/','&nbsp;&nbsp;&nbsp;',$val['tagcn']);	
+        
+        $d=1;
+        if($graduate_date = strtotime($val['graduate_date']))
+        {
+           $d = floor((time()-$graduate_date)/60/60/24/360);//工作经验由此算出
+        }
+                
+        $val['graduated_date'] = $d;
 }
 else
 {

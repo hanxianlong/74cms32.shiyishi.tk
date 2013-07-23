@@ -60,7 +60,7 @@ $(document).ready(function()
 	<div class="tip">
 			<span style="color: #009900">Last Updated£º{#$show.refreshtime|date_format:"%Y-%m-%d"#}</span>
 			<br />
-	Education£º{#$show.education_cn#}	&nbsp;&nbsp;Work Experience£º{#$show.experience_cn#}&nbsp;&nbsp;Viewed Count£º<span class="click"></span>´Î	</div>
+	Education£º{#$show.education_cn#}	&nbsp;&nbsp;Work Experience£º{#$show.graduated_date#}Years&nbsp;&nbsp;Viewed Count£º<span class="click"></span>´Î	</div>
     </td>
     </tr>
   <tr>
@@ -97,7 +97,7 @@ $(document).ready(function()
     <td align="right" bgcolor="#FAFAFA">Education£º</td>
     <td bgcolor="#FFFFFF">{#$show.education_cn#}</td>
     <td align="right" bgcolor="#FAFAFA">Work Years£º</td>
-    <td bgcolor="#FFFFFF">{#$show.experience_cn#}</td>
+    <td bgcolor="#FFFFFF">{#$show.graduated_date#}</td>
   </tr>
   <tr>
     <td align="right" bgcolor="#FAFAFA">Address£º</td>
@@ -121,6 +121,10 @@ $(document).ready(function()
   <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
     <tr>
       <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Target Job</strong></td>
+    </tr>
+          <tr>
+      <td width="120" align="right" bgcolor="#FAFAFA">Target District£º</td>
+      <td bgcolor="#FFFFFF">{#$show.district_cn#}</td>
     </tr>
     <tr>
       <td width="120" align="right" bgcolor="#FAFAFA">Recent Jobs£º</td>

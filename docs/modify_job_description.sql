@@ -1,0 +1,1 @@
+﻿alter table `qs32_jobs` modify contents mediumtext;

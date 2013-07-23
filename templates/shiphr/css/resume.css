@@ -3,7 +3,7 @@
 .resume_search .toptit{ height:30px;background:url(../images/52.gif) repeat-x 0px -239px; border-bottom:1px solid #E4E4E4; margin-bottom:10px;}
 .resume_search .toptit .left{ float:left; width:500px; font-size:14px; line-height:30px; font-weight:bold; padding-left:10px;}
 .resume_search .toptit .right{ float:left; width:430px; line-height:30px; text-align:right}
-.resume_search .item_tit { width:80px; height:32px;  float:left; text-align:right; padding-top:5px; line-height:32px;}
+.resume_search .item_tit { width:92px; height:32px;  float:left; text-align:right; padding-top:5px; line-height:32px;}
 .resume_search .item { width:187px; height:32px; float:left; padding-top:5px;}
 .resume_search .item .sltinput{ width:185px; background-image:url(../images/09.gif); background-position:right center; background-repeat:no-repeat; cursor:pointer; border:1px solid #cccccc; height:18px; line-height:18px; padding:3px; color:#666666; }
 .resume_search .item .key_input {width:185px;border:1px solid #cccccc; height:18px; line-height:18px; padding:3px; color:#666666;}
@@ -17,6 +17,12 @@
 	margin-top: 8px;
 	margin-right: auto;
 	margin-left: auto;
+}
+.resume_main table{
+    table-layout:fixed;
+}
+.resume_main table td{
+    overflow:hidden; text-overflow:ellipsis;  white-space:nowrap;
 }
 .resume-index1 {
 	width:698px;

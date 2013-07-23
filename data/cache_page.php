@@ -36,10 +36,10 @@ $data = array (
   'QS_jobsshow' => 
   array (
     'file' => 'jobs/jobs-show.php',
-    'tpl' => 'jobs-show.htm',
+    'tpl' => 'jobs-show.htmaa',
     'rewrite' => 'jobs/jobs-show-($id).htm',
-    'html' => 'html/jobs/($y)($m)/($y)($m)($d)($id).html',
-    'url' => '1',
+    'html' => '',
+    'url' => '0',
     'caching' => 0,
     'tag' => 'jobs',
     'alias' => 'QS_jobsshow',

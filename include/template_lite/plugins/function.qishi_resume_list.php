@@ -372,8 +372,8 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 				{
 					foreach($tag as $t)
 					{
-					$tli=explode(',',$t);
-					$taglist[]=array($tli[0],$tli[1]);
+                                            $tli=explode(',',$t);
+                                            $taglist[]=array($tli[0],$tli[1]);
 					}
 				}
 				$row['tag']=$taglist;
@@ -382,6 +382,14 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 			{
 			$row['tag']=array();
 			}
+                        
+                        $d=1;
+                       if($graduate_date = strtotime($row['graduate_date']))
+                       {
+                               $d = floor((time()-$graduate_date)/60/60/24/360);//工作经验由此算出
+                       }
+                
+                        $row['graduated_date'] = $d .'年';
 			$list[] = $row;
 		}
 	}

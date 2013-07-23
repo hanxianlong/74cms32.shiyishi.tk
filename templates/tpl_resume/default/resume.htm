@@ -60,7 +60,7 @@ $(document).ready(function()
 	<div class="tip">
 			<span style="color: #009900">更新日期：{#$show.refreshtime|date_format:"%Y-%m-%d"#}</span>
 			<br />
-	学历：{#$show.education_cn#}	&nbsp;&nbsp;工作经验：{#$show.experience_cn#}&nbsp;&nbsp;浏览：<span class="click"></span>次	</div>
+	学历：{#$show.education_cn#}	&nbsp;&nbsp;工作经验：{#$show.graduated_date#}年{#*$show.experience_cn*#}&nbsp;&nbsp;浏览：<span class="click"></span>次	</div>
     </td>
     </tr>
   <tr>
@@ -97,7 +97,7 @@ $(document).ready(function()
     <td align="right" bgcolor="#FAFAFA">最高学历：</td>
     <td bgcolor="#FFFFFF">{#$show.education_cn#}</td>
     <td align="right" bgcolor="#FAFAFA">工作经验：</td>
-    <td bgcolor="#FFFFFF">{#$show.experience_cn#}</td>
+    <td bgcolor="#FFFFFF">{#$show.graduated_date#}年{#*$show.experience_cn*#}</td>
   </tr>
 
   <tr>
@@ -126,6 +126,10 @@ $(document).ready(function()
     <tr>
       <td width="120" align="right" bgcolor="#FAFAFA">最近工作过的职位：</td>
       <td bgcolor="#FFFFFF">{#$show.recentjobs#}</td>
+    </tr>
+       <tr>
+      <td width="120" align="right" bgcolor="#FAFAFA">期望工作地区：</td>
+      <td bgcolor="#FFFFFF">{#$show.district_cn#}</td>
     </tr>
     <tr>
       <td align="right" bgcolor="#FAFAFA">期望岗位性质：</td>

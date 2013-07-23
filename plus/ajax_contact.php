@@ -14,6 +14,7 @@ require_once(dirname(dirname(__FILE__)).'/include/plus.common.inc.php');
 $act = !empty($_GET['act']) ? trim($_GET['act']) : '';
 if($act == 'jobs_contact')
 {
+    exit('暂无联系方式');
 	$id=intval($_GET['id']);
 	if ($id>0)
 	{
@@ -76,6 +77,7 @@ if($act == 'jobs_contact')
 }
 elseif($act == 'company_contact')
 {
+     exit('暂无联系方式');
 	$id=intval($_GET['id']);
 	if ($id>0)
 	{
