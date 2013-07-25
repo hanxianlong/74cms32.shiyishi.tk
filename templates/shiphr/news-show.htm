@@ -12,15 +12,14 @@
 
 <script type="text/javascript">
 $(document).ready(function()
-{
-    var id="{#$smarty.get.id#}";
-    var tsTimeStamp= new Date().getTime();
-    $.get("{#$QISHI.site_dir#}plus/ajax.php", { "id": id,"time":tsTimeStamp,"act":"news_click"},
-      function (data,textStatus)
-       {      
-        $("#click").html(data);
-       }
-    );
+{ var id="{#$smarty.get.id#}";
+		var tsTimeStamp= new Date().getTime();
+		$.get("{#$QISHI.site_dir#}plus/ajax_click.php", { "id": id,"time":tsTimeStamp,"act":"news_click"},
+			function (data,textStatus)
+			 {			
+				$("#click").html(data);
+			 }
+		);
 });
 </script>
 </head>
@@ -39,8 +38,7 @@ $(document).ready(function()
     点击：<span id="click"></span> 次&nbsp;&nbsp;&nbsp;&nbsp; 添加日期：{#$show.addtime|date_format:"%Y-%m-%d"#} &nbsp;&nbsp;&nbsp;&nbsp; [ <a href="javascript:window.print();">打印</a> ]&nbsp;&nbsp;[ <a href="#" onclick="window.external.addFavorite(parent.location.href,document.title);">收藏</a> ]&nbsp;&nbsp;[ <a href="javascript:self.close()">关闭</a> ] 
     </div>
 <div class="show_left_txt_j"><a href="{#$QISHI.site_domain#}">{#$QISHI.site_name#}</a>提示您，你查看的文章是新闻资讯下<a href="{#$category.url#}">{#$category.title_#}</a>中的《{#$show.title#}》</div>
-    <div class="txt">{#$show.content#}</div>
-    <div class="show_left_txt_l"><a href="{#$QISHI.site_domain#}">{#$QISHI.site_name#}</a>是建湖人才市场官方人才网和建湖人才招聘的首选网站，也是最大的建湖招聘信息网站。</div>
+    <div class="txt">{#$show.content#}</div> 
     </div>
   </div>
   <div class="right">

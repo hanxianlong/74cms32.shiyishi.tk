@@ -361,7 +361,7 @@ border-collapse:collapse;table-layout:fixed;
 	display: block;
 	background: url(../images/ali.png) no-repeat left 6px;
 	text-indent: 10px;
-	float:left;
+	float:left;max-width:226px;
 }
 .zx_box ul li a:hover{
 	text-decoration: underline;

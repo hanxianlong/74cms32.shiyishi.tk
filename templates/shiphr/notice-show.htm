@@ -15,7 +15,7 @@ $(document).ready(function()
 {
 		var id="{#$smarty.get.id#}";
 		var tsTimeStamp= new Date().getTime();
-		$.get("{#$QISHI.site_dir#}plus/ajax.php", { "id": id,"time":tsTimeStamp,"act":"notice_click"},
+		$.get("{#$QISHI.site_dir#}plus/ajax_click.php", { "id": id,"time":tsTimeStamp,"act":"notice_click"},
 			function (data,textStatus)
 			 {			
 				$("#click").html(data);
