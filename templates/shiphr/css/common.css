@@ -17,7 +17,7 @@ a.website:hover {color:#f00;text-decoration:underline;}
 .link_lan a:active {text-decoration: none;color: #0066CC;}
 
 .link_bk a:link {color: #4D4D4D; text-decoration: none;}
-.link_bk a:visited {text-decoration: none;color: #009900;}
+.link_bk a:visited {text-decoration: none;color: #4D4D4D;}
 .link_bk a:hover {text-decoration: underline;color: #009900;}
 .link_bk a:active {text-decoration: none;color: #009900;}
  .link_bku a{color: #4D4D4D;text-decoration: underline;}

@@ -445,7 +445,7 @@ $(document).ready(function() {
           <td align="right" valign="top"  >
 		  <span style="color:#FF3300; font-weight:bold">*</span> 公司介绍：</td>
           <td  >
-		  <textarea name="contents" class="input_text_200_textarea" id="contents" style="width:450px; height:150px; margin-bottom:6px;" >{#$company_profile.contents#}</textarea>
+		  <textarea name="contents" class="input_text_200_textarea" id="contents" style="width:450px; height:150px; margin-bottom:6px;" >{#$company_profile.contents|strip_tags#}</textarea>
             <br />
             <span id="model" style="color: #0033CC; margin-right:200px; cursor:pointer;">[查看范例]</span></td>
         </tr>

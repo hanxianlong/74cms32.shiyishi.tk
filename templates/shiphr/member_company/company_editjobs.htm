@@ -311,7 +311,7 @@ $(document).ready(function()
           <td align="right" valign="top" bgcolor="#FFFFFF" >
 		  <span style="color:#FF3300; font-weight:bold">*</span> 职位描述：</td>
           <td bgcolor="#FFFFFF" >
-		  <div><textarea name="contents" class="input_text_200_textarea" id="contents" style="width:450px; height:150px;" >{#$jobs.contents#}</textarea><br />
+		  <div><textarea name="contents" class="input_text_200_textarea" id="contents" style="width:450px; height:150px;" >{#$jobs.contents|strip_tags#}</textarea><br />
 </div>
             <div style="line-height:30px; height:30px;"><span style="color: #0033CC; cursor:pointer" id="model">[查看范例]</span>&nbsp;&nbsp;&nbsp;说明：请详细描述该职位，内容可包括：职位要求，岗位职责等。</div>			</td>
         </tr>

@@ -54,7 +54,8 @@
 /*-----ÏêÏ¸Ò³----------*/
 .news-show{ width:960px;margin:0 auto; margin-top:8px;}
 .news-show .left{ width:710px; float:left}
-.news-show .left .show{ width:680px;border:1px solid #E4E4E4;background:url(../images/16.jpg) repeat-x; padding:10px;}
+.news-show .left .show{ width:680px;border:1px solid #E4E4E4;background:url(../images/16.jpg) repeat-x; padding:10px; overflow:hidden}
+.news-show .left .show table{width:100% !important;}
 .news-show .left .show h1{text-align:center; font-size:23px; line-height:180%;  font-weight:bold; color:#000000;margin-top:15px; margin-bottom:12px; }
 .news-show .left .show .date{
 	width: 650px;

@@ -33,9 +33,9 @@
 	text-decoration: none;
 }
 .login_urgent{
-	float: left;
+	float: right;
 	height: 194px;
-	width: 372px;
+	width: 280px;/*-92**/
 	margin-left: 10px;
 	border: 1px solid #0099cc;
 	overflow: hidden;
@@ -87,17 +87,16 @@
 .login_urgent li span.time{float:right;}
 
 .login_adv{
-	float: right;
+	float: left;
 	height: 198px;
-	width: 314px;
-	overflow: hidden;
+	width: 406px;
+	overflow: hidden; margin-left:10px;
 }
 .left_adv{
 	height: 95px;
-	width: 314px;
-	margin-bottom: 7px;
-	overflow: hidden;
-}
+	width: 100%;/*+92*/
+	margin-bottom: 7px; 
+} 
 .index_login_input{width:100px; height:20px; line-height:20px; font-family:Arial, Helvetica, sans-serif; border:1px #B6C0CD solid; font-size:12px;}
 .login_err{color:red;}
 .box_960 {
@@ -285,7 +284,7 @@ border-collapse:collapse;table-layout:fixed;
 	height: 28px;
 	padding-right: 3px;
 	padding-left: 3px; text-wrap:no-space;
-	border-bottom: 1px dotted #CCC; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+	border-bottom: 1px dotted #CCC; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;word-break:keep-all;
 }
 .zxjl table td a{
 	color: #FF6600;
@@ -293,6 +292,9 @@ border-collapse:collapse;table-layout:fixed;
 }
 .zxjl table td a:hover{
 	text-decoration: underline;
+}
+.zxjl table td div{
+	wite-space:nowrap;height:28px;
 }
 .zpjl {
 	padding: 8px;
@@ -362,6 +364,9 @@ border-collapse:collapse;table-layout:fixed;
 	background: url(../images/ali.png) no-repeat left 6px;
 	text-indent: 10px;
 	float:left;max-width:226px;
+}
+.zx_box ul li span{ 
+	line-height: 22px;
 }
 .zx_box ul li a:hover{
 	text-decoration: underline;
@@ -457,7 +462,7 @@ border-collapse:collapse;table-layout:fixed;
 }
 
 .banner_ad img {
-    width: 100%;
+    width: 100%;border:0;
 }
 .zpjl_li .zpjl_info2 {
 	font-family: "ÐÂËÎÌå";

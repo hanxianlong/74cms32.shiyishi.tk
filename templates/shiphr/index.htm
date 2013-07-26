@@ -90,10 +90,14 @@
 	</script>
     </div>    
   </div>
+ <div class='login_adv'>
+    <div class='left_adv'><a href="/user/user_reg.php" target="_blank"><img src="/data/images/ads/reg.jpg" width="406px" height="95" border="0" /></a></div>
+    <div class='left_adv'><a href="http://www.tmarine.cn/" target="_blank"><img src="/data/images/ads/tmarine.jpg" width="406px" height="95px" border="0" /></a></div>
+  </div>
   <div class='login_urgent'>
     <div class='title_urgent'>紧急招聘</div>
         <ul>
-                {#qishi_jobs_list set="列表名:jobs,显示数目:9,填补字符:...,职位名长度:27,紧急招聘:1,排序:rtime>desc"#}
+                {#qishi_jobs_list set="列表名:jobs,显示数目:9,填补字符:...,职位名长度:15,紧急招聘:1,排序:rtime>desc"#}
                 {#foreach from=$jobs item=jobslist#}						
                 <li>
                 <a href="{#$jobslist.jobs_url#}" target="_blank">
@@ -102,10 +106,7 @@
                 {#/foreach#}
     </ul>
   </div>
-  <div class='login_adv'>
-    <div class='left_adv'><a href="/user/user_reg.php" target="_blank"><img src="/data/images/ads/reg.jpg" width="314" height="95" border="0" /></a></div>
-    <div class='left_adv'><a href="http://www.tmarine.cn/" target="_blank"><img src="/data/images/ads/tmarine.jpg" width="314" height="95" border="0" /></a></div>
-  </div>
+
   <div class="clear"></div>
 </div>
 
@@ -186,7 +187,7 @@
 {#if $ad#}
 <div class="banner_ad">
     {#foreach from=$ad item=list#}
-        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
+        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}"  border="0" alt="{#$list.img_explain#}" /></a></div>
     {#/foreach#}
     <div class="clear"></div>
 </div>
@@ -217,8 +218,8 @@
               <td><a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a></td>
               <td align="center">{#$list.sex_cn#}</td>
               <td align="center">{#$list.age#}岁</td>
-              <td width="60" align="center" title="{#$list.education_cn#}">{#$list.education_cn#}</td>
-              <td align="left"  width="224" title="{#$list.intention_jobs#}">{#$list.intention_jobs#}</td>
+              <td width="60" align="center" title="{#$list.education_cn#}"><div>{#$list.education_cn#}</div></td>
+              <td align="left"  width="224" title="{#$list.intention_jobs#}"><div>{#$list.intention_jobs#}</div></td>
               <td align="center"  width="90">{#$list.refreshtime|date_format:"%Y-%m-%d"#}</td>
           </tr>
 {#/foreach#}
@@ -268,7 +269,7 @@
       <ul>
 {#qishi_news_list set="列表名:news,显示数目:5,标题长度:16,资讯小类:2,填补字符:...,排序:id>desc"#}
 {#foreach from=$news item=list#}
-         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title#}">{#$list.title#}</a></li>
+         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title|strip_tags#}">{#$list.title|strip_tags#}</a></li>
 {#/foreach#}
       </ul>
     </div>
@@ -282,7 +283,7 @@
       <ul>
 {#qishi_news_list set="列表名:news,显示数目:5,标题长度:16,资讯小类:3,填补字符:...,排序:id>desc"#}
 {#foreach from=$news item=list#}
-         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title#}">{#$list.title#}</a></li>
+         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title|strip_tags#}">{#$list.title|strip_tags#}</a></li>
 {#/foreach#}
       </ul>
     </div>
@@ -296,7 +297,7 @@
       <ul>
 {#qishi_news_list set="列表名:news,显示数目:5,标题长度:16,资讯小类:4,填补字符:...,排序:id>desc"#}
 {#foreach from=$news item=list#}
-         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title#}">{#$list.title#}</a></li>
+         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title|strip_tags#}">{#$list.title|strip_tags#}</a></li>
 {#/foreach#}
       </ul>
     </div>
@@ -309,7 +310,7 @@
 <div class="vipqy link_bk">
     {#foreach from=$ad item=list#}
     <div class="list">
-        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
+        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" border="0" alt="{#$list.img_explain#}" /></a></div>
     </div>
     {#/foreach#}
     <div class="clear"></div>
