@@ -4,6 +4,26 @@
   <div class='logo_nav'>
     <a href="{#$QISHI.site_dir#}"><img src="{#$QISHI.upfiles_dir#}{#$QISHI.web_logo#}" alt="{#$QISHI.site_name#}" width="200" height="60" border="0" align="absmiddle" /></a>
   </div>
+   <div id="scbar" class="cl">
+    <form id="scbar_form" method="get" action="/jobs/jobs-list.php">
+    <table cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="scbar_icon_td"></td>
+        <td class="scbar_txt_td"><input type="text" name="key" id="scbar_txt" value="" /></td>
+        <td class="scbar_btn_td">
+        	<input name="searchtype" type="hidden" value="1" checked="checked" class='search_radio'/>
+        	<button type="submit" name="searchsubmit" id="scbar_btn" style="padding:0px 5px"><strong>ËÑÖ°Î»</strong></button></td>
+      </tr>
+    </table>
+    </form>
+    <script type="text/javascript">
+      $("#scbar_form #scbar_btn").click(function(){
+      var searchtype=$("#scbar_form :radio[checked]").val();
+      searchtype=="1"?$("#scbar_form").attr("action","/jobs/jobs-list.php"):$("#scbar_form").attr("action","/resume/resume-list.php");
+      $("#scbar_form").submit();
+      });  
+    </script>
+  </div>
   <div class="clear"></div>
   <div class='dao_nav'>
     <ul>

@@ -163,7 +163,7 @@
 	color: #666666;
 	height: 20px;
 }
-.resume_photo_left_box{ padding-left:10px; margin-top:6px;}
+.resume_photo_left_box{ padding-left:10px; margin-top:6px;  margin-bottom:10px;}
 .resume_photo_left {float:left;width:55px; height:70px; padding:2px; background-color: #FFFFFF;border:1px #C1E0FF solid; margin-bottom:7px;  display:inline}
 .resume_photo_left img{ display:block}
 .resume_photo_right {float:left; width:165px;height:67px; margin-bottom:10px; padding-left:8px;padding-top:6px; line-height:180%; border-bottom:7px;word-wrap:break-word;}
