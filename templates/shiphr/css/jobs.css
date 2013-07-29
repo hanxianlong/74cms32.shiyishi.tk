@@ -37,7 +37,7 @@
 .jobs_list .left .tit .titsub{ border:1px #E4E4E4 solid; background-image:url(../images/56.gif); height:22px; float:left; line-height:22px; padding-left:8px; padding-right:8px; border-left:0px; background-position:0px -40px; cursor: pointer}
 .jobs_list .left .tit .titsub input{vertical-align:middle;}
 .jobs_list .left .tit .titsub_h{background-image:url(../images/56.gif);background-position:0px -64px; color:#000000 }
-.jobs_list .list{width:700px; border-bottom:1px #E3E3E3 solid;color:#666;padding:10px;border-left:1px #E4E4E4 solid;border-right:1px #E4E4E4 solid;}
+.jobs_list .list{width:700px; overflow:hidden; border-bottom:1px #E3E3E3 solid;color:#666;padding:10px;border-left:1px #E4E4E4 solid;border-right:1px #E4E4E4 solid;}
 .jobs_list .list.seclect {background-image:url(../images/57.gif);}
 .jobs_list .noinfo{ padding:10px; width:700px;  border-bottom:1px #E3E3E3 solid; line-height:180%}
 .jobs_list .noinfo span{ font-size:14px; font-weight:bold; color:#FF6600}

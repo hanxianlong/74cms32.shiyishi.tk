@@ -12,21 +12,12 @@
       <tr>
         <td class="scbar_icon_td"></td>
         <td class="scbar_txt_td"><input type="text" name="key" id="scbar_txt" value="" /></td>
-        <td class="scbar_type_td">
-          <label><input name="searchtype" type="radio" value="1" checked="checked" class='search_radio'/>搜职位</label>
-          <label><input name="searchtype" type="radio" value="2"  class='search_radio'/>搜人才</label>
-        </td>
-        <td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn"><strong>搜索</strong></button></td>
+        <td class="scbar_btn_td">
+        	<input name="searchtype" type="hidden" value="1" checked="checked" class='search_radio'/>
+        	<button type="submit" name="searchsubmit" id="scbar_btn" style="padding:0px 5px"><strong>搜职位</strong></button></td>
       </tr>
     </table>
-    </form>
-    <script type="text/javascript">
-      $("#scbar_form #scbar_btn").click(function(){
-      var searchtype=$("#scbar_form :radio[checked]").val();
-      searchtype=="1"?$("#scbar_form").attr("action","/jobs/jobs-list.php"):$("#scbar_form").attr("action","/resume/resume-list.php");
-      $("#scbar_form").submit();
-      });  
-    </script>
+    </form> 
   </div>
   <div class="clear"></div>
   <div class='dao_nav'>

@@ -62,7 +62,7 @@ a.website:hover {color:#f00;text-decoration:underline;}
 .scbar_icon_td{width:50px;background:url(../images/search.png) no-repeat 0 -74px;line-height:44px;}
 .scbar_txt_td,.scbar_type_td{background:url(../images/search.png) repeat-x 0 -222px;}
 .scbar_type_td{width:133px;font-size:12px;line-height:44px;}
-#scbar_txt{width:180px;border:1px solid #FFF;outline:none;font-size:14px;}
+#scbar_txt{width:320px;border:1px solid #FFF;outline:none;font-size:14px;}
 .scbar_btn_td{width:67px;background:url(../images/search.png) no-repeat 0 -296px;text-align:center;line-height:44px;}
 #scbar_btn{margin:0;padding:0;border:0;background:transparent none;height:31px;width:67px;cursor:pointer;line-height:30px;}
 #scbar_btn strong{color:#234E9B !important;font-size:14px !important;}

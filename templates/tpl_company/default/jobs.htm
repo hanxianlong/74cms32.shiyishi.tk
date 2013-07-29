@@ -28,7 +28,7 @@ $(document).ready(function()
 				$(".click").html(data);
 			 }
 		);
-		$.get("{#$QISHI.site_dir#}plus/ajax_contact.php", { "id": id,"time":tsTimeStamp,"act":"jobs_contact"},
+/*	$.get("{#$QISHI.site_dir#}plus/ajax_contact.php", { "id": id,"time":tsTimeStamp,"act":"jobs_contact"},
 			function (data,textStatus)
 			 {			
 				$("#jobs_contact").html(data);
@@ -39,7 +39,7 @@ $(document).ready(function()
 			 {			
 				$("#company_contact").html(data);
 			 }
-		);
+		);*/
 		//申请职位
 		$(".app_jobs").click(function(){
 		dialog("申请职位","url:get?{#$QISHI.site_dir#}user/user_apply_jobs.php?id="+id+"&act=app","500px","auto","");
@@ -111,8 +111,8 @@ $(document).ready(function()
 		  <div class="clear"></div>	  
 	      <div class="title"><strong>职位描述</strong></div>
 		  {#$show.contents|nl2br#}
-		  <div class="title"><strong>联系方式</strong></div>
-		  <!--AJAX 联系方式 --><div id="jobs_contact"></div>
+		{#* <div class="title"><strong>联系方式</strong></div>
+		  AJAX 联系方式 <div id="jobs_contact"></div> *#}
 		   {#if $show.company.map_open=="1" && $show.company.map_x && $show.company.map_y#}
 		   <script src="http://api.map.baidu.com/api?v=1.2" type="text/javascript"></script>
 		  <div class="title"><strong>公司位置</strong></div>
@@ -174,8 +174,8 @@ $(document).ready(function()
 	 
 			<div class="ctitle"><strong>公司简介</strong></div>
 			{#$show.company.contents|nl2br#}
-			<div class="ctitle"><strong>联系方式</strong></div>
-			<!--AJAX 联系方式 --><div id="company_contact"></div>
+		{#*	<div class="ctitle"><strong>联系方式</strong></div>
+			AJAX 联系方式 <div id="company_contact"></div> *#}
 	  </div>
 	  <div id="show3" class="joblist" style="display:none">
 	 <table width="100%" border="0" cellspacing="0" cellpadding="6">
