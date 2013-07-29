@@ -141,7 +141,8 @@ class uc_note
                 /*解决中文用户名无法同步登录的问题*/
                 if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
                 {
-                    $username=iconv("utf-8",QISHI_DBCHARSET,$username);
+                    //shiphr不进行转码
+                  //  $username=iconv("utf-8",QISHI_DBCHARSET,$username);
                 }
 		$result=$this->db->getone("SELECT * FROM ".$this->tablepre."members WHERE username='".$username."' LIMIT 1 ");
 		if(is_array($result))
