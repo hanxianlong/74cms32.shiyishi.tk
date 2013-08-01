@@ -66,7 +66,8 @@ $(document).ready(function()
 	 <tr>
       <td   class="admin_list admin_list_first">
      <input type="checkbox" name="id[]"  value="{#$list.cp_id#}"/>
-	 <a href="{#$list.jobs_url#}" target="_blank" >{#$list.jobs_name#}</a>	&nbsp;&nbsp;	
+	{#if $list.jobtype!="-1"#} <a href="{#$list.jobs_url#}" target="_blank" >{#/if#}{#$list.jobs_name#}
+        {#if $list.jobtype!="-1"#}</a>{#/if#}	&nbsp;&nbsp;	
 	 <span style="color:
 	 {#if $list.cp_promotionid=="1"#}
 	  #FF6600

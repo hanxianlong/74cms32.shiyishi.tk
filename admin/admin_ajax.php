@@ -67,32 +67,36 @@ elseif($act == 'get_jobs')
 {
 	$type=trim($_GET['type']);
 	$key=trim($_GET['key']);
+      
 	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 	{
-	$key=iconv("utf-8",QISHI_DBCHARSET,$key);
+            $key=iconv("utf-8",QISHI_DBCHARSET,$key);
 	}	
+          $limit=30;
 	if ($type=="get_id")
 	{
 		$id=intval($key);
-		$sql = "select * from ".table('jobs')." where id='{$id}'  LIMIT 1";
+		$sql = "select * from ".table('jobs')." where id='{$id}'";
+                 $limit=1;
 	}
 	elseif ($type=="get_jobname")
 	{
-		$sql = "select * from ".table('jobs')." where jobs_name like '{$key}%'  LIMIT 30";
+		$sql = "select * from ".table('jobs')." where jobs_name like '{$key}%'";
 	}
 	elseif ($type=="get_comname")
 	{
-		$sql = "select * from ".table('jobs')." where companyname like '{$key}%'  LIMIT 30";
+		$sql = "select * from ".table('jobs')." where companyname like '{$key}%' ";
 	}
 	elseif ($type=="get_uid")
 	{
 		$uid=intval($key);
-		$sql = "select * from ".table('jobs')." where uid='{$uid}'  LIMIT 30";		
+		$sql = "select * from ".table('jobs')." where uid='{$uid}'";		
 	}
 	else
 	{
 	exit();
 	}
+             $sql .=" and is_deleted=0 limit ". $limit;
 		$result = $db->query($sql);
 		while($row = $db->fetch_array($result))
 		{
@@ -105,7 +109,7 @@ elseif($act == 'get_jobs')
 		}
 		if (!empty($info))
 		{
-		exit(implode('@@@',$info));
+                    exit(implode('@@@',$info));
 		}
 }
 elseif($act == 'get_company')
