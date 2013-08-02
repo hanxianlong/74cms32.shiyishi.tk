@@ -9,4 +9,4 @@
 .resume_contact img{ margin:10px; cursor:pointer}
 .resume_contact li{   line-height:25px; height:25px;   padding-left:10px;}
 .resume_contact .add_resume_pool{ cursor:pointer; color:#0066CC}
-.resume_show table td{ word-break:break-all;overflow:hidden }
+.resume_show td{ word-break:break-all;overflow:hidden }

@@ -50,7 +50,11 @@
 			  {#foreach from=$jobs item=li#}
               <tr>
                 <td height="32" >
-				<input name="y_id[]" type="checkbox" id="y_id"  value="{#$li.id#}"/>&nbsp;<a href="{#$li.jobs_url#}" target="_blank">{#$li.jobs_name#}</a>
+				<input name="y_id[]" type="checkbox" id="y_id"  value="{#$li.id#}"/>&nbsp;
+                                 {#if $smarty.get.jobtype!="-1"#} <a href="{#$li.jobs_url#}" target="_blank">{#/if#} 
+                                     {#$li.jobs_name#}
+                                     {#if $smarty.get.jobtype!="-1"#}</a>{#/if#} 
+                                 
 				 {#if $li.stick=="1"#}<span style="color: #FF9900"  title="职位已置顶" class="vtip">[顶]</span>{#/if#}
 				{#if $li.emergency=="1"#}<span style="color: #FF0000" title="紧急招聘" class="vtip">[急]</span>{#/if#}
 				{#if $li.recommend=="1"#}<span style="color: #009900" title="职位已推荐" class="vtip">[荐]</span>{#/if#}
@@ -74,7 +78,7 @@
                 <td align="center"  >
 				<a href="?act=editjobs&id={#$li.id#}">修改</a>&nbsp;
                                 {# if $li.is_deleted==0 #}
-                                <a href="?act=jobs_perform&delete=-1&y_id={#$li.id#}" onclick="return confirm('您确定移动到回收站吗?')">回收站</a>
+                                <a href="?act=jobs_perform&delete=-1&y_id={#$li.id#}" onclick="return confirm('您确定移动到回收站吗?')">删除</a>
                                 {# else #}
                                 <a href="?act=jobs_perform&delete=-2&y_id={#$li.id#}" onclick="return confirm('您确定恢复吗?')">恢复</a>
 				<a href="?act=jobs_perform&delete=1&y_id={#$li.id#}" onclick="return confirm('您确定删除吗?')">删除</a>
