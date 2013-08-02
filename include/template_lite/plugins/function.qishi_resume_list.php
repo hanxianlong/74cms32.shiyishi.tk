@@ -275,20 +275,28 @@ if (isset($aset['key']) && !empty($aset['key']))
 {
 	$key=trim($aset['key']);
 	$akey=explode(' ',$key);
+	
 	if (count($akey)>1)
 	{
-	$akey=array_filter($akey);
-	$akey=array_slice($akey,0,2);
-	$akey=array_map("fulltextpad",$akey);
-	$key='+'.implode(' +',$akey);
-	$mode=' IN BOOLEAN MODE';
+		$akey=array_filter($akey);
+		$akey=array_slice($akey,0,2);
+		$akey=array_map("fulltextpad",$akey);
+		$key='+'.implode(' +',$akey);
+		$mode=' IN BOOLEAN MODE';
 	}
 	else
 	{
-	$key=fulltextpad($key);
-	$mode=' ';
+		//如果仅有一个条件，则直接使用like搜索
+		$key = str_replace("'","",$key);
+		$wheresql .= " AND r.`key` like '%".$key."%'";
+		//$key=fulltextpad($key);
+		//$mode=' ';
 	}
-	$wheresql.=" AND  MATCH (r.`key`) AGAINST ('{$key}'{$mode}) ";
+	 
+	//如果有多个条件，则调用全文搜索
+	if(count($akey)>1){
+		$wheresql.=" AND  MATCH (r.`key`) AGAINST ('{$key}'{$mode}) ";
+	}
 	$orderbysql="";
 	$resumetable=table('resume_search_key');
 }
@@ -308,10 +316,13 @@ $wheresql=" WHERE ".ltrim(ltrim($wheresql),'AND');
 			require_once(QISHI_ROOT_PATH.'include/page.class.php');
 			$total_sql="SELECT  COUNT(*) AS num  FROM  {$resumetable} AS r ".$joinsql.$wheresql;
 			$total_count=$db->get_total($total_sql);
-			if (intval($_CFG['resume_list_max'])>0)
+		 	 
+			if (intval($_CFG['resume_list_max'])>0 && !$_SESSION['admin_name'])
 			{
 				$total_count>intval($_CFG['resume_list_max']) && $total_count=intval($_CFG['resume_list_max']);
 			}
+
+		//	die('c:'.$total_count);
 			//echo $total_sql;
 			//echo "SELECT  COUNT(DISTINCT r.id) AS num  FROM  ".table('resume')." AS r ".$wheresql;
 			$page = new page(array('total'=>$total_count, 'perpage'=>$aset['row']));

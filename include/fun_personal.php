@@ -352,7 +352,7 @@ function check_resume($uid,$pid)
 		$setsqlarr['complete_percent']=$percent;
 		require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
 		$sp = new SPWord();
-		$setsqlarr['key']=$resume_basic['intention_jobs'].$resume_basic['recentjobs'].$resume_basic['specialty'];		
+		$setsqlarr['key']=$resume_basic['intention_jobs'].$resume_basic['recentjobs'].$resume_basic['specialty'].$resume_work['work_remark'].$resume_training['training_remark'];		
 		$setsqlarr['key']="{$resume_basic['fullname']} ".$sp->extracttag($setsqlarr['key']);
 		$setsqlarr['key']=str_replace(","," ",$resume_basic['intention_jobs'])." {$setsqlarr['key']} {$resume_basic['education_cn']}";
 		$setsqlarr['key']=$sp->pad($setsqlarr['key']);
