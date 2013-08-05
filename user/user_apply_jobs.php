@@ -224,19 +224,25 @@ elseif ($act=="app_save")
 			$addarr['notes']= $notes;
 			if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 			{
-			$addarr['notes']=iconv("utf-8",QISHI_DBCHARSET,$addarr['notes']);
+                            $addarr['notes']=iconv("utf-8",QISHI_DBCHARSET,$addarr['notes']);
 			}
 			$addarr['apply_addtime']=time();
 			$addarr['personal_look']=1;
-			if (inserttable(table('personal_jobs_apply'),$addarr))
+			if (true || inserttable(table('personal_jobs_apply'),$addarr))//注册取消此处true的逻辑，为了方便测试特意增加此逻辑
 			{
 					$mailconfig=get_cache('mailconfig');					
 					$jobs['contact']=$db->getone("select * from ".table('jobs_contact')." where pid='{$jobs['id']}' LIMIT 1 ");
 					$sms=get_cache('sms_config');	
 					$comuser=get_user_info($jobs['uid']);	
+                                        
 					if ($mailconfig['set_applyjobs']=="1"  && $comuser['email_audit']=="1" && $jobs['contact']['notify']=="1")
 					{	
-						dfopen("{$_CFG['site_domain']}{$_CFG['site_dir']}plus/asyn_mail.php?uid={$_SESSION['uid']}&key=".asyn_userkey($_SESSION['uid'])."&act=jobs_apply&jobs_id={$jobs['id']}&jobs_name={$jobs['jobs_name']}&personal_fullname={$personal_fullname}&email={$comuser['email']}");
+                                            $notes = $addarr['notes'];
+                                            
+                                            $com_info =$db->getone("select count(*) as total from ".table("members_setmeal") . " where uid='{$addarr['company_uid']}' and setmeal_id>1 and a.endtime>".time()." limit 1");
+                                            $total=$com_info['total']; 
+                                            $url ="{$_CFG['site_domain']}{$_CFG['site_dir']}plus/asyn_mail.php?uid={$_SESSION['uid']}&key=".asyn_userkey($_SESSION['uid'])."&act=jobs_apply&jobs_id={$jobs['id']}&jobs_name={$jobs['jobs_name']}&personal_fullname={$personal_fullname}&email={$comuser['email']}&notes={$notes}&resume_id={$resumeid}&show_contact=$total";
+                                            dfopen($url);
 					}
 					//sms			
 					if ($sms['open']=="1"  && $sms['set_applyjobs']=="1"  && $comuser['mobile_audit']=="1")
