@@ -62,13 +62,13 @@ if ($val)
 	$val['tagcn']=preg_replace('/\,/','',$val['tagcn']);
 	$val['tagcn']=preg_replace('/\|/','&nbsp;&nbsp;&nbsp;',$val['tagcn']);	
         
-        $d=1;
+        $d=0;
         if($graduate_date = strtotime($val['graduate_date']))
         {
            $d = floor((time()-$graduate_date)/60/60/24/360);//工作经验由此算出
         }
-                
-        $val['graduated_date'] = $d;
+        
+        $val['graduated_date'] = $d<=0?0:$d;
 }
 else
 {

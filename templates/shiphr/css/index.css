@@ -33,14 +33,38 @@
 	text-decoration: none;
 }
 .login_urgent{
-	float: right;
+	float: left;
 	height: 194px;
-	width: 280px;/*-92**/
+	width: 371px;/*-92**/
 	margin-left: 10px;
 	border: 1px solid #0099cc;
 	overflow: hidden;
 	padding-bottom: 2px;
 }
+.login_urgent ul{
+	padding: 0px;
+	margin: 0px;
+}
+
+.login_urgent li{
+	float:left;
+	background: url(../images/j_index_t1.jpg) no-repeat  0px 6px;
+	text-indent: 15px;
+	line-height: 22px;
+	height: 22px;
+	width: 170px;
+	margin: 0 5px 0 3px;
+	overflow: hidden;
+}
+.login_urgent li a{
+	font-size: 12px;
+	color: #666;
+	height: 22px;
+	float:left; width:100%; overflow:hidden;
+	text-decoration: none;
+}
+.login_urgent li a:hover {text-decoration:underline;color:#f00;}
+.login_urgent li span.time{float:right;}
 
 .title_urgent{
 	background: url(../images/jjzp_bg.png) no-repeat;
@@ -62,34 +86,12 @@
 	margin-bottom: 6px;
 	margin-left: 0px;
 }
-.login_urgent ul{
-	padding: 0px;
-	margin: 0px;
-}
 
-.login_urgent li{
-	background: url(../images/j_index_t1.jpg) no-repeat  0px 6px;
-	text-indent: 15px;
-	line-height: 20px;
-	height: 20px;
-	width: 352px;
-	margin: 0 10px 0 3px;
-	overflow: hidden;
-}
-.login_urgent li a{
-	font-size: 12px;
-	color: #666;
-	height: 22px;
-	float:left; width:100%; overflow:hidden;
-	text-decoration: none;
-}
-.login_urgent li a:hover {text-decoration:underline;color:#f00;}
-.login_urgent li span.time{float:right;}
 
 .login_adv{
 	float: left;
 	height: 198px;
-	width: 406px;
+	width: 315px;
 	overflow: hidden; margin-left:10px;
 }
 .left_adv{
@@ -212,7 +214,7 @@
 .commendjob .jobslist a {font-size:12px;line-height:20px;color:#4d4d4d;text-decoration:none;}
 
 .newjob {width:930px;border:1px solid #b7d3eb;padding:10px 14px;/*overflow:hidden*/}
-.newjob .list{float:left;width:295px;height:30px;background: url(../images/ali.png) no-repeat 5px 10px #fff;padding-left:15px;white-space:nowrap;}
+.newjob .list{float:left;width:295px;height:30px;background: url(../images/ali.png) no-repeat 5px 10px/* #fff*/;padding-left:15px; white-space:nowrap/* overflow:hidden*/}
 .newjob .list_new{float:left;width:295px;height:30px;background: url(../images/tp_new.png) no-repeat 5px 10px;padding-left:15px;white-space:nowrap;}
 .newjob .comtip {line-height:30px; font-weight:normal;padding-right:3px;}
 .newjob .comtip a{text-decoration:none;color:#59656f;}

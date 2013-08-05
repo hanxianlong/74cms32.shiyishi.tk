@@ -86,18 +86,14 @@
 		    $("#loginform").html(data);
 		    bind_Login();
 		}
-	);
+	); 
 	</script>
     </div>    
-  </div>
- <div class='login_adv'>
-    <div class='left_adv'><a href="/user/user_reg.php" target="_blank"><img src="/data/images/ads/reg.jpg" width="406px" height="95" border="0" /></a></div>
-    <div class='left_adv'><a href="http://www.tmarine.cn/" target="_blank"><img src="/data/images/ads/tmarine.jpg" width="406px" height="95px" border="0" /></a></div>
   </div>
   <div class='login_urgent'>
     <div class='title_urgent'>紧急招聘</div>
         <ul>
-                {#qishi_jobs_list set="列表名:jobs,显示数目:9,填补字符:...,职位名长度:15,紧急招聘:1,排序:rtime>desc"#}
+                {#qishi_jobs_list set="列表名:jobs,显示数目:14,填补字符:...,职位名长度:27,紧急招聘:1,排序:rtime>desc"#}
                 {#foreach from=$jobs item=jobslist#}						
                 <li>
                 <a href="{#$jobslist.jobs_url#}" target="_blank">
@@ -106,9 +102,20 @@
                 {#/foreach#}
     </ul>
   </div>
+  
+{#qishi_ad set="显示数目:2,调用名称:ZZ_up_recom_banner,列表名:ad,文字长度:18"#}
+{#if $ad#}
+  <div class='login_adv'>
+    {#foreach from=$ad item=list#}
+        <div class='left_adv'><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}"/></a></div>
+    {#/foreach#}
+	</div>
+{#/if#}
 
-  <div class="clear"></div>
+ <div class="clear"></div>
 </div>
+
+
 
 <!--QQ群-->
 <?php /**<div class="box_960"><img src="{#$QISHI.site_template#}images/qq.gif" border="0" width="960" height="30" /></div> */ ?>
@@ -144,7 +151,7 @@
     <div class='dao_info'><a href="{#"QS_explainshow,3"|qishi_url#}" target="_blank">{#$QISHI.site_name#}提醒您：开通企业VIP会员,立即享受下方推荐企业服务,轻松招聘人才</a></div>
   </div>
   <div class='commendjob'>
-      {#qishi_company_list set="列表名:company,显示数目:24,显示职位:4,职位名长度:32,企业名长度:17,推荐:1,排序:rtime>desc"#}
+      {#qishi_company_list set="列表名:company,显示数目:30,显示职位:4,职位名长度:32,企业名长度:17,推荐:1,排序:rtime>desc"#}
 	  {#foreach from=$company item=list#}
       <div class="list">
       <a class="companyname" href="{#$list.company_url#}" title="{#$list.companyname#}" target="_blank">{#$list.companyname#}</a>
@@ -169,10 +176,10 @@
   </div>
   <div class="newjob">
     <div class="newjob_con">
-    {#qishi_company_list set="列表名:company,显示数目:75,显示职位:2,职位名长度:5,企业名长度:13,套餐类型:2|3|4|5|6|7|8|9,排序:rtime>desc"#}
+    {#qishi_company_list set="列表名:company,显示数目:75,显示职位:2,职位名长度:5,企业名长度:14,套餐类型:2|3|4|5|6|7|8|9,排序:rtime>desc"#}
   	{#foreach from=$company item=list#}
 	<span class="list">
-		<span class="comtip" id="{#$list.uid#}"><a href="{#$list.company_url#}" target="_blank">{#$list.companyname#}</a>
+		<span class="comtip" id="{#$list.uid#}"><a href="{#$list.company_url#}" target="_blank" title="{#$list.companyname#}" style="width:175px; overflow:hidden">{#$list.companyname#}</a>
         </span>
         {#foreach from=$list.jobs item=jobslist#}
 		<a href="{#$jobslist.jobs_url#}" title="{#$jobslist.jobs_name#}" target="_blank">{#$jobslist.jobs_name#}</a>
@@ -187,7 +194,7 @@
 {#if $ad#}
 <div class="banner_ad">
     {#foreach from=$ad item=list#}
-        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}"  border="0" alt="{#$list.img_explain#}" /></a></div>
+        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
     {#/foreach#}
     <div class="clear"></div>
 </div>
@@ -203,24 +210,22 @@
     <div class='zxjl'>
       <table width="619" border="0" cellspacing="0" cellpadding="0">
          <tr>
-              <th width="60" align="center">编号</th>
-              <th width="70">姓名</th>
-              <th width="50">性别</th>
-              <th width="65">年龄</th>
-              <th width="60">学历</th>
-              <th width="224" align="left">意向工作职位</th>
-              <th width="90" align="center">更新日期</th>
+              <th width="80" align="center">编号</th>
+              <th width="60">性别</th>
+              <th width="60">年龄</th>
+			  <th width="60">工作经验</th>
+              <th width="100">学历</th>
+              <th align="left">意向工作职位</th>
           </tr>
 {#qishi_resume_list set="列表名:resume,显示数目:16,意向职位长度:18,填补字符:...,排序:rtime>desc"#}
 {#foreach from=$resume item=list#}
           <tr>
-              <td align="center">{#$list.id#}</td>
               <td><a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a></td>
               <td align="center">{#$list.sex_cn#}</td>
               <td align="center">{#$list.age#}岁</td>
-              <td width="60" align="center" title="{#$list.education_cn#}"><div>{#$list.education_cn#}</div></td>
-              <td align="left"  width="224" title="{#$list.intention_jobs#}"><div>{#$list.intention_jobs#}</div></td>
-              <td align="center"  width="90">{#$list.refreshtime|date_format:"%Y-%m-%d"#}</td>
+			  <td align="center">{#$list.graduated_date#}</td>
+              <td align="center" title="{#$list.education_cn#}">{#$list.education_cn#}</td>
+              <td align="left" title="{#$list.intention_jobs#}">{#$list.intention_jobs#}</td>
           </tr>
 {#/foreach#}
       </table>
@@ -269,7 +274,7 @@
       <ul>
 {#qishi_news_list set="列表名:news,显示数目:5,标题长度:16,资讯小类:2,填补字符:...,排序:id>desc"#}
 {#foreach from=$news item=list#}
-         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title|strip_tags#}">{#$list.title|strip_tags#}</a></li>
+         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title#}">{#$list.title#}</a></li>
 {#/foreach#}
       </ul>
     </div>
@@ -283,7 +288,7 @@
       <ul>
 {#qishi_news_list set="列表名:news,显示数目:5,标题长度:16,资讯小类:3,填补字符:...,排序:id>desc"#}
 {#foreach from=$news item=list#}
-         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title|strip_tags#}">{#$list.title|strip_tags#}</a></li>
+         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title#}">{#$list.title#}</a></li>
 {#/foreach#}
       </ul>
     </div>
@@ -297,7 +302,7 @@
       <ul>
 {#qishi_news_list set="列表名:news,显示数目:5,标题长度:16,资讯小类:4,填补字符:...,排序:id>desc"#}
 {#foreach from=$news item=list#}
-         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title|strip_tags#}">{#$list.title|strip_tags#}</a></li>
+         <li><span>{#$list.addtime|date_format:"%Y-%m-%d"#}</span><a href="{#$list.url#}" target="_blank" title="{#$list.title#}">{#$list.title#}</a></li>
 {#/foreach#}
       </ul>
     </div>
@@ -310,7 +315,7 @@
 <div class="vipqy link_bk">
     {#foreach from=$ad item=list#}
     <div class="list">
-        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" border="0" alt="{#$list.img_explain#}" /></a></div>
+        <div class="imgbox"><a target="_blank" href="{#$list.img_url#}"><img src="{#$list.img_path#}" alt="{#$list.img_explain#}" /></a></div>
     </div>
     {#/foreach#}
     <div class="clear"></div>

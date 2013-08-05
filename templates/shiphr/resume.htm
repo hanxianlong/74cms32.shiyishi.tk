@@ -176,7 +176,7 @@ showmenu("#sex_cn","#menu3","#sex");
     <div class="toptabs">最新简历</div></div>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="80" height="30" align="center" bgcolor="#DCF1FC">姓名</td>
+    <td width="80" height="30" align="center" bgcolor="#DCF1FC">简历编号</td>
     <td width="60" align="center" bgcolor="#DCF1FC"> 性别</td>
     <td width="60" align="center" bgcolor="#DCF1FC"> 年龄</td>
     <td width="70" align="center" bgcolor="#DCF1FC"> 工作经验</td>
@@ -186,7 +186,7 @@ showmenu("#sex_cn","#menu3","#sex");
  {#qishi_resume_list set="列表名:resume,显示数目:30,意向职位长度:27,填补字符:...,排序:refreshtime>desc"#}
 {#foreach from=$resume item=list#}
   <tr>
-    <td height="33" style="padding-left:20px;" class="resume_index_right_table"><a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a></td>
+    <td height="33" style="padding-left:20px;" class="resume_index_right_table"><a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a></td>
     <td align="center"  class="resume_index_right_table">{#$list.sex_cn#}</td>
     <td align="center"  class="resume_index_right_table">{#$list.age#} 岁</td>
     <td align="center"  class="resume_index_right_table">{#$list.graduated_date#}</td>
@@ -203,7 +203,7 @@ showmenu("#sex_cn","#menu3","#sex");
     {#qishi_resume_list set="列表名:resume,等级:2,显示数目:8,特长描述长度:13,填补字符:..."#}
     {#foreach from=$resume item=list#}
       <li>
-      <a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a>&nbsp;&nbsp;&nbsp;&nbsp;
       {#$list.specialty#}      
       </li>
     {#/foreach#}
@@ -218,7 +218,7 @@ showmenu("#sex_cn","#menu3","#sex");
         <a href="{#$list.resume_url#}" target="_blank"><img src="{#$list.photosrc#}" border="0"  width="55" height="69"/></a>
       </div>
       <div class="resume_photo_right">
-        <a href="{#$list.resume_url#}" target="_blank" class="link_lan">{#$list.fullname#}</a>&nbsp;&nbsp;{#$list.sex_cn#}&nbsp;&nbsp;{#$list.age#}岁&nbsp;&nbsp;{#$list.education_cn#}<br/>{#$list.specialty#}
+        <a href="{#$list.resume_url#}" target="_blank" class="link_lan">{#$list.resume_no#}</a>&nbsp;&nbsp;{#$list.sex_cn#}&nbsp;&nbsp;{#$list.age#}岁&nbsp;&nbsp;{#$list.education_cn#}<br/>{#$list.specialty#}
       </div>
       <div class="clear"></div>
     </div>

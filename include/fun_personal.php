@@ -352,20 +352,36 @@ function check_resume($uid,$pid)
 		$setsqlarr['complete_percent']=$percent;
 		require_once(QISHI_ROOT_PATH.'include/splitword.class.php');
 		$sp = new SPWord();
-		$setsqlarr['key']=$resume_basic['intention_jobs'].$resume_basic['recentjobs'].$resume_basic['specialty'].$resume_work['work_remark'].$resume_training['training_remark'];		
-		$setsqlarr['key']="{$resume_basic['fullname']} ".$sp->extracttag($setsqlarr['key']);
+		$setsqlarr['key']=$resume_basic['intention_jobs'].$resume_basic['recentjobs'].$resume_basic['specialty'];//.$resume_work['work_remark'].$resume_training['training_remark'];		
+                $setsqlarr['key']="{$resume_basic['fullname']} ".$sp->extracttag($setsqlarr['key']);
 		$setsqlarr['key']=str_replace(","," ",$resume_basic['intention_jobs'])." {$setsqlarr['key']} {$resume_basic['education_cn']}";
 		$setsqlarr['key']=$sp->pad($setsqlarr['key']);
 		if (!empty($resume_education))
 		{
-			foreach($resume_education as $li)
-			{
-			$setsqlarr['key']="{$li['school']} {$setsqlarr['key']} {$li['speciality']}";
-			}
+			//foreach($resume_education as $li)
+			//{
+                            $setsqlarr['key'].=$resume_education['education_remark'];//"{$li['school']} {$setsqlarr['key']} {$li['speciality']}";
+			//}
+		}
+                
+                if (!empty($resume_training))
+		{
+			//foreach($resume_education as $li)
+			//{
+                            $setsqlarr['key'].=$resume_training['training_remark'];//"{$li['school']} {$setsqlarr['key']} {$li['speciality']}";
+			//}
+		}
+                 if (!empty($resume_work))
+		{
+			//foreach($resume_education as $li)
+			//{
+                            $setsqlarr['key'].=$resume_work['work_remark'];//"{$li['school']} {$setsqlarr['key']} {$li['speciality']}";
+			//}
 		}
 		$setsqlarr['refreshtime']=$timestamp;
-	}
+	} 
 	updatetable(table('resume'),$setsqlarr,"uid='{$uid}' AND id='{$pid}'");
+      
 	updatetable(table('resume_tmp'),$setsqlarr,"uid='{$uid}' AND id='{$pid}'");
 	distribution_resume($pid,$uid);
 	if ($percent>=60)
@@ -384,6 +400,7 @@ function check_resume($uid,$pid)
 		$searchtab['talent']=$j['talent'];
 		updatetable(table('resume_search_rtime'),$searchtab,"uid='{$uid}' AND id='{$pid}'");
 		$searchtab['key']=$j['key'];
+                
 		updatetable(table('resume_search_key'),$searchtab,"uid='{$uid}' AND id='{$pid}'");
 		unset($searchtab);
 		$tag=explode('|',$j['tag']);
