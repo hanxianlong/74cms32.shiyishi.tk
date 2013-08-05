@@ -105,7 +105,7 @@
 .resume-list .left{ width:710px; float:left;} 
 .resume-list .left .tit{ width:692px; border:1px #E4E4E4 solid; height:32px; background-image:url(../images/56.gif); background-repeat:repeat-x; padding-left:8px; padding-top:8px;}
 .resume-list .left .tit h2{ font-size:14px; padding-top:5px; }
-.resume-list .left .list{width:700px; border-bottom:1px #E3E3E3 solid; color:#666666; padding-top:6px; padding-bottom:6px;border-left:1px #E4E4E4 solid;border-right:1px #E4E4E4 solid;}
+.resume-list .left .list{width:700px;word-break:break-all; border-bottom:1px #E3E3E3 solid; color:#666666; padding-top:6px; padding-bottom:6px;border-left:1px #E4E4E4 solid;border-right:1px #E4E4E4 solid;}
 .resume-list .left .list .list_tit{ font-size:14px;  height:25px; line-height:25px; padding-left:10px;}
 .resume-list .left .list .list_tit em{ padding-left:30px; color: #0066CC;font-style: normal;}
 .resume-list .left .list .list_txt{ padding-left:10px; line-height:180%; color:#006600}

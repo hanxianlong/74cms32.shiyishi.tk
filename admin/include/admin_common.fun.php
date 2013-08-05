@@ -313,15 +313,15 @@ function getsubdirs($dir) {
 		closedir($dh);
         return $subdirs;
 }
-function makejs_classify()
+function makejs_classify($lang='')
 {
 	global $db;
 	$content = "//JavaScript Document 生成时间：".date("Y-m-d  H:i:s")."\n\n";
 	$sql = "select * from ".table('category_district')." where parentid=0 ORDER BY category_order asc,id asc";
 	$list=$db->getall($sql);
 	foreach($list as $parent)
-	{
-	$parentarr[]="\"".$parent['id'].",".$parent['categoryname']."\"";
+	{ 
+            $parentarr[]="\"".$parent['id'].",".$parent['categoryname'.$lang]."\"";
 	}
 	$content .= "var QS_city_parent=new Array(".implode(',',$parentarr).");\n";	
 	unset($parentarr);
@@ -334,7 +334,7 @@ function makejs_classify()
 		{	
 			foreach($list1 as $val1)
 			{
-			$sarr[]=$val1['id'].",".$val1['categoryname'];
+			$sarr[]=$val1['id'].",".$val1['categoryname'.$lang];
 			}
 		$content .= "QS_city[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
 		unset($sarr);
@@ -344,7 +344,7 @@ function makejs_classify()
 	$list=$db->getall($sql);
 	foreach($list as $parent)
 	{
-	$parentarr[]="\"".$parent['id'].",".$parent['categoryname']."\"";
+	$parentarr[]="\"".$parent['id'].",".$parent['categoryname'.$lang]."\"";
 	}
 	$content .= "var QS_jobs_parent=new Array(".implode(',',$parentarr).");\n";	
 	$content .= "var QS_jobs=new Array(); \n";
@@ -356,7 +356,7 @@ function makejs_classify()
 		{	
 			foreach($list1 as $val1)
 			{
-			$sarr[]=$val1['id'].",".$val1['categoryname'];
+			$sarr[]=$val1['id'].",".$val1['categoryname'.$lang];
 			}
 		$content .= "QS_jobs[".$val['id']."]=\"".implode('|',$sarr)."\"; \n";	
 		unset($sarr);
@@ -414,7 +414,8 @@ function makejs_classify()
 	$content .= "var QS_scale=new Array(".implode(',',$scale).");\n";
 	$content .= "var QS_jobtag=new Array(".implode(',',$jobtag).");\n";
 	$content .= "var QS_resumetag=new Array(".implode(',',$resumetag).");\n";
-	$fp = @fopen(QISHI_ROOT_PATH . 'data/cache_classify.js', 'wb+');
+         
+	$fp = @fopen(QISHI_ROOT_PATH . 'data/cache_classify'.$lang.'.js', 'wb+');
 	if (!$fp){
 			exit('生成JS文件失败');
 		}

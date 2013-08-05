@@ -25,6 +25,7 @@
   {#foreach from=$list item=list#}
       <li{#if $list.tag==$page_select && $list.tag!=""#} class="current"{#/if#}><a href="{#$list.url#}" target="{#$list.target#}">{#$list.title#}</a></li>
   {#/foreach#}
+  <li class="tel"></li>
     </ul>
   </div>
   <div class="clear"></div>

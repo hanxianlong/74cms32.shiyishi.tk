@@ -239,7 +239,7 @@ if (citycategory)
 {#foreach from=$resume item=list#}
 	<div class="list link_lan">
 		 <div class="list_tit striking">
-		  <a href="{#$list.resume_url#}" target="_blank"><strong>{#$list.fullname#}</strong></a>
+		  <a href="{#$list.resume_url#}" target="_blank"><strong>{#$list.resume_no#}</strong></a>
 	{#if $list.photo<>""#} <img src="{#$QISHI.site_template#}images/65.gif" border="0" align="absmiddle" alt="照片" title="有照片" />{#/if#}
 	{#if $list.talent=="2"#} <img src="{#$QISHI.site_template#}images/66.gif" border="0" align="absmiddle" alt="高级" title="高级人才" />{#/if#}
 	<em>{#$list.intention_jobs#}</em>
@@ -270,7 +270,7 @@ if (citycategory)
 	{#qishi_resume_list set="列表名:resume,等级:2,显示数目:8,特长描述长度:13,填补字符:..."#}
 	{#foreach from=$resume item=list#}
 	  <li>
-	  <a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+	  <a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a>&nbsp;&nbsp;&nbsp;&nbsp;
 	  {#$list.specialty#}      
 	  </li>
 	{#/foreach#}
@@ -286,7 +286,7 @@ if (citycategory)
 		<a href="{#$list.resume_url#}" target="_blank"><img src="{#$list.photosrc#}" border="0"  width="55" height="69"/></a>
 	  </div>
 	  <div class="resume_photo_right">
-		<a href="{#$list.resume_url#}" target="_blank" class="link_lan">{#$list.fullname#}</a>&nbsp;&nbsp;{#$list.sex_cn#}&nbsp;&nbsp;{#$list.age#}岁&nbsp;&nbsp;{#$list.education_cn#}<br/>{#$list.specialty#}
+		<a href="{#$list.resume_url#}" target="_blank" class="link_lan">{#$list.resume_no#}</a>&nbsp;&nbsp;{#$list.sex_cn#}&nbsp;&nbsp;{#$list.age#}岁&nbsp;&nbsp;{#$list.education_cn#}<br/>{#$list.specialty#}
 	  </div>
 	  <div class="clear"></div>
 	</div>
