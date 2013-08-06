@@ -374,7 +374,7 @@ if (isset($aset['key']) && !empty($aset['key']))
 {
 	$key=trim($aset['key']);
 	$akey=explode(' ',$key);
-	if (count($akey)>1)
+	/**if (count($akey)>1)
 	{
 	$akey=array_filter($akey);
 	$akey=array_slice($akey,0,2);
@@ -387,7 +387,22 @@ if (isset($aset['key']) && !empty($aset['key']))
 	$key=fulltextpad($key);
 	$mode=' ';
 	}
-	$wheresql.=" AND  MATCH (`key`) AGAINST ('{$key}'{$mode}) ";
+	$wheresql.=" AND  MATCH (`key`) AGAINST ('{$key}'{$mode}) ";*/
+        
+         $first = true;
+        foreach ($akey as $key){
+            if(trim($key)){
+                if($first){
+                    $wheresql .=" 1=1 AND ( `key`like '%".$key ."%'";
+                }
+                else{
+                    $wheresql .= " or `key` like '%".$key."%'";
+                }
+                $first=false;
+            }
+        }
+        
+        if(!$first) $wheresql .=")"; 
 	$orderbysql="";
 	$jobstable=table('jobs_search_key');
 }

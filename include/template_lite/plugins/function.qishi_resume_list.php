@@ -275,7 +275,7 @@ if (isset($aset['key']) && !empty($aset['key']))
 {
 	$key=trim($aset['key']);
 	$akey=explode(' ',$key);
-	
+	/*
 	if (count($akey)>1)
 	{
 		$akey=array_filter($akey);
@@ -292,11 +292,22 @@ if (isset($aset['key']) && !empty($aset['key']))
 		//$key=fulltextpad($key);
 		//$mode=' ';
 	}
-	 
-	//如果有多个条件，则调用全文搜索
-	if(count($akey)>1){
-		$wheresql.=" AND  MATCH (r.`key`) AGAINST ('{$key}'{$mode}) ";
-	}
+	 */
+        
+        $first = true;
+        foreach ($akey as $key){
+            if(trim($key)){
+                if($first){
+                    $wheresql .=" AND ( r.`key` like '%".$key ."%'";
+                }
+                else{
+                    $wheresql .= " or r.`key` like '%".$key."%'";
+                }
+                $first=false;
+            }
+        }
+        
+        if(!$first) $wheresql .=")"; 
 	$orderbysql="";
 	$resumetable=table('resume_search_key');
 }

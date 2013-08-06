@@ -1,0 +1,221 @@
+{#qishi_resume_show set="列表名:show,简历ID:GET[id]"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{#$show.fullname#}'s Resume - {#$QISHI.site_name#}</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=7">
+<link rel="shortcut icon" href="{#$QISHI.site_dir#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$user_tpl#}css/css.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type='text/javascript' ></script>
+<script src="{#$QISHI.site_template#}js/jquery.dialog.js" type='text/javascript' ></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+		var id="{#$show.id#}";
+		var tsTimeStamp= new Date().getTime();
+		$.get("{#$QISHI.site_dir#}plus/ajax_click.php", { "id": id,"time":tsTimeStamp,"act":"resume_click"},
+			function (data,textStatus)
+			 {			
+				$(".click").html(data);
+			 }
+		);
+		$.get("{#$QISHI.site_dir#}plus/ajax_contact.php", { "id": id,"time":tsTimeStamp,"act":"resume_contact"},
+			function (data,textStatus)
+			 {			
+				$("#resume_contact").html(data);
+				//下载简历
+				$("#download").click(function(){
+				var url="{#$QISHI.site_dir#}user/user_download_resume.php?id="+id+"&act=download&t="+tsTimeStamp;
+				dialog("下载简历","url:get?"+url,"500px","auto","");
+				});	
+				//邀请面试
+				$("#invited").click(function(){
+				var url="{#$QISHI.site_dir#}user/user_invited.php?id="+id+"&act=invited&t="+tsTimeStamp;
+				dialog("邀请面试","url:get?"+url,"500px","auto","");
+				});	
+				//添加都人才库
+				$(".add_resume_pool").click(function(){
+				var url="{#$QISHI.site_dir#}user/user_favorites_resume.php?id="+id+"&act=add&t="+tsTimeStamp;
+				dialog("添加到人才库","url:get?"+url,"500px","auto","");				
+				});	
+			 }
+		);
+});
+</script>
+</head>
+<body>
+  <table  border="0" align="center" cellpadding="0" cellspacing="0"  class="resume_show" >
+  <tr>
+    <td class="link_lan">&nbsp;&nbsp;<a href="{#$QISHI.site_domain#}{#$QISHI.site_dir#}">{#$QISHI.site_name#}</a><span  style="color:#999999">&nbsp;&nbsp;({#$QISHI.site_domain#})</span></td>
+    <td align="right" class="link_bku"><a href="{#$QISHI.site_domain#}{#$QISHI.site_dir#}">网站首页</a> <a href="javascript:window.print();">打印简历</a>  <a href="javascript:void(0)"  class="add_resume_pool">添加到人才库</a></td>
+  </tr>
+</table>
+  <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
+  <tr>
+    <td  colspan="5"  bgcolor="#FFFFFF"   class="btit">
+	<h1>{#$show.fullname#}'s Resume {#if $show.talent=="2"#} <img src="{#$QISHI.site_template#}images/66.gif"   border="0" align="absmiddle"  alt="高级人才"/>{#/if#}</h1>
+	<div class="tip">
+			<span style="color: #009900">Last Updated：{#$show.refreshtime|date_format:"%Y-%m-%d"#}</span>
+			<br />
+	Education：{#$show.education_cn#}	&nbsp;&nbsp;Work Experience：{#$show.graduated_date#}Years&nbsp;&nbsp;Viewed Count：<span class="click"></span>次	</div>
+    </td>
+    </tr>
+  <tr>
+    <td colspan="5" bgcolor="#FAFAFA" class="title"><strong>Basic Information</strong></td>
+    </tr>
+  <tr>
+    <td width="80" align="right" bgcolor="#FAFAFA">
+	Name：</td>
+    <td bgcolor="#FFFFFF">{#if $show.display_name=="2"#}<span style="color:#FF6600">[Hidden by user]</span>{#/if#}{#$show.fullname#}</td>
+    <td width="80" align="right" bgcolor="#FAFAFA">
+	Gendor：</td>
+    <td bgcolor="#FFFFFF">{#$show.sex_cn#}</td>
+    <td width="140" rowspan="6" align="center" bgcolor="#FFFFFF"><img src="{#$show.photosrc#}" width="120" height="150" /></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FAFAFA">Age：</td>
+    <td bgcolor="#FFFFFF">{#$show.age#} </td>
+    <td align="right" bgcolor="#FAFAFA">Stature：</td>
+    <td bgcolor="#FFFFFF">{#if $show.height=="0"#}N/A{#else#}{#$show.height#}CM{#/if#}</td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FAFAFA">Marriage：</td>
+    <td bgcolor="#FFFFFF">{#$show.marriage_cn#}</td>
+    <td align="right" bgcolor="#FAFAFA">Home：</td>
+    <td bgcolor="#FFFFFF">{#$show.householdaddress#}</td>
+  </tr>
+      <tr>
+          <td align="right" bgcolor="#FAFAFA">Graduated From：</td>
+          <td bgcolor="#FFFFFF">{#$show.school#}</td>
+          <td align="right" bgcolor="#FAFAFA">Graduated On：</td>
+          <td bgcolor="#FFFFFF">{#$show.graduate_date|truncate:7:"""#}</td>
+      </tr>
+  <tr>
+    <td align="right" bgcolor="#FAFAFA">Education：</td>
+    <td bgcolor="#FFFFFF">{#$show.education_cn#}</td>
+    <td align="right" bgcolor="#FAFAFA">Work Years：</td>
+    <td bgcolor="#FFFFFF">{#$show.graduated_date#}</td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FAFAFA">Address：</td>
+    <td bgcolor="#FFFFFF">{#$show.address#}</td>
+    <td align="right" bgcolor="#FAFAFA">Viewed Count：</td>
+    <td bgcolor="#FFFFFF"><span class="click"></span></td>
+  </tr>
+  <tr>
+    <td align="right" bgcolor="#FAFAFA">Refreshed On：</td>
+    <td bgcolor="#FFFFFF">{#$show.refreshtime|date_format:"%Y-%m-%d"#}</td>
+    <td align="right" bgcolor="#FAFAFA">Level：</td>
+    <td bgcolor="#FFFFFF">
+	{#if $show.talent=="2"#}
+	Senior
+	{#else#}
+	Normal
+	{#/if#}
+	</td>
+  </tr>
+</table>
+  <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
+    <tr>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Target Job</strong></td>
+    </tr>
+          <tr>
+      <td width="120" align="right" bgcolor="#FAFAFA">Target District：</td>
+      <td bgcolor="#FFFFFF">{#$show.district_cn#}</td>
+    </tr>
+    <tr>
+      <td width="120" align="right" bgcolor="#FAFAFA">Recent Jobs：</td>
+      <td bgcolor="#FFFFFF">{#$show.recentjobs#}</td>
+    </tr>
+    <tr>
+      <td align="right" bgcolor="#FAFAFA">Target Job Nature：</td>
+      <td bgcolor="#FFFFFF">{#$show.nature_cn#}</td>
+    </tr>
+    <tr>
+      <td align="right" bgcolor="#FAFAFA">Target Salary：</td>
+      <td bgcolor="#FFFFFF">{#$show.wage_cn#}</td>
+    </tr>
+    <tr>
+      <td align="right" bgcolor="#FAFAFA">Target Job Category：</td>
+      <td bgcolor="#FFFFFF">{#$show.intention_jobs#}</td>
+    </tr>
+    <tr>
+      <td align="right" bgcolor="#FAFAFA">Target Industry：</td>
+      <td bgcolor="#FFFFFF">{#$show.trade_cn#}</td>
+    </tr>
+</table>
+  <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
+    <tr>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Self Assessment</strong></td>
+    </tr>
+    <tr>
+      <td width="80" align="right" bgcolor="#FAFAFA">Self Assessment：</td>
+      <td bgcolor="#FFFFFF">{#$show.specialty|nl2br#}</td>
+    </tr>
+</table>
+  <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
+    <tr>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Education Experience</strong></td>
+    </tr>
+	{#foreach from=$show.education_list item=list#}
+        <tr>
+         <td colspan="2" bgcolor="#FFFFFF">{#$list.education_remark|nl2br#}</td>
+      </tr>
+	 
+	{#/foreach#}
+  </table>
+  <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
+    <tr>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Job Experience</strong></td>
+    </tr>
+	{#if $show.work_list#}
+	{#foreach from=$show.work_list item=list#}
+        <tr>
+            <td colspan="2" bgcolor="#FFFFFF">{#$list.work_remark|nl2br#}</td>
+        </tr>
+	 
+	{#/foreach#}
+	{#else#}
+    <tr>
+      <td colspan="2" bgcolor="#FFFFFF">No Job Experience。</td>
+    </tr>
+	{#/if#}
+</table>
+  <table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show">
+    <tr>
+      <td colspan="2" bgcolor="#FAFAFA" class="title"><strong>Training Experience</strong></td>
+    </tr>
+	{#if $show.training_list#}
+	{#foreach from=$show.training_list item=list#}
+	 <tr>
+      <td colspan="2" bgcolor="#FAFAFA">{#$list.training_remark|nl2br#}</td>
+    </tr>
+     
+	{#/foreach#}
+	{#else#}
+    <tr>
+      <td colspan="2" bgcolor="#FFFFFF">No training experience。</td>
+    </tr>
+	{#/if#}
+</table>
+
+<table  border="0" align="center" cellpadding="7" cellspacing="1" bgcolor="#CCCCCC" class="resume_show resume_contact" >
+    <tr>
+      <td bgcolor="#FAFAFA" class="title"><strong>Contact</strong></td>
+    </tr>
+    <tr>
+      <td bgcolor="#FFFFFF">
+	  <div id="resume_contact"></div>
+	  </td>
+    </tr>
+</table>
+<table  height="100" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>
