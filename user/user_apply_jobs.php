@@ -228,7 +228,7 @@ elseif ($act=="app_save")
 			}
 			$addarr['apply_addtime']=time();
 			$addarr['personal_look']=1;
-			if (true || inserttable(table('personal_jobs_apply'),$addarr))//注册取消此处true的逻辑，为了方便测试特意增加此逻辑
+			if (inserttable(table('personal_jobs_apply'),$addarr))
 			{
 					$mailconfig=get_cache('mailconfig');					
 					$jobs['contact']=$db->getone("select * from ".table('jobs_contact')." where pid='{$jobs['id']}' LIMIT 1 ");
@@ -239,7 +239,7 @@ elseif ($act=="app_save")
 					{	
                                             $notes = $addarr['notes'];
                                             
-                                            $com_info =$db->getone("select count(*) as total from ".table("members_setmeal") . " where uid='{$addarr['company_uid']}' and setmeal_id>1 and a.endtime>".time()." limit 1");
+                                            $com_info =$db->getone("select count(*) as total from ".table("members_setmeal") . " where uid='{$addarr['company_uid']}' and setmeal_id>1 and endtime>".time()." limit 1");
                                             $total=$com_info['total']; 
                                             $url ="{$_CFG['site_domain']}{$_CFG['site_dir']}plus/asyn_mail.php?uid={$_SESSION['uid']}&key=".asyn_userkey($_SESSION['uid'])."&act=jobs_apply&jobs_id={$jobs['id']}&jobs_name={$jobs['jobs_name']}&personal_fullname={$personal_fullname}&email={$comuser['email']}&notes={$notes}&resume_id={$resumeid}&show_contact=$total";
                                             dfopen($url);
