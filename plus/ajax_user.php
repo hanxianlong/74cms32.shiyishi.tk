@@ -30,14 +30,14 @@ if($act =='do_login')
 	$password=isset($_POST['password'])?trim($_POST['password']):"";
 	$expire=isset($_POST['expire'])?intval($_POST['expire']):"";
 	$account_type=1;
-	if (preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$username))
+	/*if (preg_match("/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/",$username))
 	{
 	$account_type=2;
 	}
 	elseif (preg_match("/^(13|15|18)\d{9}$/",$username))
 	{
 	$account_type=3;
-	}
+	}*/
 	$url=isset($_POST['url'])?$_POST['url']:"";
 	if (strcasecmp(QISHI_DBCHARSET,"utf8")!=0)
 	{

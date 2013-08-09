@@ -100,7 +100,7 @@ if (isset($aset['displayorder']))
 	if ($arr[0]=="rtime")
 	{
 		$orderbysql=" ORDER BY r.refreshtime {$arr[1]}";
-	}
+	} 
 }
 if (!empty($aset['category']) || !empty($aset['subclass']) || !empty($aset['jobcategory']))
 {
@@ -301,14 +301,13 @@ if (isset($aset['key']) && !empty($aset['key']))
                     $wheresql .=" AND ( r.`key` like '%".$key ."%'";
                 }
                 else{
-                    $wheresql .= " or r.`key` like '%".$key."%'";
+                    $wheresql .= " and r.`key` like '%".$key."%'";
                 }
                 $first=false;
             }
         }
         
         if(!$first) $wheresql .=")"; 
-	$orderbysql="";
 	$resumetable=table('resume_search_key');
 }
 if (isset($aset['tag']) && !empty($aset['tag']))

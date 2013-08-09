@@ -86,9 +86,9 @@ $(document).ready(function()
                 <td height="32" >
 				<input name="y_id[]" type="checkbox" id="y_id"   value="{#$list.did#}"/>
 				{#if $list.sex_cn#}
-				<a href="{#$list.resume_url#}" target="_blank" {#if $list.personal_look=="1"#}class="nolook"{#/if#}>{#$list.resume_name#}</a>
+				<a href="{#$list.resume_url#}" target="_blank" {#if $list.personal_look=="1"#}class="nolook"{#/if#}>{#$list.real_name#}</a>
 				{#else#}
-				{#$list.resume_name#}
+				{#$list.real_name#}
 				{#/if#}
 				 {#if $list.personal_look=="1"#}
 				   <span style="color: #FF6600">[Î´¿´]</span>

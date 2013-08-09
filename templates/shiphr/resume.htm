@@ -183,7 +183,7 @@ showmenu("#sex_cn","#menu3","#sex");
     <td width="80" align="center" bgcolor="#DCF1FC"> 学历</td>
     <td bgcolor="#DCF1FC">意向职位</td>
   </tr>
- {#qishi_resume_list set="列表名:resume,显示数目:30,意向职位长度:27,填补字符:...,排序:refreshtime>desc"#}
+ {#qishi_resume_list set="列表名:resume,显示数目:30,意向职位长度:27,填补字符:...,排序:rtime>desc"#}
 {#foreach from=$resume item=list#}
   <tr>
     <td height="33" style="padding-left:20px;" class="resume_index_right_table"><a href="{#$list.resume_url#}" target="_blank">{#$list.resume_no#}</a></td>

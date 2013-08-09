@@ -70,7 +70,7 @@ $(document).ready(function()
 			   {#foreach from=$resume item=list#}
 			   {#if $list.sex_cn#}
               <tr>
-                <td height="32" ><input name="y_id[]" type="checkbox" id="y_id"   value="{#$list.did#}"/><a href="{#$list.resume_url#}" target="_blank">{#$list.fullname#}</a></td>
+                <td height="32" ><input name="y_id[]" type="checkbox" id="y_id"   value="{#$list.did#}"/><a href="{#$list.resume_url#}" target="_blank">{#$list.real_name#}</a></td>
                 <td height="32" >{#$list.intention_jobs#}</td>
                 <td >{#$list.jobs_name#}</td>
 

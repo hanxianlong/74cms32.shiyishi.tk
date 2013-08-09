@@ -139,10 +139,13 @@ elseif($act == 'company_contact')
 	}
 }
 elseif($act == 'resume_contact')
-{
+{ 
+
 		$id=intval($_GET['id']);
 		$show=false;
-		if($_CFG['showresumecontact']=='0')
+               
+             
+                if($_CFG['showresumecontact']=='0')
 		{
                     $show=true;
 		}
@@ -180,7 +183,20 @@ elseif($act == 'resume_contact')
 			$html="<div class=\"contact link_lan\">企业会员请 <a href=\"".url_rewrite('QS_login')."\">登录</a>  查看联系方式！如果您不是企业会员，请先 <a href=\"".$_CFG['site_dir']."user/user_reg.php\">免费注册</a> </div>";
 			}
 		}
-		if ($show || $_SESSION['admin_name'])//管理员登录后也可以查看简历联系方式
+                
+                //已登录的企业用户，如果是用户主动投递的简历，则可以直接查看联系yya
+                if($_SESSION['uid']){
+                    $contact_sql = "select count(*) as total from ".table("personal_jobs_apply") ." app,"
+                           . table("members_setmeal") ." meal
+                       where app.company_uid=meal.uid and meal.setmeal_id>1 and meal.endtime>".time()." and resume_id=$id and company_uid={$_SESSION['uid']}";
+                   $info = $db->getone($contact_sql);
+                   $count = intval($info['total']);
+                   if ($count>=1)
+                   {
+                       $show=true;
+                   }
+                }
+		if ($show)// || $_SESSION['admin_name'])//管理员登录后也可以查看简历联系方式
 		{
                         $tb1=$db->getone("select telephone,email,qq,address,website,uid,fullname from ".table('resume')." WHERE  id='{$id}'  LIMIT 1");
 			$tb2=$db->getone("select telephone,email,qq,address,website,uid,fullname from ".table('resume_tmp')." WHERE  id='{$id}'  LIMIT 1");		
