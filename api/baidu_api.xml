@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset>
+
+<!-- 必有；urlset用来标记整个文档的开头；注意：以下各字段，必须按给定的顺序组织 --> 
+
+<url>
+<!-- 必有；url标记每条信息的开始和结束 --> 
+<loc>http://baidu.com</loc>
+<!-- 必填；描述职位详细信息页面URL地址，首尾勿带空格、不可见的换行符号 -->
+<lastmod>2010-11-20</lastmod>
+<!-- 必填；用来指定该链接的最后更新时间，时间格式：yyyy-mm-dd -->
+<changefreq>always</changefreq>
+<!-- 可以不提交该标签；用这个标签告诉此链接可能会出现的更新频率，有效值为:always， hourly，daily，weekly，mothly，yearly，never  -->
+<priority>1.0</priority>
+<!-- 可以不提交该标签；用来指定此链接相对于其他链接的优先权比值，此值定于0.0-1.0之间 --> 
+<data>
+
+<!-- 职位数据内容 --> 
+
+<display>
+
+<wapurl>http://wap.zhaopin.com/</wapurl>
+
+<!-- （可选字段，可不填。填写后，手机上会展现wap页面，效果更好）：与loc对应的wap资源页URL -->
+
+<title><![CDATA[ HPSW-Senior R&D Manager-Shanghai]]></title>
+
+<!-- 必填；职位名称，一般情况下只需填写职位名称即可，不可包含网站地址 -->
+
+<expirationdate>2011-01-17</expirationdate>
+
+<!-- 职位信息发布的结束日期<br>日期格式：yyyy-mm-dd -->
+
+<description><![CDATA[ HP is a leading global provider of products, technologies, solutions and services to consumers and business. ]]></description>
+
+<!-- 必有；职位描述，内容可以为空，<br>内容为普通文本。<br>文本内可以换行，但不<br>得包含字体，字号，间距等<br>格式定义标签。 -->
+
+<type>社会招聘</type>
+
+<!-- 必有；工作性质（社会招聘、实习、兼职、校招等） -->
+
+<city>上海</city>
+
+<!-- 必填；工作地点<br>正确格式如“上海”、“上海市”、“上海闸北”、“上海闸北区”<br>只能填写一个城市名称<br>不建议直接填写区名 -->
+
+<employer><![CDATA[ 惠普公司]]></employer>
+
+<!-- 必填；公司名称 -->
+
+<email>test@163.com</email>
+
+<!-- 必有；公司联系Email -->
+
+<jobfirstclass><![CDATA[ 计算机软、硬件/互联网/IT]]></jobfirstclass>
+
+<!-- 必有；职位大类，如“销售” -->
+
+<jobsecondclass><![CDATA[ 高级软件工程师]]></jobsecondclass>
+
+<!-- 必有；职位小类，如“销售代表”，“电话销售” -->
+
+<education>本科</education>
+
+<!-- 必填；学历要求，如“大专”，“本科”等。<BR>若无要求请填写“不限”<br>不得为空。 -->
+
+<experience>5年以上</experience>
+
+<!-- 必填；工作经验要求；如“3-5年”，“2年以上”。<BR>若无要求请填写“不限”<br>不得为空。 -->
+
+<startdate>2010-04-05</startdate>
+
+<!-- 必填；职位信息发布日期，必须与页面上的日期保持一致。日期格式：yyyy-mm-dd -->
+
+<enddate>2011-01-17</enddate>
+
+<!-- 必填；职位信息截止日期。日期格式：yyyy-mm-dd -->
+
+<salary>面议</salary>
+
+<!-- 必填；薪资要求，可为以下3种格式<br>1）“面议”<br> 2）“aaaa-bbbb元”<br>3）“aaaa元”<br>不得为空 -->
+
+<industry><![CDATA[ IT服务（系统/数据/维护）/多领域经营,计算机硬件及网络设备]]></industry>
+
+<!-- 必有；公司所属行业。如“IT”，“金融”等 -->
+
+<employertype>合资</employertype>
+
+<!-- 必有；公司性质。如“国企”，“私企”等 -->
+
+<source>智联招聘</source>
+
+<!-- 必填；网站名称，如“智联招聘” -->
+
+<sourcelink><![CDATA[http://www.zhaopin.com/]]></sourcelink>
+
+<!-- 必填；网站url，与source相对应，如“www.zhaopin.com” -->
+
+<joblink>http://www.baidu.com</joblink>
+
+<!-- 此标签为预留标签，您在提交资源数据时标签值直接为空即可 -->
+
+<jobwapurl>http://m.baidu.com</jobwapurl>
+
+<!-- 此标签为预留标签，您在提交资源数据时标签值直接为空即可 -->
+
+</display>
+
+<!-- 必有；display字段为固定格式 --> 
+
+</data>
+
+</url>
+
+</urlset>
+

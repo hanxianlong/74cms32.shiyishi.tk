@@ -286,7 +286,7 @@ $data = array (
       'id' => '62',
       'parentid' => '0',
       'categoryname' => 'ȫְ',
-      'stat_jobs' => '(312)',
+      'stat_jobs' => '(308)',
       'stat_resume ' => NULL,
       'categoryname_en' => 'FullDay',
     ),
