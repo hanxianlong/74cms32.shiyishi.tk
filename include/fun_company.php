@@ -484,6 +484,7 @@ function get_down_resume($offset,$perpage,$get_sql= '')
 		}
 	$row['resume_url']=url_rewrite('QS_resumeshow',array('id0'=>$row['resume_id'],'addtime'=>$row['addtime']));
 	$row['intention_jobs']=cut_str($row['intention_jobs'],30,0,"...");
+        $row['real_name'] =$row['fullname'];
 	if ($row['display_name']=="2")
 	{
 	$row['fullname']="N".str_pad($row['resume_id'],7,"0",STR_PAD_LEFT);
@@ -597,6 +598,7 @@ function get_favorites($offset,$perpage,$get_sql= '')
 			$row['addtime']=$resume['addtime'];
 			$row['refreshtime']=$resume['refreshtime'];
 		}
+                $row['real_name']=$row['fullname'];
 		$row['intention_jobs_']=$row['intention_jobs'];
 		$row['intention_jobs']=cut_str($row['intention_jobs'],30,0,"...");
 		$row['resume_url']=url_rewrite('QS_resumeshow',array('id0'=>$row['resume_id'],'addtime'=>$row['addtime']),false);
@@ -690,6 +692,7 @@ function get_interview($offset,$perpage,$get_sql= '')
 			$row['addtime']=$resume['addtime'];
 			$row['refreshtime']=$resume['refreshtime'];
 		}
+                $row['real_name']=$row['fullname'];
 		$row['resume_url']=url_rewrite('QS_resumeshow',array('id0'=>$row['resume_id'],'addtime'=>$row['resume_addtime']));
 		$row['intention_jobs']=cut_str($row['intention_jobs'],30,0,"...");
 		$row_arr[] = $row;
@@ -700,7 +703,7 @@ function get_apply_jobs($offset,$perpage,$get_sql= '')
 {
 	global $db;
 	$limit=" LIMIT {$offset},{$perpage}";
-	$selectstr=" a.*,r.sex_cn,r.experience_cn,r.district_cn,r.education_cn,r.intention_jobs,r.specialty,r.click,r.refreshtime";
+	$selectstr=" a.*,r.fullname,r.sex_cn,r.experience_cn,r.district_cn,r.education_cn,r.intention_jobs,r.specialty,r.click,r.refreshtime";
 	$result = $db->query("SELECT {$selectstr} FROM ".table('personal_jobs_apply')." as a {$get_sql} ORDER BY a.did DESC {$limit}");
 	while($row = $db->fetch_array($result))
 	{
@@ -715,6 +718,7 @@ function get_apply_jobs($offset,$perpage,$get_sql= '')
 			$row['click']=$resume['click'];
 			$row['refreshtime']=$resume['refreshtime'];
 		}
+                $row['real_name']=$row['fullname'];
 		$row['specialty_']=$row['specialty'];
 		$row['specialty']=cut_str($row['specialty'],30,0,"...");
 		$row['resume_url']=url_rewrite('QS_resumeshow',array('id0'=>$row['resume_id'],'addtime'=>$row['resume_addtime']));

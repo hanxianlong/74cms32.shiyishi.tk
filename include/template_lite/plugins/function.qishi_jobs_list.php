@@ -393,17 +393,16 @@ if (isset($aset['key']) && !empty($aset['key']))
         foreach ($akey as $key){
             if(trim($key)){
                 if($first){
-                    $wheresql .=" 1=1 AND ( `key`like '%".$key ."%'";
+                    $wheresql .=" AND ( `key`like '%".$key ."%'";
                 }
                 else{
-                    $wheresql .= " or `key` like '%".$key."%'";
+                    $wheresql .= " and `key` like '%".$key."%'";
                 }
                 $first=false;
             }
         }
         
         if(!$first) $wheresql .=")"; 
-	$orderbysql="";
 	$jobstable=table('jobs_search_key');
 }
 if (isset($aset['tag']) && !empty($aset['tag']))

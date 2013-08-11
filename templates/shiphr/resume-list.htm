@@ -235,7 +235,7 @@ if (citycategory)
 <div class="resume-list">
   <div class="left">
     <div class="tit"><h2>简历列表</h2></div>
-	{#qishi_resume_list set="列表名:resume,分页显示:1,显示数目:20,意向职位长度:40,特长描述长度:110,填补字符:...,关键字:GET[key],职位分类:GET[jobcategory],职位大类:GET[category],职位小类:GET[subclass],学历:GET[education],工作经验:GET[experience],性别:GET[sex],日期范围:GET[settr],地区分类:GET[citycategory],地区大类:GET[district],地区小类:GET[sdistrict],照片:GET[photo],排序:refreshtime>desc"#}
+	{#qishi_resume_list set="列表名:resume,分页显示:1,显示数目:20,意向职位长度:40,特长描述长度:110,填补字符:...,关键字:GET[key],职位分类:GET[jobcategory],职位大类:GET[category],职位小类:GET[subclass],学历:GET[education],工作经验:GET[experience],性别:GET[sex],日期范围:GET[settr],地区分类:GET[citycategory],地区大类:GET[district],地区小类:GET[sdistrict],照片:GET[photo],排序:rtime>desc"#}
 {#foreach from=$resume item=list#}
 	<div class="list link_lan">
 		 <div class="list_tit striking">
@@ -279,7 +279,7 @@ if (citycategory)
 
     <div class='gjrc'>
 	<div class="title_right">照片简历</div><span class="more link_b2"><a href="{#"QS_resumelist"|qishi_url#}?photo=1" target="_blank">>>更多</a></span><div class="clear"></div>
-	{#qishi_resume_list set="列表名:resume,显示数目:6,特长描述长度:22,填补字符:...,照片:1,排序:refreshtime>desc"#}
+	{#qishi_resume_list set="列表名:resume,显示数目:6,特长描述长度:22,填补字符:...,照片:1,排序:rtime>asc"#}
 	{#foreach from=$resume item=list#}
 	<div class="resume_photo_left_box link_lan">
 	  <div class="resume_photo_left">
