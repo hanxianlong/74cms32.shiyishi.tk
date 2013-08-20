@@ -707,7 +707,7 @@ function get_apply_jobs($offset,$perpage,$get_sql= '')
 	$result = $db->query("SELECT {$selectstr} FROM ".table('personal_jobs_apply')." as a {$get_sql} ORDER BY a.did DESC {$limit}");
 	while($row = $db->fetch_array($result))
 	{
-		if (empty($row['sex_cn']))
+		if (empty($row['sex_cn']) || $row['fullname']==='')
 		{
 			$resume=$db->getone("select * from ".table('resume_tmp')." WHERE id='{$row['resume_id']}' LIMIT 1");
 			$row['sex_cn']=$resume['sex_cn'];
@@ -717,8 +717,10 @@ function get_apply_jobs($offset,$perpage,$get_sql= '')
 			$row['intention_jobs']=$resume['intention_jobs'];
 			$row['click']=$resume['click'];
 			$row['refreshtime']=$resume['refreshtime'];
+			$row['fullname']=$resume['fullname'];
+			$row['specialty']=$resume['specialty'];
 		}
-                $row['real_name']=$row['fullname'];
+    $row['real_name']=$row['fullname'];
 		$row['specialty_']=$row['specialty'];
 		$row['specialty']=cut_str($row['specialty'],30,0,"...");
 		$row['resume_url']=url_rewrite('QS_resumeshow',array('id0'=>$row['resume_id'],'addtime'=>$row['resume_addtime']));
