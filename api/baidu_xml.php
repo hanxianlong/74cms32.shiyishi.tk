@@ -10,11 +10,15 @@ $start_date = strtotime($_GET['start_date']);
 $end_date = strtotime($_GET['end_date']);
 $limit = intval($_GET['limit']);
 
-$sql = "select j.*,c.email,com.nature_cn as com_nature,com.email as com_email from " . table("jobs") ." j left join "
+$sql = "select j.*,category.c_name as experience_cn_ok,c.email,com.nature_cn as com_nature,com.email as com_email,m.email as user_mail from " . table("jobs") ." j left join "
         . table("jobs_contact") 
         ." c on j.id=c.pid inner join "
         .table("company_profile")
-        ." com on j.company_id = com.id  where j.is_deleted=0 and j.deadline>".time() . " ";
+        ." com on j.company_id = com.id "
+        . " inner join " . table("members") ." m on j.uid=m.uid "
+        . "INNER join " .table("category") ." category on category.c_alias='QS_experience' and category.c_id=j.experience "
+        ." where j.is_deleted=0 and j.deadline>".time() . " ";
+        
 if($start_date){
     $sql .=' and j.refreshtime>='. $start_date;
 }
@@ -25,8 +29,7 @@ $sql .=" order by j.refreshtime desc";
 if($limit > 0){
 		$sql .= " limit " . $limit;
 }
- 
-$result = $db->getall($sql);
+ $result = $db->getall($sql);
 
 $xml = '<?xml version="1.0" encoding="gbk"?><urlset>';
 foreach($result as $row){
@@ -46,10 +49,23 @@ $domain = $_CFG['site_domain'].$_CFG['site_dir'];
 $content =str_replace(array("&auml;","&nbsp;","&amp;"),"", strip_tags($row['contents']));
 $content =str_replace("~","-", $content);
 $salary=str_replace("~","-", $row['wage_cn']);
+$salary = str_replace("～","-",$salary);
+$salary = str_replace("/月","元",$salary);
+
 $district_cn = str_replace("/","", $row['district_cn']);
+$special_district = array("北京北京市"=>"北京","上海上海市"=>"上海","天津天津市"=>"天津","重庆重庆市"=>"重庆");
+ 
+if(array_key_exists($district_cn,$special_district))
+{
+	$district_cn = $special_district[$district_cn];
+}
+
 $type = $row['nature_cn']=="全职"?"社会招聘":$row['nature_cn'];
 $email=$row['email']==''?$row['com_email']:$row['email'];
-$secondclass=$row['category_cn']=="未知"?"其他";
+$email = $email==""?$row['user_mail']:$email;
+
+$secondclass=$row['category_cn']=="未知"?"其他":$row['category_cn'];
+$secondclass=trim($secondclass);
 
 $d ="<url>";
 $d .=<<<EOF
@@ -60,21 +76,21 @@ EOF;
         $d .="<data><display>";
 $d.=<<<EOF2
 <wapurl>{$domain}wap/wap-jobs-show.php?id={$row['id']}</wapurl>
-<title><![CDATA[ {$row['jobs_name']}]]></title>
+<title><![CDATA[{$row['jobs_name']}]]></title>
 <expirationdate>{$expiration_date}</expirationdate>
 <description><![CDATA[$content]]></description>
 <type>{$type}</type>
 <city>{$district_cn}</city>
-<employer><![CDATA[ {$row['companyname']}]]></employer>
+<employer><![CDATA[{$row['companyname']}]]></employer>
 <email>{$email}</email>
-<jobfirstclass><![CDATA[ {$row['trade_cn']} ]]></jobfirstclass>
-<jobsecondclass><![CDATA[ {$secondclass}]]></jobsecondclass>
+<jobfirstclass><![CDATA[{$row['trade_cn']}]]></jobfirstclass>
+<jobsecondclass><![CDATA[{$secondclass}]]></jobsecondclass>
 <education>{$row['education_cn']}</education>
-<experience>{$row['experience_cn']}</experience>
+<experience>{$row['experience_cn_ok']}</experience>
 <startdate>{$add_date}</startdate>
 <enddate>{$expiration_date}</enddate>
 <salary>{$salary}</salary>
-<industry><![CDATA[ {$row['trade_cn']}]]></industry>
+<industry><![CDATA[{$row['trade_cn']}]]></industry>
 <employertype>{$row['com_nature']}</employertype>
 <source>龙船招聘网</source>
 <sourcelink><![CDATA[http://shiphr.com/]]></sourcelink>
