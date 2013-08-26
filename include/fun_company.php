@@ -259,7 +259,15 @@ function distribution_jobs($id,$uid)
 						$tagsql['subclass']=$j['subclass'];
 						$tagsql['district']=$j['district'];
 						$tagsql['sdistrict']=$j['sdistrict'];
-						inserttable(table('jobs_search_tag'),$tagsql);						
+                                                $x="select * from " . table("jobs_search_tag") ." where id={$j['id']} ";
+                                                if($db->getone($x))
+                                                {
+                                                    updatetable(table('jobs_search_tag'),$tagsql," id='{$id}' AND uid='{$_SESSION['uid']}' ");
+                                                }
+                                                else
+                                                {
+                                                    inserttable(table('jobs_search_tag'),$tagsql);						
+                                                }
 					}
 				}		
 		}
